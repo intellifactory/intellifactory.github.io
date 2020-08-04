@@ -1,0 +1,1011 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Logo interpreter under 400 lines | My F# blog</title>
+  <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <header class="navbar  ">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item is-hoverable" onclick="Client.Bulma.ToggleDrawer()"><i class="fa fa-bars"></i></a>
+        <span class="navbar-item"><a href="/">IntelliFactory</a></span>
+      </div>
+      <div class="navbar-menu">
+        <nav class="navbar-start"><a href="/" class="navbar-item is-hoverable has-text-weight-bold">Home</a><a href="https://fsbolero.io" class="navbar-item is-hoverable has-text-weight-bold">Bolero</a><a href="https://websharper.com" class="navbar-item is-hoverable has-text-weight-bold">WebSharper</a><a href="https://cloudsharper.com" class="navbar-item is-hoverable has-text-weight-bold">CloudSharper</a><a href="/trainings" class="navbar-item is-hoverable has-text-weight-bold">Trainings</a><a href="/jobs" class="navbar-item is-hoverable has-text-weight-bold">Jobs</a><a href="/blogs" class="navbar-item is-hoverable has-text-weight-bold">Blogs</a><a href="/contact" class="navbar-item is-hoverable has-text-weight-bold">Contact</a></nav>
+        
+      </div>
+      
+    </div>
+  </header>
+  <div class="drawer-backdrop" onclick="Client.Bulma.ToggleDrawer()">
+    <div id="left-drawer" class="lhs-drawer">
+      <nav class="menu">
+        <ul class="menu-list"><li>
+            <a href="/">Home</a>
+            
+          </li><li>
+            <a href="https://fsbolero.io">Bolero</a>
+            
+          </li><li>
+            <a href="https://websharper.com">WebSharper</a>
+            
+          </li><li>
+            <a href="https://cloudsharper.com">CloudSharper</a>
+            
+          </li><li>
+            <a href="/trainings">Trainings</a>
+            
+          </li><li>
+            <a href="/jobs">Jobs</a>
+            
+          </li><li>
+            <a href="/blogs">Blogs</a>
+            
+          </li><li>
+            <a href="/contact">Contact</a>
+            
+          </li></ul>
+      </nav>
+    </div>
+  </div>
+  
+        <div class="container">
+          <div class="columns is-gapless">
+            <div class="column content markdown-column">
+              <section class="hero">
+                <div class="hero-body">
+                  <h1 class="title">A Logo interpreter under 400 lines</h1>
+                  
+                </div>
+              </section>
+              <section class="section"><div ws-preserve=""><p>This first time I picked something that F# is particularly good at: implementing other programming languages. The target is Logo, your favorite turtle graphics language from grade school - mostly because it has something for everyone: it has some peculiarities from the language design angle that are worth looking at, but foremost the implementation once again shows you how easy it is to get things done with F#. So I sat down yesterday night and wrote a small Logo interpreter.</p>
+<p>Our application has two parts: the core language module (<code>logo.fs</code>) that defines all types, the lexer, the parser and the evaluator; and the UI client (<code>main.fs</code>) that constructs the main application form and adds all interaction within.</p>
+<p>Here is what our final application will look like (after you ran some Logo code 😉):</p>
+<p><img src="/assets/logo01.jpeg" alt="LogoInterpreter01" /></p>
+<p>Logo is an interesting language because it is strikingly simple yet quite powerful and it is an excellent medium to teach kids how to program. There are a lot of implementations out there and here you will see mine without any desire to adhere to often used or even standard features - my objective is simply to be able to write short Logo programs that create nice drawings.</p>
+<h3 id="the-language">The language</h3>
+<p>Logo programs are made up of words; these can be commands (that do not return a value) or functions (that return words), both operating on other words. Numbers are special words. Lists of expressions are enclosed in brackets and the value of a list is the value of the last item obtained by evaluating all of list elements first. Arguments to words having a meaning are passed &quot;by-value&quot; and using <strong>prefix</strong> notation. Our implementation supports the following &quot;built-in&quot; words:</p>
+<h4 id="commands-and-functions">Commands and functions</h4>
+<p><code>Canvas</code> e1 e2, <code>Left</code> (<code>Lt</code>) e1, <code>Right</code> (<code>Rt</code>) e1, <code>Forward</code> (<code>Fd</code>) e1, <code>PenUp</code>, <code>PenDown</code>, <code>Repeat</code> e1 e2, <code>Sum</code> (<code>+</code>) e1 e2, <code>Minus</code> (<code>-</code>) e1 e2, <code>Times</code> (<code>*</code>) e1 e2, <code>Divide</code> (<code>/</code>) e1 e2, <code>Min</code> e1 e2, <code>Max</code> e1 e2, <code>Sin</code> e1, <code>Cos</code> e1, <code>Tan</code> e1, <code>Pi</code>, <code>RepCount</code>, <code>To</code></p>
+<h4 id="defining-new-words">Defining new words</h4>
+<p>You can define new words (functions or commands) using <code>To</code>:</p>
+<pre><code>TO add [:x :y] + :x :y
+</code></pre>
+<p>Single parameters can be given using a variable</p>
+<pre><code>TO double :x + :x :x
+</code></pre>
+<h4 id="the-language-module">The language module</h4>
+<p>First, we start by opening a few namespaces and declaring some basic types.</p>
+<pre><code class="language-fsharp">module IntelliFactory.Languages.Logo
+
+open System.IO
+open Printf
+open String
+open System.Collections.Generic
+open System.Windows.Forms
+open System.Drawing
+open System.Drawing.Imaging
+
+type num = float
+
+type source = {
+   reader : IEnumerator&lt;TOKEN&gt;;
+   pos : pos
+}
+and ppos = {
+   mutable x' : int;
+   mutable y' : int;
+}
+and pos = {
+   x : int;
+   y : int;
+}
+and token =
+ | WORD of string * pos
+ | VAR of string * pos
+ | NUMBER of num * pos
+ | LBRACK of pos
+ | RBRACK of pos
+ | HOLE of pos
+with
+   member self.IsRBrack = match self with
+    | RBRACK _ -&gt; true | _ -&gt; false
+end
+</code></pre>
+<p>Here, the <code>source</code> type will correspond to a stream of tokens and the current position. Each token can be a word (such as <code>repeat</code>), a variable (such as <code>:x</code>), a number, or one of the bracket characters, or a &quot;hole&quot; (the <code>?</code> symbol). At a very basic level, everything is a word, but we attach the usual semantics to numbers and the value-of semantics to variables. The bracket characters are used to construct lists or sequences that can in turn contain other expressions. The hole symbol is actually not used in this basic implementation.</p>
+<p>Our lexer will construct a stream of tokens that will be iterated through by the parser function, and as we consume a sequence of meaningful tokens we output an &quot;instruction&quot; that can be interpreted later. This instruction type is defined next:</p>
+<pre><code class="language-fsharp">type instr =
+ | Hole of pos
+ | Number of num * pos
+ | Var of string * pos
+ | List of instr list * pos
+ | Canvas of instr * instr * pos
+ | Binop of (num -&gt; num -&gt; num) * instr * instr * pos
+ | Unop of (num -&gt; num) * instr * pos
+ | Left of instr * pos
+ | Right of instr * pos
+ | Forward of instr * pos
+ | PenUp of pos
+ | PenDown of pos
+ | Repeat of instr * instr * pos
+ | To of string * string list * instr * pos
+ | FunCall of string * instr list * pos
+with
+   member self.Pos = match self with
+    | Var (_, pos) | List (_, pos)
+    | Hole pos | Number (_, pos)
+    | Binop (_, _, _, pos) | Unop (_, _, pos)
+    | Canvas (_, _, pos) | Left (_, pos)
+    | Right (_, pos) | Forward (_, pos)
+    | PenUp pos | PenDown pos
+    | Repeat (_, _, pos) | To (_, _, _, pos)
+    | FunCall (_, _, pos) -&gt;
+         pos
+end
+</code></pre>
+<p>This pretty much tells you what our Logo machine can interpret (holes are again here, but we won't work with them). We will review the concrete syntax for the instruction set shortly. Before we do that we need to define what our evaluator will work with:</p>
+<pre><code class="language-fsharp">type state = {
+   funs : Map&lt;STRING, instr * list string&gt;;
+   vars : Map&lt;STRING, num&gt;;
+} with
+   static member Default = {
+      funs = Map.Empty ();
+      vars = Map.Empty ();
+   }
+end
+
+type gstate = {
+   currX : float;
+   currY : float;
+   penDown : bool;
+   angle : float;
+   graphics : Graphics;
+} with
+   static member Default = {
+      currX = 0.0;
+      currY = 0.0;
+      penDown = true;
+      angle = 90.0;
+      graphics = null;
+   }
+end
+</code></pre>
+<p>The <code>state</code> type encapsulates the runtime environment, and stores a map of functions and variables in scope. Logo uses dynamic scoping, so a given variable or function name will refer to the &quot;latest&quot; binding site, so the following is completely valid and sensible:</p>
+<pre><code>to add :x + :x :y
+</code></pre>
+<p>This defines a new function called <code>add</code> that takes one parameter called <code>x</code>, adds its value to (the value of) <code>y</code> and returns this sum. We don't care that <code>y</code> may be unbound as it is expected that by the time we call the add function we will have a binding for <code>y</code>. If not, we get a runtime error.</p>
+<p>As we evaluate our Logo programs, we will be changing the &quot;graphics&quot; state, e.g. the current position on the canvas, whether our pen is placed on the canvas or not, what the turtle's orientation is and what canvas we are drawing on. These are all represented in the <code>gstate</code> type.</p>
+<p>Now, onto our lexer. We won't use fslex or fsyacc for this project as lexing and parsing Logo programs is unconventional. While the lexer is fairly simple, the parser itself constructs Logo instructions depending on the tokens it sees and the semantics each has. So after parsing a function definition, a call to that function will have to be parsed taking into consideration the number of arguments; e.g. our parser has a state and decides what each encountered word means and how to parse the tokens that follow.</p>
+<pre><code class="language-fsharp">let isEof (stream: #StringReader) = stream.Peek() = -1
+
+let rec neq_peek allowEof (stream: #StringReader) = function
+ | [] -&gt;
+      if allowEof then stream.Peek() &lt;&gt; -1 else true
+ | a :: b -&gt;
+      stream.Peek() &lt;&gt; Char.code a &amp;&amp; neq_peek allowEof stream b
+
+let rec eq_peek (stream: #StringReader) = function
+ | [] -&gt;
+      stream.Peek() &lt;&gt; -1
+ | [ a ] -&gt;
+      stream.Peek() = Char.code a &amp;&amp; stream.Peek() &lt;&gt; -1
+ | a :: b :: rest -&gt;
+      stream.Peek() = Char.code a || eq_peek stream (b :: rest)
+
+let eatWS ((stream: #StringReader), pos) =
+   while (eq_peek stream [' '; '\n'; '\t']) do
+      let x, y = if stream.Peek()=10 then
+         1, (!pos).y'+1 else (!pos).x'+1, (!pos).y' in
+      stream.Read() |&gt; ignore;
+      (!pos).x' &lt;- x; (!pos).y' &lt;- y
+   done
+
+let readWord (((stream: #StringReader), pos) as source) =
+   let res, seps = ref &quot;&quot;, [' '; ']'; '['; '?'; '\n'; '\t'] in
+   eatWS source;
+   if not (neq_peek true stream []) then
+      failwith &quot;readWord&quot;;
+   while (neq_peek true stream seps) do
+      res := !res ^ (String.of_char (Char.chr (stream.Peek())));
+      (!pos).x' &lt;- (!pos).x' + 1;
+      stream.Read() |&gt; ignore
+   done;
+   !res
+</code></pre>
+<p>Our lexer works with a <code>StringReader</code> instance passed as part of the <code>source</code> argument to the two core functions, <code>eatWS</code> and <code>readWord</code>, where the first skips all whitespace (spaces, newlines and tabs), and the latter consuming a word - which consists of any character other than whitespace or the brackets. Both functions keep track of the source position, incrementing on each character encountered. Newlines can only occur in whitespace, and upon finding one we start a new source line.</p>
+<p>The actual lexer function is below:</p>
+<pre><code class="language-fsharp">exception Eof
+
+let GenerateTokenStream s =
+   let pos_of_ppos ({ x'=x; y'=y }: ppos) = { x=x; y=y } in
+   let reader = IEnumerable.generate
+      (fun () -&gt; new StringReader(s), ref { x'=1; y'=1 })
+      (fun ((stream, pos) as source) -&gt;
+         let rec fetch stream =
+            eatWS source;
+            if eq_peek stream [':'] then begin
+               let w = readWord source in
+               VAR (w, pos_of_ppos !pos)
+            end elif eq_peek stream ['['] then begin
+               stream.Read() |&gt; ignore;
+               LBRACK (pos_of_ppos !pos)
+            end elif eq_peek stream [']'] then begin
+               stream.Read() |&gt; ignore;
+               RBRACK (pos_of_ppos !pos)
+            end elif eq_peek stream ['?'] then begin
+               stream.Read() |&gt; ignore; HOLE (pos_of_ppos !pos)
+            end elif isEof stream then
+               raise Eof
+            else begin
+               let w = readWord source in
+               try NUMBER (float_of_string w, (pos_of_ppos !pos)) with
+                  _ -&gt; WORD (w, pos_of_ppos !pos)
+            end
+         in
+         try Some (fetch stream) with Eof -&gt; None)
+      (fun (stream, _) -&gt; stream.Dispose())
+   in
+   reader.GetEnumerator()
+</code></pre>
+<p>The lexer function contructs a stream of tokens (an <code>IEnumberable&lt;TOKEN&gt;</code>), consisting of the various token shapes we discussed. Note how the last else clause determines whether a word is a number or not, returning the appropriate token. Numeric literals are just words with a special meaning.</p>
+<p>Next is our parser. As we parse we will keep a state of variables and functions in the current scope, and to work with this state with introduce a few convenience functions and the exceptions that will be signaling the various errors eirther during parsing or running our programs.</p>
+<pre><code class="language-fsharp">exception VarNotFound of string * pos
+exception FunNotFound of string * pos
+exception NoCanvas of pos
+exception InvalidFunName of pos
+exception InvalidParam of pos
+exception UnexpectedRBrack of pos
+exception UnexpectedEof
+exception NumberExpected of pos
+exception UnexpectedHole of pos
+
+let find_var state pos v = try state.vars.[v] with _ -&gt; raise (VarNotFound (v, pos))
+let find_fun state pos f = try state.funs.[f] with _ -&gt; raise (FunNotFound (f, pos))
+let add_var state v va = { state with vars=state.vars.Add (v, va) }
+let add_fun state f va = { state with funs=state.funs.Add (f, va) }
+</code></pre>
+<p>Our parser then takes a state, a scoping predicate (discussed shortly), and the token enumerator obtained from the lexer:</p>
+<pre><code class="language-fsharp">let ParseTokenStream state stScoping (en: IEnumerator&lt;TOKEN&gt;) =
+   en.Reset();
+   let rec parse_until state check en f =
+      let state', e = parse state check true en in
+      let state', res = ref state', ref [ e ] in
+      while (f state en) do
+         let state'', res' = parse !state' check false en in
+         res := res' :: !res; state' := state'';
+      done;
+      !state', List.rev !res
+   and parse state check shouldMove (en: IEnumerator&lt;TOKEN&gt;) =
+      let get1 state check en = snd (parse state check true en) in
+      let get2 state check en =
+         let _, e1 = parse state check true en in
+         let _, e2 = parse state check true en in
+         e1, e2
+      in
+      let funname_of = function
+       | WORD (s, pos) -&gt; s
+       | VAR (_, pos) | NUMBER (_, pos) | LBRACK pos
+       | RBRACK pos | HOLE pos -&gt;
+            raise (InvalidFunName pos)
+      in
+      let rec params_of = function
+       | Var (s, _) -&gt; [ s ]
+       | List (l, _) -&gt;
+            List.fold_left (fun lst e -&gt; lst @ params_of e) [] l
+       | instr -&gt;
+            raise (InvalidParam instr.Pos)
+      in
+      let eq_string1 s s1 = String.lowercase s = String.lowercase s1 in
+      let eq_string2 s s1 s2 =
+         let s' = String.lowercase s in
+         s' = String.lowercase s1 || s' = String.lowercase s2
+      in
+      if shouldMove &amp;&amp; en.MoveNext() || not shouldMove then begin
+      match en.Current with
+       | WORD (s, pos) when eq_string1 s &quot;canvas&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Canvas (e1, e2, pos)
+       | WORD (s, pos) when eq_string2 s &quot;lt&quot; &quot;left&quot; -&gt;
+            let _, e = parse state check true en in
+            state, Left (e, pos)
+       | WORD (s, pos) when eq_string2 s &quot;rt&quot; &quot;right&quot; -&gt;
+            let _, e = parse state check true en in
+            state, Right (e, pos)
+       | WORD (s, pos) when eq_string2 s &quot;fd&quot; &quot;forward&quot; -&gt;
+            let _, e = parse state check true en in
+            state, Forward (e, pos)
+       | WORD (s, pos) when eq_string1 s &quot;penup&quot; -&gt;
+            state, PenUp pos
+       | WORD (s, pos) when eq_string1 s &quot;pendown&quot; -&gt;
+            state, PenDown pos
+       | WORD (s, pos) when eq_string1 s &quot;repeat&quot; -&gt;
+            let _, e1 = parse state check true en in
+            let state' = add_var state &quot;:repcount&quot; 1.0 in
+            let _, e2 = parse state' check true en in
+            state, Repeat (e1, e2, pos)
+       | WORD (s, pos) when eq_string2 s &quot;+&quot; &quot;sum&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop ((+), e1, e2, pos)
+       | WORD (s, pos) when eq_string2 s &quot;-&quot; &quot;minus&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop ((-), e1, e2, pos)
+       | WORD (s, pos) when eq_string2 s &quot;*&quot; &quot;times&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop (( * ), e1, e2, pos)
+       | WORD (s, pos) when eq_string2 s &quot;/&quot; &quot;divide&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop ((/), e1, e2, pos)
+       | WORD (s, pos) when eq_string1 s &quot;min&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop (min, e1, e2, pos)
+       | WORD (s, pos) when eq_string1 s &quot;max&quot; -&gt;
+            let e1, e2 = get2 state check en in
+            state, Binop (max, e1, e2, pos)
+       | WORD (s, pos) when eq_string1 s &quot;sin&quot; -&gt;
+            let e = get1 state check en in
+            state, Unop (sin, e, pos)
+       | WORD (s, pos) when eq_string1 s &quot;cos&quot; -&gt;
+            let e = get1 state check en in
+            state, Unop (cos, e, pos)
+       | WORD (s, pos) when eq_string1 s &quot;tan&quot; -&gt;
+            let e = get1 state check en in
+            state, Unop (tan, e, pos)
+       | WORD (s, pos) when eq_string1 s &quot;pi&quot; -&gt;
+            state, Number (System.Math.PI, pos)
+       | WORD (s, pos) when eq_string1 s &quot;repcount&quot; -&gt;
+            state, Var (&quot;:repcount&quot;, pos)
+       | WORD (s, pos) when String.lowercase s=&quot;to&quot; -&gt;
+            let f = if en.MoveNext() then
+                  funname_of en.Current
+               else
+                  raise UnexpectedEof
+            in
+            // Don't check formal parameters
+            let _, pars = parse state false true en in
+            let pars' = params_of pars in
+            // Add formal parameters to the current state
+            let state' = List.fold_left (fun state p -&gt;
+               add_var state p 0.0) state pars'
+            in
+            // Add dummy reference to self to allow recursive calls
+            let state' = add_fun state' f (pars', Hole pos) in
+            let _, e = parse state' check true en in
+            let state'' = add_fun state f (pars', e) in
+            state'', To (f, pars', e, pos)
+       | WORD (s, pos) -&gt;
+            let pars, _ = find_fun state pos s in
+            let args = List.fold_left (fun args _ -&gt;
+               let _, e = parse state check true en in
+               e :: args) [] pars in
+            state, FunCall (s, List.rev args, pos)
+       | NUMBER (i, pos) -&gt;
+            state, Number (i, pos)
+       | VAR (v, pos) -&gt;
+            if check then find_var state pos v |&gt; ignore;
+            state, Var (v, pos)
+       | HOLE pos -&gt;
+            state, Hole pos
+       | LBRACK pos -&gt;
+            let _, exps = parse_until state check en (fun state (en: IEnumerator&lt;TOKEN&gt;) -&gt;
+               en.MoveNext() &amp;&amp; not en.Current.IsRBrack) in
+            state, List (exps, pos)
+       | RBRACK pos -&gt;
+            raise (UnexpectedRBrack pos)
+      end else
+         raise UnexpectedEof
+   in
+   let _, exps = parse_until state stScoping en (fun state en -&gt; en.MoveNext()) in
+   exps
+</code></pre>
+<p>Note how we construct a list of Logo instructions (last three lines) using the <code>parse_until</code> function defined locally. The <code>check</code> parameter forces a check on any variable encountered (except in formal parameters in <code>To</code>); this check is <code>false</code> by default to allow dynamic scoping, but turning it on causes lexical scoping, e.g. each variable has to be on the parameter list of one of the containing functions/commands (as this is the only means to introduce new variables in our implementation, e.g. we don't support the standard <code>make</code> Logo command).</p>
+<p>And finally, our evaluator is a straightforward implementation of the semantics of each instruction, carefully updating the state and the graphics state:</p>
+<pre><code class="language-fsharp">let pen = new Pen(Color.White)
+
+let draw_line (gra: Graphics) pos x1 y1 x2 y2 =
+   let round (f: float) = int_of_float (System.Math.Round(f)) in
+   if gra = null then raise (NoCanvas pos);
+   gra.DrawLine (pen, round x1, round y1, round x2, round y2)
+
+let rec eval (im: PictureBox) (state: state) gstate instr =
+   let rec eval2 state gstate e1 e2 =
+      let state', gstate', n1 = eval1 state gstate e1 in
+      let state'', gstate'', n2 = eval1 state' gstate' e2 in
+      state'', gstate'', n1, n2
+   and eval1 state gstate (e: instr) =
+      let state', gstate', e' = eval im state gstate e in
+      let n = num_of_value e.Pos e' in
+      state', gstate', n
+   and num_of_value pos = function
+    | Some i -&gt; i | _ -&gt; raise (NumberExpected pos)
+   in
+   let move state (d: float) =
+      let pi = 4.0 *. atan 1.0 in
+      let angle = state.angle /. 180.0 *. pi in
+      state.currX + d *. cos angle,
+      state.currY - d *. sin angle
+   in
+   let forward state gstate pos d =
+      let x', y' = move gstate d in
+      if gstate.penDown then begin
+         draw_line gstate.graphics pos gstate.currX gstate.currY x' y';
+         state, { gstate with currX=x'; currY=y' }, None
+      end else
+         state, { gstate with currX=x'; currY=y' }, None
+   in match instr with
+    | Canvas (e1, e2, _) -&gt;
+         let _, gstate', n1, n2 = eval2 state gstate e1 e2 in
+         let i1, i2 = int_of_float n1, int_of_float n2 in
+         let bmp = new Bitmap (i1, i2, PixelFormat.Format16bppRgb555) in
+         let gra = Graphics.FromImage bmp in
+         im.Image &lt;- bmp;
+         im.Width &lt;- bmp.Width; im.Height &lt;- bmp.Height;
+         state, { gstate' with graphics=gra; angle=90.0; penDown=true;
+            currX=float_of_int bmp.Width /. 2.0;
+            currY=float_of_int bmp.Height /. 2.0 }, None
+    | Binop (f, e1, e2, _) -&gt;
+         let _, gstate', n1, n2 = eval2 state gstate e1 e2 in
+         state, gstate', Some (f n1 n2)
+    | Unop (f, e, _) -&gt;
+         let _, gstate', n = eval1 state gstate e in
+         state, gstate', Some (f n)
+    | Left (e, _) -&gt;
+         let _, gstate', i = eval1 state gstate e in
+         state, { gstate' with angle=gstate'.angle+i }, None
+    | Right (e, _) -&gt;
+         let _, gstate', i = eval1 state gstate e in
+         state, { gstate' with angle=gstate'.angle-i }, None
+    | Forward (e, pos) -&gt;
+         let _, gstate', i = eval1 state gstate e in
+         forward state gstate' pos i
+    | PenUp _ -&gt;
+         state, { gstate with penDown=false }, None
+    | PenDown _ -&gt;
+         state, { gstate with penDown=true }, None
+    | Number (n, _) -&gt;
+         state, gstate, Some n
+    | Var (s, pos) -&gt;
+         let n = find_var state pos s in
+         state, gstate, Some n
+    | FunCall (f, args, pos) -&gt;
+         let pars, body = find_fun state pos f in
+         let state', gstate' = List.fold_left2 (fun (state, gstate) p arg -&gt;
+            let _, gstate', i = eval1 state gstate arg in
+            add_var state p i, gstate') (state, gstate) pars args in
+         let _, gstate'', res = eval im state' gstate' body in
+         state, gstate'', res
+    | Hole pos -&gt;
+         raise (UnexpectedHole pos)
+    | List (lst, _) -&gt;
+         let _, gstate', res = List.fold_left (fun (state, gstate, res) e -&gt;
+            eval im state gstate e) (state, gstate, None) lst
+         in
+         state, gstate', res
+    | Repeat (num, e, pos) -&gt;
+         let _, gstate', i = eval1 state gstate num in
+         let state', gstate', res = ref state, ref gstate, ref None in
+         for j = 1 to (int_of_float i) do
+            state' := add_var !state' &quot;:repcount&quot; (float_of_int j);
+            let st, gst, rs = eval im !state' !gstate' e in
+            state' := st; gstate' := gst; res := rs;
+         done;
+         state, !gstate', !res
+    | To (f, par, e, pos) -&gt;
+         let state' = add_fun state f (par, e) in
+         state', gstate, None
+
+let eval_list im (state: state) gstate =
+   List.fold_left (fun (state, gstate, res) e -&gt;
+      eval im state gstate e) (state, gstate, None)
+</code></pre>
+<h4 id="how-does-the-evaluator-work">How does the evaluator work?</h4>
+<p>During evaluation we maintain the program state and the graphics state. Each argument to a defined word is evaluated (which could affect the graphics state, so this is preserved throughout) and passed to the definition (body) of that word. Built-in words are evaluated similarly. The program state changes at three locations: after evaluating a new word definition (using <code>To</code>, and we add a new function to the state), during evaluation of a function/command call (we add the formal parameters to the state with the value of each argument), and during evaluating the body of a <code>repeat</code> command (when we add a special variable called <code>:repcount</code> to the state; this can be read directly or through the <code>RepCount</code> built-in command).</p>
+<h4 id="the-client-module">The client module</h4>
+<p>The client code is straightforward and we don't show some of the event binding to preserve compactness:</p>
+<pre><code class="language-fsharp">open IntelliFactory.Languages.Logo
+
+open System.Windows.Forms
+open System.Drawing
+
+let error {x=x; y=y} msg =
+   MessageBox.Show (sprintf &quot;Error at %d:%d\n%s&quot; y x msg) |&gt; ignore
+
+let error_no_pos msg =
+   MessageBox.Show (sprintf &quot;Error: %s&quot; msg) |&gt; ignore
+
+let create_child_form parent =
+   let form = new Form() in
+   let sbox = new ScrollableControl() in
+   sbox.Dock &lt;- DockStyle.Fill;
+   sbox.AutoScroll &lt;- true;
+   let im = new PictureBox() in
+   sbox.Controls.Add im;
+   form.Controls.Add sbox;
+   form.MdiParent &lt;- parent;
+   form.Visible &lt;- true;
+   form, im
+
+let create_main_form () =
+   let castToMenu (arr: #ToolStripItem array) =
+      Array.map (fun s -&gt; s :&gt; ToolStripItem) arr
+   in
+   let form = new Form() in
+   let panel = new Panel() in
+   let memo = new RichTextBox() in
+   let menu = new MenuStrip() in
+   let sep1 = new ToolStripSeparator() in
+   let sep2 = new ToolStripSeparator() in
+   let sep3 = new ToolStripSeparator() in
+   let fileM = new ToolStripMenuItem(&quot;&amp;File&quot;) in
+   let newMI = new ToolStripMenuItem(&quot;&amp;New&quot;) in
+   let openMI = new ToolStripMenuItem(&quot;&amp;Open...&quot;) in
+   let saveMI = new ToolStripMenuItem(&quot;&amp;Save...&quot;) in
+   let optionsMI = new ToolStripMenuItem(&quot;O&amp;ptions&quot;) in
+   let forceStaticScopingMI = new ToolStripMenuItem(&quot;Force lexical scoping&quot;) in
+   forceStaticScopingMI.CheckOnClick &lt;- true;
+   let exitMI = new ToolStripMenuItem(&quot;E&amp;xit&quot;) in
+   let runM = new ToolStripMenuItem(&quot;&amp;Run&quot;) in
+   fileM.DropDownItems.AddRange (castToMenu [| newMI |]);
+   fileM.DropDownItems.AddRange (castToMenu [| sep1 |]);
+   fileM.DropDownItems.AddRange (castToMenu [| openMI; saveMI |]);
+   fileM.DropDownItems.AddRange (castToMenu [| sep2 |]);
+   fileM.DropDownItems.AddRange (castToMenu [| optionsMI |]);
+   fileM.DropDownItems.AddRange (castToMenu [| sep3 |]);
+   fileM.DropDownItems.AddRange (castToMenu [| exitMI |]);
+   optionsMI.DropDownItems.AddRange (castToMenu [| forceStaticScopingMI |]);
+   menu.Items.AddRange [| (fileM :&gt; ToolStripItem); (runM :&gt; ToolStripItem) |];
+   exitMI.Click.Add (fun _ -&gt; form.Close ());
+   runM.Click.Add (fun _ -&gt;
+      try
+         let source = GenerateTokenStream memo.Text in
+         let e = ParseTokenStream state.Default forceStaticScopingMI.Checked source in
+         let form1, im = create_child_form form in
+         let _, _, res = eval_list im state.Default gstate.Default e in
+         match res with
+          | None -&gt; ()
+          | Some i -&gt;
+               MessageBox.Show (sprintf &quot;Exit value=%f&quot; i) |&gt; ignore
+      with
+       | VarNotFound (v, pos) -&gt;
+            error pos (sprintf &quot;Unbound variable '%s'&quot; v)
+       | FunNotFound (f, pos) -&gt;
+            error pos (sprintf &quot;Unbound function '%s'&quot; f)
+       | NoCanvas pos -&gt;
+            error pos &quot;No canvas available to draw on&quot;
+       | InvalidFunName pos -&gt;
+            error pos &quot;Invalid function&quot;
+       | InvalidParam pos -&gt;
+            error pos &quot;Invalid parameter&quot;
+       | UnexpectedRBrack pos -&gt;
+            error pos &quot;Unexpected ]&quot;
+       | UnexpectedEof -&gt;
+            error_no_pos &quot;Unexpected eof&quot;
+       | NumberExpected pos -&gt;
+            error pos &quot;Number expected&quot;
+       | UnexpectedHole pos -&gt;
+            error pos &quot;[internal] Uninstantiated hole&quot;);
+   panel.Height &lt;- 100;
+   panel.Dock &lt;- DockStyle.Bottom;
+   memo.Dock &lt;- DockStyle.Fill;
+   memo.Font &lt;- new Font(&quot;Courier New&quot;, 12.0f);
+   panel.Controls.Add memo;
+   form.Text &lt;- &quot;IntelliLOGO Interpreter&quot;;
+   form.Height &lt;- 480; form.Width &lt;- 640;
+   form.Controls.Add panel;
+   form.Controls.Add menu;
+   form.IsMdiContainer &lt;- true;
+   form.Visible &lt;- true;
+   form, memo
+
+let _ =
+   let form, memo = create_main_form () in
+   Application.Run form
+</code></pre>
+<p>The essence of using the core Logo functionality is in the event delegate for the <em>Run</em> menu item. First we generate a token stream from the input string (the <code>Text</code> property of the edit box), parse it into our internal representation, and evaluate the resulting instruction list in the context of a child window where the results are displayed. If the evaluation yielded a value we display it after execution.</p>
+<p>For instance, trying the following program will result in no graphics output (we get an empty child window) and the exit value of 300:</p>
+<pre><code>to foo :x + :x :y
+to foobar :y [
+   to bar :z foo 100
+   bar 300
+]
+foobar 200
+</code></pre>
+<h3 id="further-improvements">Further improvements</h3>
+<p>The implementation just described lacks a number of standard Logo features. It makes no use of Logo's higher-order functions (<code>foreach</code>, etc.) using holes, there are no control flow commands, etc. These can be added with a small effort and we leave that for the reader to experiment with.</p>
+</div></section>
+            </div>
+            <div class="column is-one-quarter-tablet is-one-fifth-desktop sidebar-column">
+              <nav class="panel is-shadowless" style="padding-top: 1em;">
+                <p class="panel-heading" style="border:0;background-color:white;">
+                  Categories
+                </p>
+                <div class="tags are-medium panel-content">
+                  <a class="is-inline " href="/category/fsharp" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">fsharp</span>
+                    </a><a class="is-inline " href="/category/logo" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">logo</span>
+                    </a><a class="is-inline " href="/category/parsing" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">parsing</span>
+                    </a><a class="is-inline " href="/category/tutorial" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">tutorial</span>
+                    </a>
+                </div>
+              </nav>
+              <nav class="panel is-shadowless" style="padding-top:10px;">
+                <p class="panel-heading" style="border:0;">
+                  All posts
+                  <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable"><i class="fa fa-rss-square"></i></a>
+                </p>
+                <a class="panel-block " href="/user/denuziere/20200523-bolero-0-13-released" style="border-bottom:0;">
+                    Bolero 0.13 released
+                  </a><a class="panel-block " href="/user/denuziere/20200323-bolero-0-12-released" style="border-bottom:0;">
+                    Bolero 0.12 released
+                  </a><a class="panel-block " href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one" style="border-bottom:0;">
+                    Converting a WebSharper HTML app to a client-server one
+                  </a><a class="panel-block " href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog" style="border-bottom:0;">
+                    F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                  </a><a class="panel-block " href="/user/denuziere/20190924-bolero-0-9-released" style="border-bottom:0;">
+                    Bolero 0.9 released
+                  </a><a class="panel-block " href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this" style="border-bottom:0;">
+                    Your first Bolero project not compiling? Try this!
+                  </a><a class="panel-block " href="/user/denuziere/20190805-bolero-0-7-released" style="border-bottom:0;">
+                    Bolero 0.7 released
+                  </a><a class="panel-block " href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview" style="border-bottom:0;">
+                    Bolero 0.5 released for Blazor 3.0-preview
+                  </a><a class="panel-block " href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication" style="border-bottom:0;">
+                    Bolero 0.4 released with remote authentication
+                  </a><a class="panel-block " href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support" style="border-bottom:0;">
+                    WebSharper 4.5.8 released with Visual Studio 2019 support
+                  </a><a class="panel-block " href="/user/jankoa/20190226-websharper-4-5-9-released-with-f-anonymous-record-support" style="border-bottom:0;">
+                    WebSharper 4.5.9 released with F# anonymous record support
+                  </a><a class="panel-block " href="/user/denuziere/20190213-bolero-0-3-released-with-html-template-hot-reloading" style="border-bottom:0;">
+                    Bolero 0.3 released with HTML template hot reloading
+                  </a><a class="panel-block " href="/user/denuziere/20190123-bolero-0-2-released-with-improved-routing" style="border-bottom:0;">
+                    Bolero 0.2 released with improved routing
+                  </a><a class="panel-block " href="/user/granicz/20181219-announcing-try-f-on-webassembly" style="border-bottom:0;">
+                    Announcing Try F# on WebAssembly
+                  </a><a class="panel-block " href="/user/denuziere/20181213-announcing-bolero-f-tools-for-webassembly" style="border-bottom:0;">
+                    Announcing Bolero: F# tools for WebAssembly
+                  </a><a class="panel-block " href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper" style="border-bottom:0;">
+                    From enterprise to next-generation web: celebrating 11 years with WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20181031-websharper-4-5-5-released" style="border-bottom:0;">
+                    WebSharper 4.5.5 released
+                  </a><a class="panel-block " href="/user/denuziere/20181025-websharper-4-5-4-released" style="border-bottom:0;">
+                    WebSharper 4.5.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20180914-websharper-4-5-2-released-with-new-aspnetcore-api" style="border-bottom:0;">
+                    WebSharper 4.5.2 released with new AspNetCore API
+                  </a><a class="panel-block " href="/user/denuziere/20180829-websharper-react-new-and-improved" style="border-bottom:0;">
+                    WebSharper.React: new and improved!
+                  </a><a class="panel-block " href="/user/denuziere/20180809-websharper-4-5-released" style="border-bottom:0;">
+                    WebSharper 4.5 released
+                  </a><a class="panel-block " href="/user/denuziere/20180731-websharper-4-4-1-released" style="border-bottom:0;">
+                    WebSharper 4.4.1 released
+                  </a><a class="panel-block " href="/user/denuziere/20180711-websharper-4-4-released-with-web-workers-and-promises" style="border-bottom:0;">
+                    WebSharper 4.4 released with Web Workers and Promises
+                  </a><a class="panel-block " href="/user/denuziere/20180627-websharper-4-3-released-with-pure-net-core-support" style="border-bottom:0;">
+                    WebSharper 4.3 released with pure .NET Core support
+                  </a><a class="panel-block " href="/user/jankoa/20180615-create-javascript-libraries-from-your-c-or-f-code" style="border-bottom:0;">
+                    Create JavaScript libraries from your C# or F# code
+                  </a><a class="panel-block " href="/user/denuziere/20180504-websharper-4-2-10-and-ui-4-2-6-released" style="border-bottom:0;">
+                    WebSharper 4.2.10 and UI 4.2.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20180417-websharper-4-2-9-released" style="border-bottom:0;">
+                    WebSharper 4.2.9 released
+                  </a><a class="panel-block " href="/user/granicz/20180409-part-2-model-view-update-mvu-style-apps-with-websharper-ui" style="border-bottom:0;">
+                    Part 2. Model-View-Update (MVU) style apps with WebSharper UI
+                  </a><a class="panel-block " href="/user/denuziere/20180329-websharper-ui-4-2-4-released" style="border-bottom:0;">
+                    WebSharper.UI 4.2.4 released
+                  </a><a class="panel-block " href="/user/granicz/20180327-first-steps-using-html-templates-accessing-form-values-and-wiring-events" style="border-bottom:0;">
+                    First steps: Using HTML templates, accessing form values, and wiring events
+                  </a><a class="panel-block " href="/user/denuziere/20180326-websharper-4-2-8-released-with-in-document-template-binding" style="border-bottom:0;">
+                    WebSharper 4.2.8 released with in-document template binding
+                  </a><a class="panel-block " href="/user/denuziere/20180321-websharper-4-for-asp-net-mvc-new-and-improved" style="border-bottom:0;">
+                    WebSharper 4 for ASP.NET MVC: new and improved
+                  </a><a class="panel-block " href="/user/jankoa/20180312-websharper-4-2-4-released" style="border-bottom:0;">
+                    WebSharper 4.2.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20180228-clear-and-simple-reactive-code-with-websharper-ui-s-v" style="border-bottom:0;">
+                    Clear and simple reactive code with WebSharper.UI&#39;s V
+                  </a><a class="panel-block " href="/user/denuziere/20180226-websharper-4-2-released" style="border-bottom:0;">
+                    WebSharper 4.2 released
+                  </a><a class="panel-block " href="/user/jankoa/20180221-deploying-a-net-core-websharper-site-in-aws-lambda" style="border-bottom:0;">
+                    Deploying a .NET Core WebSharper site in AWS Lambda
+                  </a><a class="panel-block " href="/user/denuziere/20180220-websharper-4-1-7-and-4-2-2-beta-released" style="border-bottom:0;">
+                    WebSharper 4.1.7 and 4.2.2-beta released
+                  </a><a class="panel-block " href="/user/jankoa/20180212-websharper-4-2-beta-released-with-net-core-standard-support" style="border-bottom:0;">
+                    WebSharper 4.2-beta released with .NET Core/Standard support
+                  </a><a class="panel-block " href="/user/jankoa/20180207-websharper-4-1-2-released" style="border-bottom:0;">
+                    WebSharper 4.1.2 released
+                  </a><a class="panel-block " href="/user/jankoa/20180207-websharper-4-1-6-released" style="border-bottom:0;">
+                    WebSharper 4.1.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20180117-websharper-4-1-3-released" style="border-bottom:0;">
+                    WebSharper 4.1.3 released
+                  </a><a class="panel-block " href="/user/denuziere/20180112-a-simple-oauth-application" style="border-bottom:0;">
+                    A simple OAuth application
+                  </a><a class="panel-block " href="/user/denuziere/20180109-password-less-authentication-with-websharper-oauth" style="border-bottom:0;">
+                    Password-less authentication with WebSharper.OAuth
+                  </a><a class="panel-block " href="/user/jankoa/20180109-websharper-4-1-1-released" style="border-bottom:0;">
+                    WebSharper 4.1.1 released
+                  </a><a class="panel-block " href="/user/granicz/20171229-serving-spas" style="border-bottom:0;">
+                    Serving SPAs
+                  </a><a class="panel-block " href="/user/jankoa/20171225-websharper-4-1-released" style="border-bottom:0;">
+                    WebSharper 4.1 released
+                  </a><a class="panel-block " href="/user/jankoa/20170908-announcing-websharper-4-release-candidate" style="border-bottom:0;">
+                    Announcing WebSharper 4 Release Candidate
+                  </a><a class="panel-block " href="/user/jankoa/20170828-websharper-4-beta-10-released" style="border-bottom:0;">
+                    WebSharper 4 beta-10 released
+                  </a><a class="panel-block " href="/user/jankoa/20170726-websharper-4-beta-9-released" style="border-bottom:0;">
+                    WebSharper 4 beta-9 released
+                  </a><a class="panel-block " href="/user/jankoa/20170609-websharper-4-beta-7-released" style="border-bottom:0;">
+                    WebSharper 4 beta-7 released
+                  </a><a class="panel-block " href="/user/jankoa/20170412-websharper-4-beta-6-bugfix-released" style="border-bottom:0;">
+                    WebSharper 4 beta-6 bugfix released
+                  </a><a class="panel-block " href="/user/jankoa/20170325-websharper-4-beta-6-released" style="border-bottom:0;">
+                    WebSharper 4 beta-6 released
+                  </a><a class="panel-block " href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper" style="border-bottom:0;">
+                    Simple reactive scenarios with WebSharper
+                  </a><a class="panel-block " href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper" style="border-bottom:0;">
+                    Distributed web applications in F# with WebSharper
+                  </a><a class="panel-block " href="/user/jankoa/20161207-the-road-to-websharper-4" style="border-bottom:0;">
+                    The road to WebSharper 4
+                  </a><a class="panel-block " href="/user/granicz/20160406-a-faster-and-slicker-try-websharper" style="border-bottom:0;">
+                    A faster and slicker Try WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20160113-websharper-3-6-7-released" style="border-bottom:0;">
+                    WebSharper 3.6.7 released
+                  </a><a class="panel-block " href="/user/granicz/20151226-websharper-a-year-in-review" style="border-bottom:0;">
+                    WebSharper - a year in review
+                  </a><a class="panel-block " href="/user/denuziere/20151215-websharper-3-6-6-released" style="border-bottom:0;">
+                    WebSharper 3.6.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20151123-websharper-3-6-released-with-cdn-support" style="border-bottom:0;">
+                    WebSharper 3.6 released with CDN support
+                  </a><a class="panel-block " href="/user/denuziere/20151112-websharper-3-5-16-released" style="border-bottom:0;">
+                    WebSharper 3.5.16 released
+                  </a><a class="panel-block " href="/user/granicz/20151104-data-aware-workbooks-and-client-side-data-access-with-websharper-data" style="border-bottom:0;">
+                    Data-aware workbooks and client-side data access with WebSharper.Data
+                  </a><a class="panel-block " href="/user/jankoa/20151030-websharper-3-5-14-released" style="border-bottom:0;">
+                    WebSharper 3.5.14 released
+                  </a><a class="panel-block " href="/user/denuziere/20151028-websharper-3-5-13-released" style="border-bottom:0;">
+                    WebSharper 3.5.13 released
+                  </a><a class="panel-block " href="/user/denuziere/20151021-websharper-3-5-9-released" style="border-bottom:0;">
+                    WebSharper 3.5.9 released
+                  </a><a class="panel-block " href="/user/granicz/20151007-announcing-websharper-3-5-with-pluggable-html-support" style="border-bottom:0;">
+                    Announcing WebSharper 3.5 with pluggable HTML support
+                  </a><a class="panel-block " href="/user/gansperger/20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements" style="border-bottom:0;">
+                    Try Websharper: version info about extensions and some embedding improvements
+                  </a><a class="panel-block " href="/user/denuziere/20151001-announcing-websharper-suave" style="border-bottom:0;">
+                    Announcing WebSharper.Suave
+                  </a><a class="panel-block " href="/user/denuziere/20150924-websharper-3-4-19-released" style="border-bottom:0;">
+                    WebSharper 3.4.19 released
+                  </a><a class="panel-block " href="/user/gansperger/20150918-try-websharper-on-hover-type-info" style="border-bottom:0;">
+                    Try WebSharper: on-hover type info
+                  </a><a class="panel-block " href="/user/denuziere/20150908-websharper-ui-next-3-4-19-with-onafterrender" style="border-bottom:0;">
+                    WebSharper.UI.Next 3.4.19 with OnAfterRender
+                  </a><a class="panel-block " href="/user/denuziere/20150902-websharper-3-4-14-released" style="border-bottom:0;">
+                    WebSharper 3.4.14 released
+                  </a><a class="panel-block " href="/user/granicz/20150901-live-f-coding-and-snippets-with-dependencies-in-try-websharper" style="border-bottom:0;">
+                    Live F# coding and snippets with dependencies in Try WebSharper
+                  </a><a class="panel-block " href="/user/gansperger/20150826-try-websharper-update-notes-for-snippets" style="border-bottom:0;">
+                    Try WebSharper: update notes for snippets
+                  </a><a class="panel-block " href="/user/granicz/20150819-try-websharper-snippet-versioning-gist-import-and-other-enhancements-now-available" style="border-bottom:0;">
+                    Try WebSharper: snippet versioning, gist import, and other enhancements now available
+                  </a><a class="panel-block " href="/user/granicz/20150809-share-and-embed-try-websharper-snippets" style="border-bottom:0;">
+                    Share and embed Try WebSharper snippets
+                  </a><a class="panel-block " href="/user/granicz/20150806-new-websharper-templates" style="border-bottom:0;">
+                    New WebSharper templates
+                  </a><a class="panel-block " href="/user/granicz/20150804-introducing-try-websharper" style="border-bottom:0;">
+                    Introducing Try WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20150803-websharper-3-4-released" style="border-bottom:0;">
+                    WebSharper 3.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20150803-websharper-ui-next-3-4-the-new-html-syntax" style="border-bottom:0;">
+                    WebSharper UI.Next 3.4: the new HTML syntax
+                  </a><a class="panel-block " href="/user/denuziere/20150722-websharper-3-3-released-with-client-side-json-serialization" style="border-bottom:0;">
+                    WebSharper 3.3 released with client-side JSON serialization
+                  </a><a class="panel-block " href="/user/denuziere/20150714-websharper-3-2-22-released" style="border-bottom:0;">
+                    WebSharper 3.2.22 released
+                  </a><a class="panel-block " href="/user/jankoa/20150625-websharper-3-2-10-released" style="border-bottom:0;">
+                    WebSharper 3.2.10 released
+                  </a><a class="panel-block " href="/user/granicz/20150615-introducing-websharper-warp" style="border-bottom:0;">
+                    Introducing WebSharper Warp
+                  </a><a class="panel-block " href="/user/granicz/20150609-websharper-3-2-with-support-for-scriptable-applications-better-resource-management-and-additional-streamlined-syntax" style="border-bottom:0;">
+                    WebSharper 3.2 with support for scriptable applications, better resource management, and additional streamlined syntax
+                  </a><a class="panel-block " href="/user/denuziere/20150523-websharper-3-1-published" style="border-bottom:0;">
+                    WebSharper 3.1 published
+                  </a><a class="panel-block " href="/user/denuziere/20150521-cloudsharper-0-9-31-published" style="border-bottom:0;">
+                    CloudSharper 0.9.31 published
+                  </a><a class="panel-block " href="/user/granicz/20150515-deploying-websharper-apps-to-azure-via-github" style="border-bottom:0;">
+                    Deploying WebSharper apps to Azure via GitHub
+                  </a><a class="panel-block " href="/user/denuziere/20150512-websharper-from-zero-to-an-azure-deployed-web-application" style="border-bottom:0;">
+                    WebSharper: From Zero to an Azure-deployed Web Application
+                  </a><a class="panel-block " href="/user/denuziere/20150506-websharper-3-0-59-released" style="border-bottom:0;">
+                    WebSharper 3.0.59 released
+                  </a><a class="panel-block " href="/user/granicz/20150428-websharper-site-enhancements" style="border-bottom:0;">
+                    WebSharper site enhancements
+                  </a><a class="panel-block " href="/user/granicz/20150417-cloudsharper-0-9-30-with-websharper-3-templates" style="border-bottom:0;">
+                    CloudSharper 0.9.30 with WebSharper 3 templates
+                  </a><a class="panel-block " href="/user/jankoa/20150416-websharper-3-0-released" style="border-bottom:0;">
+                    WebSharper 3.0 released
+                  </a><a class="panel-block " href="/user/granicz/20150328-websharper-forum-enhancements" style="border-bottom:0;">
+                    WebSharper forum enhancements
+                  </a><a class="panel-block " href="/user/denuziere/20150318-websharper-3-0-rc-released" style="border-bottom:0;">
+                    WebSharper 3.0 RC released
+                  </a><a class="panel-block " href="/user/denuziere/20150302-cloudsharper-0-9-29-released" style="border-bottom:0;">
+                    CloudSharper 0.9.29 released
+                  </a><a class="panel-block " href="/user/denuziere/20150225-websharper-3-0-alpha-for-xamarin-studio-monodevelop-is-now-available" style="border-bottom:0;">
+                    WebSharper 3.0-alpha for Xamarin Studio / MonoDevelop is now available!
+                  </a><a class="panel-block " href="/user/jankoa/20150225-websharper-3-0-36-alpha-released" style="border-bottom:0;">
+                    WebSharper-3.0.36-alpha released
+                  </a><a class="panel-block " href="/user/denuziere/20150213-upcoming-in-websharper-3-0-serving-rest-apis-easy-as-pie" style="border-bottom:0;">
+                    Upcoming in WebSharper 3.0: serving REST APIs, easy as pie!
+                  </a><a class="panel-block " href="/user/jankoa/20150210-websharper-3-0-26-alpha-released" style="border-bottom:0;">
+                    WebSharper.3.0.26-alpha released
+                  </a><a class="panel-block " href="/user/granicz/20141203-websharper-3-alpha-now-under-apache-2" style="border-bottom:0;">
+                    WebSharper 3 alpha now under Apache 2
+                  </a><a class="panel-block " href="/user/granicz/20141113-self-hosted-websharper-application-template-available" style="border-bottom:0;">
+                    Self-hosted WebSharper application template available
+                  </a><a class="panel-block " href="/user/granicz/20140701-upcoming-cloudsharper-features-in-q3" style="border-bottom:0;">
+                    Upcoming CloudSharper features in Q3
+                  </a><a class="panel-block " href="/user/granicz/20140515-program-f-with-cloudsharper-everywhere" style="border-bottom:0;">
+                    Program F# with CloudSharper everywhere
+                  </a><a class="panel-block " href="/user/granicz/20140325-cloudsharper-0-9-9" style="border-bottom:0;">
+                    CloudSharper 0.9.9
+                  </a><a class="panel-block " href="/user/granicz/20140314-cloudsharper-local-alpha-0-9-8" style="border-bottom:0;">
+                    CloudSharper Local alpha 0.9.8
+                  </a><a class="panel-block " href="/user/granicz/20140306-cloudsharper-local-alpha-0-9-7" style="border-bottom:0;">
+                    CloudSharper Local alpha 0.9.7
+                  </a><a class="panel-block " href="/user/granicz/20140218-update-server-exited-with-code-0" style="border-bottom:0;">
+                    Update: Server exited with code 0
+                  </a><a class="panel-block " href="/user/granicz/20140217-update-showing-compiler-errors" style="border-bottom:0;">
+                    Update: Showing compiler errors
+                  </a><a class="panel-block " href="/user/granicz/20140213-cloudsharper-local-alpha-available" style="border-bottom:0;">
+                    CloudSharper Local alpha available
+                  </a><a class="panel-block " href="/user/granicz/20140206-websharper-2-5-93-improved-numeric-performance" style="border-bottom:0;">
+                    WebSharper 2.5.93 - improved numeric performance
+                  </a><a class="panel-block " href="/user/granicz/20131221-websharper-2-5-release-notes" style="border-bottom:0;">
+                    WebSharper 2.5 Release Notes
+                  </a><a class="panel-block " href="/user/granicz/20130322-websharper-from-f-power-features-to-javascript-interop" style="border-bottom:0;">
+                    WebSharper: From F# power features to JavaScript interop
+                  </a><a class="panel-block " href="/user/granicz/20130310-cufp-2013-call-for-presentations" style="border-bottom:0;">
+                    CUFP 2013 - Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20130226-free-websharper-mvp-licenses" style="border-bottom:0;">
+                    Free WebSharper MVP licenses
+                  </a><a class="panel-block " href="/user/granicz/20121230-replacing-a-dead-raid5-drive-on-an-hp-microserver-running-ubuntu" style="border-bottom:0;">
+                    Replacing a dead RAID5 drive on an HP Microserver running Ubuntu
+                  </a><a class="panel-block " href="/user/granicz/20121230-running-the-jquery-mobile-websharper-sample" style="border-bottom:0;">
+                    Running the jQuery Mobile WebSharper sample
+                  </a><a class="panel-block " href="/user/granicz/20121203-last-day-to-register-to-tech-mesh-2012" style="border-bottom:0;">
+                    Last day to register to Tech Mesh 2012
+                  </a><a class="panel-block " href="/user/granicz/20120602-cufp-2012-call-for-presentations" style="border-bottom:0;">
+                    CUFP 2012 - Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20120525-looking-for-technical-reviewers-for-expert-f-3-0" style="border-bottom:0;">
+                    Looking for technical reviewers for Expert F# 3.0
+                  </a><a class="panel-block " href="/user/granicz/20120426-websharper-2-4-q2-available" style="border-bottom:0;">
+                    WebSharper 2.4 Q2 available
+                  </a><a class="panel-block " href="/user/granicz/20120416-websharper-2-4-q2-beta-out" style="border-bottom:0;">
+                    WebSharper 2.4 Q2 Beta out
+                  </a><a class="panel-block " href="/user/granicz/20110924-websharper-2-3-q3-released" style="border-bottom:0;">
+                    WebSharper 2.3 Q3 released
+                  </a><a class="panel-block " href="/user/granicz/20110915-websharper-at-cufp-2011" style="border-bottom:0;">
+                    WebSharper at CUFP 2011
+                  </a><a class="panel-block " href="/user/granicz/20110715-websharper-2-3-targeting-enterprise-applications" style="border-bottom:0;">
+                    WebSharper 2.3 - targeting enterprise applications
+                  </a><a class="panel-block " href="/user/granicz/20110513-expiring-websharper-professional-trials" style="border-bottom:0;">
+                    Expiring WebSharper Professional trials
+                  </a><a class="panel-block " href="/user/granicz/20110506-announcing-websharper-professional-2-2" style="border-bottom:0;">
+                    Announcing WebSharper Professional 2.2
+                  </a><a class="panel-block " href="/user/granicz/20110422-announcing-apistack-net" style="border-bottom:0;">
+                    Announcing ApiStack.net
+                  </a><a class="panel-block " href="/user/granicz/20110404-websharper-rc2-extension-updates" style="border-bottom:0;">
+                    WebSharper RC2 Extension updates
+                  </a><a class="panel-block " href="/user/granicz/20110326-websharper-2-1-professional-rc2-released" style="border-bottom:0;">
+                    WebSharper 2.1 Professional RC2 released
+                  </a><a class="panel-block " href="/user/granicz/20110310-formlets-for-jquery-ui-available" style="border-bottom:0;">
+                    Formlets for jQuery UI available
+                  </a><a class="panel-block " href="/user/granicz/20110304-websharper-2-professional-rc1" style="border-bottom:0;">
+                    WebSharper 2 Professional RC1
+                  </a><a class="panel-block " href="/user/granicz/20110224-more-websharper-talks-in-february" style="border-bottom:0;">
+                    More WebSharper talks in February
+                  </a><a class="panel-block " href="/user/granicz/20110222-sencha-touch-for-websharper-available" style="border-bottom:0;">
+                    Sencha Touch for WebSharper available
+                  </a><a class="panel-block " href="/user/granicz/20110205-new-websharper-extensions-available" style="border-bottom:0;">
+                    New WebSharper extensions available
+                  </a><a class="panel-block " href="/user/granicz/20110203-websharper-2-1-beta-5-available" style="border-bottom:0;">
+                    WebSharper 2.1 Beta 5 available
+                  </a><a class="panel-block " href="/user/granicz/20110125-websharper-proposal-for-mix-2011" style="border-bottom:0;">
+                    WebSharper proposal for MIX 2011
+                  </a><a class="panel-block " href="/user/granicz/20110105-websharper-beta-4-released" style="border-bottom:0;">
+                    WebSharper Beta 4 released
+                  </a><a class="panel-block " href="/user/granicz/20101221-talk-introducing-websharper-sitelets" style="border-bottom:0;">
+                    Talk: Introducing WebSharper Sitelets
+                  </a><a class="panel-block " href="/user/granicz/20101220-visual-studio-book-with-f-chapter" style="border-bottom:0;">
+                    Visual Studio book with F# chapter
+                  </a><a class="panel-block " href="/user/granicz/20101217-websharper-2-0-beta-bundle" style="border-bottom:0;">
+                    WebSharper 2.0 Beta Bundle
+                  </a><a class="panel-block " href="/user/granicz/20101215-websharper-2-0-beta2-released" style="border-bottom:0;">
+                    WebSharper 2.0 Beta2 released
+                  </a><a class="panel-block " href="/user/granicz/20101126-introducing-websharper-2-0-at-lwsug" style="border-bottom:0;">
+                    Introducing WebSharper 2.0 at LWSUG
+                  </a><a class="panel-block " href="/user/granicz/20101126-websharper-2-0-beta-available" style="border-bottom:0;">
+                    WebSharper 2.0 Beta available
+                  </a><a class="panel-block " href="/user/granicz/20101115-websharper-talk-at-sinergija-2010" style="border-bottom:0;">
+                    WebSharper talk at Sinergija 2010
+                  </a><a class="panel-block " href="/user/granicz/20101103-announcing-the-london-websharper-user-group" style="border-bottom:0;">
+                    Announcing the London WebSharper User Group
+                  </a><a class="panel-block " href="/user/granicz/20101006-f-mvp-award-2010" style="border-bottom:0;">
+                    F# MVP Award - 2010
+                  </a><a class="panel-block " href="/user/granicz/20100930-tutorial-implementing-a-shopping-cart-with-websharper" style="border-bottom:0;">
+                    Tutorial: Implementing a shopping cart with WebSharper
+                  </a><a class="panel-block " href="/user/granicz/20100909-cufp-2010-call-for-participation" style="border-bottom:0;">
+                    CUFP 2010 - Call for Participation
+                  </a><a class="panel-block " href="/user/granicz/20100806-websharper-available-in-visual-studio-gallery" style="border-bottom:0;">
+                    WebSharper available in Visual Studio Gallery
+                  </a><a class="panel-block " href="/user/granicz/20100805-expert-f-2-0-what-s-new" style="border-bottom:0;">
+                    Expert F# 2.0 - what&#39;s new?
+                  </a><a class="panel-block " href="/user/granicz/20100625-ml-2010-workshop-final-call-for-presentations" style="border-bottom:0;">
+                    ML 2010 Workshop - Final Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20100608-f-training-courses-in-ca-announced" style="border-bottom:0;">
+                    F# Training Courses in CA Announced
+                  </a><a class="panel-block " href="/user/granicz/20100522-websharper-2010-standard-is-available" style="border-bottom:0;">
+                    WebSharper 2010 Standard is available
+                  </a><a class="panel-block " href="/user/granicz/20100308-f-development-and-sales-jobs-in-london-california-and-budapest" style="border-bottom:0;">
+                    F# Development and Sales Jobs in London, California, and Budapest
+                  </a><a class="panel-block " href="/user/granicz/20100305-call-for-presentations-cufp-2010" style="border-bottom:0;">
+                    Call for Presentations - CUFP 2010
+                  </a><a class="panel-block " href="/user/granicz/20100305-call-for-presentations-ml-2010" style="border-bottom:0;">
+                    Call for Presentations - ML 2010
+                  </a><a class="panel-block " href="/user/granicz/20100210-websharper-2010-standard-coming-soon" style="border-bottom:0;">
+                    WebSharper 2010 Standard coming soon
+                  </a><a class="panel-block " href="/user/granicz/20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more" style="border-bottom:0;">
+                    WebSharper 0.4.62 is available - with dependent formlets-flowlets-third-party extensions-and more!
+                  </a><a class="panel-block " href="/user/granicz/20090710-rapid-prototyping-of-dsls-in-f-part-iii" style="border-bottom:0;">
+                    Rapid prototyping of DSLs in F# - Part III
+                  </a><a class="panel-block " href="/user/granicz/20090622-rapid-prototyping-of-dsls-in-f-part-ii" style="border-bottom:0;">
+                    Rapid prototyping of DSLs in F# - Part II
+                  </a><a class="panel-block " href="/user/granicz/20090523-parsing-with-active-patterns" style="border-bottom:0;">
+                    Parsing with active patterns
+                  </a><a class="panel-block " href="/user/granicz/20090522-f-may-2009-ctp-and-vs-2010-beta1" style="border-bottom:0;">
+                    F# May 2009 CTP and VS 2010 Beta1
+                  </a><a class="panel-block " href="/user/granicz/20090520-fp-bud-may-meetup" style="border-bottom:0;">
+                    FP-BUD May Meetup
+                  </a><a class="panel-block " href="/user/granicz/20090520-welcome-to-the-intellifactory-corporate-blogs" style="border-bottom:0;">
+                    Welcome to the IntelliFactory corporate blogs!
+                  </a><a class="panel-block is-active" href="/user/granicz/20061124-a-logo-interpreter-under-400-lines" style="border-bottom:0;">
+                    A Logo interpreter under 400 lines
+                  </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://github.com/granicz/SiteFi">
+          <strong>SiteFi</strong>
+        </a> by <a href="https://twitter.com/granicz">Adam Granicz</a>.
+        A static site generator implemented with WebSharper in F#, licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable">
+          <span class="icon is-large">
+            <i class="fa fa-rss-square fa-2x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script src="/js/Client.js"></script>
+  <script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+</body>
+</html>

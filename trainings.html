@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My F# blog</title>
+  <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[["WebSharper","Web","FSharpInlineControl"]],"$DATA":{"$V":{"ws134989966":{"$T":0,"$V":{"args":["[{\"featureType\":\"administrative\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#f2f2f2\"}, {\"visibility\":\"on\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e3e3e3\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#cccccc\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#FFFFFF\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]}]"],"funcName":["Website","ClientSideCode","TalksAndPresentations","GMap"]}},"ws176778258":{"$T":0,"$V":{"args":[],"funcName":["Website","ClientSideCode","Swiper","Init"]}}}}}' />
+<link type="text/css" rel="stylesheet" href="/assets/swiper.css"></link>
+
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <header class="navbar  transparent-navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item is-hoverable" onclick="Client.Bulma.ToggleDrawer()"><i class="fa fa-bars"></i></a>
+        <span class="navbar-item"><a href="/">IntelliFactory</a></span>
+      </div>
+      <div class="navbar-menu">
+        <nav class="navbar-start"><a href="/" class="navbar-item is-hoverable has-text-weight-bold">Home</a><a href="https://fsbolero.io" class="navbar-item is-hoverable has-text-weight-bold">Bolero</a><a href="https://websharper.com" class="navbar-item is-hoverable has-text-weight-bold">WebSharper</a><a href="https://cloudsharper.com" class="navbar-item is-hoverable has-text-weight-bold">CloudSharper</a><a href="/trainings" class="navbar-item is-hoverable has-text-weight-bold">Trainings</a><a href="/jobs" class="navbar-item is-hoverable has-text-weight-bold">Jobs</a><a href="/blogs" class="navbar-item is-hoverable has-text-weight-bold">Blogs</a><a href="/contact" class="navbar-item is-hoverable has-text-weight-bold">Contact</a></nav>
+        
+      </div>
+      
+    </div>
+  </header>
+  <div class="drawer-backdrop" onclick="Client.Bulma.ToggleDrawer()">
+    <div id="left-drawer" class="lhs-drawer">
+      <nav class="menu">
+        <ul class="menu-list"><li>
+            <a href="/">Home</a>
+            
+          </li><li>
+            <a href="https://fsbolero.io">Bolero</a>
+            
+          </li><li>
+            <a href="https://websharper.com">WebSharper</a>
+            
+          </li><li>
+            <a href="https://cloudsharper.com">CloudSharper</a>
+            
+          </li><li>
+            <a href="/trainings">Trainings</a>
+            
+          </li><li>
+            <a href="/jobs">Jobs</a>
+            
+          </li><li>
+            <a href="/blogs">Blogs</a>
+            
+          </li><li>
+            <a href="/contact">Contact</a>
+            
+          </li></ul>
+      </nav>
+    </div>
+  </div>
+  <div>
+      <div class="trainings-map">
+        <div id="ws134989966"></div>
+      </div>
+      <div id="image-slider" class="container is-fluid">
+        <div class="image-swiper-container swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img data-src="/assets/001.jpg" class="swiper-lazy" />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+            </div>
+            <div class="swiper-slide">
+              <img data-src="/assets/002.jpg" class="swiper-lazy" />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+            </div>
+            <div class="swiper-slide">
+              <img data-src="/assets/003.jpg" class="swiper-lazy" />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+            </div>
+            <div class="swiper-slide">
+              <img data-src="/assets/004.jpg" class="swiper-lazy" />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+            </div>
+            <div class="swiper-slide">
+              <img data-src="/assets/005.jpg" class="swiper-lazy" />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
+            </div>
+          </div>
+          <div class="image-swiper-scrollbar swiper-scrollbar"></div>
+          <div id="ws176778258"></div>
+        </div>
+      </div>
+    </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://github.com/granicz/SiteFi">
+          <strong>SiteFi</strong>
+        </a> by <a href="https://twitter.com/granicz">Adam Granicz</a>.
+        A static site generator implemented with WebSharper in F#, licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable">
+          <span class="icon is-large">
+            <i class="fa fa-rss-square fa-2x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script src="/js/Client.js"></script>
+  <script src="Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script src="/assets/swiper.js" type="text/javascript" charset="UTF-8"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBclwK3qO1qtBU_OgZzlZ_oVv1bkyUXaF0&amp;sensor=true" type="text/javascript" charset="UTF-8"></script><!--[if lte IE 7.0]>
+<script src="Scripts/WebSharper.Main/Json.js" type="text/javascript" charset="UTF-8"></script><![endif]-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript" charset="UTF-8"></script><!--[if lte IE 9.0]>
+<script src="Scripts/WebSharper.Main/AnimFrame.js" type="text/javascript" charset="UTF-8"></script><![endif]-->
+<script src="Scripts/WebSharper.Main/WebSharper.Main.js" type="text/javascript" charset="UTF-8"></script><script src="Scripts/WebSharper.Collections/WebSharper.Collections.js" type="text/javascript" charset="UTF-8"></script><script src="Scripts/WebSharper.Web/WebSharper.Web.js" type="text/javascript" charset="UTF-8"></script><script src="Scripts/WebSharper.UI/WebSharper.UI.js" type="text/javascript" charset="UTF-8"></script><script src="Scripts/Website/Website.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = 'Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+</body>
+</html>

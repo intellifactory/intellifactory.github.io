@@ -1,0 +1,1383 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My F# blog</title>
+  <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <header class="navbar  transparent-navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item is-hoverable" onclick="Client.Bulma.ToggleDrawer()"><i class="fa fa-bars"></i></a>
+        <span class="navbar-item"><a href="/">IntelliFactory</a></span>
+      </div>
+      <div class="navbar-menu">
+        <nav class="navbar-start"><a href="/" class="navbar-item is-hoverable has-text-weight-bold">Home</a><a href="https://fsbolero.io" class="navbar-item is-hoverable has-text-weight-bold">Bolero</a><a href="https://websharper.com" class="navbar-item is-hoverable has-text-weight-bold">WebSharper</a><a href="https://cloudsharper.com" class="navbar-item is-hoverable has-text-weight-bold">CloudSharper</a><a href="/trainings" class="navbar-item is-hoverable has-text-weight-bold">Trainings</a><a href="/jobs" class="navbar-item is-hoverable has-text-weight-bold">Jobs</a><a href="/blogs" class="navbar-item is-hoverable has-text-weight-bold">Blogs</a><a href="/contact" class="navbar-item is-hoverable has-text-weight-bold">Contact</a></nav>
+        
+      </div>
+      
+    </div>
+  </header>
+  <div class="drawer-backdrop" onclick="Client.Bulma.ToggleDrawer()">
+    <div id="left-drawer" class="lhs-drawer">
+      <nav class="menu">
+        <ul class="menu-list"><li>
+            <a href="/">Home</a>
+            
+          </li><li>
+            <a href="https://fsbolero.io">Bolero</a>
+            
+          </li><li>
+            <a href="https://websharper.com">WebSharper</a>
+            
+          </li><li>
+            <a href="https://cloudsharper.com">CloudSharper</a>
+            
+          </li><li>
+            <a href="/trainings">Trainings</a>
+            
+          </li><li>
+            <a href="/jobs">Jobs</a>
+            
+          </li><li>
+            <a href="/blogs">Blogs</a>
+            
+          </li><li>
+            <a href="/contact">Contact</a>
+            
+          </li></ul>
+      </nav>
+    </div>
+  </div>
+  
+      
+      
+      <section class="hero is-medium page-banner">
+        <div class="hero-body has-text-centered">
+          <h1 class="title is-spaced"></h1>
+          <h2 class="subtitle"></h2>
+        </div>
+      </section>
+      <section class="section has-background-white">
+        <div class="container">
+            <div class="masonry columns is-gapless is-multiline is-mobile" data-masonry="{ &quot;itemSelector&quot;: &quot;.masonry-item&quot;, &quot;horizontalOrder&quot;: true, &quot;precentPosition&quot;: true}"><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20200523-bolero-0-13-released"><p class="title is-4">Bolero 0.13 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Updated to Blazor 3.2.0 final release, with improvements to server-side hosting and component attributes.
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 23, 2020</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20200323-bolero-0-12-released"><p class="title is-4">Bolero 0.12 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Updated for .NET Core 3.1 and Blazor 3.2, introducing lazy components, improved data binders, and more.
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 23, 2020</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190924-bolero-0-9-released"><p class="title is-4">Bolero 0.9 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Release for .NET Core 3.0 RTM, introducing page models!
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Sep 24, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190805-bolero-0-7-released"><p class="title is-4">Bolero 0.7 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Updated for Blazor 3.0-preview7
+                                
+                                        <a href="/category/blazor">#blazor</a>&nbsp;
+                                    
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Aug 05, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview"><p class="title is-4">Bolero 0.5 released for Blazor 3.0-preview</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Updated to the latest and greatest Blazor and .NET Core
+                                
+                                        <a href="/category/blazor">#blazor</a>&nbsp;
+                                    
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 30, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication"><p class="title is-4">Bolero 0.4 released with remote authentication</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Authenticate users and authorize remote functions with standard ASP.NET Core auth.
+                                
+                                        <a href="/category/blazor">#blazor</a>&nbsp;
+                                    
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Apr 17, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190213-bolero-0-3-released-with-html-template-hot-reloading"><p class="title is-4">Bolero 0.3 released with HTML template hot reloading</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Designing a Bolero page is much quicker with HTML content live editing.
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 13, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20190123-bolero-0-2-released-with-improved-routing"><p class="title is-4">Bolero 0.2 released with improved routing</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                You can now specify full path templates for routers.
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jan 23, 2019</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20181213-announcing-bolero-f-tools-for-webassembly"><p class="title is-4">Announcing Bolero: F# tools for WebAssembly</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                A new library to create F# web applications in WebAssembly via Blazor.
+                                
+                                        <a href="/category/bolero">#bolero</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/webassembly">#webassembly</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Dec 13, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20181031-websharper-4-5-5-released"><p class="title is-4">WebSharper 4.5.5 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Introducing dynamic templates for WebSharper.UI
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Oct 31, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20181025-websharper-4-5-4-released"><p class="title is-4">WebSharper 4.5.4 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This minor release adds sitelet CORS support, drops jQuery from UI&#39;s dependencies and fixes a number of issues.
+                                
+                                        <a href="/category/cors">#cors</a>&nbsp;
+                                    
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Oct 25, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180914-websharper-4-5-2-released-with-new-aspnetcore-api"><p class="title is-4">WebSharper 4.5.2 released with new AspNetCore API</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This includes a more idiomatic API for WebSharper.AspNetCore.
+                                
+                                        <a href="/category/aspnetcore">#aspnetcore</a>&nbsp;
+                                    
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Sep 14, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180829-websharper-react-new-and-improved"><p class="title is-4">WebSharper.React: new and improved!</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                The new release makes it easy to use React in F#
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/react">#react</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Aug 29, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180809-websharper-4-5-released"><p class="title is-4">WebSharper 4.5 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release simplifies the use of HTML functions in WebSharper UI.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Aug 09, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180731-websharper-4-4-1-released"><p class="title is-4">WebSharper 4.4.1 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a minor release for WebSharper and WebSharper.UI.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jul 31, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180711-websharper-4-4-released-with-web-workers-and-promises"><p class="title is-4">WebSharper 4.4 released with Web Workers and Promises</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release improves client-side parallel and asynchronous programming in F# and C#.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/promise">#promise</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                        <a href="/category/webworker">#webworker</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jul 11, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180627-websharper-4-3-released-with-pure-net-core-support"><p class="title is-4">WebSharper 4.3 released with pure .NET Core support</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                With this release, mono is not required during compile time anymore.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/netcore">#netcore</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jun 27, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180504-websharper-4-2-10-and-ui-4-2-6-released"><p class="title is-4">WebSharper 4.2.10 and UI 4.2.6 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This minor release brings bug fixes and a few features to WebSharper and UI.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 04, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180417-websharper-4-2-9-released"><p class="title is-4">WebSharper 4.2.9 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a minor release for WebSharper and WebSharper.UI.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Apr 17, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180329-websharper-ui-4-2-4-released"><p class="title is-4">WebSharper.UI 4.2.4 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a minor feature release of WebSharper.UI, out-of-band from WebSharper.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 29, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180326-websharper-4-2-8-released-with-in-document-template-binding"><p class="title is-4">WebSharper 4.2.8 released with in-document template binding</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                The main highlight of this release is in-document template binding, a client-side feature which treats the whole document as a template to be filled.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/templating">#templating</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 26, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180321-websharper-4-for-asp-net-mvc-new-and-improved"><p class="title is-4">WebSharper 4 for ASP.NET MVC: new and improved</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Today we are releasing WebSharper.AspNetMvc 4.2.0, with a simplified API.
+                                
+                                        <a href="/category/aspnetmvc">#aspnetmvc</a>&nbsp;
+                                    
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 21, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180228-clear-and-simple-reactive-code-with-websharper-ui-s-v"><p class="title is-4">Clear and simple reactive code with WebSharper.UI&#39;s V</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Reactive code can be just as clear and readable as static code with this new WebSharper.UI feature!
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/reactive">#reactive</a>&nbsp;
+                                    
+                                        <a href="/category/ui">#ui</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 28, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180226-websharper-4-2-released"><p class="title is-4">WebSharper 4.2 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                It is finally here! Today we are releasing WebSharper 4.2.
+                                
+                                        <a href="/category/aspnetcore">#aspnetcore</a>&nbsp;
+                                    
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 26, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180220-websharper-4-1-7-and-4-2-2-beta-released"><p class="title is-4">WebSharper 4.1.7 and 4.2.2-beta released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a bugfix release for both the stable and beta branches of WebSharper.
+                                
+                                        <a href="/category/csharp">#csharp</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 20, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180117-websharper-4-1-3-released"><p class="title is-4">WebSharper 4.1.3 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a small bugfix release
+                                
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jan 17, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180112-a-simple-oauth-application"><p class="title is-4">A simple OAuth application</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                I wrote a simple template application that you can use as a base to create your own OAuth-based app.
+                                
+                                        <a href="/category/authentication">#authentication</a>&nbsp;
+                                    
+                                        <a href="/category/oauth">#oauth</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jan 12, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20180109-password-less-authentication-with-websharper-oauth"><p class="title is-4">Password-less authentication with WebSharper.OAuth</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This tutorial shows how to authenticate a WebSharper Client-Server Application with an OAuth2 service and query its API.
+                                
+                                        <a href="/category/authentication">#authentication</a>&nbsp;
+                                    
+                                        <a href="/category/oauth">#oauth</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jan 09, 2018</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20160113-websharper-3-6-7-released"><p class="title is-4">WebSharper 3.6.7 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a minor release with bug fixes and updates for dependent libraries.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/suave">#suave</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jan 13, 2016</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151215-websharper-3-6-6-released"><p class="title is-4">WebSharper 3.6.6 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release adds a small client-side cookies library, a function to require resources in client-side markup, and various bug fixes.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Dec 15, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151123-websharper-3-6-released-with-cdn-support"><p class="title is-4">WebSharper 3.6 released with CDN support</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                We released WebSharper 3.6 which allows you to automatically point to our CDN for WebSharper libraries.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Nov 23, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151112-websharper-3-5-16-released"><p class="title is-4">WebSharper 3.5.16 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                WebSharper 3.5.16 splits off the WebSharper.Testing framework into a separate package and fixes a few bugs.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Nov 12, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151028-websharper-3-5-13-released"><p class="title is-4">WebSharper 3.5.13 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release adds Visual Studio 2015 Enterprise Edition support, and several bug fixes and minor features.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Oct 28, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151021-websharper-3-5-9-released"><p class="title is-4">WebSharper 3.5.9 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is mostly a bugfix release, with a few shorthands added to the UI.Next API.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Oct 21, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20151001-announcing-websharper-suave"><p class="title is-4">Announcing WebSharper.Suave</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                We are happy to announce the release of WebSharper.Suave, an adapter to run WebSharper applications on Suave.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/suave">#suave</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Oct 01, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150924-websharper-3-4-19-released"><p class="title is-4">WebSharper 3.4.19 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This new release of WebSharper adds the Xamarin Studio addin to the main release channel and introduces checked UI.Next number inputs, among many minor features and bug fixes.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/release">#release</a>&nbsp;
+                                    
+                                        <a href="/category/ui.next">#ui.next</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                        <a href="/category/xs">#xs</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Sep 24, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150908-websharper-ui-next-3-4-19-with-onafterrender"><p class="title is-4">WebSharper.UI.Next 3.4.19 with OnAfterRender</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a minor release of WebSharper UI.Next which provides the OnAfterRender feature from Html.Client.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/reactive">#reactive</a>&nbsp;
+                                    
+                                        <a href="/category/ui.next">#ui.next</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Sep 08, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150902-websharper-3-4-14-released"><p class="title is-4">WebSharper 3.4.14 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release introduces features such as lenses to UI.Next and prepares the terrain for UI.Next versions of Formlets and Piglets.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/owin">#owin</a>&nbsp;
+                                    
+                                        <a href="/category/release">#release</a>&nbsp;
+                                    
+                                        <a href="/category/ui.next">#ui.next</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Sep 02, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150803-websharper-3-4-released"><p class="title is-4">WebSharper 3.4 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                WebSharper 3.4 is out with a slew of features: new F# 4.0 collection functions, revamped sitelets API, anti-CSRF protection for RPC functions, and a reworked HTML language in UI.Next with server-side capability.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Aug 03, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150803-websharper-ui-next-3-4-the-new-html-syntax"><p class="title is-4">WebSharper UI.Next 3.4: the new HTML syntax</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                In version 3.4, WebSharper UI.Next&#39;s markup has been overhauled in order to prepare for the upcoming merger into WebSharper in version 4.0.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/html">#html</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/reactive">#reactive</a>&nbsp;
+                                    
+                                        <a href="/category/ui.next">#ui.next</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Aug 03, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150722-websharper-3-3-released-with-client-side-json-serialization"><p class="title is-4">WebSharper 3.3 released with client-side JSON serialization</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                We just released WebSharper 3.3 with a new capability: Sitelets-compatible JSON serialization and deserialization on the client.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/json">#json</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jul 22, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150714-websharper-3-2-22-released"><p class="title is-4">WebSharper 3.2.22 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This is a bugfix release including numerous fixes for compilation to JavaScript in Warp applications.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/warp">#warp</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Jul 14, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150523-websharper-3-1-published"><p class="title is-4">WebSharper 3.1 published</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                The main highlights of this release are ASP.NET MVC support (including Razor pages), and a lighter syntax to embed client-side controls in sitelets.
+                                
+                                        <a href="/category/aspnetmvc">#aspnetmvc</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/razor">#razor</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 23, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150521-cloudsharper-0-9-31-published"><p class="title is-4">CloudSharper 0.9.31 published</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This release updates CloudSharper to use WebSharper 3.1.
+                                
+                                        <a href="/category/cloudsharper">#cloudsharper</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 21, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150512-websharper-from-zero-to-an-azure-deployed-web-application"><p class="title is-4">WebSharper: From Zero to an Azure-deployed Web Application</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Find out how to easily set up a WebSharper application for deployment to Azure.
+                                
+                                        <a href="/category/azure">#azure</a>&nbsp;
+                                    
+                                        <a href="/category/deployment">#deployment</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/paket">#paket</a>&nbsp;
+                                    
+                                        <a href="/category/tutorial">#tutorial</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 12, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150506-websharper-3-0-59-released"><p class="title is-4">WebSharper 3.0.59 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                This minor release adds Sitelets-related functionality and bug fixes.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">May 06, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150318-websharper-3-0-rc-released"><p class="title is-4">WebSharper 3.0 RC released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                We are finally closing in on the final WebSharper 3.0 with this release candidate.
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/javascript">#javascript</a>&nbsp;
+                                    
+                                        <a href="/category/web">#web</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 18, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150302-cloudsharper-0-9-29-released"><p class="title is-4">CloudSharper 0.9.29 released</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                CloudSharper 0.9.29 is out, with UI enhancements and a number of fixes to the editor.
+                                
+                                        <a href="/category/cloudsharper">#cloudsharper</a>&nbsp;
+                                    
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Mar 02, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150225-websharper-3-0-alpha-for-xamarin-studio-monodevelop-is-now-available"><p class="title is-4">WebSharper 3.0-alpha for Xamarin Studio / MonoDevelop is now available!</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                We have updated the WebSharper Xamarin Studio / MonoDevelop add-in for the latest WebSharper 3.0.36-alpha.It is now easier than ever to get started with WebSharper 3.0 on Mac or Linux!
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/monodevelop">#monodevelop</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                        <a href="/category/xamarin">#xamarin</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 25, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="masonry-item column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <a href="/user/denuziere/20150213-upcoming-in-websharper-3-0-serving-rest-apis-easy-as-pie"><p class="title is-4">Upcoming in WebSharper 3.0: serving REST APIs, easy as pie!</p></a>
+                                    <p class="subtitle is-6"><a href="/user/denuziere">Loic Denuziere</a></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                WebSharper 3.0 is coming with an awesome new feature: automatically parse JSON requests into typed F# values, and reply with JSON just as easily!
+                                
+                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                    
+                                        <a href="/category/websharper">#websharper</a>&nbsp;
+                                    
+                                <br />
+                                <time datetime="2016-1-1">Feb 13, 2015</time>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+      </section>
+    
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://github.com/granicz/SiteFi">
+          <strong>SiteFi</strong>
+        </a> by <a href="https://twitter.com/granicz">Adam Granicz</a>.
+        A static site generator implemented with WebSharper in F#, licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable">
+          <span class="icon is-large">
+            <i class="fa fa-rss-square fa-2x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script src="/js/Client.js"></script>
+  <script src="../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+</body>
+</html>

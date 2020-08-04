@@ -1,0 +1,593 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First steps: Using HTML templates, accessing form values, and wiring events | My F# blog</title>
+  <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <header class="navbar  ">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item is-hoverable" onclick="Client.Bulma.ToggleDrawer()"><i class="fa fa-bars"></i></a>
+        <span class="navbar-item"><a href="/">IntelliFactory</a></span>
+      </div>
+      <div class="navbar-menu">
+        <nav class="navbar-start"><a href="/" class="navbar-item is-hoverable has-text-weight-bold">Home</a><a href="https://fsbolero.io" class="navbar-item is-hoverable has-text-weight-bold">Bolero</a><a href="https://websharper.com" class="navbar-item is-hoverable has-text-weight-bold">WebSharper</a><a href="https://cloudsharper.com" class="navbar-item is-hoverable has-text-weight-bold">CloudSharper</a><a href="/trainings" class="navbar-item is-hoverable has-text-weight-bold">Trainings</a><a href="/jobs" class="navbar-item is-hoverable has-text-weight-bold">Jobs</a><a href="/blogs" class="navbar-item is-hoverable has-text-weight-bold">Blogs</a><a href="/contact" class="navbar-item is-hoverable has-text-weight-bold">Contact</a></nav>
+        
+      </div>
+      
+    </div>
+  </header>
+  <div class="drawer-backdrop" onclick="Client.Bulma.ToggleDrawer()">
+    <div id="left-drawer" class="lhs-drawer">
+      <nav class="menu">
+        <ul class="menu-list"><li>
+            <a href="/">Home</a>
+            
+          </li><li>
+            <a href="https://fsbolero.io">Bolero</a>
+            
+          </li><li>
+            <a href="https://websharper.com">WebSharper</a>
+            
+          </li><li>
+            <a href="https://cloudsharper.com">CloudSharper</a>
+            
+          </li><li>
+            <a href="/trainings">Trainings</a>
+            
+          </li><li>
+            <a href="/jobs">Jobs</a>
+            
+          </li><li>
+            <a href="/blogs">Blogs</a>
+            
+          </li><li>
+            <a href="/contact">Contact</a>
+            
+          </li></ul>
+      </nav>
+    </div>
+  </div>
+  
+        <div class="container">
+          <div class="columns is-gapless">
+            <div class="column content markdown-column">
+              <section class="hero">
+                <div class="hero-body">
+                  <h1 class="title">First steps: Using HTML templates, accessing form values, and wiring events</h1>
+                  
+                </div>
+              </section>
+              <section class="section"><div ws-preserve=""><p>Congratulations on taking the first step to learn WebSharper! We have carefully put together this hands-on tutorial with the aim to help you get started with WebSharper and on your way to learn functional, reactive web development, putting you on a fast track to unleash the real web developer in you. The skills you pick up with WebSharper will make you a better web developer, and the concepts you learn will remain valid and useful with other functional, reactive web frameworks and libraries as well. You can find links to further material below and the sources of this tutorial in the bottom of this page, and you can <a href="http://try.websharper.com/snippet/adam.granicz/0000Jn">see the resulting app in action live on Try WebSharper</a>.</p>
+<h3 id="what-you-will-learn-and-where-you-can-find-out-more">What you will learn and where you can find out more</h3>
+<ol>
+<li><strong>Using HTML templates</strong> (these work on the client and server alike) instead of inline HTML combinators. <em>Further reading</em>: the &quot;HTML Templates&quot; section of the <a href="https://developers.websharper.com/docs/v4.x/fs/ui">Reactive HTML</a> page of the main documentation.</li>
+<li><strong>Reading and writing the values of input controls</strong> (text boxes, text areas, checkboxes, etc.) in your HTML page through your template's data model. <em>Further reading</em>: the &quot;Accessing the template's model&quot; subsection of the <a href="https://developers.websharper.com/docs/v4.x/fs/ui">Reactive HTML</a> page of the main documentation.</li>
+<li><strong>Wiring events</strong> such as button clicks. <em>Further reading</em>: the bottom of the &quot;Holes&quot; subsection of the <a href="https://developers.websharper.com/docs/v4.x/fs/ui">Reactive HTML</a> page of the main documentation.</li>
+<li><strong>Using reactive variables</strong> - and reflecting their state to the UI. In this tutorial you will see how to apply CSS classes dependent on reactive variables and how to use the <strong>V notation</strong>. <em>Further reading</em>: the &quot;Reactive layer&quot; and &quot;The V shorthand&quot; sections of the <a href="https://developers.websharper.com/docs/v4.x/fs/ui">Reactive HTML</a> page in the main documentation. We will cover <strong>two-way binding more complex data models</strong> in another tutorial.</li>
+</ol>
+<h3 id="our-application-login-page-for-an-spa">Our application: Login page for an SPA</h3>
+<p>In this tutorial, you will learn how to work with external HTML files (aka. templates) and how to implement your application logic into them. For this, you will take a <a href="https://dansup.github.io/bulma-templates/templates/login.html">login page</a> from <a href="https://github.com/dansup">dansup</a>'s wonderful free <a href="https://dansup.github.io/bulma-templates/">Bulma template collection</a>. Your app will look pretty much the same and also implement basic form validation:</p>
+<p><img src="https://i.imgur.com/E8Uv7oNl.png" alt="" /></p>
+<blockquote>
+<p>The main takeaway of this tutorial is that you should use HTML templates as much as possible instead of inlining HTML code into your application logic. While it's certainly easy to construct HTML in C# or F# (by using the HTML combinators defined in <code>WebSharper.UI.Html</code>), it's our recommendation that you avoid it as much as you can for <strong>better logic vs. presentation separation</strong>.</p>
+</blockquote>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>To get the most out of this tutorial, make sure you have installed:</p>
+<ul>
+<li>.NET Core 2.0+ and ASP.NET Core</li>
+<li>the <a href="http://websharper.com/downloads">latest WebSharper templates</a></li>
+<li>Visual Studio Code with <a href="http://ionide.io/">Ionide</a> and/or Visual Studio 2017</li>
+</ul>
+<h3 id="create-your-first-spa-with-websharper">1. Create your first SPA with WebSharper</h3>
+<p>Grab a command prompt, <code>cd</code> into the folder you want to use for your new project, and type:</p>
+<pre><code class="language-text">dotnet new websharper-spa -lang f# -n MyProject
+</code></pre>
+<p>This will create a new WebSharper SPA project for you. You will use F# for this tutorial, but you can also choose to create a C# project (just leave off the <code>-lang f#</code> part) and adapt the sources we discuss here. Go ahead and open this project with your favorite editor.</p>
+<h3 id="project-structure">2. Project structure</h3>
+<p><img src="https://i.imgur.com/nhnYqYBm.png" alt="" /></p>
+<ul>
+<li><code>wwwroot/index.html</code> - Your main SPA - this is the file you open to run your app</li>
+<li><code>Client.fs</code> - The logic for your SPA - this is where your F# code will be</li>
+<li><code>MyProject.fsproj</code> - The .NET Core project file for your SPA</li>
+<li><code>Program.fs</code> / <code>Startup.fs</code> - The minimal boilerplate to run/host your app with the default ASP.NET Core web server</li>
+<li><code>wsconfig.json</code> - Your WebSharper configuration file - normally, it's all set up for you</li>
+</ul>
+<h3 id="bring-your-html">3. Bring your HTML</h3>
+<p>The SPA project you just created consists of a sample template that you can simply replace with the new markup from the login template. To see what's going on underneath, follow these steps:</p>
+<ol>
+<li><p>Replace <code>wwwroot/index.html</code> with the source of the <a href="https://dansup.github.io/bulma-templates/templates/login.html">login page</a></p>
+</li>
+<li><p>Download <code>login.css</code> from the login template as <code>wwwroot/css/login.css</code>, and update the reference to it in <code>wwwroot/index.html</code> accordingly:</p>
+<pre><code class="language-html">  ..
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/login.css&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+</li>
+<li><p>Feel free to remove the reference to <code>bulma.js</code> - it is not strictly needed.</p>
+</li>
+<li><p>Re-add the following block to the bottom of the <code>&lt;head&gt;</code> section:</p>
+<pre><code class="language-html">&lt;style&gt;
+  [ws-template], [ws-children-template] { display: none; }
+ .hidden { display: none; }
+&lt;/style&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;Content/MyProject.head.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This will give you a <code>.hidden</code> CSS class to hide things (always comes handy), and also make sure that <strong>any dependencies are correctly brought into the page</strong> by WebSharper when needed.</p>
+</li>
+<li><p>Re-add the following block to the bottom of the <code>&lt;body&gt;</code> section:</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;Content/MyProject.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This will <strong>load the JavaScript code WebSharper generates</strong> for your SPA.</p>
+</li>
+<li><p>Feel free to update the <code>&lt;title&gt;...&lt;/title&gt;</code> with the title you prefer to give to your app.</p>
+</li>
+<li><p>Change the links below the login form as you see fit (we won't deal with those in this tutorial.)</p>
+</li>
+</ol>
+<h3 id="main-task-implementing-login-with-validation">4. Main task: implementing login with validation</h3>
+<p>Now that you have the skeleton of your login page, you can quickly wire in the necessary logic. First, you need to be able to access the email and password values the user types in. The WebSharper way of doing that is going into the template and marking the input controls that supply values to the F# layer with a <code>ws-var</code> attribute. You also want to implement some basic validation and use Bulma's <code>is-danger</code> class to visually indicate when an input control is not giving what you are expecting. So add in <code>ws-attr</code> attributes as well, and change the relevant lines to:</p>
+<pre><code class="language-html">...
+    &lt;input ws-var=&quot;Email&quot; ws-attr=&quot;AttrEmail&quot; class=&quot;input is-large&quot; type=&quot;email&quot; placeholder=&quot;Your Email&quot; autofocus=&quot;&quot;&gt;
+...
+    &lt;input ws-var=&quot;Password&quot; ws-attr=&quot;AttrPassword&quot; class=&quot;input is-large&quot; type=&quot;password&quot; placeholder=&quot;Your Password&quot;&gt;
+...
+    &lt;input ws-var=&quot;RememberMe&quot; type=&quot;checkbox&quot;&gt;
+...
+</code></pre>
+<p>Also, add a <code>ws-onclick</code> attribute to the Login button so you can wire a click event handler to it:</p>
+<pre><code class="language-html">...
+   &lt;button ws-onclick=&quot;Login&quot; class=&quot;button is-block is-info is-large is-fullwidth&quot;&gt;Login&lt;/button&gt;
+...
+</code></pre>
+<p>Now, you are ready to write your F# logic and switch over to <code>Client.fs</code>. If you didn't have to worry about validation, things would be super simple, but in this case you want the full enchilada, so you will also use a couple reactive variables as a mini data model (<code>passwordValid</code> and <code>emailValid</code>) to tell whether the email and password fields are valid.</p>
+<p><img src="https://i.imgur.com/KblwDbd.png" alt="" /></p>
+<p>At this point, you can see that the WebSharper UI templating type provider conveniently feeds back the reactive variables and attributes you defined in your master template, and you can simply set these up as follows:</p>
+<ol>
+<li><p>Show a visual validation error for the Email input box if <code>emailValid</code> is false by applying Bulma's <code>is-danger</code> class:</p>
+<pre><code class="language-fsharp">MySPA()
+    .AttrEmail(Attr.ClassPred &quot;is-danger&quot; (not emailValid.V))
+</code></pre>
+<blockquote>
+<p>Here, <code>emailValid.V</code> is a shorthand WebSharper uses (it's a type-directed macro) that enables to treat a Var or a View as the underlying value in reactive scenarios/functions (such as <code>Attr.ClassPred</code>.)</p>
+</blockquote>
+</li>
+<li><p>Similary, show a validation error for the password field is <code>passwordValid</code> is false:</p>
+<pre><code class="language-fsharp">    .AttrPassword(Attr.ClassPred &quot;is-danger&quot; (not passwordValid.V))
+</code></pre>
+</li>
+<li><p>Now, handle the Login button click - this is what decides what constitutes a valid input (no empty fields) and simply putting up a popup alert if login is successful (this is where you would do a server call to authenticate your users and to log them in by creating a user session):</p>
+<pre><code class="language-fsharp">    .Login(fun e -&gt;
+        passwordValid := not (String.IsNullOrWhiteSpace e.Vars.Password.Value)
+        emailValid := not (String.IsNullOrWhiteSpace e.Vars.Email.Value)
+
+        if passwordValid.Value &amp;&amp; emailValid.Value then
+            JS.Alert (sprintf &quot;Your email is %s&quot; e.Vars.Email.Value)
+        e.Event.PreventDefault()
+    )
+</code></pre>
+<blockquote>
+<p>Note how <code>e</code> in the login handler enables you to <strong>access all the input values</strong> through <code>e.Vars</code>. You can also use these to <strong>set their values on the UI</strong> - two-way binding in WebSharper UI really rocks.</p>
+</blockquote>
+</li>
+<li><p>And last, seal these and bind your logic to the SPA:</p>
+<pre><code class="language-fsharp">    .Bind()
+</code></pre>
+</li>
+</ol>
+<p>And boom, you are done.</p>
+<h3 id="further-improvements">5. Further improvements</h3>
+<p>Your login app is 30 lines of F# code, and even for a short tutorial like this one, you can pull off one more trick. Say, you wanted to add <strong>error messages</strong> below the input boxes that are failing validation. Bulma's way is to add these to the markup after each input control. In addition, all you need as extra is another <code>ws-attr</code> attribute:</p>
+<pre><code class="language-html">&lt;div class=&quot;field&quot;&gt;
+  &lt;div class=&quot;control&quot;&gt;
+    &lt;input ...&gt;
+  &lt;/div&gt;
+  &lt;p ws-attr=&quot;AttrEmailMessage&quot; class=&quot;is-danger help&quot;&gt;Please enter an email address&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The last bit is handling the showing/hiding of this error message in <code>Client.fs</code> by applying the <code>hidden</code> class you added to the template earlier:</p>
+<pre><code class="language-fsharp">    .AttrEmailMessage(Attr.ClassPred &quot;hidden&quot; emailValid.V)
+</code></pre>
+<p>As a bonus exercise, you can add a similar error message for the password field as well, and just a  hint: it will look exactly like what you did above.</p>
+<h3 id="source-code-and-try-the-app">Source code and try the app</h3>
+<p>You can fork <a href="https://github.com/websharper-samples/LoginWithBulma">this SPA project</a> via GitHub, it's a whopping 35 LOC F# in its entirety - enjoy! You can also <a href="http://try.websharper.com/snippet/adam.granicz/0000Jn">try out a slightly adapted version</a> live on Try WebSharper.</p>
+<p>Happy coding!</p>
+</div></section>
+            </div>
+            <div class="column is-one-quarter-tablet is-one-fifth-desktop sidebar-column">
+              <nav class="panel is-shadowless" style="padding-top: 1em;">
+                <p class="panel-heading" style="border:0;background-color:white;">
+                  Categories
+                </p>
+                <div class="tags are-medium panel-content">
+                  <a class="is-inline " href="/category/fsharp" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">fsharp</span>
+                    </a><a class="is-inline " href="/category/templating" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">templating</span>
+                    </a><a class="is-inline " href="/category/ui" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">ui</span>
+                    </a><a class="is-inline " href="/category/websharper" style="padding: 0.5em 0.5em 0 0;">
+                      <span class="tag is-info">websharper</span>
+                    </a>
+                </div>
+              </nav>
+              <nav class="panel is-shadowless" style="padding-top:10px;">
+                <p class="panel-heading" style="border:0;">
+                  All posts
+                  <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable"><i class="fa fa-rss-square"></i></a>
+                </p>
+                <a class="panel-block " href="/user/denuziere/20200523-bolero-0-13-released" style="border-bottom:0;">
+                    Bolero 0.13 released
+                  </a><a class="panel-block " href="/user/denuziere/20200323-bolero-0-12-released" style="border-bottom:0;">
+                    Bolero 0.12 released
+                  </a><a class="panel-block " href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one" style="border-bottom:0;">
+                    Converting a WebSharper HTML app to a client-server one
+                  </a><a class="panel-block " href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog" style="border-bottom:0;">
+                    F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                  </a><a class="panel-block " href="/user/denuziere/20190924-bolero-0-9-released" style="border-bottom:0;">
+                    Bolero 0.9 released
+                  </a><a class="panel-block " href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this" style="border-bottom:0;">
+                    Your first Bolero project not compiling? Try this!
+                  </a><a class="panel-block " href="/user/denuziere/20190805-bolero-0-7-released" style="border-bottom:0;">
+                    Bolero 0.7 released
+                  </a><a class="panel-block " href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview" style="border-bottom:0;">
+                    Bolero 0.5 released for Blazor 3.0-preview
+                  </a><a class="panel-block " href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication" style="border-bottom:0;">
+                    Bolero 0.4 released with remote authentication
+                  </a><a class="panel-block " href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support" style="border-bottom:0;">
+                    WebSharper 4.5.8 released with Visual Studio 2019 support
+                  </a><a class="panel-block " href="/user/jankoa/20190226-websharper-4-5-9-released-with-f-anonymous-record-support" style="border-bottom:0;">
+                    WebSharper 4.5.9 released with F# anonymous record support
+                  </a><a class="panel-block " href="/user/denuziere/20190213-bolero-0-3-released-with-html-template-hot-reloading" style="border-bottom:0;">
+                    Bolero 0.3 released with HTML template hot reloading
+                  </a><a class="panel-block " href="/user/denuziere/20190123-bolero-0-2-released-with-improved-routing" style="border-bottom:0;">
+                    Bolero 0.2 released with improved routing
+                  </a><a class="panel-block " href="/user/granicz/20181219-announcing-try-f-on-webassembly" style="border-bottom:0;">
+                    Announcing Try F# on WebAssembly
+                  </a><a class="panel-block " href="/user/denuziere/20181213-announcing-bolero-f-tools-for-webassembly" style="border-bottom:0;">
+                    Announcing Bolero: F# tools for WebAssembly
+                  </a><a class="panel-block " href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper" style="border-bottom:0;">
+                    From enterprise to next-generation web: celebrating 11 years with WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20181031-websharper-4-5-5-released" style="border-bottom:0;">
+                    WebSharper 4.5.5 released
+                  </a><a class="panel-block " href="/user/denuziere/20181025-websharper-4-5-4-released" style="border-bottom:0;">
+                    WebSharper 4.5.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20180914-websharper-4-5-2-released-with-new-aspnetcore-api" style="border-bottom:0;">
+                    WebSharper 4.5.2 released with new AspNetCore API
+                  </a><a class="panel-block " href="/user/denuziere/20180829-websharper-react-new-and-improved" style="border-bottom:0;">
+                    WebSharper.React: new and improved!
+                  </a><a class="panel-block " href="/user/denuziere/20180809-websharper-4-5-released" style="border-bottom:0;">
+                    WebSharper 4.5 released
+                  </a><a class="panel-block " href="/user/denuziere/20180731-websharper-4-4-1-released" style="border-bottom:0;">
+                    WebSharper 4.4.1 released
+                  </a><a class="panel-block " href="/user/denuziere/20180711-websharper-4-4-released-with-web-workers-and-promises" style="border-bottom:0;">
+                    WebSharper 4.4 released with Web Workers and Promises
+                  </a><a class="panel-block " href="/user/denuziere/20180627-websharper-4-3-released-with-pure-net-core-support" style="border-bottom:0;">
+                    WebSharper 4.3 released with pure .NET Core support
+                  </a><a class="panel-block " href="/user/jankoa/20180615-create-javascript-libraries-from-your-c-or-f-code" style="border-bottom:0;">
+                    Create JavaScript libraries from your C# or F# code
+                  </a><a class="panel-block " href="/user/denuziere/20180504-websharper-4-2-10-and-ui-4-2-6-released" style="border-bottom:0;">
+                    WebSharper 4.2.10 and UI 4.2.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20180417-websharper-4-2-9-released" style="border-bottom:0;">
+                    WebSharper 4.2.9 released
+                  </a><a class="panel-block " href="/user/granicz/20180409-part-2-model-view-update-mvu-style-apps-with-websharper-ui" style="border-bottom:0;">
+                    Part 2. Model-View-Update (MVU) style apps with WebSharper UI
+                  </a><a class="panel-block " href="/user/denuziere/20180329-websharper-ui-4-2-4-released" style="border-bottom:0;">
+                    WebSharper.UI 4.2.4 released
+                  </a><a class="panel-block is-active" href="/user/granicz/20180327-first-steps-using-html-templates-accessing-form-values-and-wiring-events" style="border-bottom:0;">
+                    First steps: Using HTML templates, accessing form values, and wiring events
+                  </a><a class="panel-block " href="/user/denuziere/20180326-websharper-4-2-8-released-with-in-document-template-binding" style="border-bottom:0;">
+                    WebSharper 4.2.8 released with in-document template binding
+                  </a><a class="panel-block " href="/user/denuziere/20180321-websharper-4-for-asp-net-mvc-new-and-improved" style="border-bottom:0;">
+                    WebSharper 4 for ASP.NET MVC: new and improved
+                  </a><a class="panel-block " href="/user/jankoa/20180312-websharper-4-2-4-released" style="border-bottom:0;">
+                    WebSharper 4.2.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20180228-clear-and-simple-reactive-code-with-websharper-ui-s-v" style="border-bottom:0;">
+                    Clear and simple reactive code with WebSharper.UI&#39;s V
+                  </a><a class="panel-block " href="/user/denuziere/20180226-websharper-4-2-released" style="border-bottom:0;">
+                    WebSharper 4.2 released
+                  </a><a class="panel-block " href="/user/jankoa/20180221-deploying-a-net-core-websharper-site-in-aws-lambda" style="border-bottom:0;">
+                    Deploying a .NET Core WebSharper site in AWS Lambda
+                  </a><a class="panel-block " href="/user/denuziere/20180220-websharper-4-1-7-and-4-2-2-beta-released" style="border-bottom:0;">
+                    WebSharper 4.1.7 and 4.2.2-beta released
+                  </a><a class="panel-block " href="/user/jankoa/20180212-websharper-4-2-beta-released-with-net-core-standard-support" style="border-bottom:0;">
+                    WebSharper 4.2-beta released with .NET Core/Standard support
+                  </a><a class="panel-block " href="/user/jankoa/20180207-websharper-4-1-2-released" style="border-bottom:0;">
+                    WebSharper 4.1.2 released
+                  </a><a class="panel-block " href="/user/jankoa/20180207-websharper-4-1-6-released" style="border-bottom:0;">
+                    WebSharper 4.1.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20180117-websharper-4-1-3-released" style="border-bottom:0;">
+                    WebSharper 4.1.3 released
+                  </a><a class="panel-block " href="/user/denuziere/20180112-a-simple-oauth-application" style="border-bottom:0;">
+                    A simple OAuth application
+                  </a><a class="panel-block " href="/user/denuziere/20180109-password-less-authentication-with-websharper-oauth" style="border-bottom:0;">
+                    Password-less authentication with WebSharper.OAuth
+                  </a><a class="panel-block " href="/user/jankoa/20180109-websharper-4-1-1-released" style="border-bottom:0;">
+                    WebSharper 4.1.1 released
+                  </a><a class="panel-block " href="/user/granicz/20171229-serving-spas" style="border-bottom:0;">
+                    Serving SPAs
+                  </a><a class="panel-block " href="/user/jankoa/20171225-websharper-4-1-released" style="border-bottom:0;">
+                    WebSharper 4.1 released
+                  </a><a class="panel-block " href="/user/jankoa/20170908-announcing-websharper-4-release-candidate" style="border-bottom:0;">
+                    Announcing WebSharper 4 Release Candidate
+                  </a><a class="panel-block " href="/user/jankoa/20170828-websharper-4-beta-10-released" style="border-bottom:0;">
+                    WebSharper 4 beta-10 released
+                  </a><a class="panel-block " href="/user/jankoa/20170726-websharper-4-beta-9-released" style="border-bottom:0;">
+                    WebSharper 4 beta-9 released
+                  </a><a class="panel-block " href="/user/jankoa/20170609-websharper-4-beta-7-released" style="border-bottom:0;">
+                    WebSharper 4 beta-7 released
+                  </a><a class="panel-block " href="/user/jankoa/20170412-websharper-4-beta-6-bugfix-released" style="border-bottom:0;">
+                    WebSharper 4 beta-6 bugfix released
+                  </a><a class="panel-block " href="/user/jankoa/20170325-websharper-4-beta-6-released" style="border-bottom:0;">
+                    WebSharper 4 beta-6 released
+                  </a><a class="panel-block " href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper" style="border-bottom:0;">
+                    Simple reactive scenarios with WebSharper
+                  </a><a class="panel-block " href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper" style="border-bottom:0;">
+                    Distributed web applications in F# with WebSharper
+                  </a><a class="panel-block " href="/user/jankoa/20161207-the-road-to-websharper-4" style="border-bottom:0;">
+                    The road to WebSharper 4
+                  </a><a class="panel-block " href="/user/granicz/20160406-a-faster-and-slicker-try-websharper" style="border-bottom:0;">
+                    A faster and slicker Try WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20160113-websharper-3-6-7-released" style="border-bottom:0;">
+                    WebSharper 3.6.7 released
+                  </a><a class="panel-block " href="/user/granicz/20151226-websharper-a-year-in-review" style="border-bottom:0;">
+                    WebSharper - a year in review
+                  </a><a class="panel-block " href="/user/denuziere/20151215-websharper-3-6-6-released" style="border-bottom:0;">
+                    WebSharper 3.6.6 released
+                  </a><a class="panel-block " href="/user/denuziere/20151123-websharper-3-6-released-with-cdn-support" style="border-bottom:0;">
+                    WebSharper 3.6 released with CDN support
+                  </a><a class="panel-block " href="/user/denuziere/20151112-websharper-3-5-16-released" style="border-bottom:0;">
+                    WebSharper 3.5.16 released
+                  </a><a class="panel-block " href="/user/granicz/20151104-data-aware-workbooks-and-client-side-data-access-with-websharper-data" style="border-bottom:0;">
+                    Data-aware workbooks and client-side data access with WebSharper.Data
+                  </a><a class="panel-block " href="/user/jankoa/20151030-websharper-3-5-14-released" style="border-bottom:0;">
+                    WebSharper 3.5.14 released
+                  </a><a class="panel-block " href="/user/denuziere/20151028-websharper-3-5-13-released" style="border-bottom:0;">
+                    WebSharper 3.5.13 released
+                  </a><a class="panel-block " href="/user/denuziere/20151021-websharper-3-5-9-released" style="border-bottom:0;">
+                    WebSharper 3.5.9 released
+                  </a><a class="panel-block " href="/user/granicz/20151007-announcing-websharper-3-5-with-pluggable-html-support" style="border-bottom:0;">
+                    Announcing WebSharper 3.5 with pluggable HTML support
+                  </a><a class="panel-block " href="/user/gansperger/20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements" style="border-bottom:0;">
+                    Try Websharper: version info about extensions and some embedding improvements
+                  </a><a class="panel-block " href="/user/denuziere/20151001-announcing-websharper-suave" style="border-bottom:0;">
+                    Announcing WebSharper.Suave
+                  </a><a class="panel-block " href="/user/denuziere/20150924-websharper-3-4-19-released" style="border-bottom:0;">
+                    WebSharper 3.4.19 released
+                  </a><a class="panel-block " href="/user/gansperger/20150918-try-websharper-on-hover-type-info" style="border-bottom:0;">
+                    Try WebSharper: on-hover type info
+                  </a><a class="panel-block " href="/user/denuziere/20150908-websharper-ui-next-3-4-19-with-onafterrender" style="border-bottom:0;">
+                    WebSharper.UI.Next 3.4.19 with OnAfterRender
+                  </a><a class="panel-block " href="/user/denuziere/20150902-websharper-3-4-14-released" style="border-bottom:0;">
+                    WebSharper 3.4.14 released
+                  </a><a class="panel-block " href="/user/granicz/20150901-live-f-coding-and-snippets-with-dependencies-in-try-websharper" style="border-bottom:0;">
+                    Live F# coding and snippets with dependencies in Try WebSharper
+                  </a><a class="panel-block " href="/user/gansperger/20150826-try-websharper-update-notes-for-snippets" style="border-bottom:0;">
+                    Try WebSharper: update notes for snippets
+                  </a><a class="panel-block " href="/user/granicz/20150819-try-websharper-snippet-versioning-gist-import-and-other-enhancements-now-available" style="border-bottom:0;">
+                    Try WebSharper: snippet versioning, gist import, and other enhancements now available
+                  </a><a class="panel-block " href="/user/granicz/20150809-share-and-embed-try-websharper-snippets" style="border-bottom:0;">
+                    Share and embed Try WebSharper snippets
+                  </a><a class="panel-block " href="/user/granicz/20150806-new-websharper-templates" style="border-bottom:0;">
+                    New WebSharper templates
+                  </a><a class="panel-block " href="/user/granicz/20150804-introducing-try-websharper" style="border-bottom:0;">
+                    Introducing Try WebSharper
+                  </a><a class="panel-block " href="/user/denuziere/20150803-websharper-3-4-released" style="border-bottom:0;">
+                    WebSharper 3.4 released
+                  </a><a class="panel-block " href="/user/denuziere/20150803-websharper-ui-next-3-4-the-new-html-syntax" style="border-bottom:0;">
+                    WebSharper UI.Next 3.4: the new HTML syntax
+                  </a><a class="panel-block " href="/user/denuziere/20150722-websharper-3-3-released-with-client-side-json-serialization" style="border-bottom:0;">
+                    WebSharper 3.3 released with client-side JSON serialization
+                  </a><a class="panel-block " href="/user/denuziere/20150714-websharper-3-2-22-released" style="border-bottom:0;">
+                    WebSharper 3.2.22 released
+                  </a><a class="panel-block " href="/user/jankoa/20150625-websharper-3-2-10-released" style="border-bottom:0;">
+                    WebSharper 3.2.10 released
+                  </a><a class="panel-block " href="/user/granicz/20150615-introducing-websharper-warp" style="border-bottom:0;">
+                    Introducing WebSharper Warp
+                  </a><a class="panel-block " href="/user/granicz/20150609-websharper-3-2-with-support-for-scriptable-applications-better-resource-management-and-additional-streamlined-syntax" style="border-bottom:0;">
+                    WebSharper 3.2 with support for scriptable applications, better resource management, and additional streamlined syntax
+                  </a><a class="panel-block " href="/user/denuziere/20150523-websharper-3-1-published" style="border-bottom:0;">
+                    WebSharper 3.1 published
+                  </a><a class="panel-block " href="/user/denuziere/20150521-cloudsharper-0-9-31-published" style="border-bottom:0;">
+                    CloudSharper 0.9.31 published
+                  </a><a class="panel-block " href="/user/granicz/20150515-deploying-websharper-apps-to-azure-via-github" style="border-bottom:0;">
+                    Deploying WebSharper apps to Azure via GitHub
+                  </a><a class="panel-block " href="/user/denuziere/20150512-websharper-from-zero-to-an-azure-deployed-web-application" style="border-bottom:0;">
+                    WebSharper: From Zero to an Azure-deployed Web Application
+                  </a><a class="panel-block " href="/user/denuziere/20150506-websharper-3-0-59-released" style="border-bottom:0;">
+                    WebSharper 3.0.59 released
+                  </a><a class="panel-block " href="/user/granicz/20150428-websharper-site-enhancements" style="border-bottom:0;">
+                    WebSharper site enhancements
+                  </a><a class="panel-block " href="/user/granicz/20150417-cloudsharper-0-9-30-with-websharper-3-templates" style="border-bottom:0;">
+                    CloudSharper 0.9.30 with WebSharper 3 templates
+                  </a><a class="panel-block " href="/user/jankoa/20150416-websharper-3-0-released" style="border-bottom:0;">
+                    WebSharper 3.0 released
+                  </a><a class="panel-block " href="/user/granicz/20150328-websharper-forum-enhancements" style="border-bottom:0;">
+                    WebSharper forum enhancements
+                  </a><a class="panel-block " href="/user/denuziere/20150318-websharper-3-0-rc-released" style="border-bottom:0;">
+                    WebSharper 3.0 RC released
+                  </a><a class="panel-block " href="/user/denuziere/20150302-cloudsharper-0-9-29-released" style="border-bottom:0;">
+                    CloudSharper 0.9.29 released
+                  </a><a class="panel-block " href="/user/denuziere/20150225-websharper-3-0-alpha-for-xamarin-studio-monodevelop-is-now-available" style="border-bottom:0;">
+                    WebSharper 3.0-alpha for Xamarin Studio / MonoDevelop is now available!
+                  </a><a class="panel-block " href="/user/jankoa/20150225-websharper-3-0-36-alpha-released" style="border-bottom:0;">
+                    WebSharper-3.0.36-alpha released
+                  </a><a class="panel-block " href="/user/denuziere/20150213-upcoming-in-websharper-3-0-serving-rest-apis-easy-as-pie" style="border-bottom:0;">
+                    Upcoming in WebSharper 3.0: serving REST APIs, easy as pie!
+                  </a><a class="panel-block " href="/user/jankoa/20150210-websharper-3-0-26-alpha-released" style="border-bottom:0;">
+                    WebSharper.3.0.26-alpha released
+                  </a><a class="panel-block " href="/user/granicz/20141203-websharper-3-alpha-now-under-apache-2" style="border-bottom:0;">
+                    WebSharper 3 alpha now under Apache 2
+                  </a><a class="panel-block " href="/user/granicz/20141113-self-hosted-websharper-application-template-available" style="border-bottom:0;">
+                    Self-hosted WebSharper application template available
+                  </a><a class="panel-block " href="/user/granicz/20140701-upcoming-cloudsharper-features-in-q3" style="border-bottom:0;">
+                    Upcoming CloudSharper features in Q3
+                  </a><a class="panel-block " href="/user/granicz/20140515-program-f-with-cloudsharper-everywhere" style="border-bottom:0;">
+                    Program F# with CloudSharper everywhere
+                  </a><a class="panel-block " href="/user/granicz/20140325-cloudsharper-0-9-9" style="border-bottom:0;">
+                    CloudSharper 0.9.9
+                  </a><a class="panel-block " href="/user/granicz/20140314-cloudsharper-local-alpha-0-9-8" style="border-bottom:0;">
+                    CloudSharper Local alpha 0.9.8
+                  </a><a class="panel-block " href="/user/granicz/20140306-cloudsharper-local-alpha-0-9-7" style="border-bottom:0;">
+                    CloudSharper Local alpha 0.9.7
+                  </a><a class="panel-block " href="/user/granicz/20140218-update-server-exited-with-code-0" style="border-bottom:0;">
+                    Update: Server exited with code 0
+                  </a><a class="panel-block " href="/user/granicz/20140217-update-showing-compiler-errors" style="border-bottom:0;">
+                    Update: Showing compiler errors
+                  </a><a class="panel-block " href="/user/granicz/20140213-cloudsharper-local-alpha-available" style="border-bottom:0;">
+                    CloudSharper Local alpha available
+                  </a><a class="panel-block " href="/user/granicz/20140206-websharper-2-5-93-improved-numeric-performance" style="border-bottom:0;">
+                    WebSharper 2.5.93 - improved numeric performance
+                  </a><a class="panel-block " href="/user/granicz/20131221-websharper-2-5-release-notes" style="border-bottom:0;">
+                    WebSharper 2.5 Release Notes
+                  </a><a class="panel-block " href="/user/granicz/20130322-websharper-from-f-power-features-to-javascript-interop" style="border-bottom:0;">
+                    WebSharper: From F# power features to JavaScript interop
+                  </a><a class="panel-block " href="/user/granicz/20130310-cufp-2013-call-for-presentations" style="border-bottom:0;">
+                    CUFP 2013 - Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20130226-free-websharper-mvp-licenses" style="border-bottom:0;">
+                    Free WebSharper MVP licenses
+                  </a><a class="panel-block " href="/user/granicz/20121230-replacing-a-dead-raid5-drive-on-an-hp-microserver-running-ubuntu" style="border-bottom:0;">
+                    Replacing a dead RAID5 drive on an HP Microserver running Ubuntu
+                  </a><a class="panel-block " href="/user/granicz/20121230-running-the-jquery-mobile-websharper-sample" style="border-bottom:0;">
+                    Running the jQuery Mobile WebSharper sample
+                  </a><a class="panel-block " href="/user/granicz/20121203-last-day-to-register-to-tech-mesh-2012" style="border-bottom:0;">
+                    Last day to register to Tech Mesh 2012
+                  </a><a class="panel-block " href="/user/granicz/20120602-cufp-2012-call-for-presentations" style="border-bottom:0;">
+                    CUFP 2012 - Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20120525-looking-for-technical-reviewers-for-expert-f-3-0" style="border-bottom:0;">
+                    Looking for technical reviewers for Expert F# 3.0
+                  </a><a class="panel-block " href="/user/granicz/20120426-websharper-2-4-q2-available" style="border-bottom:0;">
+                    WebSharper 2.4 Q2 available
+                  </a><a class="panel-block " href="/user/granicz/20120416-websharper-2-4-q2-beta-out" style="border-bottom:0;">
+                    WebSharper 2.4 Q2 Beta out
+                  </a><a class="panel-block " href="/user/granicz/20110924-websharper-2-3-q3-released" style="border-bottom:0;">
+                    WebSharper 2.3 Q3 released
+                  </a><a class="panel-block " href="/user/granicz/20110915-websharper-at-cufp-2011" style="border-bottom:0;">
+                    WebSharper at CUFP 2011
+                  </a><a class="panel-block " href="/user/granicz/20110715-websharper-2-3-targeting-enterprise-applications" style="border-bottom:0;">
+                    WebSharper 2.3 - targeting enterprise applications
+                  </a><a class="panel-block " href="/user/granicz/20110513-expiring-websharper-professional-trials" style="border-bottom:0;">
+                    Expiring WebSharper Professional trials
+                  </a><a class="panel-block " href="/user/granicz/20110506-announcing-websharper-professional-2-2" style="border-bottom:0;">
+                    Announcing WebSharper Professional 2.2
+                  </a><a class="panel-block " href="/user/granicz/20110422-announcing-apistack-net" style="border-bottom:0;">
+                    Announcing ApiStack.net
+                  </a><a class="panel-block " href="/user/granicz/20110404-websharper-rc2-extension-updates" style="border-bottom:0;">
+                    WebSharper RC2 Extension updates
+                  </a><a class="panel-block " href="/user/granicz/20110326-websharper-2-1-professional-rc2-released" style="border-bottom:0;">
+                    WebSharper 2.1 Professional RC2 released
+                  </a><a class="panel-block " href="/user/granicz/20110310-formlets-for-jquery-ui-available" style="border-bottom:0;">
+                    Formlets for jQuery UI available
+                  </a><a class="panel-block " href="/user/granicz/20110304-websharper-2-professional-rc1" style="border-bottom:0;">
+                    WebSharper 2 Professional RC1
+                  </a><a class="panel-block " href="/user/granicz/20110224-more-websharper-talks-in-february" style="border-bottom:0;">
+                    More WebSharper talks in February
+                  </a><a class="panel-block " href="/user/granicz/20110222-sencha-touch-for-websharper-available" style="border-bottom:0;">
+                    Sencha Touch for WebSharper available
+                  </a><a class="panel-block " href="/user/granicz/20110205-new-websharper-extensions-available" style="border-bottom:0;">
+                    New WebSharper extensions available
+                  </a><a class="panel-block " href="/user/granicz/20110203-websharper-2-1-beta-5-available" style="border-bottom:0;">
+                    WebSharper 2.1 Beta 5 available
+                  </a><a class="panel-block " href="/user/granicz/20110125-websharper-proposal-for-mix-2011" style="border-bottom:0;">
+                    WebSharper proposal for MIX 2011
+                  </a><a class="panel-block " href="/user/granicz/20110105-websharper-beta-4-released" style="border-bottom:0;">
+                    WebSharper Beta 4 released
+                  </a><a class="panel-block " href="/user/granicz/20101221-talk-introducing-websharper-sitelets" style="border-bottom:0;">
+                    Talk: Introducing WebSharper Sitelets
+                  </a><a class="panel-block " href="/user/granicz/20101220-visual-studio-book-with-f-chapter" style="border-bottom:0;">
+                    Visual Studio book with F# chapter
+                  </a><a class="panel-block " href="/user/granicz/20101217-websharper-2-0-beta-bundle" style="border-bottom:0;">
+                    WebSharper 2.0 Beta Bundle
+                  </a><a class="panel-block " href="/user/granicz/20101215-websharper-2-0-beta2-released" style="border-bottom:0;">
+                    WebSharper 2.0 Beta2 released
+                  </a><a class="panel-block " href="/user/granicz/20101126-introducing-websharper-2-0-at-lwsug" style="border-bottom:0;">
+                    Introducing WebSharper 2.0 at LWSUG
+                  </a><a class="panel-block " href="/user/granicz/20101126-websharper-2-0-beta-available" style="border-bottom:0;">
+                    WebSharper 2.0 Beta available
+                  </a><a class="panel-block " href="/user/granicz/20101115-websharper-talk-at-sinergija-2010" style="border-bottom:0;">
+                    WebSharper talk at Sinergija 2010
+                  </a><a class="panel-block " href="/user/granicz/20101103-announcing-the-london-websharper-user-group" style="border-bottom:0;">
+                    Announcing the London WebSharper User Group
+                  </a><a class="panel-block " href="/user/granicz/20101006-f-mvp-award-2010" style="border-bottom:0;">
+                    F# MVP Award - 2010
+                  </a><a class="panel-block " href="/user/granicz/20100930-tutorial-implementing-a-shopping-cart-with-websharper" style="border-bottom:0;">
+                    Tutorial: Implementing a shopping cart with WebSharper
+                  </a><a class="panel-block " href="/user/granicz/20100909-cufp-2010-call-for-participation" style="border-bottom:0;">
+                    CUFP 2010 - Call for Participation
+                  </a><a class="panel-block " href="/user/granicz/20100806-websharper-available-in-visual-studio-gallery" style="border-bottom:0;">
+                    WebSharper available in Visual Studio Gallery
+                  </a><a class="panel-block " href="/user/granicz/20100805-expert-f-2-0-what-s-new" style="border-bottom:0;">
+                    Expert F# 2.0 - what&#39;s new?
+                  </a><a class="panel-block " href="/user/granicz/20100625-ml-2010-workshop-final-call-for-presentations" style="border-bottom:0;">
+                    ML 2010 Workshop - Final Call for Presentations
+                  </a><a class="panel-block " href="/user/granicz/20100608-f-training-courses-in-ca-announced" style="border-bottom:0;">
+                    F# Training Courses in CA Announced
+                  </a><a class="panel-block " href="/user/granicz/20100522-websharper-2010-standard-is-available" style="border-bottom:0;">
+                    WebSharper 2010 Standard is available
+                  </a><a class="panel-block " href="/user/granicz/20100308-f-development-and-sales-jobs-in-london-california-and-budapest" style="border-bottom:0;">
+                    F# Development and Sales Jobs in London, California, and Budapest
+                  </a><a class="panel-block " href="/user/granicz/20100305-call-for-presentations-cufp-2010" style="border-bottom:0;">
+                    Call for Presentations - CUFP 2010
+                  </a><a class="panel-block " href="/user/granicz/20100305-call-for-presentations-ml-2010" style="border-bottom:0;">
+                    Call for Presentations - ML 2010
+                  </a><a class="panel-block " href="/user/granicz/20100210-websharper-2010-standard-coming-soon" style="border-bottom:0;">
+                    WebSharper 2010 Standard coming soon
+                  </a><a class="panel-block " href="/user/granicz/20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more" style="border-bottom:0;">
+                    WebSharper 0.4.62 is available - with dependent formlets-flowlets-third-party extensions-and more!
+                  </a><a class="panel-block " href="/user/granicz/20090710-rapid-prototyping-of-dsls-in-f-part-iii" style="border-bottom:0;">
+                    Rapid prototyping of DSLs in F# - Part III
+                  </a><a class="panel-block " href="/user/granicz/20090622-rapid-prototyping-of-dsls-in-f-part-ii" style="border-bottom:0;">
+                    Rapid prototyping of DSLs in F# - Part II
+                  </a><a class="panel-block " href="/user/granicz/20090523-parsing-with-active-patterns" style="border-bottom:0;">
+                    Parsing with active patterns
+                  </a><a class="panel-block " href="/user/granicz/20090522-f-may-2009-ctp-and-vs-2010-beta1" style="border-bottom:0;">
+                    F# May 2009 CTP and VS 2010 Beta1
+                  </a><a class="panel-block " href="/user/granicz/20090520-fp-bud-may-meetup" style="border-bottom:0;">
+                    FP-BUD May Meetup
+                  </a><a class="panel-block " href="/user/granicz/20090520-welcome-to-the-intellifactory-corporate-blogs" style="border-bottom:0;">
+                    Welcome to the IntelliFactory corporate blogs!
+                  </a><a class="panel-block " href="/user/granicz/20061124-a-logo-interpreter-under-400-lines" style="border-bottom:0;">
+                    A Logo interpreter under 400 lines
+                  </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://github.com/granicz/SiteFi">
+          <strong>SiteFi</strong>
+        </a> by <a href="https://twitter.com/granicz">Adam Granicz</a>.
+        A static site generator implemented with WebSharper in F#, licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable">
+          <span class="icon is-large">
+            <i class="fa fa-rss-square fa-2x"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script src="/js/Client.js"></script>
+  <script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+</body>
+</html>
