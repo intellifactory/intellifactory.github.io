@@ -2,128 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <title>My F# blog</title>
-  <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
-
-  <link rel="stylesheet" href="/css/all.min.css" />
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
 
 </head>
 <body>
-  <header class="navbar  transparent-navbar">
+  <div id="preloader"></div>
+  <nav class="menu-classic menu-transparent light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
     <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item is-hoverable" onclick="Client.Bulma.ToggleDrawer()"><i class="fa fa-bars"></i></a>
-        <span class="navbar-item"><a href="/">IntelliFactory</a></span>
-      </div>
-      <div class="navbar-menu">
-        <nav class="navbar-start"><a href="/" class="navbar-item is-hoverable has-text-weight-bold">Home</a><a href="https://fsbolero.io" class="navbar-item is-hoverable has-text-weight-bold">Bolero</a><a href="https://websharper.com" class="navbar-item is-hoverable has-text-weight-bold">WebSharper</a><a href="https://cloudsharper.com" class="navbar-item is-hoverable has-text-weight-bold">CloudSharper</a><a href="/trainings" class="navbar-item is-hoverable has-text-weight-bold">Trainings</a><a href="/jobs" class="navbar-item is-hoverable has-text-weight-bold">Jobs</a><a href="/blogs" class="navbar-item is-hoverable has-text-weight-bold">Blogs</a><a href="/contact" class="navbar-item is-hoverable has-text-weight-bold">Contact</a></nav>
-        
-      </div>
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/media/logo-light.svg" alt="logo" />
+            <img class="logo-retina" src="/media/logo-light.svg" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li class="dropdown">
+              <a href="#">Open Source</a>
+              <ul>
+                <li><a href="https://websharper.com">WebSharper</a></li>
+                <li><a href="https://fsbolero.io">Bolero</a></li>
+                <li><a href="https://github.com/granicz/SiteFi">SiteFi</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Services</a>
+              <ul>
+                <li><a href="/consulting">Consulting</a></li>
+                <li><a href="/trainings">Trainings</a></li>
+                <li><a href="/education">Education</a></li>
+                <li><a href="/research">Research</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/blogs">Blogs</a>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-border btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  <div>
       
-    </div>
-  </header>
-  <div class="drawer-backdrop" onclick="Client.Bulma.ToggleDrawer()">
-    <div id="left-drawer" class="lhs-drawer">
-      <nav class="menu">
-        <ul class="menu-list"><li>
-            <a href="/">Home</a>
-            
-          </li><li>
-            <a href="https://fsbolero.io">Bolero</a>
-            
-          </li><li>
-            <a href="https://websharper.com">WebSharper</a>
-            
-          </li><li>
-            <a href="https://cloudsharper.com">CloudSharper</a>
-            
-          </li><li>
-            <a href="/trainings">Trainings</a>
-            
-          </li><li>
-            <a href="/jobs">Jobs</a>
-            
-          </li><li>
-            <a href="/blogs">Blogs</a>
-            
-          </li><li>
-            <a href="/contact">Contact</a>
-            
-          </li></ul>
-      </nav>
-    </div>
-  </div>
-  
       
-      
-      <section class="hero is-info">
-        <div class="hero-body">
+      <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+        <div class="container">
+          <h1>corporate</h1>
+          <h2>Filtered articles</h2>
+        </div>
+      </header>
+      <main>
+        <section class="section-base">
           <div class="container">
-            <h1 class="title">
-              "corporate"
-            </h1>
-            <h2 class="subtitle">
-              Filtered articles
-            </h2>
+            <div class="row">
+              <div class="col-12">
+                <div class="masonry columns is-gapless is-multiline is-mobile" data-masonry="{ &quot;itemSelector&quot;: &quot;.masonry-item&quot;, &quot;horizontalOrder&quot;: true, &quot;precentPosition&quot;: true}"><div class="masonry-item column category-1">
+                    <div class="flat-card">
+                      <div class="flat-card-content">
+                        <div class="popup-image"><img src="http://via.placeholder.com/800x800" /></div>
+                        <div class="content">
+                          <div class="tag-holder">
+                            <h5 class="blog-tag">
+                              <a href="/user/granicz">Adam Granicz</a>
+                            </h5>
+                          </div>
+                          <div class="blog-title">
+                            <h3>
+                              <a href="/user/granicz/20090520-welcome-to-the-intellifactory-corporate-blogs">Welcome to the IntelliFactory corporate blogs!</a>
+                              <div>
+                                  <a href="/category/corporate">#corporate</a>&nbsp;
+                                </div><div>
+                                  <a href="/category/fsharp">#fsharp</a>&nbsp;
+                                </div>
+                            </h3>
+                          </div>
+                          <div class="blog-meta">
+                            <time datetime="2016-1-1">May 20, 2009</time>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div></div>
+              </div>
+            </div>
+            <div class="list-pagination">
+              <ul class="pagination pagination-lg" data-page-items="4" data-options="scrollTop:true">
+                <li class="prev disabled"><a href="#">Previous</a></li>
+                <li class="next"><a href="#">Next</a></li>
+            </ul></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Company and team</h4>
+          <div class="menu-inner menu-inner-vertical">
+            <ul>
+              <li>
+                <a href="#">Company details and team</a>
+              </li>
+              <li>
+                <a href="#">News and blog</a>
+              </li>
+              <li>
+                <a href="#">Press area</a>
+              </li>
+              <li>
+                <a href="#">Affiliates and marketing</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-      <section class="section has-background-white">
-        <div class="container">
-            <div class="masonry columns is-gapless is-multiline is-mobile" data-masonry="{ &quot;itemSelector&quot;: &quot;.masonry-item&quot;, &quot;horizontalOrder&quot;: true, &quot;precentPosition&quot;: true}"><div class="masonry-item column">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <a href="/user/granicz/20090520-welcome-to-the-intellifactory-corporate-blogs"><p class="title is-4">Welcome to the IntelliFactory corporate blogs!</p></a>
-                                    <p class="subtitle is-6"><a href="/user/granicz">Adam Granicz</a></p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                Welcome to the IntelliFactory corporate blogs!
-                                
-                                        <a href="/category/corporate">#corporate</a>&nbsp;
-                                    
-                                        <a href="/category/fsharp">#fsharp</a>&nbsp;
-                                    
-                                <br />
-                                <time datetime="2016-1-1">May 20, 2009</time>
-                            </div>
-                        </div>
-                    </div>
-                </div></div>
+        <div class="col-lg-3">
+          <h4>Help and support</h4>
+          <div class="menu-inner menu-inner-vertical">
+            <ul>
+              <li>
+                <a href="#">Help centre</a>
+              </li>
+              <li>
+                <a href="#">Feedbacks</a>
+              </li>
+              <li>
+                <a href="#">Request new features</a>
+              </li>
+              <li>
+                <a href="#">Contact us</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </section>
-    
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <a href="https://github.com/granicz/SiteFi">
-          <strong>SiteFi</strong>
-        </a> by <a href="https://twitter.com/granicz">Adam Granicz</a>.
-        A static site generator implemented with WebSharper in F#, licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-      </p>
-      <p>
-        <a style="color:red;float:right;" target="_blank" title="RSS" href="/feed.rss" class="is-hoverable">
-          <span class="icon is-large">
-            <i class="fa fa-rss-square fa-2x"></i>
-          </span>
-        </a>
-      </p>
+        <div class="col-lg-3">
+          <h4>Learn more</h4>
+          <div class="menu-inner menu-inner-vertical">
+            <ul>
+              <li>
+                <a href="#">Apps stores</a>
+              </li>
+              <li>
+                <a href="#">Partners</a>
+              </li>
+              <li>
+                <a href="#">Privacy and terms</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <h4>Follow us</h4>
+          <div class="icon-links icon-social icon-links-grid social-colors">
+            <a class="facebook"><i class="icon-facebook"></i></a>
+            <a class="twitter"><i class="icon-twitter"></i></a>
+            <a class="linkedin"><i class="icon-linkedin"></i></a>
+            <a class="youtube"><i class="icon-youtube"></i></a>
+            <a class="instagram"><i class="icon-instagram"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
-  <script src="/js/Client.js"></script>
-  <script src="../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+    <div class="footer-bar">
+      <div class="container">
+        <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+        <span><img src="/media/logo-light.svg" /></span>
+      </div>
+    </div>
+    <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+    <script src="/themekit/scripts/parallax.min.js"></script>
+    <script src="/themekit/scripts/imagesloaded.min.js"></script>
+    <script src="/themekit/scripts/pagination.min.js"></script>
+    <script src="/themekit/scripts/social.min.js"></script>
+    <script src="/themekit/scripts/tab-accordion.js"></script>
+    <script src="/media/custom.js"></script>
+    <script src="/js/Client.js"></script>
+    <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
 if (typeof IntelliFactory !=='undefined') {
   IntelliFactory.Runtime.ScriptBasePath = '../Scripts/';
   IntelliFactory.Runtime.Start();
 }
 </script>
 
+    <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var $container = $('.masonry');
+        $container.imagesLoaded(function () {
+          $container.masonry({
+            itemSelector: '.masonry-item',
+            percentPosition: true,
+            horizontalOrder: true
+          });
+        });
+      });
+    </script>
+  </footer>
 </body>
 </html>
