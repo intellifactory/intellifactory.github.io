@@ -62,7 +62,7 @@
    Longitude:Longitude
   };
  };
- TalksAndPresentations.GMap$245$32=function(styleJson)
+ TalksAndPresentations.GMap$247$32=function(styleJson)
  {
   return function(el)
   {
