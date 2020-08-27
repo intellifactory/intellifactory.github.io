@@ -1,7 +1,7 @@
 (function()
 {
  "use strict";
- var Global,WebSharper,Obj,Website,ClientSideCode,Swiper,Swiper$1,TalksAndPresentations,City,IntelliFactory,Runtime,UI,Doc,google,maps,Concurrency,Seq,Utils,AttrProxy,List,Strings,Arrays,console,$;
+ var Global,WebSharper,Obj,Website,ClientSideCode,Swiper,Swiper$1,TalksAndPresentations,City,IntelliFactory,Runtime,UI,Doc,google,maps,AttrProxy,Concurrency,Seq,Utils,List,Strings,Arrays,console,$;
  Global=self;
  WebSharper=Global.WebSharper;
  Obj=WebSharper&&WebSharper.Obj;
@@ -17,10 +17,10 @@
  Doc=UI&&UI.Doc;
  google=Global.google;
  maps=google&&google.maps;
+ AttrProxy=UI&&UI.AttrProxy;
  Concurrency=WebSharper&&WebSharper.Concurrency;
  Seq=WebSharper&&WebSharper.Seq;
  Utils=WebSharper&&WebSharper.Utils;
- AttrProxy=UI&&UI.AttrProxy;
  List=WebSharper&&WebSharper.List;
  Strings=WebSharper&&WebSharper.Strings;
  Arrays=WebSharper&&WebSharper.Arrays;
@@ -61,6 +61,38 @@
    Latitude:Latitude,
    Longitude:Longitude
   };
+ };
+ TalksAndPresentations.GMapOffice$278$32=function(styleJson)
+ {
+  return function(el)
+  {
+   var map,r,point,icon,r$1,r$2;
+   map=new maps.Map(el,(r={
+    center:new maps.LatLng(47.48543,19.071336),
+    zoom:15
+   },r.styles=Global["eval"](styleJson),r.scrollwheel=true,r.disableDefaultUI=true,r));
+   point=new maps.LatLng(47.48543,19.071336);
+   icon=(r$1={},r$1.url="/img/map-marker.png",r$1.anchor=new maps.Point(8,8),r$1);
+   new maps.Marker((r$2={
+    position:point
+   },r$2.map=map,r$2.title="IntelliFactory",r$2.icon=icon,r$2));
+  };
+ };
+ TalksAndPresentations.GMapOffice=function(styleJson)
+ {
+  return Doc.Element("div",[AttrProxy.Create("class","inner-map"),AttrProxy.OnAfterRenderImpl(function(el)
+  {
+   var map,r,point,icon,r$1,r$2;
+   map=new maps.Map(el,(r={
+    center:new maps.LatLng(47.48543,19.071336),
+    zoom:15
+   },r.styles=Global["eval"](styleJson),r.scrollwheel=true,r.disableDefaultUI=true,r));
+   point=new maps.LatLng(47.48543,19.071336);
+   icon=(r$1={},r$1.url="/img/map-marker.png",r$1.anchor=new maps.Point(8,8),r$1);
+   new maps.Marker((r$2={
+    position:point
+   },r$2.map=map,r$2.title="IntelliFactory",r$2.icon=icon,r$2));
+  })],[]);
  };
  TalksAndPresentations.GMap$247$32=function(styleJson)
  {
