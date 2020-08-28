@@ -70,7 +70,7 @@
    map=new maps.Map(el,(r={
     center:new maps.LatLng(47.48543,19.071336),
     zoom:15
-   },r.styles=Global["eval"](styleJson),r.scrollwheel=true,r.disableDefaultUI=true,r));
+   },r.styles=Global["eval"](styleJson),r.scrollwheel=false,r.disableDefaultUI=true,r.zoomControl=true,r));
    point=new maps.LatLng(47.48543,19.071336);
    icon=(r$1={},r$1.url="/img/map-marker.png",r$1.anchor=new maps.Point(8,8),r$1);
    new maps.Marker((r$2={
@@ -86,7 +86,7 @@
    map=new maps.Map(el,(r={
     center:new maps.LatLng(47.48543,19.071336),
     zoom:15
-   },r.styles=Global["eval"](styleJson),r.scrollwheel=true,r.disableDefaultUI=true,r));
+   },r.styles=Global["eval"](styleJson),r.scrollwheel=false,r.disableDefaultUI=true,r.zoomControl=true,r));
    point=new maps.LatLng(47.48543,19.071336);
    icon=(r$1={},r$1.url="/img/map-marker.png",r$1.anchor=new maps.Point(8,8),r$1);
    new maps.Marker((r$2={
