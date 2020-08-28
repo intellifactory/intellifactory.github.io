@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>IntelliFactory</title>
     <meta name="description" content="" />
-    <script src="themekit/scripts/jquery.min.js"></script>
-    <script src="themekit/scripts/main.js"></script>
-    <link rel="stylesheet" href="themekit/css/bootstrap-grid.css" />
-    <link rel="stylesheet" href="themekit/css/style.css" />
-    <link rel="stylesheet" href="themekit/css/content-box.css" />
-    <link rel="stylesheet" href="themekit/css/media-box.css" />
-    <link rel="stylesheet" href="themekit/css/social.css" />
-    <link rel="stylesheet" href="assets/skin.css" />
-    <link rel="stylesheet" href="assets/custom.css" />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <script src="/themekit/scripts/jquery.min.js"></script>
+    <script src="/themekit/scripts/main.js"></script>
+    <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="/themekit/css/style.css" />
+    <link rel="stylesheet" href="/themekit/css/content-box.css" />
+    <link rel="stylesheet" href="/themekit/css/media-box.css" />
+    <link rel="stylesheet" href="/themekit/css/social.css" />
+    <link rel="stylesheet" href="/assets/skin.css" />
+    <link rel="stylesheet" href="/assets/custom.css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
     
 </head>
 <body>
@@ -31,98 +31,118 @@
         </div>
         <i class="menu-btn"></i>
         <div class="menu-cnt">
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li class="dropdown">
-              <a href="#">Open Source</a>
-              <ul>
-                <li><a href="https://websharper.com">WebSharper</a></li>
-                <li><a href="https://fsbolero.io">Bolero</a></li>
-                <li><a href="https://github.com/granicz/SiteFi">SiteFi</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#">Company</a>
-              <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/customers">Success stories</a></li>
-                <li><a href="/team">Team</a></li>
-                <li><a href="/investors">For investors</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#">Services</a>
-              <ul>
-                <li><a href="/consulting">Consulting</a></li>
-                <li><a href="/trainings">Trainings</a></li>
-                <li><a href="/education">Education</a></li>
-                <li><a href="/research">Research</a></li>
-              </ul>
-            </li>
-            <li class="mega-dropdown mega-tabs">
-              <a href="/blogs">Blogs</a>
-              <div class="mega-menu">
-                <div class="tab-box" data-tab-anima="fade-in">
-                  <ul class="tab-nav">
-                    <li class="active"><a href="#">F# Advent</a></li>
-                    <li><a href="#">Categories</a></li>
-                  </ul>
-                  <div class="panel active">
-                    <div class="col">
-                      <ul class="icon-list">
-                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
-                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
-                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
-                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
-                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
-                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
-                      </ul>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="mega-dropdown mega-tabs mega-open-source">
+                    <a href="#">Open Source</a>
+                    <div class="mega-menu">
+                        <div class="panel">
+                            <div class="col-4">
+                                <img src="//via.placeholder.com/100x100" />
+                                <div><a href="https://websharper.com">WebSharper</a></div>
+                                <div class="description">
+                                    <div>This is an example text under this feel free to change this</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <img src="//via.placeholder.com/100x100" />
+                                <div><a href="https://fsbolero.io">Bolero</a></div>
+                                <div class="description">
+                                    <div>This is an example text under this feel free to change this</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <img src="//via.placeholder.com/100x100" />
+                                <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                                <div class="description">
+                                    <div>This is an example text under this feel free to change this</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="panel">
-                    <div class="col">
-                      <ul class="icon-list">
-                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
-                        <li><a href="elements/containers/album.html">Album</a></li>
-                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
-                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
-                        <li><a href="elements/containers/grid.html">Grid</a></li>
-                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
-                      </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Company</a>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/customers">Success stories</a></li>
+                        <li><a href="/team">Team</a></li>
+                        <li><a href="/investors">For investors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Services</a>
+                    <ul>
+                        <li><a href="/consulting">Consulting</a></li>
+                        <li><a href="/trainings">Trainings</a></li>
+                        <li><a href="/education">Education</a></li>
+                        <li><a href="/research">Research</a></li>
+                    </ul>
+                </li>
+                <li class="mega-dropdown mega-tabs">
+                    <a href="/blogs">Blogs</a>
+                    <div class="mega-menu">
+                        <div class="tab-box" data-tab-anima="fade-in">
+                            <ul class="tab-nav">
+                                <li class="active"><a href="#">F# Advent</a></li>
+                                <li><a href="#">Categories</a></li>
+                            </ul>
+                            <div class="panel active">
+                                <div class="col">
+                                    <ul class="icon-list">
+                                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="col">
+                                    <ul class="icon-list">
+                                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                                        <li><a href="elements/containers/album.html">Album</a></li>
+                                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <ul class="icon-list">
+                                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                                        <li><a href="elements/sections/base.html">Section base</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <ul class="icon-list">
+                                        <li><a href="elements/sections/image.html">Section image</a></li>
+                                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                                        <li><a href="elements/sections/video.html">Section video</a></li>
+                                        <li><a href="elements/sections/block.html">Section block</a></li>
+                                        <li><a href="elements/sections/map.html">Section map</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                      <ul class="icon-list">
-                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
-                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
-                        <li><a href="elements/containers/slider.html">Slider</a></li>
-                        <li><a href="elements/containers/steps.html">Steps</a></li>
-                        <li><a href="elements/containers/tab.html">Tab</a></li>
-                        <li><a href="elements/sections/base.html">Section base</a></li>
-                      </ul>
-                    </div>
-                    <div class="col">
-                      <ul class="icon-list">
-                        <li><a href="elements/sections/image.html">Section image</a></li>
-                        <li><a href="elements/sections/slider.html">Section slider</a></li>
-                        <li><a href="elements/sections/video.html">Section video</a></li>
-                        <li><a href="elements/sections/block.html">Section block</a></li>
-                        <li><a href="elements/sections/map.html">Section map</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
           <div class="menu-right">
             <div class="menu-custom-area">
-              <a class="btn btn-xs btn-border btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
             </div>
           </div>
           <div class="clear"></div>
@@ -131,7 +151,7 @@
     </nav>
     <div>
         <div class="trainings-map">
-            <div id="ws1998339715"></div>
+            <div id="ws1599252690"></div>
         </div>
         <div id="image-slider" class="is-fluid">
             <div class="image-swiper-container swiper-container">
@@ -158,7 +178,7 @@
                     </div>
                 </div>
                 <div class="image-swiper-scrollbar swiper-scrollbar"></div>
-                <div id="ws1596086840"></div>
+                <div id="ws1379184000"></div>
             </div>
         </div>
     </div>
@@ -440,14 +460,14 @@
                 <span><img src="media/logo-light.svg" /></span>
             </div>
         </div>
-        <link rel="stylesheet" href="themekit/media/icons/iconsmind/line-icons.min.css" />
-        <script src="themekit/scripts/parallax.min.js"></script>
-        <script src="themekit/scripts/imagesloaded.min.js"></script>
-        <script src="themekit/scripts/pagination.min.js"></script>
-        <script src="themekit/scripts/social.min.js"></script>
-        <script src="themekit/scripts/tab-accordion.js"></script>
-        <script src="media/custom.js"></script>
-        <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[["WebSharper","Web","FSharpInlineControl"]],"$DATA":{"$V":{"ws1998339715":{"$T":0,"$V":{"args":["[{\"featureType\":\"administrative\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#f2f2f2\"}, {\"visibility\":\"on\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e3e3e3\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#cccccc\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#FFFFFF\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]}]"],"funcName":["Website","ClientSideCode","TalksAndPresentations","GMap"]}},"ws1596086840":{"$T":0,"$V":{"args":[],"funcName":["Website","ClientSideCode","Swiper","Init"]}}}}}' />
+        <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+        <script src="/themekit/scripts/parallax.min.js"></script>
+        <script src="/themekit/scripts/imagesloaded.min.js"></script>
+        <script src="/themekit/scripts/pagination.min.js"></script>
+        <script src="/themekit/scripts/social.min.js"></script>
+        <script src="/themekit/scripts/tab-accordion.js"></script>
+        <script src="/media/custom.js"></script>
+        <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[["WebSharper","Web","FSharpInlineControl"]],"$DATA":{"$V":{"ws1599252690":{"$T":0,"$V":{"args":["[{\"featureType\":\"administrative\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#f2f2f2\"}, {\"visibility\":\"on\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e3e3e3\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#cccccc\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#FFFFFF\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]}]"],"funcName":["Website","ClientSideCode","TalksAndPresentations","GMap"]}},"ws1379184000":{"$T":0,"$V":{"args":[],"funcName":["Website","ClientSideCode","Swiper","Init"]}}}}}' />
 <script src="Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="/assets/swiper.css"></link>
 <script src="/assets/swiper.js" type="text/javascript" charset="UTF-8"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBclwK3qO1qtBU_OgZzlZ_oVv1bkyUXaF0&amp;sensor=true" type="text/javascript" charset="UTF-8"></script><!--[if lte IE 7.0]>
 <script src="Scripts/WebSharper.Main/Json.js" type="text/javascript" charset="UTF-8"></script><![endif]-->
