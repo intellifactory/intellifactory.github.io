@@ -147,7 +147,7 @@
     <main>
         <section class="section-base section-full-width no-padding">
             <div class="trainings-map">
-                <div id="ws1467451843"></div>
+                <div id="ws548483248"></div>
             </div>
         </section>
         <section class="section-base section-color">
@@ -272,6 +272,34 @@
                 <span><img src="media/logo-light.svg" /></span>
             </div>
         </div>
+        <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
         <link rel="stylesheet" href="themekit/media/icons/iconsmind/line-icons.min.css" />
         <script src="themekit/scripts/contact-form/contact-form.js"></script>
         <script src="themekit/scripts/tab-accordion.js"></script>
@@ -308,7 +336,7 @@
             })
         </script>
     </footer>
-    <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[["WebSharper","Web","FSharpInlineControl"]],"$DATA":{"$V":{"ws1467451843":{"$T":0,"$V":{"args":["[{\"featureType\":\"administrative\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#f2f2f2\"}, {\"visibility\":\"on\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e3e3e3\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#cccccc\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#FFFFFF\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]}]"],"funcName":["Website","ClientSideCode","TalksAndPresentations","GMapOffice"]}}}}}' />
+    <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[["WebSharper","Web","FSharpInlineControl"]],"$DATA":{"$V":{"ws548483248":{"$T":0,"$V":{"args":["[{\"featureType\":\"administrative\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#f2f2f2\"}, {\"visibility\":\"on\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e3e3e3\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#cccccc\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#FFFFFF\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]}]"],"funcName":["Website","ClientSideCode","TalksAndPresentations","GMapOffice"]}}}}}' />
 <script src="Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBclwK3qO1qtBU_OgZzlZ_oVv1bkyUXaF0&amp;sensor=true" type="text/javascript" charset="UTF-8"></script><!--[if lte IE 7.0]>
 <script src="Scripts/WebSharper.Main/Json.js" type="text/javascript" charset="UTF-8"></script><![endif]-->
 <!--[if lte IE 9.0]>

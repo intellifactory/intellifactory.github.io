@@ -969,6 +969,34 @@
               <span><img src="/media/logo-light.svg" /></span>
           </div>
       </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
       <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
       <script src="/themekit/scripts/parallax.min.js"></script>
       <script src="/themekit/scripts/pagination.min.js"></script>
