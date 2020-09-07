@@ -178,13 +178,13 @@
 <p>The release notes are also found on <a href="https://github.com/dotnet-websharper/core/releases/tag/4.2.0.214-beta">GitHub</a>.</p>
 <p><a href="https://forums.websharper.com/forum/all">Questions</a>, <a href="https://github.com/dotnet-websharper/core/issues">issue reports</a> and <a href="https://github.com/dotnet-websharper/core/pulls">contributions</a> are welcome.
 You can also report issues and contribute to the documentation at the <a href="https://github.com/dotnet-websharper/docs">dotnet-websharper/docs</a> repository.</p>
-<h1 id="enhancements">Enhancements</h1>
-<h2 id="net-standard-and.net-core-support">.NET Standard and .NET Core support</h2>
+<h2 id="enhancements">Enhancements</h2>
+<h3 id="net-standard-and.net-core-support">.NET Standard and .NET Core support</h3>
 <p>This is the first version of WebSharper compiled for .NET Standard 2.0, and therefore compatible with .NET Core 2.0.</p>
 <p>The compiler itself still runs on .NET Framework, due to the F# compiler's current limitations in particular when dealing with type providers. So having .NET 4.6.1 or Mono installed on development machine is still required; however the runtime is 100% .NET Standard 2.0 compatible.</p>
-<h2 id="asp.net-core-support">ASP.NET Core support</h2>
+<h3 id="asp.net-core-support">ASP.NET Core support</h3>
 <p>WebSharper can now run on top of ASP.NET Core thanks to <a href="https://github.com/dotnet-websharper/aspnetcore">WebSharper.AspNetCore</a>. The server-side runtime, including Sitelets as well as RPC functions, can be run on top of ASP.NET Core.</p>
-<h2 id="c-and-f-dotnet-project-templates">C# and F# <code>dotnet</code> project templates</h2>
+<h3 id="c-and-f-dotnet-project-templates">C# and F# <code>dotnet</code> project templates</h3>
 <p>Templates for .NET Core are now available for both C# and F#. They can be installed with the following command:</p>
 <pre><code>dotnet new -i WebSharper.Templates
 </code></pre>
@@ -201,7 +201,7 @@ You can also report issues and contribute to the documentation at the <a href="h
 </ul>
 <p>By default, the project is named based on current folder. Add the <code>-n ProjectName</code> flag to override this.</p>
 <p>Use <code>dotnet run</code> after creating a web, SPA or Html template to immediately see it compile and run. Web and SPA uses Kestrel, while Html opens up an Explorer window for the output folder.</p>
-<h2 id="build-configuration-via-wsconfig.json-file">Build configuration via <code>wsconfig.json</code> file</h2>
+<h3 id="build-configuration-via-wsconfig.json-file">Build configuration via <code>wsconfig.json</code> file</h3>
 <p>If a <code>wsconfig.json</code> file is found next to a WebSharper project, build settings are read from it, overriding project variable setting if one exists in both places. Existing project variables all have equivalents: these are</p>
 <ul>
 <li><code>&quot;Project&quot;</code>: WebSharper project type (see <a href="https://developers.websharper.com/docs/v4.x/fs/project-variables">documentation</a>).</li>
@@ -217,8 +217,8 @@ You can also report issues and contribute to the documentation at the <a href="h
 <li><code>&quot;JavaScript&quot;</code>: emulate usage of <code>JavaScript</code> attribute on assembly level, allowing compiling full projects/files without annotating in source.</li>
 <li><code>&quot;JSOutput&quot;</code>/<code>&quot;MinJSOutput&quot;</code>: write out <code>.js</code>/<code>.min.js</code> to given file paths.</li>
 </ul>
-<h1 id="breaking-changes">Breaking changes</h1>
-<h2 id="net-4.6.1">.NET 4.6.1</h2>
+<h2 id="breaking-changes">Breaking changes</h2>
+<h3 id="net-4.6.1">.NET 4.6.1</h3>
 <p>In parallel to the new .NET Standard 2.0, the minimum requirement for running WebSharper on the .NET Framework has been bumped to v4.6.1.</p>
 </div></div>
               <hr class="space" />

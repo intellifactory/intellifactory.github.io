@@ -307,7 +307,7 @@ Armed with WhiteSpace you can implement your basic &quot;tokenizer.&quot; For mo
 <p>You can quickly test your code in F# Interactive:</p>
 <pre><code class="language-fsharp">&gt; match &quot;sin(1 + 2 * 3)&quot; with
     | Expression (e, Eof) -&gt;
-        e |&gt; printf &quot;Match – AST: %A\n“
+        e |&gt; printf &quot;Match – AST: %A\n&quot;
     | _ -&gt;
         printf &quot;No match\n”;;
 

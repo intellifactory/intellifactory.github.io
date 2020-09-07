@@ -166,7 +166,7 @@
           <div class="row">
             <div class="col-lg-9 text-color">
               <div><div ws-preserve=""><p>We are preparing for stable release, reviewing all current issues and documentation. Beta-10 solves some old (reference equality for classes) and recent (<code>ToString</code> for <code>Systen.Char</code>) issues reported. Look for VS2017 installer <a href="http://websharper.com/downloads">here</a> (VS2015 support upcoming).</p>
-<h1 id="fixes">Fixes</h1>
+<h2 id="fixes">Fixes</h2>
 <ul>
 <li><a href="https://github.com/intellifactory/websharper/issues/734">#734</a> Classes now have reference equality by default (you can override <code>Equals</code> as in .NET). Arrays, tuples, F# records and unions still use structural equality</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/736">#736</a> <code>System.Char</code> is now translated to a 1-length <code>String</code> in JavaScript. RPC handling and all methods dealing with <code>Char</code>s have been updated.</li>
@@ -179,12 +179,12 @@
 <li><a href="https://github.com/intellifactory/websharper/issues/746">#746</a> JavaScript named functions inside inlines are preserved properly</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/747">#747</a> <code>Stub</code> attribute behaves in compatibile way with WS3: if all members of a class have the <code>Stub</code> attribute, it is equivalent to the class having it (WS does not redefine the type, it is assumed to exist in outside JS), but having any non-Stub instance members causes WS to define the class. This is fixing issues in WebSharper.JQuery.</li>
 </ul>
-<h1 id="enhancements">Enhancements</h1>
+<h2 id="enhancements">Enhancements</h2>
 <ul>
 <li><a href="https://github.com/intellifactory/websharper/issues/545">#545</a> Nullable operators with correct semantics. In F#, you can use the <code>FSharp.Linq.Nullable</code> and <code>FSharp.Linq.NullableOperators</code> modules on the client-side. C# operations on Nullables now follow .NET semantics properly: a <code>null</code> value is propagated to the result.</li>
 <li><a href="https://github.com/intellifactory/websharper/pull/744">#744</a> Static members can be proxied across multiple projects.</li>
 </ul>
-<h1 id="breaking-changes">Breaking changes</h1>
+<h2 id="breaking-changes">Breaking changes</h2>
 <ul>
 <li>If you have relied on classes having automatic structural equality in the WebSharper translation, this is now incorrect. Implement an override for <code>Equals</code>.</li>
 <li>Create an empty JavaScript plain object with <code>new JSObject()</code> / <code>New []</code>. Previously this was equivalent to <code>new object()</code> / <code>obj()</code>, but now the latter translates to an instance of <code>WebSharper.Obj</code> which defines its own <code>Equals</code> and <code>GetHashCode</code> methods.</li>

@@ -168,8 +168,8 @@
               <div><div ws-preserve=""><p>This is a minor release for WebSharper and WebSharper.UI.</p>
 <p>Install templates for .NET Core SDK: <code>dotnet new -i WebSharper.Templates::4.4.1.261</code></p>
 <p>Download templates for Visual Studio 2017: <a href="http://websharper.com/installers/WebSharper.4.4.1.261.vsix">http://websharper.com/installers/WebSharper.4.4.1.261.vsix</a></p>
-<h1 id="websharper">WebSharper</h1>
-<h2 id="features">Features</h2>
+<h2 id="websharper">WebSharper</h2>
+<h3 id="features">Features</h3>
 <ul>
 <li><p><a href="https://github.com/dotnet-websharper/core/issues/988">#988</a> Add proxy for the JavaScript <code>fetch</code> API.</p>
 </li>
@@ -193,7 +193,7 @@ promise {
 </code></pre>
 </li>
 </ul>
-<h2 id="fixes">Fixes</h2>
+<h3 id="fixes">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/985">#985</a> Fix reading C# tuple type signatures, this also fixes remoting with tuples in C#.</li>
 <li><a href="https://github.com/dotnet-websharper/core/issues/989">#989</a> RPC signature verification works as intended: compiler attempts to create JSON de/serializers, if there is any unsupported types found, a compile-time error is given.</li>
@@ -205,8 +205,8 @@ promise {
 <li><a href="https://github.com/dotnet-websharper/core/issues/997">#997</a> Add proxy for <code>Printf.kprintf</code>.</li>
 <li><a href="https://github.com/dotnet-websharper/core/issues/998">#998</a> Don't serialize System.UI.Web.Control's private fields. Since the Serializable attribute requirement was dropped in 4.4.0, web controls would output a number of null fields in the <code>&lt;meta&gt;</code> tag; this is now fixed.</li>
 </ul>
-<h1 id="websharper-ui">WebSharper UI</h1>
-<h2 id="fixes-1">Fixes</h2>
+<h2 id="websharper-ui">WebSharper UI</h2>
+<h3 id="fixes-1">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/ui/issues/181">#181</a> <code>Elt.WithAttrs</code> is no longer public, it was intended to be internal.</li>
 <li><a href="https://github.com/dotnet-websharper/ui/issues/181">#181</a> <code>Elt.RemoveClass</code> removes unneeded spaces from <code>class</code> attribute value.</li>

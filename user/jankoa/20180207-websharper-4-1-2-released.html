@@ -169,11 +169,11 @@
 <p>It contains enhancements to the <code>EndPoint</code> attribute and C# routing as well as fixes for JSON serialization and remoting of F# <code>Map</code> and <code>Set</code> values.</p>
 <p>Documentation: <a href="http://developers-test.websharper.io/docs/v4.1/cs">WebSharper 4.1 for C#</a> and <a href="http://developers-test.websharper.io/docs/v4.1/fs">WebSharper 4.1 for F#</a>.</p>
 <p>The release notes are also found on <a href="https://github.com/dotnet-websharper/websharper/releases/tag/4.1.2.178">GitHub</a>.</p>
-<h1 id="new-features">New features</h1>
+<h2 id="new-features">New features</h2>
 <ul>
 <li>WebSharper for C# now supports syntax introduced in C# 7.2: <code>in</code> arguments and <code>ref readonly</code> returns, non-trailing named arguments, numeric literals with leading underscores, <code>private protected</code>.</li>
 </ul>
-<h1 id="fixesimprovements">Fixes/improvements</h1>
+<h2 id="fixesimprovements">Fixes/improvements</h2>
 <ul>
 <li>WebSharper build errors and warnings in F# projects now show up correctly in Errors window and as squiggly underlines.</li>
 <li>Fixed deserializing an empty <code>Set</code> value sent to a <code>Remote</code> function.</li>
@@ -184,7 +184,7 @@
 <li><code>EndPoint &quot;/&quot;</code> can be used on a union case with fields (for example another union, allowing breaking up a big endpoint definition into multiple union types)</li>
 <li>Decoding/encoding string values by <code>Router.Infer</code> (and <code>Router.rString</code>) are now using the same logic as WebSharper 4.0: any non-alphanumeric character replaced to <code>~xx</code> or <code>~uxxxx</code>. This ensures that string values are recovered properly and are passing standard URL correctness checks.</li>
 </ul>
-<h1 id="example-for-c-routing">Example for C# routing</h1>
+<h2 id="example-for-c-routing">Example for C# routing</h2>
 <p>A C# class hierarchy can define an inferred router:</p>
 <pre><code class="language-csharp">    [JavaScript, EndPoint(&quot;/&quot;, &quot;/home&quot;)]
     public class Home {

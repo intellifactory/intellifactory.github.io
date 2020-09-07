@@ -167,7 +167,7 @@
             <div class="col-lg-9 text-color">
               <div><div ws-preserve=""><p>WebSharper 4 beta-6 contains updates to DOM and JQuery bindings, erased union types, JS output optimizations and fixes.</p>
 <p>Visual Studio 2017, F# 4.1 and C# 7 support are coming soon.</p>
-<h1 id="improvements">Improvements</h1>
+<h2 id="improvements">Improvements</h2>
 <ul>
 <li><p>using FSharp.Compiler.Service <code>11.0.4</code>. To have optimal compilation speeds, go to a folder in a solution at <code>packages\Zafir.FSharp.4.0.155.11-beta6\tools</code> and run <code>./runngen</code> in PowerShell as administrator.</p>
 </li>
@@ -205,14 +205,12 @@
 </code></pre>
 </li>
 </ul>
-<h1 id="fixes">Fixes</h1>
+<h2 id="fixes">Fixes</h2>
 <ul>
 <li><a href="https://github.com/intellifactory/websharper/issues/645">#645</a> Name conflict in <code>WebSharper.Sitelets.Content</code> from C#</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/657">#657</a> Using <code>Name</code> attribute on properties with getter and setter now adds <code>set_</code> to the name of the setter to disambiguate them.</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/633">#633</a> WIG-defined interfaces now can be inherited from with F#/C# code if they contain only method definitions without custom inline annotations. Calling interface members from <code>.d.ts</code>-based bindings now translate properly, but these interfaces can't be inherited from in your code (as they are using special call semantics).</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/665">#665</a> Unpacking Scripts/Contents for web projects required the <code>WebProjectOutputDir</code> property, although previously assumed project root as default. This default has been restored for back-compatibility.</li>
-</ul>
-<ul>
 <li><a href="https://github.com/intellifactory/websharper/issues/668">#668</a> Printing F# compilation errors and warnings as compiling with <code>fsc.exe</code> would, respecting <code>nowarn</code>, <code>warn</code>, <code>warnon</code>, <code>warneserror</code> flags</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/667">#667</a> Fix C# analyzer giving failure warnings on build</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/669">#669</a> <code>Async.StartImmediate</code> and <code>Async.StartWithContinuations</code> now start the <code>async</code> immediately as in .NET, possibly finishing synchronously if they contain no bind/combine.</li>
@@ -223,7 +221,7 @@
 <li><a href="https://github.com/intellifactory/websharper/issues/679">#679</a> exception properties <code>Message</code> and <code>InnerException</code> should work for all exception types</li>
 <li><a href="https://github.com/intellifactory/websharper/issues/676">#676</a> <code>Queue</code> and <code>Stack</code> constructors taking a <code>seq&lt;'T&gt;</code> (<code>IEnumerable&lt;T&gt;</code>)</li>
 </ul>
-<h1 id="breaking-changes">Breaking changes</h1>
+<h2 id="breaking-changes">Breaking changes</h2>
 <ul>
 <li>Macro API: <code>MacroResult.MacroNeedsResolvedTypeArg</code> now needs the offending type parameter as a field. You can decide if a type is a type parameter of any kind by using the new <code>IsParameter</code> property.</li>
 </ul>

@@ -168,17 +168,17 @@
               <div><div ws-preserve=""><p>This is a minor release for WebSharper. The main highlight of this release is the improved API for WebSharper.AspNetCore.</p>
 <p>Install templates for .NET Core SDK: <code>dotnet new -i WebSharper.Templates::4.5.2.275</code></p>
 <p>Download templates for Visual Studio 2017: <a href="http://websharper.com/installers/WebSharper.4.5.2.275.vsix">http://websharper.com/installers/WebSharper.4.5.2.275.vsix</a></p>
-<h1 id="websharper">WebSharper</h1>
-<h2 id="features">Features</h2>
+<h2 id="websharper">WebSharper</h2>
+<h3 id="features">Features</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/1020">#1020</a>: <code>Sitelets.HttpModule</code> now throws an error if no Sitelet definition is found.</li>
 <li><a href="https://github.com/dotnet-websharper/core/issues/1022">#1022</a>: Update to FSharp.Compiler.Service 25.0.1</li>
 </ul>
-<h2 id="fixes">Fixes</h2>
+<h3 id="fixes">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/1023">#1023</a>: Fix HTML escaping in <code>HtmlTextWriter</code>. This affects functions such as <code>text</code> and <code>attr.*</code> in WebSharper.UI.</li>
 </ul>
-<h1 id="websharper.aspnetcore">WebSharper.AspNetCore</h1>
+<h2 id="websharper.aspnetcore">WebSharper.AspNetCore</h2>
 <p>WebSharper.AspNetCore now has a more idiomatic API and makes it easier to add your code to the dependency injection graph.</p>
 <p>Here is how a typical current application should be ported to the new API:</p>
 <pre><code class="language-csharp">public class Startup
@@ -276,8 +276,8 @@ type MySiteletService(logger: ILogger&lt;MySiteletService&gt;) =
 </li>
 </ul>
 <p>The old API is still available but marked as obsolete.</p>
-<h1 id="websharper.ui">WebSharper.UI</h1>
-<h2 id="features-1">Features</h2>
+<h2 id="websharper.ui">WebSharper.UI</h2>
+<h3 id="features-1">Features</h3>
 <ul>
 <li><p><a href="https://github.com/dotnet-websharper/ui/issues/192">#192</a> Add the ability to instantiate a template from a string.</p>
 <p>You can now pass a string to the constructor of a template to override the contents of the template. For example:</p>

@@ -169,7 +169,7 @@
 <p>It contains enhancements and fixes to some client-server functionality introduced in WebSharper 4.1 (<code>on.*</code> server-side event handlers pre-compiling any form of quotation), special treatment of <code>IsClient</code> value for conditional compilation for server/client, and other bug fixes.</p>
 <p>Documentation: <a href="http://developers-test.websharper.io/docs/v4.1/cs">WebSharper 4.1 for C#</a> and <a href="http://developers-test.websharper.io/docs/v4.1/fs">WebSharper 4.1 for F#</a>.</p>
 <p>The release notes are also found on <a href="https://github.com/dotnet-websharper/websharper/releases/tag/4.1.1.175">GitHub</a>.</p>
-<h1 id="new-features">New features</h1>
+<h2 id="new-features">New features</h2>
 <ul>
 <li>Server-side event handlers (<code>on.*</code>) and <code>ClientSide</code> can take any fixed F# quotation now and translates it to JavaScript.</li>
 </ul>
@@ -188,7 +188,7 @@ client
 </code></pre>
 <pre><code class="language-fsharp">    if IsClient then ClientSideMethod() else ServerSideMethod()
 </code></pre>
-<h1 id="new-features-in-websharper.ui">New features in WebSharper.UI</h1>
+<h2 id="new-features-in-websharper.ui">New features in WebSharper.UI</h2>
 <ul>
 <li>Added <code>Lens</code> function to lens into a <code>Var</code> using the <code>.V</code> syntax. Example usage:</li>
 </ul>
@@ -219,7 +219,7 @@ let editPeople =
     )
 </code></pre>
 <p>This ties the inputs to the values in <code>people.Value</code> (of type <code>list&lt;Person&gt;</code>), recreating the immutable list if any of the inputs are changed.</p>
-<h1 id="fixes-and-improvements">Fixes and improvements</h1>
+<h2 id="fixes-and-improvements">Fixes and improvements</h2>
 <ul>
 <li>An empty F# <code>Map</code> passed to an RPC function is deserialized correctly.</li>
 <li>The behavior of the <code>Stub</code> attribute on constructors and static methods are now consistent with the <a href="https://developers.websharper.com/docs/v3.x/fs/attributes">documented translation logic</a> since WebSharper 3.0.</li>

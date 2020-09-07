@@ -170,16 +170,16 @@
 <p>Documentation: <a href="https://developers.websharper.com/docs/v4.x/cs">WebSharper 4.x for C#</a> and <a href="https://developers.websharper.com/docs/v4.x/fs">WebSharper 4.x for F#</a>.</p>
 <p>The release notes are also found on <a href="https://github.com/dotnet-websharper/core/releases/tag/4.5.9.330">GitHub</a>.</p>
 <p>See associated WebSharper.UI release notes <a href="https://github.com/dotnet-websharper/ui/releases/tag/4.5.8.161">here</a>.</p>
-<h1 id="fixes">Fixes</h1>
+<h2 id="fixes">Fixes</h2>
 <ul>
 <li>Assembly version mismatch in package WebSharper.FSharp, causing build fauilures.</li>
 </ul>
-<h1 id="enhancements">Enhancements</h1>
+<h2 id="enhancements">Enhancements</h2>
 <ul>
 <li>Added client-side support for anonymous F# records.</li>
 <li>UI Templating: add a new attribute <code>ws-preserve.</code> When an element is marked with this attribute, it and its children are not parsed for holes and <code>ws-*</code> attributes.</li>
 </ul>
-<h2 id="anonymous-records">Anonymous records</h2>
+<h3 id="anonymous-records">Anonymous records</h3>
 <p>F# anonymous records are now fully usable in client-side code. They are translated to plain JS objects:</p>
 <pre><code class="language-fsharp">let anon1 = {| A = 1 |} // translates to { A: 1 }
 </code></pre>
@@ -190,7 +190,7 @@
 <p>This helps storing the values in minimal form, while keeping the full type safety of F# code.</p>
 <p>See it live <a href="http://try.websharper.com/snippet/JankoA/0000NK">here</a>:</p>
 <p><a href="http://try.websharper.com/snippet/JankoA/0000NK"><img src="https://i.imgur.com/G0cDYLu.jpg" alt="Imgur" /></a></p>
-<h2 id="opt-out-of-templating-transformations">Opt out of templating transformations</h2>
+<h3 id="opt-out-of-templating-transformations">Opt out of templating transformations</h3>
 <p>By default a <code>${Name}</code> in a WebSharper.UI template file is treated as a hole to be filled. Including this verbatim is now made easier with new attribute <code>ws-preserve</code> that excludes children of current node from being interpreted for template holes and <code>ws-</code> attributes and nodes.</p>
 <p>For example:</p>
 <pre><code class="language-html">&lt;div&gt;

@@ -168,7 +168,7 @@
               <div><div ws-preserve=""><p><code>Zafir.4.0.160.40-beta6</code> Is now available on NuGet, <code>.vsix</code> installers at <a href="http://websharper.com/downloads">WebSharper downloads</a> (&quot;Other versions&quot; section).</p>
 <p>Thanks to @cgravill and @amieres for submitting bug reports.</p>
 <p>See this release on <a href="https://github.com/intellifactory/websharper/releases/tag/Zafir.4.0.160.40-beta6">GitHub</a>.</p>
-<h1 id="fixes">Fixes</h1>
+<h2 id="fixes">Fixes</h2>
 <ul>
 <li>#681 Return was missing so infinite loop was generated on a module-level <code>let rec</code> returning <code>unit</code></li>
 <li>#682 Mark arguments transformed in tail recursion optimization as mutable to avoid incorrect inlining which could result in invalid JS code</li>
@@ -177,12 +177,12 @@
 <li>#684 Fix for JavaScript statements in <code>Inline</code> to not drop first statement if it was an expression</li>
 <li>#685 Different <code>Name</code> and <code>AssemblyName</code> in F# does not cause errors</li>
 </ul>
-<h1 id="improvements">Improvements</h1>
+<h2 id="improvements">Improvements</h2>
 <ul>
 <li>#683 You can now opt-out of dead code elimination for SPA projects. Use <code>&lt;WebSharperDeadCodeElimination&gt;False&lt;/WebSharperDeadCodeElimination&gt;</code> in the project file or add <code>--dce-</code> to the <code>wsfsc.exe</code> command line.</li>
 <li>#686 Case test for erased unions with a case which is a plain object in JS now compiles, if there is no previous case that is also a plain object, then it gives a more specific error</li>
 </ul>
-<h1 id="breaking-changes">Breaking changes</h1>
+<h2 id="breaking-changes">Breaking changes</h2>
 <ul>
 <li>#670 By default, classes (including F# records and unions) with no methods translated to JS instance methods and having no base class are now translated not to have a prototype. JSON serializer was fixed to handle this. This is a performance optimization, but disallows type checks or inheriting from a class like this. So a new attribute <code>Prototype</code> was added to opt-in for generating a prototype for the type in the translation. Extra features: <code>Prototype(false)</code> forces the type to have no prototype, converting instance methods to static in translation.</li>
 </ul>

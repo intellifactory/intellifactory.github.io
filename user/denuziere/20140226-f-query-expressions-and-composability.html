@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>F# query expressions and composability | IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+      <div class="container">
+        <h1>F# query expressions and composability</h1>
+        <h2>20140226</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><p>Anyone who has written non-trivial applications that need to access a SQL database can attest it: being able to compose SQL queries, insert parts of query that depend on some runtime criterion, is tremendously helpful. Not having this capability often means having to copy and paste queries just to be able to add a &quot;where&quot; or a &quot;join&quot; clause, and I know few better ways to end up with buggy, hard-to-maintain code.</p>
+<p>This article discusses the auto-quoting mechanism of F# 3.x query expressions and how it can be leveraged to implement not-too-clunky composition.</p>
+<h2 id="powerpack.linq">PowerPack.Linq</h2>
+<p>In F# 2.0, the standard / usual way to access SQL databases was PowerPack.Linq, which featured a <code>query</code> function capable of translating a quotation containing sequence operations into a LINQ query. Therefore, composing sub-queries basically meant composing sequence operations, and it was not too difficult: quotation splicing did the trick.</p>
+<p>Let's take the classic example of a web forum, with a <code>Message</code> table containing a field <code>UserId</code> that keys into a <code>User</code> table through its <code>Id</code> field. Let's write the following function:</p>
+<pre><code class="language-fsharp">val GetLatestMessages : num: int -&gt; username: string option -&gt; Message[]
+</code></pre>
+<p>If <code>username</code> is <code>None</code>, we return the <code>num</code> latest messages posted by anyone; else, only those posted by the given user. So depending on <code>username</code>, we will need two different SQL queries: one with a join into the users table, and one without.</p>
+<p>With PowerPack.Linq, it will look like this:</p>
+<pre><code class="language-fsharp">let GetLatestMessages num usernameOpt =
+  use db = (* retrieve LINQ-to-SQL context *)
+  let baseQuery =
+    &lt;@ db.Messages |&gt; Seq.sortBy (fun m -&gt; m.PostedDate) @&gt;
+  let filteredQuery =
+    match usernameOpt with
+    | None -&gt; baseQuery
+    | Some username -&gt;
+      &lt;@ seq { for m in %baseQuery do
+               for u in db.Users do
+               if u.Username = username &amp;&amp; m.UserId = u.Id then
+                 yield m } @&gt;
+  query &lt;@ %filteredQuery |&gt; Seq.take num @&gt;
+  |&gt; Array.ofSeq
+</code></pre>
+<p>Note the use of the percent operator. It performs quotation splicing, which means that its argument, itself a quotation, is put as-is into the quotation being defined. In the end, the quotation compiled by <code>query</code> depends on the value of <code>usernameOpt</code>. If it is <code>None</code>, then the final quotation is:</p>
+<pre><code class="language-fsharp">&lt;@ db.Messages
+   |&gt; Seq.sortBy (fun m -&gt; m.PostedDate)
+   |&gt; Seq.take num @&gt;
+</code></pre>
+<p>If it is <code>Some username</code>, then the final quotation is:</p>
+<pre><code class="language-fsharp">&lt;@ seq { for m in (db.Messages |&gt; Seq.sortBy (fun m -&gt; m.PostedDate)) do
+         for u in db.Users do
+         if u.Username = username &amp;&amp; m.UserId = u.Id then
+           yield m }
+   |&gt; Seq.take num @&gt;
+</code></pre>
+<p>The function <code>query</code> is then able to take whichever of these quotations, compile it into a valid SQL query, and run it. We do have the functionality we need, with the totality of the query being performed by the database.</p>
+<h2 id="query-expressions-the-problem">Query Expressions: The Problem</h2>
+<p>F# 3.0 introduced query expressions, with the intent of creating a syntax similar to C#'s own LINQ syntax, itself very close to plain SQL. Using query expressions, the two above variants would be written as follows:</p>
+<pre><code class="language-fsharp">query { for m in db.Messages do
+        sortBy m.PostedDate
+        select m
+        take num }
+
+query { for m in db.Messages do
+        sortBy m.PostedDate
+        join u in db.Users on (m.UserId = u.Id)
+        where (u.Username = username)
+        select m
+        take num }
+</code></pre>
+<p>But how can we choose between these two queries without having to duplicate the common parts, just like we did with <code>PowerPack.Linq</code>? As a first attempt, we can try to use the result of the previous fragment in the <code>for</code> part of the next one.</p>
+<pre><code class="language-fsharp">let GetLatestMessages num usernameOpt =
+  use db = (* retrieve LINQ-to-SQL context *)
+  let baseQuery =
+    query { for m in db.Messages do
+            sortBy m.PostedDate
+            select m }
+  let filteredQuery =
+    match usernameOpt with
+    | None -&gt; baseQuery
+    | Some username -&gt;
+      query { for m in baseQuery do
+              join u in db.Users on (m.UserId = u.Id)
+              where (u.Username = username)
+              select m }
+  query { for m in filteredQuery do
+          take num }
+  |&gt; Array.ofSeq
+</code></pre>
+<p>However, at runtime, we get this cryptic exception (using a LINQ to Entities context; the message will probably be different if you use LINQ to SQL):</p>
+<pre><code>This method supports the LINQ to Entities infrastructure
+and is not intended to be used directly from your code.
+</code></pre>
+<p>What is going on here? Well, the problem here is that the <code>query</code> builder actually performs the translation to LINQ. So <code>baseQuery</code> is actually an <code>IQueryable&lt;Message&gt;</code> representing the output of the query. It is therefore too late to combine into a more complex query!</p>
+<h2 id="query-expressions-the-solution">Query Expressions: The Solution</h2>
+<p>In order to progress further, we need to understand how query expressions work internally. Like any F# computation expression, a query expression is mostly syntactic sugar on top of method calls on the builder object used to create the expression, in this case the <code>query</code> object. For example, <code>baseQuery</code> above corresponds to the following expression:</p>
+<pre><code class="language-fsharp">  query.Select(
+    query.SortBy(
+      query.Source(db.Messages),
+      fun m -&gt; m.PostedDate),
+    fun m -&gt; m)
+</code></pre>
+<p>(I am actually omitting a couple extra method calls that would make this less readable, but the principle stays the same.)</p>
+<p>But actually... Not quite. If this was all there was to it, then it would be trivially composable, just like normal <code>seq { ... }</code> expressions are composable. But in order to be able to compile such an expression to LINQ, it needs to be able to inspect it; and to do so, without telling you, it uses... <em>(drumrolls...)</em> quotations.</p>
+<p>In fact, the query expression syntax does more than put sugar on top of some method calls; when some conditions are met (ie. when the builder object has certain specific methods), it also implicitly puts the whole body in a quotation, and calls the <code>Run</code> method on it. The translation of <code>baseQuery</code> is therefore closer to this:</p>
+<pre><code class="language-fsharp">query.Run &lt;@
+  query.Select(
+    query.SortBy(
+      query.Source(db.Messages),
+      fun m -&gt; m.PostedDate),
+    fun m -&gt; m)
+@&gt;
+</code></pre>
+<p><code>query.Run : Expr&lt;Linq.QuerySource&lt;'T, _&gt;&gt; -&gt; IQueryable&lt;'T&gt;</code> is responsible for taking this quotation and turning it into the final LINQ expression that maps directly to SQL.</p>
+<p>Now if only we could have direct access to the quotation, we would be golden. Well, it turns out we can do exactly that. We are going to play around with quoting and unquoting pieces of queries, which is something I've first seen done by Tomas Petricek <a href="http://stackoverflow.com/questions/13826749/how-do-you-compose-query-expressions-in-f">here</a>. In fact, this SO response is the original inspiration for this whole post.</p>
+<p>All we have to do here is to create a subclass of <code>Linq.QueryBuilder</code> (the class of <code>query</code>) that implements <code>Run</code> differently.</p>
+<pre><code class="language-fsharp">type PartialQueryBuilder() =
+  inherit Linq.QueryBuilder()
+
+  member this.Run(e: Expr&lt;Linq.QuerySource&lt;'T, IQueryable&gt;&gt;) = e
+
+let pquery = PartialQueryBuilder()
+</code></pre>
+<p>We now have a query expression constructor, <code>pquery</code>, that we can invoke exactly like <code>query</code>, except that it returns the unevaluated query quotation.</p>
+<pre><code class="language-fsharp">let baseQuery =
+  pquery{ for m in db.Messages do
+          sortBy m.PostedDate
+          select m }
+
+// val baseQuery : Expr&lt;Linq.QuerySource&lt;'T, _&gt;&gt;
+</code></pre>
+<p>What we want to do next is to be able to pass this unevaluated query to <code>for</code> in another query. As I've shown above, the sequence given to <code>for</code> is passed by the desugaring to a method <code>query.Source : IQueryable&lt;'T&gt; -&gt; Linq.QuerySource&lt;'T, _&gt;</code>. But here, pquery directly gives us a <code>Linq.QuerySource&lt;'T, _&gt;</code>. No problem, we can use a trick similar to the above <code>Run</code> trick, except using an extension method on <code>query</code> itself:</p>
+<pre><code class="language-fsharp">type Linq.QueryBuilder with
+  [&lt;ReflectedDefinition&gt;]
+  member this.Source(qs: Linq.QuerySource&lt;'T, _&gt;) = qs
+</code></pre>
+<p>Okay, now all we have to do is pass our partial query to <code>for</code>. But wait, isn't it an <code>Expr&lt;Linq.QuerySource&lt;'T, _&gt;&gt;</code>, ie. a quoted version of what the <code>Source</code> we just wrote expects? Well, remember when I said that the body of query expressions gets wrapped in a quotation? This is not just a figure, it really is exactly what happens. So you can even use the <code>%</code> splicing operator in query expressions! For our example, the following code is valid:</p>
+<pre><code class="language-fsharp">query { for m in %baseQuery do
+        join u in db.Users on (m.UserId = u.Id)
+        where (u.Username = username)
+        select m }
+</code></pre>
+<p>And there we go! We just wrote a partial query and composed it into a final query, and readability-wise all it takes is an extra <code>p</code> in the former and a <code>%</code> in the latter. Not bad!</p>
+<p>Here is the whole code for reference:</p>
+<pre><code class="language-fsharp">// Utility code, write it once
+
+type PartialQueryBuilder() =
+  inherit Linq.QueryBuilder()
+
+  member this.Run(e: Expr&lt;Linq.QuerySource&lt;'T, IQueryable&gt;&gt;) = e
+
+let pquery = PartialQueryBuilder()
+
+type Linq.QueryBuilder with
+  [&lt;ReflectedDefinition&gt;]
+  member this.Source(qs: Linq.QuerySource&lt;'T, _&gt;) = qs
+
+// Example usage
+
+let GetLatestMessages num usernameOpt =
+  use db = (* retrieve LINQ-to-SQL context *)
+  let baseQuery =
+    pquery{ for m in ctx.Messages do
+            sortBy m.PostedDate
+            select m }
+  let filteredQuery =
+    match usernameOpt with
+    | None -&gt; baseQuery
+    | Some username -&gt;
+      pquery{ for m in %baseQuery do
+              join u in db.Users on (m.UserId = u.Id)
+              where (u.Username = username)
+              select m }
+  query { for m in %filteredQuery do
+          take num }
+  |&gt; Array.ofSeq
+</code></pre>
+<p>Note how we can just as easily compose a partial query into another partial query. And finally, if you need to directly run a partial query (as opposed to splicing it into a normal query), you can just pass it to the standard <code>query.Run</code>.</p>
+</div></div>
+              <hr class="space" />
+              <div class="row">
+                <div class="col-lg-8">
+                  <ul class="icon-list icon-list-horizontal icon-list-blog">
+                    <li>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">Finance</a>,
+                      <a href="#">Software</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/denuziere/20140226-f-query-expressions-and-composability.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Related articles.</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="2" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Categories</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/composability">
+                      composability
+                    </a>
+                  </div><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div><div>
+                    <a href="/category/linq">
+                      linq
+                    </a>
+                  </div><div>
+                    <a href="/category/query">
+                      query
+                    </a>
+                  </div><div>
+                    <a href="/category/quotations">
+                      quotations
+                    </a>
+                  </div></div>
+                <hr class="space-sm" />
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="http://via.placeholder.com/400x400" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="http://via.placeholder.com/400x400" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="http://via.placeholder.com/400x400" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.4 released with remote authentication" />
+                          Bolero 0.4 released with remote authentication
+                          <span>04/17/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support">
+                          <img src="http://via.placeholder.com/400x400" alt="WebSharper 4.5.8 released with Visual Studio 2019 support" />
+                          WebSharper 4.5.8 released with Visual Studio 2019 support
+                          <span>02/26/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <h4>Company and team</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Company details and team</a>
+                          </li>
+                          <li>
+                              <a href="#">News and blog</a>
+                          </li>
+                          <li>
+                              <a href="#">Press area</a>
+                          </li>
+                          <li>
+                              <a href="#">Affiliates and marketing</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Help and support</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Help centre</a>
+                          </li>
+                          <li>
+                              <a href="#">Feedbacks</a>
+                          </li>
+                          <li>
+                              <a href="#">Request new features</a>
+                          </li>
+                          <li>
+                              <a href="#">Contact us</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Learn more</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Apps stores</a>
+                          </li>
+                          <li>
+                              <a href="#">Partners</a>
+                          </li>
+                          <li>
+                              <a href="#">Privacy and terms</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Follow us</h4>
+                  <div class="icon-links icon-social icon-links-grid social-colors">
+                      <a class="facebook"><i class="icon-facebook"></i></a>
+                      <a class="twitter"><i class="icon-twitter"></i></a>
+                      <a class="linkedin"><i class="icon-linkedin"></i></a>
+                      <a class="youtube"><i class="icon-youtube"></i></a>
+                      <a class="instagram"><i class="icon-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bar">
+          <div class="container">
+              <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+              <span><img src="/media/logo-light.svg" /></span>
+          </div>
+      </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>

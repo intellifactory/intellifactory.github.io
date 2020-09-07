@@ -169,13 +169,13 @@
 <p>It contains performance enhancements to the Bundle project type, as well as a new BundleOnly project type for when only <code>.js</code>/<code>.css</code> output are needed for a project and a <code>.dll</code> is not. Also serialization support for <code>DateTimeOffset</code>.</p>
 <p>Documentation: <a href="http://developers-test.websharper.io/docs/v4.1/cs">WebSharper 4.1 for C#</a> and <a href="http://developers-test.websharper.io/docs/v4.1/fs">WebSharper 4.1 for F#</a>.</p>
 <p>The release notes are also found on <a href="https://github.com/dotnet-websharper/websharper/releases/tag/4.1.6.207">GitHub</a>.</p>
-<h1 id="bundling">Bundling</h1>
+<h2 id="bundling">Bundling</h2>
 <ul>
 <li>Bundle project output is now generated quicker.</li>
 <li>Also, if you have source mapping turned off (as default) and dead code elimination too (with <code>&lt;WebSharperDeadCodeElimination&gt;False&lt;/WebSharperDeadCodeElimination&gt;</code>) then bundling will just concatenate already compiled JavaScript output for referenced assemblies instead of rewriting to a single scope, resulting in faster compilation speed.</li>
 <li>You can use the new project type value <code>&lt;WebSharperProject&gt;BundleOnly&lt;/WebSharperProject&gt;</code> to have only the <code>.js</code>/<code>.css</code>/<code>.html</code> output for bundle projects. In the case of F#, this means that only a dummy <code>.dll</code> is created. For C#, the <code>.dll</code> is just not touched, it will contain no WebSharper-specific resources. This allows faster iterative development on bundle projects. Do not use <code>BundleOnly</code> if any other projects are referencing the current project. Most time is gained if that project itself (and not just references) contain large amount of code.</li>
 </ul>
-<h1 id="fixesimprovements">Fixes/improvements</h1>
+<h2 id="fixesimprovements">Fixes/improvements</h2>
 <ul>
 <li>More <code>DateTimeOffset</code> members now usable client-side. Both RPCs and custom JSON serialization are supporting <code>DateTimeOffset</code> values, in a way that is also cross-compatible with serialized <code>DateTime</code> values.</li>
 <li>F# module-level pattern matching with <code>let</code> now translates successfully. For example: <code>let a, b = 1, 2</code></li>

@@ -3,7 +3,7 @@
   <title>IntelliFactory Blog</title>
   <subtitle>Building business applications with F# since 2004</subtitle>
   <link href="http://mywebsite.com" />
-  <updated>2020-09-07T01:45:18Z</updated>
+  <updated>2020-09-07T17:17:07Z</updated>
   <entry>
     <title>Bolero 0.13 released</title>
     <link href="http://mywebsite.com/user/denuziere/20200523-bolero-0-13-released" />
@@ -1085,6 +1085,16 @@
     <updated>2015-02-25T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>CloudSharper 0.9.28 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20150218-cloudsharper-0-9-28-released" />
+    <id>jankoa20150218-cloudsharper-0-9-28-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release for the editor.</summary>
+    <updated>2015-02-18T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>Upcoming in WebSharper 3.0: serving REST APIs, easy as pie!</title>
     <link href="http://mywebsite.com/user/denuziere/20150213-upcoming-in-websharper-3-0-serving-rest-apis-easy-as-pie" />
     <id>denuziere20150213-upcoming-in-websharper-3-0-serving-rest-apis-easy-as-pie</id>
@@ -1092,6 +1102,16 @@
     <category>websharper</category>
     <summary>WebSharper 3.0 is coming with an awesome new feature: automatically parse JSON requests into typed F# values, and reply with JSON just as easily!</summary>
     <updated>2015-02-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.27 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20150211-cloudsharper-0-9-27-released" />
+    <id>denuziere20150211-cloudsharper-0-9-27-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>CloudSharper 0.9.27 is out, with some UI enhancements and the capability to write WebSharper RPC methods in F# interactive.</summary>
+    <updated>2015-02-11T00:00:00Z</updated>
   </entry>
   <entry>
     <title>WebSharper.3.0.26-alpha released</title>
@@ -1104,6 +1124,89 @@
     <updated>2015-02-10T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>WebSharper 3.0.15-alpha released</title>
+    <link href="http://mywebsite.com/user/denuziere/20150129-websharper-3-0-15-alpha-released" />
+    <id>denuziere20150129-websharper-3-0-15-alpha-released</id>
+    <category>fsharp</category>
+    <category>javascript</category>
+    <category>web</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2015-01-29T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.26 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20150113-cloudsharper-0-9-26-released" />
+    <id>denuziere20150113-cloudsharper-0-9-26-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This new CloudSharper version includes an HTTP API to create a workspace in a single click.</summary>
+    <updated>2015-01-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.25 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20150109-cloudsharper-0-9-25-released" />
+    <id>denuziere20150109-cloudsharper-0-9-25-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release of CloudSharper updates the templates and the user interface itself to the latest WebSharper.</summary>
+    <updated>2015-01-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 3.0.8-alpha published</title>
+    <link href="http://mywebsite.com/user/denuziere/20150108-websharper-3-0-8-alpha-published" />
+    <id>denuziere20150108-websharper-3-0-8-alpha-published</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release of WebSharper streamlines a lot of the namespaces, making it more intuitive to use than ever. It is a breaking update, and this article describes all the (mostly trivial) changes that need to be done to existing projects.</summary>
+    <updated>2015-01-08T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.23 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20141216-cloudsharper-0-9-23-released" />
+    <id>denuziere20141216-cloudsharper-0-9-23-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>CloudSharper updates to WebSharper 3.0 alpha.</summary>
+    <updated>2014-12-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 3.0.3-alpha released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141216-websharper-3-0-3-alpha-released" />
+    <id>jankoa20141216-websharper-3-0-3-alpha-released</id>
+    <category>fsharp</category>
+    <category>javascript</category>
+    <category>websharper</category>
+    <summary>This is our first release of WebSharper 3.0-alpha with a new feature: source mapping.</summary>
+    <updated>2014-12-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>News from WebSharper 3.0: NuGet, Visual Studio, Mono, upcoming features and API changes</title>
+    <link href="http://mywebsite.com/user/denuziere/20141208-news-from-websharper-3-0-nuget-visual-studio-mono-upcoming-features-and-api-changes" />
+    <id>denuziere20141208-news-from-websharper-3-0-nuget-visual-studio-mono-upcoming-features-and-api-changes</id>
+    <category>fsharp</category>
+    <category>javascript</category>
+    <category>mono</category>
+    <category>nuget</category>
+    <category>websharper</category>
+    <summary>The first batch of WebSharper 3.0 releases has just hit NuGet, together with the Visual Studio extension. The build system has been updated to build correctly on Mono. Work has also started on new features and API enhancements.</summary>
+    <updated>2014-12-08T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper migration to GitHub complete!</title>
+    <link href="http://mywebsite.com/user/denuziere/20141206-websharper-migration-to-github-complete" />
+    <id>denuziere20141206-websharper-migration-to-github-complete</id>
+    <category>bitbucket</category>
+    <category>fsharp</category>
+    <category>github</category>
+    <category>websharper</category>
+    <summary>WebSharper sources and issues have moved from BitBucket to GitHub.</summary>
+    <updated>2014-12-06T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper 3 alpha now under Apache 2</title>
     <link href="http://mywebsite.com/user/granicz/20141203-websharper-3-alpha-now-under-apache-2" />
     <id>granicz20141203-websharper-3-alpha-now-under-apache-2</id>
@@ -1113,12 +1216,266 @@
     <updated>2014-12-03T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>WebSharper 2.5.134 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141202-websharper-2-5-134-released" />
+    <id>jankoa20141202-websharper-2-5-134-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Introducing proxies for Async cancellation, MailboxProcessor, Printf.</summary>
+    <updated>2014-12-02T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.22.2 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141117-cloudsharper-0-9-22-2-released" />
+    <id>jankoa20141117-cloudsharper-0-9-22-2-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release with some additions for FSI.</summary>
+    <updated>2014-11-17T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>Self-hosted WebSharper application template available</title>
     <link href="http://mywebsite.com/user/granicz/20141113-self-hosted-websharper-application-template-available" />
     <id>granicz20141113-self-hosted-websharper-application-template-available</id>
     <category>websharper</category>
     <summary>A new Visual Studio template has been added to the latest Visual Studio installer called "Self-Hosted Client-Server Application," and you can use this template to build OWIN-based self-hosted applications that can be deployed via an .exe file and without requiring an installed web container (IIS, etc.) on the serving machine.</summary>
     <updated>2014-11-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.22.1 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141029-cloudsharper-0-9-22-1-released" />
+    <id>jankoa20141029-cloudsharper-0-9-22-1-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release for cloud workspace management.</summary>
+    <updated>2014-10-29T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.22.0 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141028-cloudsharper-0-9-22-0-released" />
+    <id>jankoa20141028-cloudsharper-0-9-22-0-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release adds cloud workspace management and bug fixes.</summary>
+    <updated>2014-10-28T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.20.3 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20141015-cloudsharper-0-9-20-3-released" />
+    <id>denuziere20141015-cloudsharper-0-9-20-3-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release of CloudSharper adds configuration options for the local service's web server and the workspaces directory.</summary>
+    <updated>2014-10-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.20.2 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141009-cloudsharper-0-9-20-2-released" />
+    <id>jankoa20141009-cloudsharper-0-9-20-2-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release for the CS local service.</summary>
+    <updated>2014-10-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.5.127 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141009-websharper-2-5-127-released" />
+    <id>jankoa20141009-websharper-2-5-127-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This version brings small fixes and RPC improvements</summary>
+    <updated>2014-10-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.20.1 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20141006-cloudsharper-0-9-20-1-released" />
+    <id>jankoa20141006-cloudsharper-0-9-20-1-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release makes tooltips better, adds Go To Definition.</summary>
+    <updated>2014-10-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.20.0 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20140929-cloudsharper-0-9-20-0-released" />
+    <id>jankoa20140929-cloudsharper-0-9-20-0-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The highlight of this release is tooltips for F# code.</summary>
+    <updated>2014-09-29T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.19.3 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140924-cloudsharper-0-9-19-3-released" />
+    <id>denuziere20140924-cloudsharper-0-9-19-3-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release focusing mainly on the F# code service.</summary>
+    <updated>2014-09-24T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.19.2</title>
+    <link href="http://mywebsite.com/user/denuziere/20140919-cloudsharper-0-9-19-2" />
+    <id>denuziere20140919-cloudsharper-0-9-19-2</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2014-09-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>2048 game with F# + WebSharper</title>
+    <link href="http://mywebsite.com/user/jankoa/20140916-2048-game-with-f-websharper" />
+    <id>jankoa20140916-2048-game-with-f-websharper</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>A re implementation of the popular browser game with easy to override game logic.</summary>
+    <updated>2014-09-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.19.1 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140912-cloudsharper-0-9-19-1-released" />
+    <id>denuziere20140912-cloudsharper-0-9-19-1-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Just a few hours after releasing CloudSharper 0.9.19.0, we are back with a handful of small enhancements.</summary>
+    <updated>2014-09-12T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.19 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140912-cloudsharper-0-9-19-released" />
+    <id>denuziere20140912-cloudsharper-0-9-19-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2014-09-12T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.5.124.61 released</title>
+    <link href="http://mywebsite.com/user/jankoa/20140904-websharper-2-5-124-61-released" />
+    <id>jankoa20140904-websharper-2-5-124-61-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This new version brings bugfixes and WIG improvements</summary>
+    <updated>2014-09-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.17.1 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140901-cloudsharper-0-9-17-1-released" />
+    <id>denuziere20140901-cloudsharper-0-9-17-1-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release enables running F# interactive without a workspace, in addition to a set of bug fixes.</summary>
+    <updated>2014-09-01T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.17 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140821-cloudsharper-0-9-17-released" />
+    <id>denuziere20140821-cloudsharper-0-9-17-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a minor bugfix release.</summary>
+    <updated>2014-08-21T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.16.1 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140819-cloudsharper-0-9-16-1-released" />
+    <id>denuziere20140819-cloudsharper-0-9-16-1-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a minor bugfix release of CloudSharper Local alpha.</summary>
+    <updated>2014-08-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper UI.Next Version 0.1.31.32</title>
+    <link href="http://mywebsite.com/user/sfowler/20140819-websharper-ui-next-version-0-1-31-32" />
+    <id>sfowler20140819-websharper-ui-next-version-0-1-31-32</id>
+    <category>fsharp</category>
+    <category>ui.next</category>
+    <category>websharper</category>
+    <summary>Websharper UI.Next Version 0.1.31.32 has been released, with bugfixes, and new event &amp; animation functionality.</summary>
+    <updated>2014-08-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.16 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140815-cloudsharper-0-9-16-released" />
+    <id>denuziere20140815-cloudsharper-0-9-16-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release marks the first of many upcoming features to customize your environment.</summary>
+    <updated>2014-08-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.15.2 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140808-cloudsharper-0-9-15-2-released" />
+    <id>denuziere20140808-cloudsharper-0-9-15-2-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2014-08-08T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper UI.Next: Animating Single-Page Applications</title>
+    <link href="http://mywebsite.com/user/sfowler/20140801-websharper-ui-next-animating-single-page-applications" />
+    <id>sfowler20140801-websharper-ui-next-animating-single-page-applications</id>
+    <category>animation</category>
+    <category>fsharp</category>
+    <category>reactivedom</category>
+    <category>ui.next</category>
+    <category>websharper</category>
+    <summary>WebSharper.UI.Next provides a powerful declarative animation system. This mini-blog shows how to integrate this with single-page sites and flowlets.</summary>
+    <updated>2014-08-01T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Structuring Web Applications with WebSharper.UI.Next</title>
+    <link href="http://mywebsite.com/user/sfowler/20140722-structuring-web-applications-with-websharper-ui-next" />
+    <id>sfowler20140722-structuring-web-applications-with-websharper-ui-next</id>
+    <category>fsharp</category>
+    <category>reactivedom</category>
+    <category>spa</category>
+    <category>ui.next</category>
+    <category>websharper</category>
+    <summary>In this post, we see how WebSharper.UI.Next may be used to structure single-page applications with multiple sub-pages, and how this can be integrated with URL synchronisation.</summary>
+    <updated>2014-07-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper.UI.Next: An Introduction</title>
+    <link href="http://mywebsite.com/user/sfowler/20140714-websharper-ui-next-an-introduction" />
+    <id>sfowler20140714-websharper-ui-next-an-introduction</id>
+    <category>dataflow</category>
+    <category>dom</category>
+    <category>fsharp</category>
+    <category>ui.next</category>
+    <category>web</category>
+    <category>websharper</category>
+    <summary>In this blog, we introduce an experimental UI library for the WebSharper web framework, and illustrate this by means of a small example. </summary>
+    <updated>2014-07-14T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.14 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140710-cloudsharper-0-9-14-released" />
+    <id>denuziere20140710-cloudsharper-0-9-14-released</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release is geared towards enhanced usability with two main features: a reworked dashboard and a new solution view.</summary>
+    <updated>2014-07-10T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Upcoming CloudSharper features in Q3</title>
@@ -1130,6 +1487,101 @@
     <updated>2014-07-01T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>CloudSharper 0.9.13.1</title>
+    <link href="http://mywebsite.com/user/jankoa/20140701-cloudsharper-0-9-13-1" />
+    <id>jankoa20140701-cloudsharper-0-9-13-1</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>A bugfix release for NuGet management and Mono.</summary>
+    <updated>2014-07-01T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.13 with workspace cloud sharing!</title>
+    <link href="http://mywebsite.com/user/denuziere/20140619-cloudsharper-0-9-13-with-workspace-cloud-sharing" />
+    <id>denuziere20140619-cloudsharper-0-9-13-with-workspace-cloud-sharing</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>With this new release of CloudSharper, we are starting the move of CloudSharper towards more and more online publication and sharing capabilities.</summary>
+    <updated>2014-06-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.12</title>
+    <link href="http://mywebsite.com/user/denuziere/20140612-cloudsharper-0-9-12" />
+    <id>denuziere20140612-cloudsharper-0-9-12</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Version 0.9.12 of CloudSharper alpha is out!</summary>
+    <updated>2014-06-12T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.11.2</title>
+    <link href="http://mywebsite.com/user/denuziere/20140606-cloudsharper-0-9-11-2" />
+    <id>denuziere20140606-cloudsharper-0-9-11-2</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release.</summary>
+    <updated>2014-06-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.11.1</title>
+    <link href="http://mywebsite.com/user/denuziere/20140603-cloudsharper-0-9-11-1" />
+    <id>denuziere20140603-cloudsharper-0-9-11-1</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix version after yesterday's bigger release.</summary>
+    <updated>2014-06-03T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.11</title>
+    <link href="http://mywebsite.com/user/denuziere/20140602-cloudsharper-0-9-11" />
+    <id>denuziere20140602-cloudsharper-0-9-11</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Version 0.9.11 of CloudSharper alpha is out!</summary>
+    <updated>2014-06-02T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper Binding for Leaflet released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140522-websharper-binding-for-leaflet-released" />
+    <id>denuziere20140522-websharper-binding-for-leaflet-released</id>
+    <category>fsharp</category>
+    <category>leaflet</category>
+    <category>openstreetmap</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the release of a WebSharper binding for Leafletjs, a library that makes it easy to display and work with maps such as OpenStreetMap.</summary>
+    <updated>2014-05-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Sencha Architect type provider for WebSharper updated</title>
+    <link href="http://mywebsite.com/user/jankoa/20140520-sencha-architect-type-provider-for-websharper-updated" />
+    <id>jankoa20140520-sencha-architect-type-provider-for-websharper-updated</id>
+    <category>extjs</category>
+    <category>fsharp</category>
+    <category>senchaarchitect</category>
+    <category>senchatouch</category>
+    <category>websharper</category>
+    <summary>This release makes it even more convenient to build Ext JS and Sencha Touch applications with WebSharper.</summary>
+    <updated>2014-05-20T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha 0.9.10.2</title>
+    <link href="http://mywebsite.com/user/denuziere/20140516-cloudsharper-local-alpha-0-9-10-2" />
+    <id>denuziere20140516-cloudsharper-local-alpha-0-9-10-2</id>
+    <category>cloud</category>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>ide</category>
+    <category>websharper</category>
+    <summary>This minor release of CloudSharper alpha focuses on a few long-standing bug fixes, as well as the addition of the "Search and replace" functionality in the editor.</summary>
+    <updated>2014-05-16T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>Program F# with CloudSharper everywhere</title>
     <link href="http://mywebsite.com/user/granicz/20140515-program-f-with-cloudsharper-everywhere" />
     <id>granicz20140515-program-f-with-cloudsharper-everywhere</id>
@@ -1138,6 +1590,38 @@
     <category>websharper</category>
     <summary>Are you an F# user on Mac OS or Linux, looking for the easiest way to develop multi-project F# solutions with full code assistance and type checking?  Would you like to use F# Interactive for developing and testing parts of your web applications interactively? Would you like to benefit from the multitude of web libraries in your development environment? Well, if yes - look no further, CloudSharper, the world's most versatile online IDE has arrived to Mac and Linux!</summary>
     <updated>2014-05-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha 0.9.10.1 released</title>
+    <link href="http://mywebsite.com/user/denuziere/20140512-cloudsharper-local-alpha-0-9-10-1-released" />
+    <id>denuziere20140512-cloudsharper-local-alpha-0-9-10-1-released</id>
+    <category>cloud</category>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>ide</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2014-05-12T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.9.2</title>
+    <link href="http://mywebsite.com/user/denuziere/20140404-cloudsharper-0-9-9-2" />
+    <id>denuziere20140404-cloudsharper-0-9-9-2</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>A bugfix release of CloudSharper in preparation for the upcoming remote multi-user server feature.</summary>
+    <updated>2014-04-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.9.1</title>
+    <link href="http://mywebsite.com/user/denuziere/20140325-cloudsharper-0-9-9-1" />
+    <id>denuziere20140325-cloudsharper-0-9-9-1</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is a bugfix release, the most important fix being the fsi interactive features.</summary>
+    <updated>2014-03-25T00:00:00Z</updated>
   </entry>
   <entry>
     <title>CloudSharper 0.9.9</title>
@@ -1169,6 +1653,27 @@
     <updated>2014-03-06T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>F# query expressions and composability</title>
+    <link href="http://mywebsite.com/user/denuziere/20140226-f-query-expressions-and-composability" />
+    <id>denuziere20140226-f-query-expressions-and-composability</id>
+    <category>composability</category>
+    <category>fsharp</category>
+    <category>linq</category>
+    <category>query</category>
+    <category>quotations</category>
+    <summary>F# 3.x Query Expressions are a nice piece of syntactic sugar, but they are notably difficult to compose. This article discusses the auto-quoting mechanism of query expressions and how it can be leveraged to implement not-too-clunky composition.</summary>
+    <updated>2014-02-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha 0.9.6</title>
+    <link href="http://mywebsite.com/user/denuziere/20140219-cloudsharper-local-alpha-0-9-6" />
+    <id>denuziere20140219-cloudsharper-local-alpha-0-9-6</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary>In addition to several bug fixes, the main highlight of this new update is the experimental support for MSBuild as an alternative to IntelliFactory.Build.</summary>
+    <updated>2014-02-19T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>Update: Server exited with code 0</title>
     <link href="http://mywebsite.com/user/granicz/20140218-update-server-exited-with-code-0" />
     <id>granicz20140218-update-server-exited-with-code-0</id>
@@ -1178,6 +1683,15 @@
     <updated>2014-02-18T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>CloudSharper Local alpha 0.9.5</title>
+    <link href="http://mywebsite.com/user/denuziere/20140217-cloudsharper-local-alpha-0-9-5" />
+    <id>denuziere20140217-cloudsharper-local-alpha-0-9-5</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary>Today's update features an enhanced installer, smoother Markdown and HTML editing, and some more bug fixes.</summary>
+    <updated>2014-02-17T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>Update: Showing compiler errors</title>
     <link href="http://mywebsite.com/user/granicz/20140217-update-showing-compiler-errors" />
     <id>granicz20140217-update-showing-compiler-errors</id>
@@ -1185,6 +1699,15 @@
     <category>fsharp</category>
     <summary>As of 0.9.5, you need to do a build (Ctrl+B) before type checking is initialized properly. Without such explicit build, you may face a whole host of errors while you edit your source files.</summary>
     <updated>2014-02-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Updates - Friday, February 14, 2014</title>
+    <link href="http://mywebsite.com/user/denuziere/20140214-cloudsharper-updates-friday-february-14-2014" />
+    <id>denuziere20140214-cloudsharper-updates-friday-february-14-2014</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary>One day since the first alpha release, and already the first bug reports -- and fixes.</summary>
+    <updated>2014-02-14T00:00:00Z</updated>
   </entry>
   <entry>
     <title>CloudSharper Local alpha available</title>
@@ -1215,6 +1738,28 @@
     <updated>2013-12-21T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>XML computation expressions: Playing around with extending the F# compiler</title>
+    <link href="http://mywebsite.com/user/denuziere/20130630-xml-computation-expressions-playing-around-with-extending-the-f-compiler" />
+    <id>denuziere20130630-xml-computation-expressions-playing-around-with-extending-the-f-compiler</id>
+    <category>ce</category>
+    <category>compiler</category>
+    <category>dsl</category>
+    <category>edsl</category>
+    <category>fsharp</category>
+    <summary>Existing embedded DSLs for XML in F# all have their quirks and inconvenients. I'm presenting a small patch to the F# compiler that allows to implement a better XML EDSL.</summary>
+    <updated>2013-06-30T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>jQuery Mobile page reuse with Websharper</title>
+    <link href="http://mywebsite.com/user/jankoa/20130607-jquery-mobile-page-reuse-with-websharper" />
+    <id>jankoa20130607-jquery-mobile-page-reuse-with-websharper</id>
+    <category>fsharp</category>
+    <category>jquerymobile</category>
+    <category>websharper</category>
+    <summary>Sample jQuery mobile single-page application with dynamically created and reused pages using WebSharper</summary>
+    <updated>2013-06-07T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper: From F# power features to JavaScript interop</title>
     <link href="http://mywebsite.com/user/granicz/20130322-websharper-from-f-power-features-to-javascript-interop" />
     <id>granicz20130322-websharper-from-f-power-features-to-javascript-interop</id>
@@ -1223,6 +1768,14 @@
     <category>websharper</category>
     <summary></summary>
     <updated>2013-03-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>New FPish feature: E-mail notification</title>
+    <link href="http://mywebsite.com/user/denuziere/20130320-new-fpish-feature-e-mail-notification" />
+    <id>denuziere20130320-new-fpish-feature-e-mail-notification</id>
+    <category>fpish</category>
+    <summary>FPish can now alert you by e-mail of responses to your FPish submissions!</summary>
+    <updated>2013-03-20T00:00:00Z</updated>
   </entry>
   <entry>
     <title>CUFP 2013 - Call for Presentations</title>
@@ -1237,6 +1790,17 @@
     <category>sml</category>
     <summary>The annual CUFP workshop is a place where people can see how others are using functional programming to solve real world problems; where practitioners meet and collaborate; where language designers and users can share ideas about the future of their favorite language; and where one can learn practical techniques and approaches for putting functional programming to work.</summary>
     <updated>2013-03-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper for Windows 8 Desktop</title>
+    <link href="http://mywebsite.com/user/denuziere/20130308-websharper-for-windows-8-desktop" />
+    <id>denuziere20130308-websharper-for-windows-8-desktop</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <category>windows8</category>
+    <category>winjs</category>
+    <summary>The first Windows 8 Application developed with WebSharper is about to go live on the Windows Store. This is a preview of the upcoming WebSharper WinJS binding.</summary>
+    <updated>2013-03-08T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Free WebSharper MVP licenses</title>
@@ -1288,6 +1852,16 @@
     <updated>2012-12-03T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>Building UIs for WebSharper with ExtJS Architect</title>
+    <link href="http://mywebsite.com/user/denuziere/20121126-building-uis-for-websharper-with-extjs-architect" />
+    <id>denuziere20121126-building-uis-for-websharper-with-extjs-architect</id>
+    <category>extjs</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>WebSharper provides an extension to write ExtJS applications in F#. But did you know that you can easily use the visual designer ExtJS Architect in conjunction with WebSharper? Here is how.</summary>
+    <updated>2012-11-26T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>CUFP 2012 - Call for Presentations</title>
     <link href="http://mywebsite.com/user/granicz/20120602-cufp-2012-call-for-presentations" />
     <id>granicz20120602-cufp-2012-call-for-presentations</id>
@@ -1326,6 +1900,14 @@
     <updated>2012-04-26T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>Latest FPish enhancements</title>
+    <link href="http://mywebsite.com/user/denuziere/20120423-latest-fpish-enhancements" />
+    <id>denuziere20120423-latest-fpish-enhancements</id>
+    <category>fpish</category>
+    <summary>We recently rolled out a few enhancements on FPish. The main highlights are blog comments and tweet functionality.</summary>
+    <updated>2012-04-23T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper 2.4 Q2 Beta out</title>
     <link href="http://mywebsite.com/user/granicz/20120416-websharper-2-4-q2-beta-out" />
     <id>granicz20120416-websharper-2-4-q2-beta-out</id>
@@ -1334,6 +1916,14 @@
     <category>websharper</category>
     <summary>We have been working hard to bring you WebSharper 2.4 Q2 - and today we are happy to announce the availability of the the first beta (2.4.46)... [more]</summary>
     <updated>2012-04-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>FPish now hosts blogs!</title>
+    <link href="http://mywebsite.com/user/denuziere/20111024-fpish-now-hosts-blogs" />
+    <id>denuziere20111024-fpish-now-hosts-blogs</id>
+    <category>fpish</category>
+    <summary>Since the beginning FPish has allowed Authors to aggregate their blogs. We are now going a step further by allowing you to write blog articles on FPish.</summary>
+    <updated>2011-10-24T00:00:00Z</updated>
   </entry>
   <entry>
     <title>WebSharper 2.3 Q3 released</title>
@@ -1357,6 +1947,16 @@
     <updated>2011-09-15T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>WebSharper Extensions for Bing Maps 7.0 Updated</title>
+    <link href="http://mywebsite.com/user/denuziere/20110804-websharper-extensions-for-bing-maps-7-0-updated" />
+    <id>denuziere20110804-websharper-extensions-for-bing-maps-7-0-updated</id>
+    <category>bing</category>
+    <category>maps</category>
+    <category>websharper</category>
+    <summary>The WebSharper Extensions for Bing Maps has been updated to reflect the last changes in the 7.0 API. Among notable additions are Directions, a simplified interface to the Routes REST API, Traffic and VenueMaps, as well as the possibility to implement your own extension modules.</summary>
+    <updated>2011-08-04T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper 2.3 - targeting enterprise applications</title>
     <link href="http://mywebsite.com/user/granicz/20110715-websharper-2-3-targeting-enterprise-applications" />
     <id>granicz20110715-websharper-2-3-targeting-enterprise-applications</id>
@@ -1365,6 +1965,38 @@
     <category>websharper</category>
     <summary>We have been pretty busy these past few months working on a number of enhancements to WebSharper for its 2011 Q2 milestone - and I am happy to announce that the new 2.3 release is now out for public consumption. [more...]</summary>
     <updated>2011-07-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Color the Wind - a 2D Canvas demo with WebSharper</title>
+    <link href="http://mywebsite.com/user/denuziere/20110704-color-the-wind-a-2d-canvas-demo-with-websharper" />
+    <id>denuziere20110704-color-the-wind-a-2d-canvas-demo-with-websharper</id>
+    <category>demoscene</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>At DemoJS, a demoparty dedicated to web technologies that took place this weekend in Paris, a demo coded with WebSharper was released.</summary>
+    <updated>2011-07-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper / O3D sample: Snooker game</title>
+    <link href="http://mywebsite.com/user/denuziere/20110616-websharper-o3d-sample-snooker-game" />
+    <id>denuziere20110616-websharper-o3d-sample-snooker-game</id>
+    <category>fsharp</category>
+    <category>o3d</category>
+    <category>webgl</category>
+    <category>websharper</category>
+    <summary>We translated the snooker game sample from the official O3D website to WebSharper. The result is on par with the original in terms of performance, with 25% shorter source code and extra code safety.</summary>
+    <updated>2011-06-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>O3D Extension for WebSharper available</title>
+    <link href="http://mywebsite.com/user/denuziere/20110606-o3d-extension-for-websharper-available" />
+    <id>denuziere20110606-o3d-extension-for-websharper-available</id>
+    <category>fsharp</category>
+    <category>o3d</category>
+    <category>webgl</category>
+    <category>websharper</category>
+    <summary>In our continuing effort to make the most powerful JavaScript tools available to WebSharper developers, we are releasing the extension for Google O3D. O3D is a 3D programming library built on top of WebGL, enabling high-level resource and rendering management for 3D scenes.</summary>
+    <updated>2011-06-06T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Expiring WebSharper Professional trials</title>
@@ -1395,6 +2027,16 @@
     <updated>2011-04-22T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>DHTMLX Touch for WebSharper available</title>
+    <link href="http://mywebsite.com/user/denuziere/20110412-dhtmlx-touch-for-websharper-available" />
+    <id>denuziere20110412-dhtmlx-touch-for-websharper-available</id>
+    <category>dhtmlx</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Today we are happy to announce the release of a new extension for WebSharper: DHTMLX Touch. This library provides a complete set of UI widgets, alongside a number of tools to seamlessly connect them to application data, resulting in web applications with an impressive native feel.</summary>
+    <updated>2011-04-12T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper RC2 Extension updates</title>
     <link href="http://mywebsite.com/user/granicz/20110404-websharper-rc2-extension-updates" />
     <id>granicz20110404-websharper-rc2-extension-updates</id>
@@ -1404,6 +2046,16 @@
     <updated>2011-04-04T00:00:00Z</updated>
   </entry>
   <entry>
+    <title>WebGL and glMatrix Extensions for WebSharper Released</title>
+    <link href="http://mywebsite.com/user/denuziere/20110401-webgl-and-glmatrix-extensions-for-websharper-released" />
+    <id>denuziere20110401-webgl-and-glmatrix-extensions-for-websharper-released</id>
+    <category>fsharp</category>
+    <category>webgl</category>
+    <category>websharper</category>
+    <summary>Today we are happy to announce the release of not one, but two new WebSharper extensions: WebGL and glMatrix. Together, they bring the power of hardware-accelerated 3D into WebSharper.</summary>
+    <updated>2011-04-01T00:00:00Z</updated>
+  </entry>
+  <entry>
     <title>WebSharper 2.1 Professional RC2 released</title>
     <link href="http://mywebsite.com/user/granicz/20110326-websharper-2-1-professional-rc2-released" />
     <id>granicz20110326-websharper-2-1-professional-rc2-released</id>
@@ -1411,6 +2063,16 @@
     <category>websharper</category>
     <summary>We are happy to announce that WebSharper 2.1 Professional RC2 is now available for Visual Studio 2008/2010 developers.  You can find and download the latest version from [...]</summary>
     <updated>2011-03-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Bing Maps 7.0 Extension for WebSharper</title>
+    <link href="http://mywebsite.com/user/denuziere/20110324-bing-maps-7-0-extension-for-websharper" />
+    <id>denuziere20110324-bing-maps-7-0-extension-for-websharper</id>
+    <category>bingmaps</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The Bing Maps extension for WebSharper has been updated to version 7.0 of the library. It allows developers to use the latest features of Bing Maps, including info boxes and keyboard events. It also provides a convenient interface to the REST API for searches, routes and static map images.</summary>
+    <updated>2011-03-24T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Formlets for jQuery UI available</title>

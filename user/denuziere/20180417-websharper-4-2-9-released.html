@@ -168,8 +168,8 @@
               <div><div ws-preserve=""><p>This is a minor release for WebSharper and WebSharper.UI.</p>
 <p>Install templates for .NET Core SDK: <code>dotnet new -i WebSharper.Templates::4.2.9.232</code></p>
 <p>Download templates for Visual Studio 2017: <a href="http://websharper.com/installers/WebSharper.4.2.9.232.vsix">http://websharper.com/installers/WebSharper.4.2.9.232.vsix</a></p>
-<h1 id="websharper-core">WebSharper Core</h1>
-<h2 id="enhancement">Enhancement</h2>
+<h2 id="websharper-core">WebSharper Core</h2>
+<h3 id="enhancement">Enhancement</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/921">#921</a> Now JSON deserialization can handle the <code>System.Object</code> type, implemented as follows:
 <ul>
@@ -186,17 +186,17 @@
 </ul>
 </li>
 </ul>
-<h2 id="fixes">Fixes</h2>
+<h3 id="fixes">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/935">#935</a> <code>Seq.chunkBySize</code> and other similar functions does not fail erroneously on some inputs.</li>
 <li><a href="https://github.com/dotnet-websharper/core/issues/934">#934</a> If for a website project, there is no <code>&quot;outputdir&quot;</code> in <code>ws.config</code> or <code>WebSharperOutputDir</code> in project properties or a <code>web.config</code> file in the project folder, an explicit error is given that the unpack output directory cannot be determined.</li>
 </ul>
-<h1 id="websharper-ui">WebSharper UI</h1>
-<h2 id="enhancement-1">Enhancement</h2>
+<h2 id="websharper-ui">WebSharper UI</h2>
+<h3 id="enhancement-1">Enhancement</h3>
 <ul>
 <li>Add <code>Router.InstallInto</code> and <code>Router.InstallHashInto</code>, which are similar to <code>Router.Install</code> and <code>Router.InstallHash</code> respectively except that they take a <code>Var&lt;'EndPoint&gt;</code> as argument rather than creating and returning one.</li>
 </ul>
-<h2 id="fixes-1">Fixes</h2>
+<h3 id="fixes-1">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/ui/issues/164">#164</a> Remove <code>click</code> event handler on <code>Doc.Checkbox</code>, only keeping <code>change</code>, to avoid setting the Var twice.</li>
 <li><a href="https://github.com/dotnet-websharper/ui/issues/166">#166</a> Add proxy for quotation-based <code>.OnXyz(...)</code> event handlers.</li>

@@ -179,7 +179,7 @@ All the source for the documentation browser are also available on <a href="http
 <p>You can download the <a href="http://websharper.com/downloads">VSIX installer</a> for Visual Studio 2015/17 or download a template straight from
 the <a href="https://developers.websharper.com/docs">documentation subsite</a>, look for &quot;Create a project&quot; in the top-right drop-down menu.</p>
 <p>Big thanks to everyone who has been testing WebSharper 4 beta and submitted bug reports, questions and feature ideas!</p>
-<h1 id="biggest-new-features">Biggest new features</h1>
+<h2 id="biggest-new-features">Biggest new features</h2>
 <ul>
 <li>A C#-to-JavaScript compiler, up to date with C# 7.1, fully compatible both ways with F# libraries. Code analyzer for WebSharper-specific errors as you code (Requires VS 2017 Update 3).</li>
 </ul>
@@ -211,21 +211,21 @@ While WebSharper 3 focused on the functional programming aspects of F#, with the
 <li>Dead code elimination to create standalone libraries and single-page applications: when you compile a single-page application, WebSharper automatically removes all unused library functions from the JavaScript output,
 which reduces greatly the download size.</li>
 </ul>
-<h1 id="new-templating-engine">New templating engine</h1>
+<h2 id="new-templating-engine">New templating engine</h2>
 <p>UI.Next has been updated with a newer templating syntax and engine that allows declaratively reusing sub-templates and has more flexibility for filling in holes while keeping strong typing.
 For details, see the <a href="https://developers.websharper.com/docs/ui.next-templating">documentation</a>.</p>
 <p>Here is a sample todo application with beautifully small code required <a href="https://try.websharper.com/example/todo-list-csharp">in C#</a> and <a href="https://try.websharper.com/example/todo-list">in F#</a>.</p>
-<h1 id="other-new-features">Other new features</h1>
+<h2 id="other-new-features">Other new features</h2>
 <ul>
 <li>Erased union and option types have been added to <code>WebSharper.JavaScript</code> namespace, named <code>Union</code> and <code>Optional</code>. These are similar to <code>Choice</code> and <code>Option</code> types of F#, but work as TypeScript's erased unions in the JS translation. Conversion functions are available under modules <code>Optional</code> and <code>Union</code>.</li>
 <li>Classes now have reference equality by default (you can override Equals as in .NET). Arrays, tuples, F# records and unions still use structural equality.</li>
-<li>Automatic download of remote web resources to serve from locally. Set <WebSharperDownloadResources>True</WebSharperDownloadResources> in your project file to have WebSharper download all remote js/css defined in current project and all references. Add
-<add key="UseDownloadedResources" value="True" /> to your <appSettings> section in web.config.</li>
+<li>Automatic download of remote web resources to serve from locally. Set <code>&lt;WebSharperDownloadResources&gt;True&lt;/WebSharperDownloadResources&gt;</code> in your project file to have WebSharper download all remote js/css defined in current project and all references. Add
+<code>&lt;add key=&quot;UseDownloadedResources&quot; value=&quot;True&quot; /&gt;</code> to your <code>&lt;appSettings&gt;</code> section in web.config.</li>
 <li>Auto-hash WebSharper-generated output and files included as WebResource, use this hash on generating links to avoid browsers caching an outdated version.</li>
 <li>Many code translation optimizations. For example: functions taking F# tupled or curried functions as parameters and only fully applying them (in the case of curried parameter) now translates to taking a flat JavaScript function. This means less closure creation and better performance when using functions like <code>List.map2</code>. This is done by analyzing uses of the function parameter, not making any assumptions.</li>
 <li>And many more, see <a href="https://github.com/intellifactory/websharper/releases">list of beta releases</a> on GitHub for full details.</li>
 </ul>
-<h1 id="coming-soon">Coming soon</h1>
+<h2 id="coming-soon">Coming soon</h2>
 <p>For the 4.0 stable release, we will publish a site to browse what .NET types and methods WebSharper translation cover via proxies. We will use this ourselves to expand coverage where lacking.
 We will also address bug reports coming in for the RC release.</p>
 <p>High on our priority list for 4.x versions:</p>
@@ -236,7 +236,7 @@ We will also address bug reports coming in for the RC release.</p>
 <li>WebAssembly interoperability: generate .NET wrapper classes for <code>.wasm</code> files and compile a subset of the languages to WebAssembly</li>
 </ul>
 <p>Discuss upcoming features and make feature requests on the <a href="http://forums.websharper.com/forum/featured">WebSharper forums</a>.</p>
-<h2 id="happy-coding">Happy coding!</h2>
+<p>Happy coding!</p>
 </div></div>
               <hr class="space" />
               <div class="row">

@@ -1,0 +1,599 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Structuring Web Applications with WebSharper.UI.Next | IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+      <div class="container">
+        <h1>Structuring Web Applications with WebSharper.UI.Next</h1>
+        <h2>20140722</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><p>Since our <a href="http://www.websharper.com/blog-entry/3954">last post</a>, we have been hard at work extending the basic functionality of WebSharper.UI.Next to include some higher-level things, in particular support for animation, and some functional abstractions which make creating single-page applications (SPAs) safer, easier, and more intuitive. In this post, we'll talk a bit about some of the web abstractions we've added; <a href="http://fpish.net/profile/anton.tayanovskyy">Anton</a> has written about the animation functionality <a href="http://websharper.com/blog-entry/3964">here</a>.</p>
+<p>For the uninitiated, WebSharper.UI.Next is our upcoming framework for creating rich single-page applications. By creating reactive variables, and views which allow these variables to be observed as and when they change, it is possible to create highly-reactive applications backed by a purely-functional model. You can see some examples of this framework at work <a href="http://intellifactory.github.io/websharper.ui.next">here</a>, and the GitHub repository showing the source code for the website <a href="http://www.github.com/intellifactory/websharper.ui.next">here</a>.</p>
+<p>A key advantage of using WebSharper to develop applications is the use of F#'s type system not only to provide better safety guarantees --- that is, fewer runtime errors and less JavaScript debugging --- but also to help better structure applications. To this end, IntelliFactory have made use of approaches such as <a href="http://www.ezrakilty.net/pubs/formlets.pdf">Formlets</a> to better structure handling user input, and developed our own such as <a href="http://link.springer.com/chapter/10.1007%2F978-3-642-24276-2_13#page-1">Flowlets</a> and <a href="http://www.websharper.com/docs/piglets">Piglets</a>. This past week, we've been working on seeing how some of these fit with SPA applications, and showing how they can be used within UI.Next. In particular, this past week we have looked at Flowlets, which help with structuring parts of an application which have a linear control flow, and how UI.Next can help to structure sites without such a control flow. Additionally, we've looked at how it's possible to synchronise the current position in a single-page application with the URL bar, to make sharing pages easier.</p>
+<h2 id="flowlets">Flowlets</h2>
+<p>Flowlets are built to make it easier to structure applications (or indeed segments of an application: everything is composable) which have a linear control flow. By way of example, think for example of a registration form which has multiple pages, each getting different pieces of information, where each page may depend on information provided by a previous page.</p>
+<p>In our small example, we first ask the user for some common information: in this case, a name and address. After this information is provided, we then ask the user whether they wish to specify a name or a phone number. Depending on which option is selected, we then display a different form to retreive the required information, before displaying the results on a final page. You can find this live <a href="https://websharper-samples.github.io/ui/#/samples/ContactFlow">here</a>, and the source code <a href="https://github.com/websharper-samples/ui/blob/master/src/ContactFlow.fs">here</a>. The source code contains a bit of extra markup, but we'll concentrate on the main specifics here instead.</p>
+<p>Firstly, we define our model, containing the data which we wish to retrieve. A key advantage of using F# for this kind of thing is that we can work directly with a model we have created in F#, without having to think about JavaScript objects and such.</p>
+<pre><code class="language-fsharp">type Person =
+    {
+        Name : string
+        Address : string
+    }
+
+type ContactType = | EmailTy | PhoneTy
+
+type ContactDetails =
+    | Email of string
+    | PhoneNumber of string
+</code></pre>
+<p>The <code>Person</code> type consists of a name and address. The <code>ContactType</code> type specifies whether the user has opted to specify an e-mail address or a phone number, and the <code>ContactDetails</code> discriminated union specifies the data which has been submitted.</p>
+<p>Now, with the model created, we can look at how everything fits together.</p>
+<p>To create a flowlet, we use the <code>Define</code> function.</p>
+<pre><code class="language-fsharp">val Define : (('A -&gt; unit) -&gt; Doc) -&gt; Flow&lt;'A&gt; 
+</code></pre>
+<p>Here, <code>(('A -&gt; unit) -&gt; Doc)</code> is a function which takes a callback of type <code>('A -&gt; unit)</code>, which is used to progress to the next stage of the flowlet, and produces a <code>Doc</code>. For readers unfamiliar with <code>Doc</code>, this is our monoidally-defined representation of a fragment of a reactive DOM tree, used in this case to render the flowlet. This in turn produces a value of type <code>Flow&lt;'A&gt;</code>, where <code>'A</code> is the type of data returned by that flowlet page.</p>
+<p>Now, we create some pages. As I say, I've stripped out the markup, concentrating on the bits of the code we care about.</p>
+<p>Firstly, here's the first page which grabs the name and address from the user.</p>
+<pre><code class="language-fsharp">let personFlowlet =
+    Flow.Define (fun cont -&gt;
+        let rvName = Var.Create &quot;&quot;
+        let rvAddress = Var.Create &quot;&quot;
+
+        Doc.Input [] rvName 
+        Doc.Input [] rvAddress 
+        Doc.Button &quot;Next&quot; [cls &quot;btn&quot; ; cls &quot;btn-default&quot;] (fun () -&gt;
+            let name = Var.Get rvName
+            let addr = Var.Get rvAddress
+            // We use the continuation function to return the
+            // data we retrieved from the form.
+            cont ({Name = name ; Address = addr})
+        )
+    )
+</code></pre>
+<p>The <code>personFlowlet</code> function is of type <code>Flow&lt;Person&gt;</code>: a flowlet segment returning a value of type <code>Person</code>. We begin the function with <code>Flow.Define</code>, which takes a continuation function <code>cont</code>. The next thing to do is specify reactive variables for the name and address fields, initialised with the empty string.</p>
+<p>Once we have the variables, we can use these with the <code>Doc.Input</code> function to create a form control which populates the variables. The submission button is then created using a function which gets the current calues of the name and address fields, and then passes a <code>Person</code> value to the continuation function.</p>
+<p>Using the same technique, we can then make three further pages: <code>contactTypeFlowlet</code>, which returns a value of type <code>ContactType</code>; <code>contactFlowlet</code>, which takes a <code>ContactType</code> and returns a <code>ContactDetails</code> value, and finally a static page which displays the details.</p>
+<p>After this is complete, all that is left is to tie everything together. Making use of the fact that flowlets have a monadic interface, we can construct flowlets using a computation expression. By doing this, we specify the order in which the pages appear, and how the data collected from one page may be used in another.</p>
+<pre><code class="language-fsharp">let PersonContactFlowlet =
+    Flow.Do {
+        let! person = personFlowlet
+        let! ct = contactTypeFlowlet
+        let! contactDetails = contactFlowlet ct
+        return! Flow.Static (finalPage person contactDetails)
+    }
+    |&gt; Flow.Embed
+</code></pre>
+<p>In this computation expression, <code>preson</code> is of type <code>Person</code>, <code>ct</code> is of type <code>contactTypeFlowlet</code>, and <code>contactDetails</code> is of type <code>ContactDetails</code>. It's also clear that the <code>contactFlowlet</code> flowlet depends on the value retrieved from the <code>contactTypeFlowlet</code> flowlet page. Finally, we return a static page displaying the details, and then use the <code>Flow.Embed</code> combinator to embed the flowlet into a reactive DOM fragment of type <code>Doc</code>, which can be composed as normal.</p>
+<h3 id="structuring-non-linear-sites">Structuring Non-Linear Sites</h3>
+<p>Flowlets are great for specifying parts of an application which have a linear control flow. They don't work so well when we want to jump around freely between different parts, however.</p>
+<p>Using UI.Next, it's also easy to construct SPA applications consisting of multiple 'pages', which are loaded in a structured manner. In particular, by using UI.Next, everything can be specified without thinking about URLs at all, but purely passing the page we want to load as a continuation function. It's best to hop straight in with an example. Let's make a small, silly website.</p>
+<p>To start with, we need to create a discriminated union representing each page in the site.</p>
+<pre><code class="language-fsharp">type Page =
+    | BobsleighHome
+    | BobsleighHistory
+    | BobsleighGovernance
+    | BobsleighTeam
+</code></pre>
+<p>By creating the <code>Page</code> type, we'll then be able to create a <code>Var&lt;Page&gt;</code> which specifies the current page we're on. We'll consider two different types of navigation: <em>global</em> navigation performed by a navigation bar, and <em>local</em> navigation, performed by links on individual pages.</p>
+<p>Now, we'll make implementations of each page. Each page will take a record, <code>Context</code> containing a continuation function, which can be used to change the current page. For example, here is the source for the home page:</p>
+<pre><code class="language-fsharp">    type Context = {
+        Go : Page -&gt; unit
+    }
+
+    let HomePage ctx =
+        Doc.Concat [
+            el &quot;div&quot; [
+                el &quot;h1&quot; [txt &quot;Welcome!&quot;]
+                el &quot;p&quot; [
+                    txt &quot;Welcome to the IntelliFactory Bobsleigh MiniSite! Here you can find out about the &quot;
+                    link &quot;history&quot; [] (fun () -&gt; ctx.Go BobsleighHistory)
+                    txt &quot; of bobsleighs, the &quot;
+                    link &quot;International Bobsleigh and Skeleton Federation&quot; [] (fun () -&gt; ctx.Go BobsleighGovernance)
+                    txt &quot;, which serve as the governing body for the sport, and finally the world-famous &quot;
+                    link &quot;IntelliFactory Bobsleigh Team.&quot; [] (fun () -&gt; ctx.Go BobsleighTeam)
+                ]
+            ]
+        ]
+</code></pre>
+<p>You'll notice here that each link is associated with a callback, which executes the <code>ctx.Go</code> function, providing the next page to show.</p>
+<p>Tying this all together, we get a main function which looks like this:</p>
+<pre><code class="language-fsharp">let Main () =
+    let m = Var.Create BobsleighHome
+
+    let withNavbar =
+        Doc.Append (NavBar m)
+
+    let ctx = {Go = Var.Set m}
+    View.FromVar m
+    |&gt; View.Map (fun pg -&gt;
+        match pg with
+        | BobsleighHome -&gt; HomePage ctx |&gt; withNavbar
+        | BobsleighHistory -&gt; History ctx |&gt; withNavbar
+        | BobsleighGovernance -&gt; Governance ctx |&gt; withNavbar
+        | BobsleighTeam -&gt; Team ctx |&gt; withNavbar)
+    |&gt; Doc.EmbedView
+</code></pre>
+<p>Here, we create a context instance with <code>Var.Set m</code> as the continuation function. We then create a view of the page variable, which we can use to update the display of the page whenever it changes. In particular, through the use of <code>View.Map</code>, we change a <code>View&lt;Page&gt;</code> and create a <code>View&lt;Doc&gt;</code>. This can then be embedded into the reactive DOM using the <code>Doc.EmbedView : View&lt;Doc&gt; -&gt; Doc</code> combinator.</p>
+<p>Global actions, for example if we have a shared component such as a navigation bar, can be created by passing the page variable as a parameter. To change the current page, it's just necessary to set the variable.</p>
+<h3 id="url-routing">URL Routing</h3>
+<p>Finally, SPA applications often lose the ability to do such things as using the 'back' button to go back in the application, or use the URL to share the current point in the application. We've worked on this to create a &quot;Site&quot; abstraction to allow different parts of the site to be responsible for different parts of the URL: the key here is that these sites are <em>composable</em>, meaning that it is possible to have different sub-sites.</p>
+<p>The key idea behind this is the <code>Router&lt;'T&gt;</code> type, which essentially specifies a bijection between fragments of the URL, and page representations such as <code>Page</code> in the site above. If we were to want to extend the bobsleigh mini-site with some kind of URL routing, a router could be created as follows:</p>
+<pre><code class="language-fsharp">    let TheRouter =
+        Router.Create
+            (function
+                | BobsleighHome -&gt; Route.Create []
+                | BobsleighHistory -&gt; Route.Create [RouteFrag.Create &quot;history&quot;]
+                | BobsleighGovernance -&gt; Route.Create [RouteFrag.Create &quot;governance&quot;]
+                | BobsleighTeam -&gt; Route.Create [RouteFrag.Create &quot;team&quot;])
+            (fun route -&gt;
+                match Route.ToStringList route with
+                | [] -&gt; BobsleighHome
+                | [&quot;history&quot;] -&gt; BobsleighHistory
+                | [&quot;governance&quot;] -&gt; BobsleighGovernance
+                | [&quot;team&quot;] -&gt; BobsleighTeam
+                | xs -&gt; BobsleighHome)
+</code></pre>
+<p>We could then use the resulting router to create a <code>Site</code>, which is then merged with other <code>Site</code>s, to create a routing trie. If you want to see this in action, check out <a href="https://websharper-samples.github.io/ui/#/samples/RoutedBobsleighSite">the live example</a>, and you can also take a look at the source <a href="https://github.com/websharper-samples/ui/blob/master/src/RoutedBobsleighSite.fs">here</a>. Indeed we use this technique on our main samples site itself!</p>
+<h3 id="the-future">The Future</h3>
+<p>Our goals now are to get some more functional abstractions added in, particularly those used for handling user input such as forms. In particular, it would be nice to see how we can integrate Loic Denuziere's work on Piglets to make use of the reactive backend, instead of using the stream abstraction. Additionally, we're adding features and examples all the time, so keep checking back!</p>
+</div></div>
+              <hr class="space" />
+              <div class="row">
+                <div class="col-lg-8">
+                  <ul class="icon-list icon-list-horizontal icon-list-blog">
+                    <li>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">Finance</a>,
+                      <a href="#">Software</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/sfowler/20140722-structuring-web-applications-with-websharper-ui-next.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Related articles.</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="2" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Categories</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div><div>
+                    <a href="/category/reactivedom">
+                      reactivedom
+                    </a>
+                  </div><div>
+                    <a href="/category/spa">
+                      spa
+                    </a>
+                  </div><div>
+                    <a href="/category/ui.next">
+                      ui.next
+                    </a>
+                  </div><div>
+                    <a href="/category/websharper">
+                      websharper
+                    </a>
+                  </div></div>
+                <hr class="space-sm" />
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="http://via.placeholder.com/400x400" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="http://via.placeholder.com/400x400" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="http://via.placeholder.com/400x400" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.4 released with remote authentication" />
+                          Bolero 0.4 released with remote authentication
+                          <span>04/17/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support">
+                          <img src="http://via.placeholder.com/400x400" alt="WebSharper 4.5.8 released with Visual Studio 2019 support" />
+                          WebSharper 4.5.8 released with Visual Studio 2019 support
+                          <span>02/26/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <h4>Company and team</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Company details and team</a>
+                          </li>
+                          <li>
+                              <a href="#">News and blog</a>
+                          </li>
+                          <li>
+                              <a href="#">Press area</a>
+                          </li>
+                          <li>
+                              <a href="#">Affiliates and marketing</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Help and support</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Help centre</a>
+                          </li>
+                          <li>
+                              <a href="#">Feedbacks</a>
+                          </li>
+                          <li>
+                              <a href="#">Request new features</a>
+                          </li>
+                          <li>
+                              <a href="#">Contact us</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Learn more</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Apps stores</a>
+                          </li>
+                          <li>
+                              <a href="#">Partners</a>
+                          </li>
+                          <li>
+                              <a href="#">Privacy and terms</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Follow us</h4>
+                  <div class="icon-links icon-social icon-links-grid social-colors">
+                      <a class="facebook"><i class="icon-facebook"></i></a>
+                      <a class="twitter"><i class="icon-twitter"></i></a>
+                      <a class="linkedin"><i class="icon-linkedin"></i></a>
+                      <a class="youtube"><i class="icon-youtube"></i></a>
+                      <a class="instagram"><i class="icon-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bar">
+          <div class="container">
+              <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+              <span><img src="/media/logo-light.svg" /></span>
+          </div>
+      </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>

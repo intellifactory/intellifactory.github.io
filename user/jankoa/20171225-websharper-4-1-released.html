@@ -169,13 +169,13 @@
 <p>New and updated documentation: <a href="http://developers-test.websharper.io/docs/v4.1/cs">WebSharper 4.1 for C#</a> and <a href="http://developers-test.websharper.io/docs/v4.1/fs">WebSharper 4.1 for F#</a>.</p>
 <p>See some new features live at Try WebSharper: <a href="http://try.websharper.com/snippet/JankoA/0000Hb">in C#</a> and <a href="http://try.websharper.com/snippet/JankoA/0000Ha">in F#</a>.</p>
 <p>The release notes are also on <a href="https://github.com/dotnet-websharper/websharper/releases/tag/4.1.0.171">GitHub</a>.</p>
-<h1 id="new-features">New features</h1>
+<h2 id="new-features">New features</h2>
 <ul>
 <li>Server-side event handlers and <code>ctx.ClientSide</code> can take any fixed F# quotation now and translates it to JavaScript.</li>
 <li>New implementation for <code>WebSharper.Sitelets.Router</code> type, fully composable and also working on the client-side. <code>WebSharper.UI</code> adds helpers to use it for client-side routing. This allows generating safe links on the client for server-side endpoints, also on the server to states handled by the client.</li>
 </ul>
 <p>See the details of Sitelet and Router features in the <a href="https://developers.websharper.com/docs/v4.1/cs/sitelets">C#</a> and <a href="https://developers.websharper.com/docs/v4.1/fs/sitelets">F#</a> documentation.</p>
-<h1 id="websharper.ui">WebSharper.UI</h1>
+<h2 id="websharper.ui">WebSharper.UI</h2>
 <ul>
 <li><code>WebSharper.UI.Next</code> has been renamed to <code>WebSharper.UI</code>, affecting both package and namespace naming. For C# projects, an additional package reference for <code>WebSharper.UI.CSharp</code> is needed, and <code>.CSharp</code> has been removed from all namespace names, so now no extra <code>using</code>s are needed to get the C#-oriented extension methods. A compatibility package <code>WebSharper.UI.Next 4.1</code> still exists for immediate back-compatibility, switching to <code>WebSharper.UI</code> is recommended for new features and fixes.</li>
 <li>For composing HTML in F#, the <code>...Attr</code> family of functions have been renamed to match just the name of the tag, while the previous functions taking no Attr list have been removed. So previous <code>div [text &quot;Hello&quot;]</code> becomes <code>div [] [text &quot;Hello&quot;]</code> with <code>WebSharper.UI</code>.</li>
@@ -184,14 +184,14 @@
 <li>The <code>IRef</code> type has been removed and <code>Var</code> is now an abstract class.</li>
 </ul>
 <p>See the details of UI features in the <a href="https://developers.websharper.com/docs/v4.1/cs/ui">C#</a> and <a href="https://developers.websharper.com/docs/v4.1/fs/ui">F#</a> documentation.</p>
-<h1 id="fixesimprovements">Fixes/improvements</h1>
+<h2 id="fixesimprovements">Fixes/improvements</h2>
 <ul>
 <li>Fix using <code>&lt;UseDownloadedResources&gt;True&lt;/UseDownloadedResources&gt;</code> in <code>web.config</code>, now local script links are correct for any sub-page.</li>
 <li>Expanded <code>WebSharper.Testing</code> to expose more equality test alternatives provided by <code>QUnit</code>.</li>
 <li>Better handling of F# trait calls (using a member constraint inside an <code>inline</code> function). Now an overloaded method is resolved based on signature.</li>
 <li>Optimization of remoting protocol: array of types are not included when it is empty.</li>
 </ul>
-<h1 id="breaking-changes">Breaking changes</h1>
+<h2 id="breaking-changes">Breaking changes</h2>
 <ul>
 <li>Attributes previously in <code>WebSharper.Sitelets</code> namespace and assembly are now in <code>WebSharper</code> namespace and in <code>WebSharper.Core.dll</code>.</li>
 <li>A <code>Sitelet</code>'s <code>Router</code> field is now of type <code>IRouter</code>, compatible in capabilities with the old <code>Router</code> record. The new <code>Router</code> type offers more combinators and is implementing <code>IRouter</code>.</li>

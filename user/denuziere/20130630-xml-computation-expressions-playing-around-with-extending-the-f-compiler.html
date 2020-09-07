@@ -1,0 +1,635 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XML computation expressions: Playing around with extending the F# compiler | IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+      <div class="container">
+        <h1>XML computation expressions: Playing around with extending the F# compiler</h1>
+        <h2>20130630</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><p>It's been a couple months since <a href="https://groups.google.com/forum/?fromgroups=#!searchin/fsharp-opensource/xml/fsharp-opensource/lvqnyb1CZUA">this discussion</a> in the F# Open-Source mailing list about a unified F# EDSL for XML trees, but I've remained intrigued by this problem and wanting to improve on the solutions proposed. I found <a href="http://fssnip.net/hf">Tomas Petricek's computation expression-based solution</a>, in particular, quite nice in its conciseness and non-reliance on custom operators, which makes it much more intuitive. Its big problem, though, is its complete reliance on side-effects at every level.</p>
+<h2 id="so-much-impurity">So much impurity...</h2>
+<p>Now, I'm not saying that such an EDSL <em>must</em> be completely pure in order to be even considered. After all, WebSharper's own HTML EDSL relies on side-effects. But at a much smaller scale: for example, in the following code, the only side-effect is done by the <c>(-&lt;)</c> operator, which destructively adds children to a node.</p>
+<pre><code class="language-fsharp">let ``WebSharper node`` =
+    Div [Class &quot;header&quot;; Id &quot;main-header&quot;] -&lt; [
+        Span [Text &quot;This is the contents of the header.&quot;]
+        Br []
+        Span [Class &quot;clear&quot;]
+    ]
+</code></pre>
+<p>On the other hand, Tomas's EDSL uses a global variable <code>h</code> containing an internal pointer to the current position in the XML tree where the next node will be written. Which means that not only does every single operation (moving up or down in the tree, inserting a node or an attribute) relies on mutation, but a wrong use of a method of <code>h</code> can land you in the wrong place of the tree, potentially throwing an error when closing the computation expression and trying to move up from the root. Ugh... Surely we can do better!</p>
+<h2 id="but-at-what-cost">... but at what cost?</h2>
+<p>Well, as it turns out, we can't.</p>
+<p>At least, not if we want to keep a clean and concise syntax. We could, of course, make use of the <code>yield</code> and <code>yield!</code> keywords, or even <a href="http://msdn.microsoft.com/en-us/library/hh289709.aspx">custom operations</a> if we find these keywords too long.</p>
+<pre><code class="language-fsharp">let ``Pure CE, first attempt`` =
+    // &quot;attr&quot;, &quot;node&quot; and &quot;nodes&quot; are custom operations here
+    div {
+        attr (&quot;class&quot;, &quot;header&quot;)
+        attr (&quot;id&quot;, &quot;main-header&quot;)
+        node (span { text &quot;This is the contents of the header.&quot; })
+        nodes [
+            br
+            span { attr (&quot;class&quot;, &quot;clear&quot;) }
+        ]
+    }
+</code></pre>
+<p>... And the result is more cluttered than any of the existing EDSLs. Not good.</p>
+<p>Actually, there is a simple reason why a Computation Expression-based XML EDSL needs to be destructive if it must be concise.</p>
+<p>For those unfamiliar with the way F# Computation Expressions are implemented, this is how it works: the keyword that you place at the beginning of a CE (<code>async</code>, <code>seq</code>, etc — or in the above code, <code>div</code>) is actually an object, called the builder. Each keyword inside the CE is translated to a method call on the builder according to a set of <a href="http://msdn.microsoft.com/en-us/library/dd233182.aspx">simple desugaring rules</a>.</p>
+<p>According to these rules, when a bare expression is met within a CE (<code>{| other-expr; cexpr |}</code>), it is transformed into a sequence of expressions (<code>other-expr; {| cexpr |}</code>). Which means its return value is discarded, and the only useful thing it can do is a side-effect. No way out of this: if we want to use bare expressions, they must be impure.</p>
+<h2 id="extending-f-for-fun-well-see-about-profit">Extending F# for fun, we'll see about profit</h2>
+<p>At this point, I chose to leave the realm of what can be done, and to enter the realm of what could be done. After all, you never do anything new if you don't start asking &quot;What if?&quot;</p>
+<p>What if the bare expression expansion rule was different? What if instead of simply transforming it into a sequence of expressions, it called a new method on the CE, let's call it <code>Sequence</code>, that would perform whatever transformation we want it to?</p>
+<p>Well, there's only one way to find out. Off to <a href="https://github.com/fsharp/fsharp">the compiler</a> we go!</p>
+<p>This being my first foray into the F# compiler source, it took me some time to find my way around. But fortunately, the change needed to implement the <code>Sequence</code> method ended up being <a href="https://github.com/Tarmil/fsharp/commit/fca70beefb47d005f198eeca3bab1ab7b1d138ef">even smaller</a> than I thought it would be. The first chunk of the diff implements the following transformation:</p>
+<pre><code class="language-fsharp">{| other-expr; cexpr |} --&gt; builder.Sequence(other-expr, {| cexpr |})
+</code></pre>
+<p>and the second chunk implements:</p>
+<pre><code class="language-fsharp">{| other-expr |} --&gt; builder.Sequence(other-expr, builder.Zero())
+</code></pre>
+<p>The nice part about this is, just like the existing <code>Run</code> and <code>Delay</code> methods, if <code>Sequence</code> is not implemented by the builder, then we can just revert to the default behavior, making this change 99% retro-compatible. The only breaking case is if an existing builder happens to have a <code>Sequence</code> method for its own purposes, then this method will be mistaken for an implementation of this feature.</p>
+<h2 id="a-better-xml-than-xml">A better XML than XML</h2>
+<p>So, back to our XML EDSL business, but now with our custom F# compiler. In the F# Open-Source mailing list thread, Anton Tayanovskyy listed the different cases that our EDSL should be able to concisely represent.</p>
+<pre><code class="language-xml">&lt;!-- empty element with no attributes --&gt;
+&lt;hr /&gt;
+
+&lt;!-- empty element with attributes --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;foo.css&quot; /&gt;
+
+&lt;!-- empty element with text-only content --&gt;
+&lt;title&gt;foo&lt;/title&gt;
+
+&lt;!-- empty element with attributes and text-only content --&gt;
+&lt;div id=&quot;main&quot;&gt;foo&lt;/div&gt;
+
+&lt;!-- element with no attributes and element-only content --&gt;
+&lt;div&gt;&lt;hr/&gt;&lt;/div&gt;
+
+&lt;!-- element with attributes and element-only content --&gt;
+&lt;div id=&quot;main&quot;&gt;&lt;hr/&gt;&lt;/div&gt;
+
+&lt;!-- element (possibly with attributes) with mixed content --&gt;
+&lt;div id=&quot;address&quot;&gt;Foo St&lt;br/&gt;Bar Town&lt;/div&gt;
+</code></pre>
+<p>With our newly implemented CE syntax extension, this is how we'll be able to represent them:</p>
+<pre><code class="language-fsharp">// empty element with no attributes
+HR
+
+// empty element with attributes
+Link { Rel &quot;stylesheet&quot;; HRef &quot;foo.css&quot; }
+
+// empty element with text-only content
+Title { &quot;foo&quot; }
+
+// empty element with attributes and text-only content
+Div { Id &quot;main&quot; } { &quot;foo&quot; }
+
+// element with no attributes and element-only content
+Div { HR }
+
+// element with attributes and element-only content
+Div { Id &quot;main&quot; } { HR }
+
+// element (possibly with attributes) with mixed content
+Div { Id &quot;address&quot; } { &quot;Foo St&quot;; Br; &quot;Bar Town&quot; }
+</code></pre>
+<p>Looks pretty cool, doesn't it? <a href="https://gist.github.com/Tarmil/5894620">Here is the implementation.</a> It actually relies on a final couple of tricks, but unlike the previous one, these tricks are entirely legit F# 😃</p>
+<h3 id="the-builder">The builder</h3>
+<p>The first trick is simple: the node type is the builder! This allows us to have both</p>
+<pre><code class="language-fsharp">Div : Node
+</code></pre>
+<p>and</p>
+<pre><code class="language-fsharp">Div { HR } : Node
+</code></pre>
+<p>Even better, if we have an existing node <code>myNode</code>, then we can add children to it with a CE:</p>
+<pre><code class="language-fsharp">myNode { Div }
+</code></pre>
+<h3 id="attributes">Attributes</h3>
+<p>The value carried around by the CE is actually the list of children that will be added to the node. The final creation of the node is done by the <code>Run</code> method, which gets called automatically by the CE desugaring (as shown <a href="http://msdn.microsoft.com/en-us/library/dd233182.aspx">here</a>).</p>
+<p>But what about attributes? One thing we could do is, instead of carrying a list of children, carry a pair: a list of children and a list of attributes. But this would allow mixing children and attributes within the same CE:</p>
+<pre><code class="language-fsharp">Div { Id &quot;main&quot;; Span { &quot;contents&quot; } }
+</code></pre>
+<p>and I'm not very fond of the idea: it contradicts this fundamental distinction, in XML, between attributes and child nodes. So I decided instead to take advantage of method overloading. I have two versions of <code>Sequence</code>:</p>
+<pre><code class="language-fsharp">type Node =
+    // ...
+    member this.Sequence (n: Node, l: Node list) = n :: l
+    member this.Sequence (a: Attribute, l: Attribute list) = a :: l
+</code></pre>
+<p>It is now impossible to mix nodes and attributes, because there is no method with arguments <code>Node * Attribute list</code> or vice-versa.</p>
+<p>In the end, we have what could be considered two different CEs using the same builder; one for child nodes, and one for attributes. And since the type finally returned by the CE is the builder type, we can chain them:</p>
+<pre><code class="language-fsharp">// Using the child node CE
+Div { Span }
+// Using the attribute CE
+Div { Id &quot;main&quot; }
+// Chaining both CEs
+Div { Id &quot;main&quot; } { Span }
+</code></pre>
+<h3 id="sequences-of-children">Sequences of children</h3>
+<p>It is very common, when building HTML, to need to insert a sequence of children into a parent node. Rows into a table, articles into a page, etc. This is actually, in my opinion, the main weakness of WebSharper's EDSL. It is certainly possible to insert a sequence of children, but not very practical:</p>
+<pre><code class="language-fsharp">let childrenToAdd = [Div [Text &quot;c1&quot;]; Div [Text &quot;c2&quot;]]
+
+/// The parent as it would be without the children.
+let parent = Div [
+    H1 [Text &quot;Title&quot;]
+    // We want to put the children here
+    Div [Class &quot;footer&quot;]
+]
+
+/// First possibility: use yield!, forcing us to add yield to all other children.
+let parent' = Div [
+    yield H1 [Text &quot;Title&quot;]
+    yield! childrenToAdd
+    yield Div [Class &quot;footer&quot;]
+]
+
+/// Second possibility: use (-&lt;) to break down the children into several sequences.
+let parent'' = Div [
+    H1 [Text &quot;Title&quot;]
+] -&lt; childrenToAdd -&lt; [
+    Div [Class &quot;footer&quot;]
+]
+</code></pre>
+<p>Fortunately, our new EDSL can do this better, in two different ways even. The first one is to (ab)use method overloading again:</p>
+<pre><code class="language-fsharp">type Node =
+    // ...
+    member this.Sequence(ns: seq&lt;Node&gt;, l: Node list) = List.ofSeq ns @ l
+
+let childrenToAdd = [ Div { &quot;c1&quot; }; Div { &quot;c2&quot; } ]
+
+let parent = Div {
+    H1 { &quot;title&quot; }
+    childrenToAdd
+    Div { Class &quot;footer&quot; }
+}
+</code></pre>
+<p>The second one is to implement the <code>For</code> method of the CE builder. This allows us to insert for loops right into our XML!</p>
+<pre><code class="language-fsharp">let parent = Div {
+    H1 { &quot;title&quot; }
+    for c = 1 to 2 do
+        Div { &quot;c&quot; + string i }
+    Div { Class &quot;footer&quot; }
+}
+</code></pre>
+<h2 id="in-conclusion">In conclusion</h2>
+<p>Obviously, the EDSL presented here is only a toy and a yearning for what could be; and it will remain so as long as it depends on a custom patched compiler. This being said, with the recent news that the F# team intends to put out <a href="http://blogs.msdn.com/b/fsharpteam/archive/2013/06/27/announcing-a-pre-release-of-f-3-1-and-the-visual-f-tools-in-visual-studio-2013.aspx">more frequent updates to the language</a>, one could imagine a feature similar to <code>Sequence</code> making its way into the official F# compiler some day. Hey, don't blame me for hoping!</p>
+</div></div>
+              <hr class="space" />
+              <div class="row">
+                <div class="col-lg-8">
+                  <ul class="icon-list icon-list-horizontal icon-list-blog">
+                    <li>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">Finance</a>,
+                      <a href="#">Software</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/denuziere/20130630-xml-computation-expressions-playing-around-with-extending-the-f-compiler.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Related articles.</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="2" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Categories</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/ce">
+                      ce
+                    </a>
+                  </div><div>
+                    <a href="/category/compiler">
+                      compiler
+                    </a>
+                  </div><div>
+                    <a href="/category/dsl">
+                      dsl
+                    </a>
+                  </div><div>
+                    <a href="/category/edsl">
+                      edsl
+                    </a>
+                  </div><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div></div>
+                <hr class="space-sm" />
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="http://via.placeholder.com/400x400" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="http://via.placeholder.com/400x400" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="http://via.placeholder.com/400x400" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.4 released with remote authentication" />
+                          Bolero 0.4 released with remote authentication
+                          <span>04/17/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support">
+                          <img src="http://via.placeholder.com/400x400" alt="WebSharper 4.5.8 released with Visual Studio 2019 support" />
+                          WebSharper 4.5.8 released with Visual Studio 2019 support
+                          <span>02/26/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <h4>Company and team</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Company details and team</a>
+                          </li>
+                          <li>
+                              <a href="#">News and blog</a>
+                          </li>
+                          <li>
+                              <a href="#">Press area</a>
+                          </li>
+                          <li>
+                              <a href="#">Affiliates and marketing</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Help and support</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Help centre</a>
+                          </li>
+                          <li>
+                              <a href="#">Feedbacks</a>
+                          </li>
+                          <li>
+                              <a href="#">Request new features</a>
+                          </li>
+                          <li>
+                              <a href="#">Contact us</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Learn more</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Apps stores</a>
+                          </li>
+                          <li>
+                              <a href="#">Partners</a>
+                          </li>
+                          <li>
+                              <a href="#">Privacy and terms</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Follow us</h4>
+                  <div class="icon-links icon-social icon-links-grid social-colors">
+                      <a class="facebook"><i class="icon-facebook"></i></a>
+                      <a class="twitter"><i class="icon-twitter"></i></a>
+                      <a class="linkedin"><i class="icon-linkedin"></i></a>
+                      <a class="youtube"><i class="icon-youtube"></i></a>
+                      <a class="instagram"><i class="icon-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bar">
+          <div class="container">
+              <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+              <span><img src="/media/logo-light.svg" /></span>
+          </div>
+      </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>

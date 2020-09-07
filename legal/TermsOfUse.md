@@ -12,7 +12,7 @@ Please review the following terms carefully. By accessing or using the Service, 
 
 ## Privacy
 
-IntelliFactory respects the privacy of its Service users. Please refer to IntelliFactory’s [Privacy Policy](https://websharper.com/privacy-policy) which explains how we collect, use, and disclose information that pertains to your privacy. When you access or use the Service, you signify your agreement to the Privacy Policy, as well as these Terms of Use.
+IntelliFactory respects the privacy of its Service users. Please refer to IntelliFactory’s [Privacy Policy](https://intellifactory.com/privacy-policy) which explains how we collect, use, and disclose information that pertains to your privacy. When you access or use the Service, you signify your agreement to the Privacy Policy, as well as these Terms of Use.
 
 ## Eligibility
 
@@ -150,7 +150,7 @@ For contractual purposes, you: (a) consent to receive communications from us in 
 
 We may also use your email address to send you other messages, including information about the Network or the Service and special offers. You may opt out of such emails by changing your account settings, using the “Unsubscribe” link in the message, or by sending an email to privacy@intellifactory.com or via [https://intellifactory.com/contact](https://intellifactory.com/contact). Opting out may prevent you from receiving messages regarding the Network, the Service or special offers.
 
-Please refer to IntelliFactory’s [Privacy Policy](https://websharper.com/privacy-policy) which explains how we collect, use, and disclose information that pertains to your privacy.
+Please refer to IntelliFactory’s [Privacy Policy](https://intellifactory.com/privacy-policy) which explains how we collect, use, and disclose information that pertains to your privacy.
 
 # Warranty Disclaimer
 
@@ -176,4 +176,4 @@ These Terms of Use and your use of the Site are governed by the effective Hungar
 
 We may assign or delegate these Terms of Use and/or our Privacy Policy, in whole or in part, to any person or entity at any time with or without your consent. You may not assign or delegate any rights or obligations under the Terms of Use or Privacy Policy without our prior written consent, and any unauthorized assignment or delegation by you is void.
 
-YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF USE, UNDERSTAND THE TERMS OF USE, AND WILL BE BOUND BY THESE TERMS AND CONDITIONS. YOU FURTHER ACKNOWLEDGE THAT THESE TERMS OF USE TOGETHER WITH THE PRIVACY POLICY AT HTTPS://WEBSHARPER.COM/PRIVACY-POLICY REPRESENT THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN US AND THAT IT SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN US RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT.
+YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF USE, UNDERSTAND THE TERMS OF USE, AND WILL BE BOUND BY THESE TERMS AND CONDITIONS. YOU FURTHER ACKNOWLEDGE THAT THESE TERMS OF USE TOGETHER WITH THE PRIVACY POLICY AT HTTPS://INTELLIFACTORY.COM/PRIVACY-POLICY REPRESENT THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN US AND THAT IT SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN US RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT.

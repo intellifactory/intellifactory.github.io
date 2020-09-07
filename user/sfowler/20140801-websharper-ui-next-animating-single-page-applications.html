@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebSharper UI.Next: Animating Single-Page Applications | IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+      <div class="container">
+        <h1>WebSharper UI.Next: Animating Single-Page Applications</h1>
+        <h2>20140801</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><p>In my <a href="http://fpish.net/blog/SimonJF/id/3965/2014722-structuring-web-applications-with-websharper-ui-next">previous blog</a>, I was asked about how easy it would be to tie in custom animations to the flowlet I described. In this post I hope to convince you that the answer to that is, well... Pretty easy!</p>
+<p>If you haven't checked out <a href="http://fpish.net/blog/anton.tayanovskyy/id/3964/2014721-websharper-ui-next-declarative-animation">Anton's blog on declarative animation in UI.Next</a>, it provides a good introduction and is a bit more in-depth than this one. It'll also help to check out the blog on <a href="http://fpish.net/blog/SimonJF/id/3965/2014722-structuring-web-applications-with-websharper-ui-next">structuring single-page applications</a>.</p>
+<p>A brief introduction for those who haven't read up on UI.Next just yet: UI.Next is a dataflow-backed reactive DOM framework for <a href="http://www.websharper.com">WebSharper</a>. By defining reactive variables (which are a bit like reference cells) and views on these (which allow you to 'peer into' the variable as it changes), it's possible to create DOM fragments which change with the variable.</p>
+<p>This makes it really good for constructing single-page applications (SPAs), and we've cooked up some patterns and abstractions to make this feel pretty natural. Of course, with SPAs, some kind of animation between page transitions is quite nice -- and very doable. Of course, you could do this with CSS -- but I hope you'll agree that it's nicer and more powerful in F# 😃</p>
+<h2 id="fade-transitions-for-a-mini-site">Fade Transitions for a Mini-Site</h2>
+<p>Earlier, I showed a pattern to create mini-sites consisting of multiple pages. To do this, we create an ADT to show the different types of pages you can have, and a rendering function for each. Once this is done, we get a view of the variable, map the rendering function onto it, then embed it into the document.</p>
+<pre><code class="language-fsharp"> // Here we define the minisite.
+    let Main () =
+        // We first create a variable to hold our current page.
+        let m = Var.Create BobsleighHome
+
+        // Here, we render the current page using a view of the current page variable
+        let ctx = {Go = Var.Set m}
+        View.FromVar m
+        |&gt; View.Map (fun pg -&gt;
+            match pg with
+            | BobsleighHome -&gt; HomePage ctx
+            | BobsleighHistory -&gt; History ctx
+            | BobsleighGovernance -&gt; Governance ctx
+            | BobsleighTeam -&gt; Team ctx)
+        |&gt; Doc.EmbedView // Finally, we can embed it to get a Doc
+</code></pre>
+<p>Okay, so what we want is for each page to fade out, and a new one to fade in. You can see this live <a href="https://websharper-samples.github.io/ui/#/samples/AnimatedBobsleighSite">here</a>.</p>
+<p>To do this, we'll take a look at a few things in the <code>Animation</code> module: if you're interested in looking into this a bit more deeply, then check out the <a href="https://github.com/dotnet-websharper/ui/blob/master/docs/UINext-Animation.md">API Reference</a>.</p>
+<p>The first thing to do is create an <code>Anim</code>, which specifies the basic properties about the animation:</p>
+<ul>
+<li><strong>Interpolation</strong>: How to calculate the intermediate values given the current time. This is parameterised over the type we want to interpolate -- we'll just use the inbuilt <code>Double</code> interpolation.</li>
+<li><strong>Easing</strong>: How to &quot;distort&quot; the interpolation, to give more interesting effects. We'll use the <code>CubicInOut</code> easing.</li>
+<li><strong>Time</strong>: The amount of time the animation will last.</li>
+</ul>
+<p>Without further ado...</p>
+<pre><code class="language-fsharp">    let fadeTime = 300.0
+    let Fade =
+        Anim.Simple Interpolation.Double Easing.CubicInOut fadeTime
+</code></pre>
+<p>The next step is to define a <code>Transition</code>, which will trigger the animation. We want to fade in when the page gets shown (meaning we'll need an enter transition) and out when the page gets removed (meaning we'll need an exit transition). When this happens, we'll want to play the Fade animation, changing the <code>opacity</code> style from 0.0 to 1.0 for a fade in, and 1.0 to 0.0 for a fade out.</p>
+<p>You'll notice that <code>Trans.Enter</code> and <code>Trans.Exit</code> take a function providing a value. This allows the transition to depend on a time-varying element -- in this case, since the transition will be the same each time, we don't need this. It comes in really handy for data-driven animations though, as you can see in the <a href="https://websharper-samples.github.io/ui/#/samples/ObjectConstancy">object constancy sample</a>.</p>
+<pre><code class="language-fsharp">    let FadeTransition =
+        Trans.Create Fade
+        |&gt; Trans.Enter (fun i -&gt; Fade 0.0 1.0)
+        |&gt; Trans.Exit (fun i -&gt; Fade 1.0 0.0)
+</code></pre>
+<p>The final step is to create an animation attribute, and attach it to the element we want to animate. This is done as follows, using the <code>Attr.Animated</code> and <code>Attr.AnimatedStyle</code> functions.</p>
+<pre><code class="language-fsharp">let MakePage var pg =
+    Doc.Concat [
+        NavBar var
+        Div [Attr.AnimatedStyle &quot;opacity&quot; FadeTransition (View.Const 1.0) string] [
+            pg
+        ]
+    ]
+</code></pre>
+<p>The function firstly takes the appropriate attribute we want to change as a result of the animation -- in the case of a fade, this will be opacity. We then specify our transition, and a constant view to be passed to the transition. Recall that since this animation doesn't depend on state, it's pretty much irrelevant in this case, but can come in handy at other points. The final argument is a function to change the double we're animating to a string, so that it can be displayed as an attribute.</p>
+<p>All that's left now is to pipe the pages to the <code>MakePage</code> function, which also adds a navigation bar, and we're done!</p>
+<pre><code class="language-fsharp">let Main () =
+    let m = Var.Create BobsleighHome
+    let ctx = {Go = Var.Set m}
+    View.FromVar m
+    |&gt; View.Map (fun pg -&gt;
+        match pg with
+        | BobsleighHome -&gt; HomePage ctx
+        | BobsleighHistory -&gt; History ctx
+        | BobsleighGovernance -&gt; Governance ctx
+        | BobsleighTeam -&gt; Team ctx
+        |&gt; MakePage m)
+    |&gt; Doc.EmbedView
+</code></pre>
+<h2 id="animating-flowlets">Animating Flowlets</h2>
+<p>It's also very possible to combine animations. Flowlets allow us to easily construct &quot;wizard-like&quot; forms, where each page that has been shown may depend on previous pages. Now, a nice thing to do in such a case is to have a swipe-style animation that's triggered upon clicking the &quot;next&quot; button of the form, for example. You can see this example live <a href="https://websharper-samples.github.io/ui/#/samples/AnimatedContactFlow">here</a>.</p>
+<p>The first thing to do is to define a new swipe animation and transition, much as before: the code is pretty much the same, but we'll move 400px to the right, so we'll interpolate between 0.0 and 400.0 this time instead. The transition will also only be triggered when the node is removed, so we'll only need an exit transition this time.</p>
+<pre><code class="language-fsharp">// It's a similar story for swipes -- we're wanting to swipe 400px left.
+let swipeTime = 300.0
+let Swipe =
+    Anim.Simple Interpolation.Double Easing.CubicInOut swipeTime
+
+// We're only swiping out -- so we only specify an exit transition here
+let SwipeTransition =
+    Trans.Create Swipe
+    |&gt; Trans.Exit (fun i -&gt; Swipe 0.0 400.0)
+</code></pre>
+<p>We'll use the same <code>&lt;div&gt;</code> trick as before to attach the animation to each flowlet page: since each animation is added as an attribute, it's possible to add the flow one in, too:</p>
+<pre><code class="language-fsharp">    let AnimateFlow pg =
+        Div
+            [
+                Attr.Style &quot;position&quot; &quot;relative&quot;
+                Attr.AnimatedStyle &quot;opacity&quot; FadeTransition (View.Const 1.0) string
+                Attr.AnimatedStyle &quot;left&quot; SwipeTransition (View.Const 0.0) (fun x -&gt; (string x) + &quot;px&quot;)
+            ]
+
+            [ pg ]
+</code></pre>
+<p>And finally, all we need to do to animate a flowlet page is to pipe it to the <code>AnimateFlow</code> function we just defined:</p>
+<pre><code class="language-fsharp">let personFlowlet =
+    Flow.Define (fun cont -&gt;
+        let rvName = Var.Create &quot;&quot;
+        let rvAddress = Var.Create &quot;&quot;
+        Form [cls &quot;form-horizontal&quot; ; &quot;role&quot; ==&gt; &quot;form&quot;] [
+            ...
+        ]
+        |&gt; AnimateFlow
+    )
+</code></pre>
+<p>...and we're done!</p>
+<h2 id="finishing-up">Finishing Up</h2>
+<p>Thanks for reading, and I hope I've shown how you can use the declarative animation functionality in UI.Next to animate single-page applications. Of course, I'm only scratching the surface here! Expect some more samples and posts in the coming weeks.</p>
+<p>Any questions and comments are very welcome as ever!</p>
+</div></div>
+              <hr class="space" />
+              <div class="row">
+                <div class="col-lg-8">
+                  <ul class="icon-list icon-list-horizontal icon-list-blog">
+                    <li>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">Finance</a>,
+                      <a href="#">Software</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/sfowler/20140801-websharper-ui-next-animating-single-page-applications.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Related articles.</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="2" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Categories</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/animation">
+                      animation
+                    </a>
+                  </div><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div><div>
+                    <a href="/category/reactivedom">
+                      reactivedom
+                    </a>
+                  </div><div>
+                    <a href="/category/ui.next">
+                      ui.next
+                    </a>
+                  </div><div>
+                    <a href="/category/websharper">
+                      websharper
+                    </a>
+                  </div></div>
+                <hr class="space-sm" />
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="http://via.placeholder.com/400x400" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="http://via.placeholder.com/400x400" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="http://via.placeholder.com/400x400" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.4 released with remote authentication" />
+                          Bolero 0.4 released with remote authentication
+                          <span>04/17/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support">
+                          <img src="http://via.placeholder.com/400x400" alt="WebSharper 4.5.8 released with Visual Studio 2019 support" />
+                          WebSharper 4.5.8 released with Visual Studio 2019 support
+                          <span>02/26/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <h4>Company and team</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Company details and team</a>
+                          </li>
+                          <li>
+                              <a href="#">News and blog</a>
+                          </li>
+                          <li>
+                              <a href="#">Press area</a>
+                          </li>
+                          <li>
+                              <a href="#">Affiliates and marketing</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Help and support</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Help centre</a>
+                          </li>
+                          <li>
+                              <a href="#">Feedbacks</a>
+                          </li>
+                          <li>
+                              <a href="#">Request new features</a>
+                          </li>
+                          <li>
+                              <a href="#">Contact us</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Learn more</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Apps stores</a>
+                          </li>
+                          <li>
+                              <a href="#">Partners</a>
+                          </li>
+                          <li>
+                              <a href="#">Privacy and terms</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Follow us</h4>
+                  <div class="icon-links icon-social icon-links-grid social-colors">
+                      <a class="facebook"><i class="icon-facebook"></i></a>
+                      <a class="twitter"><i class="icon-twitter"></i></a>
+                      <a class="linkedin"><i class="icon-linkedin"></i></a>
+                      <a class="youtube"><i class="icon-youtube"></i></a>
+                      <a class="instagram"><i class="icon-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bar">
+          <div class="container">
+              <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+              <span><img src="/media/logo-light.svg" /></span>
+          </div>
+      </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>

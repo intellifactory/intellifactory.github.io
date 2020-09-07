@@ -171,7 +171,7 @@
 <li>with the .NET Core SDK: <code>dotnet new -i WebSharper.Templates::4.2.8.227</code></li>
 <li><a href="http://websharper.com/installers/WebSharper.4.2.8.227.vsix">in Visual Studio 2017</a></li>
 </ul>
-<h1 id="in-document-template-binding">In-document template binding</h1>
+<h2 id="in-document-template-binding">In-document template binding</h2>
 <p>The main highlight of this release is a WebSharper.UI feature called <strong>in-document template binding</strong>.</p>
 <p>Declaring a template with the type provider parameter <code>clientLoad = ClientLoad.FromDocument</code> loads templates directly from the DOM. This makes it convenient to work on the HTML file without having to recompile your F# code. However, before this release, this feature was limited: it only applied to sub-templates, ie. templates declared within the document using <code>ws-template</code> or <code>ws-children-template</code> attributes. Such an instantiation removes the corresponding element from the DOM and creates a client-side <code>Doc</code> that can be inserted using a function such as <code>Doc.RunById</code>.</p>
 <p>With in-document template binding, it is now possible to bind holes declared directly in the document. This is done by using the <code>.Bind()</code> method instead of <code>.Doc()</code>, <code>.Elt()</code> or <code>.Create()</code>. This new method returns <code>unit</code> and directly binds the declared holes to the DOM, without the need to detach and re-attach a sub-template.</p>
@@ -197,8 +197,8 @@ let Main() =
 </code></pre>
 <p>For a more comprehensive example, you can also check <a href="https://github.com/websharper-samples/LoginWithBulma">Adam's new getting started tutorial</a> implementing a Bulma-styled login form with <code>Bind()</code>.</p>
 <p>The above example uses <code>Bind()</code> in an SPA project, which is the most typical use case. But it is also possible to use it in a client-server application, where the server side uses the same template, potentially binding some holes itself. For this, you need to add the parameter <code>keepUnfilled = true</code> to your server-side <code>.Doc()</code> instantiation. Otherwise, all unbound holes would be removed by the server-side rendering engine, and there would be nothing left to bind on the client.</p>
-<h1 id="full-changes">Full changes</h1>
-<h2 id="features">Features</h2>
+<h2 id="full-changes">Full changes</h2>
+<h3 id="features">Features</h3>
 <ul>
 <li><p><a href="https://github.com/dotnet-websharper/ui/issues/161">ui#161</a> Add <code>.Bind() : unit</code> template terminating method to directly bind holes to the current document. This is available on the client-side only if the template is declared with <code>ClientLoad.FromDocument</code>.</p>
 </li>
@@ -219,11 +219,11 @@ Doc DocLens(Func&lt;T, K&gt; key, Func&lt;K, Var&lt;T&gt;, Doc&gt; f);
 </code></pre>
 </li>
 </ul>
-<h2 id="fixes">Fixes</h2>
+<h3 id="fixes">Fixes</h3>
 <ul>
 <li><a href="https://github.com/dotnet-websharper/core/issues/931">#931</a> Add downwards assembly redirects. This fixes an assembly load failure when a non-WebSharper-compiled referenced assembly uses FSharp.Core &gt; 4.4.1.0.</li>
 </ul>
-<h1 id="happy-coding">Happy coding!</h1>
+<p>Happy coding!</p>
 </div></div>
               <hr class="space" />
               <div class="row">
