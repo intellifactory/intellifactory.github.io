@@ -4,7 +4,7 @@
     <title>IntelliFactory Blog</title>
     <description>Building business applications with F# since 2004</description>
     <link>http://mywebsite.com</link>
-    <lastBuildDate>Wed, 09 Sep 2020 14:16:36 UTC</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2020 16:29:14 UTC</lastBuildDate>
     <item>
       <title>Bolero 0.13 released</title>
       <link>http://mywebsite.com/user/denuziere/20200523-bolero-0-13-released</link>
@@ -35,6 +35,14 @@
       <category>websharper</category>
       <description>In my previous article about "F# metablogging: introducing BlogEngine for your static markdown-based F# blog", I briefly outlined a quick strategy to switch a WebSharper HTML project to a hosted, client-server app, and vice versa. In this article, I will walk through some suprises that came along the way and what I did to resolve them.</description>
       <pubDate>Thu, 16 Jan 2020 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Writing instructions</title>
+      <link>http://mywebsite.com/post/20200101-writing-instructions.html</link>
+      <guid isPermaLink="false">20200101-writing-instructions</guid>
+      <category>blogging</category>
+      <description></description>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>F# metablogging: introducing BlogEngine for your static markdown-based F# blog</title>
@@ -735,7 +743,7 @@
       <pubDate>Wed, 07 Oct 2015 00:00:00 UTC</pubDate>
     </item>
     <item>
-      <title>Try Websharper: version info about extensions and some embedding improvements</title>
+      <title>Try WebSharper: version info about extensions and some embedding improvements</title>
       <link>http://mywebsite.com/user/gansperger/20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements</link>
       <guid isPermaLink="false">gansperger20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements</guid>
       <category>fsharp</category>
@@ -1408,7 +1416,7 @@
       <category>fsharp</category>
       <category>ui.next</category>
       <category>websharper</category>
-      <description>Websharper UI.Next Version 0.1.31.32 has been released, with bugfixes, and new event &amp; animation functionality.</description>
+      <description>WebSharper UI.Next Version 0.1.31.32 has been released, with bugfixes, and new event &amp; animation functionality.</description>
       <pubDate>Tue, 19 Aug 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
@@ -1751,7 +1759,7 @@
       <pubDate>Sun, 30 Jun 2013 00:00:00 UTC</pubDate>
     </item>
     <item>
-      <title>jQuery Mobile page reuse with Websharper</title>
+      <title>jQuery Mobile page reuse with WebSharper</title>
       <link>http://mywebsite.com/user/jankoa/20130607-jquery-mobile-page-reuse-with-websharper</link>
       <guid isPermaLink="false">jankoa20130607-jquery-mobile-page-reuse-with-websharper</guid>
       <category>fsharp</category>
@@ -1948,6 +1956,18 @@
       <pubDate>Thu, 15 Sep 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Announcing Formlets for jQuery Mobile</title>
+      <link>http://mywebsite.com/user/ramon.snir/20110909-announcing-formlets-for-jquery-mobile</link>
+      <guid isPermaLink="false">ramon.snir20110909-announcing-formlets-for-jquery-mobile</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>jquery</category>
+      <category>jquerymobile</category>
+      <category>websharper</category>
+      <description>The WebSharper Extensions for Formlets for jQuery Mobile give you the power of jQuery Mobile combined with the succinctness of formlets.</description>
+      <pubDate>Fri, 09 Sep 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>WebSharper Extensions for Bing Maps 7.0 Updated</title>
       <link>http://mywebsite.com/user/denuziere/20110804-websharper-extensions-for-bing-maps-7-0-updated</link>
       <guid isPermaLink="false">denuziere20110804-websharper-extensions-for-bing-maps-7-0-updated</guid>
@@ -1956,6 +1976,26 @@
       <category>websharper</category>
       <description>The WebSharper Extensions for Bing Maps has been updated to reflect the last changes in the 7.0 API. Among notable additions are Directions, a simplified interface to the Routes REST API, Traffic and VenueMaps, as well as the possibility to implement your own extension modules.</description>
       <pubDate>Thu, 04 Aug 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper Extensions for ExtJS 4</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110724-websharper-extensions-for-extjs-4</link>
+      <guid isPermaLink="false">joel.bjornson20110724-websharper-extensions-for-extjs-4</guid>
+      <category>extjs</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I introduce our latest WebSharper Extensions for ExtJS 4.</description>
+      <pubDate>Sun, 24 Jul 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>TinyMCE Extension for WebSharper Released</title>
+      <link>http://mywebsite.com/user/maciej.lopatka/20110722-tinymce-extension-for-websharper-released</link>
+      <guid isPermaLink="false">maciej.lopatka20110722-tinymce-extension-for-websharper-released</guid>
+      <category>fsharp</category>
+      <category>tinymce</category>
+      <category>websharper</category>
+      <description>We are happy to announce a new WebSharper extension, this time for TinyMCE. TinyMCE is one of the most popular Javascript WYSIWYG editors.</description>
+      <pubDate>Fri, 22 Jul 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>WebSharper 2.3 - targeting enterprise applications</title>
@@ -1968,6 +2008,15 @@
       <pubDate>Fri, 15 Jul 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>An asynchronous Slot machine</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110715-an-asynchronous-slot-machine</link>
+      <guid isPermaLink="false">joel.bjornson20110715-an-asynchronous-slot-machine</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I highlight the enhanced support for asynchronous programming in WebSharper. I show an example, modelling a slot machine as asynchronous computations run in parallel.</description>
+      <pubDate>Fri, 15 Jul 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>Color the Wind - a 2D Canvas demo with WebSharper</title>
       <link>http://mywebsite.com/user/denuziere/20110704-color-the-wind-a-2d-canvas-demo-with-websharper</link>
       <guid isPermaLink="false">denuziere20110704-color-the-wind-a-2d-canvas-demo-with-websharper</guid>
@@ -1976,6 +2025,15 @@
       <category>websharper</category>
       <description>At DemoJS, a demoparty dedicated to web technologies that took place this weekend in Paris, a demo coded with WebSharper was released.</description>
       <pubDate>Mon, 04 Jul 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Interfacing with dynamic JavaScript APIs in WebSharper</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110621-interfacing-with-dynamic-javascript-apis-in-websharper</link>
+      <guid isPermaLink="false">joel.bjornson20110621-interfacing-with-dynamic-javascript-apis-in-websharper</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This article gives and example of how to interface with dynamically typed JavaScript APIs.</description>
+      <pubDate>Tue, 21 Jun 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>WebSharper / O3D sample: Snooker game</title>
@@ -1998,6 +2056,26 @@
       <category>websharper</category>
       <description>In our continuing effort to make the most powerful JavaScript tools available to WebSharper developers, we are releasing the extension for Google O3D. O3D is a 3D programming library built on top of WebGL, enabling high-level resource and rendering management for 3D scenes.</description>
       <pubDate>Mon, 06 Jun 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Building a Loading Icon Formlet Combinator</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110518-building-a-loading-icon-formlet-combinator</link>
+      <guid isPermaLink="false">joel.bjornson20110518-building-a-loading-icon-formlet-combinator</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I show how to implement a formlet combinator encapsulating the common AJAX pattern of displaying a loading icon while submitting values to the server and waiting for a response.</description>
+      <pubDate>Wed, 18 May 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Creating Custom Formlet Controls</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110516-creating-custom-formlet-controls</link>
+      <guid isPermaLink="false">joel.bjornson20110516-creating-custom-formlet-controls</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This post shows how to create custom formlet controls.</description>
+      <pubDate>Mon, 16 May 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Expiring WebSharper Professional trials</title>
@@ -2076,6 +2154,17 @@
       <pubDate>Thu, 24 Mar 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Introducing formlets for jQueryUI</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110311-introducing-formlets-for-jqueryui</link>
+      <guid isPermaLink="false">joel.bjornson20110311-introducing-formlets-for-jqueryui</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>jqueryui</category>
+      <category>websharper</category>
+      <description>In this post I introduce our latest WebSharper extension - Formlets for jQueryUI. </description>
+      <pubDate>Fri, 11 Mar 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>Formlets for jQuery UI available</title>
       <link>http://mywebsite.com/user/granicz/20110310-formlets-for-jquery-ui-available</link>
       <guid isPermaLink="false">granicz20110310-formlets-for-jquery-ui-available</guid>
@@ -2112,6 +2201,25 @@
       <category>websharper</category>
       <description>Mobile application developers can now enjoy, in addition to jQuery Mobile, the latest addition to the WebSharper Extensions Gallery - Sencha Touch.</description>
       <pubDate>Tue, 22 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper at Kiev ALT.NET</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20110220-websharper-at-kiev-alt-net</link>
+      <guid isPermaLink="false">vladimir.matveev20110220-websharper-at-kiev-alt-net</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description></description>
+      <pubDate>Sun, 20 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Creating a user sign-up form using WebSharper Formlets</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20110211-creating-a-user-sign-up-form-using-websharper-formlets</link>
+      <guid isPermaLink="false">joel.bjornson20110211-creating-a-user-sign-up-form-using-websharper-formlets</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I'll highlight some of the features of WebSharper formlets by implementing a user sign-up form.</description>
+      <pubDate>Fri, 11 Feb 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>New WebSharper extensions available</title>
@@ -2188,6 +2296,28 @@
       <pubDate>Wed, 15 Dec 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Generalizing formlets</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20101202-generalizing-formlets</link>
+      <guid isPermaLink="false">joel.bjornson20101202-generalizing-formlets</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This post highlights some of the new features of our redesigned formlet library.</description>
+      <pubDate>Thu, 02 Dec 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper: Integration with ASP.NET MVC</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101128-websharper-integration-with-asp-net-mvc</link>
+      <guid isPermaLink="false">vladimir.matveev20101128-websharper-integration-with-asp-net-mvc</guid>
+      <category>aspnet</category>
+      <category>fsharp</category>
+      <category>mvc</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>ASP.NET MVC framework is lightweight web framework with strong emphasis on loose coupling and testability of involved components. This post will be dedicated to the major subject: how to create WebSharper web application based on ASP.NET MVC so it can take the best  from both counterparties.</description>
+      <pubDate>Sun, 28 Nov 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>Introducing WebSharper 2.0 at LWSUG</title>
       <link>http://mywebsite.com/user/granicz/20101126-introducing-websharper-2-0-at-lwsug</link>
       <guid isPermaLink="false">granicz20101126-introducing-websharper-2-0-at-lwsug</guid>
@@ -2225,6 +2355,37 @@
       <pubDate>Wed, 03 Nov 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>WebScheme</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101102-webscheme</link>
+      <guid isPermaLink="false">vladimir.matveev20101102-webscheme</guid>
+      <category>fp</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Scheme is remarkable language; it combines syntactic simplicity and elegance with exceptional expressiveness and power. Implementations of Scheme exist in many languages, and though I’m not the first who used F# for this solving task (shame on me) I still can be the first man who have made it with WebSharper.</description>
+      <pubDate>Tue, 02 Nov 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Introducing WIG patterns</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20101022-introducing-wig-patterns</link>
+      <guid isPermaLink="false">diego.echeverri20101022-introducing-wig-patterns</guid>
+      <category>dsl</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <category>wig</category>
+      <description></description>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Starting with WebSharper Interface Generator</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20101007-starting-with-websharper-interface-generator</link>
+      <guid isPermaLink="false">diego.echeverri20101007-starting-with-websharper-interface-generator</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <category>wig</category>
+      <description>WIG is an F# DSL and source-level translator for creating bindings for 3rd party libraries.</description>
+      <pubDate>Thu, 07 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>F# MVP Award - 2010</title>
       <link>http://mywebsite.com/user/granicz/20101006-f-mvp-award-2010</link>
       <guid isPermaLink="false">granicz20101006-f-mvp-award-2010</guid>
@@ -2233,6 +2394,15 @@
       <category>websharper</category>
       <description>I am very excited about my recent &lt;a href="http://mvp.support.microsoft.com/gp/mvpawardintro"&gt;Microsoft MVP 2010 award&lt;/a&gt; for my work in F#, and I would like to thank everyone who has recommended me for receiving this award. Foremost, I would like to thank ...</description>
       <pubDate>Wed, 06 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Solving Zebra Puzzle</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101005-solving-zebra-puzzle</link>
+      <guid isPermaLink="false">vladimir.matveev20101005-solving-zebra-puzzle</guid>
+      <category>fp</category>
+      <category>fsharp</category>
+      <description></description>
+      <pubDate>Tue, 05 Oct 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Tutorial: Implementing a shopping cart with WebSharper</title>
@@ -2281,6 +2451,46 @@
       <category>ml</category>
       <description>There is still time to submit your F# talk/presentation/report/demo proposal to &lt;a href="http://www.cs.rit.edu/~mtf/ml2010/"&gt;ML 2010&lt;/a&gt;, co-located with ICFP in Baltimore, MD, USA!</description>
       <pubDate>Fri, 25 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Fun with dependent formlets</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20100618-fun-with-dependent-formlets</link>
+      <guid isPermaLink="false">joel.bjornson20100618-fun-with-dependent-formlets</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I'm implementing a simple spread-sheet grid widget with dynamic summation of rows and columns, using dependent formlets.</description>
+      <pubDate>Fri, 18 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>More of Ext JS and WebSharper</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20100617-more-of-ext-js-and-websharper</link>
+      <guid isPermaLink="false">joel.bjornson20100617-more-of-ext-js-and-websharper</guid>
+      <category>extjs</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Following up on the previous post on the upcoming WebSharper Ext JS (Native) extension with an example of how to construct a sortable tree widget and reacting to changes of the ordering of tree nodes.</description>
+      <pubDate>Thu, 17 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Reactive programming with WebSharper</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20100617-reactive-programming-with-websharper</link>
+      <guid isPermaLink="false">joel.bjornson20100617-reactive-programming-with-websharper</guid>
+      <category>fsharp</category>
+      <category>reactive</category>
+      <category>websharper</category>
+      <description>A small example highlighting F# (and WebSharper) support for asynchronous and reactive programming.</description>
+      <pubDate>Thu, 17 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Writing Ext JS applications with WebSharper</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20100611-writing-ext-js-applications-with-websharper</link>
+      <guid isPermaLink="false">joel.bjornson20100611-writing-ext-js-applications-with-websharper</guid>
+      <category>extjs</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Some examples of how to use the upcoming WebSharper binding for Ext JS.</description>
+      <pubDate>Fri, 11 Jun 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>F# Training Courses in CA Announced</title>
@@ -2338,6 +2548,27 @@
       <pubDate>Wed, 10 Feb 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Introducing WIG patterns</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20100125-data-visualization-with-websharper</link>
+      <guid isPermaLink="false">diego.echeverri20100125-data-visualization-with-websharper</guid>
+      <category>fsharp</category>
+      <category>googlevisualization</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>In this post I'll show you how to make a nice visualization similar to the ones used by Hans Rosling. For this, we'll use the WebSharper Google Visualization bindings available as an extension package to the core platform.</description>
+      <pubDate>Mon, 25 Jan 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Creating web forms using WebSharper Formlets</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20091230-creating-web-forms-using-websharper-formlets</link>
+      <guid isPermaLink="false">joel.bjornson20091230-creating-web-forms-using-websharper-formlets</guid>
+      <category>formlets</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>In this post I give a short introduction to the WebSharper formlet library.</description>
+      <pubDate>Wed, 30 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>WebSharper 0.4.62 is available - with dependent formlets-flowlets-third-party extensions-and more!</title>
       <link>http://mywebsite.com/user/granicz/20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more</link>
       <guid isPermaLink="false">granicz20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more</guid>
@@ -2345,6 +2576,15 @@
       <category>websharper</category>
       <description>We are happy to announce the availability of WebSharper 0.4.62 - the latest version of the WebSharper Platform that aims to equip professional F# developers with the right platform to rapidly develop rich, scalable, client-based web applications.  This is the first release candidate of WebSharper Platform 2010 - our commercial offering for client-based reactive web development with F#. In this release there are a number of new features, including: ...</description>
       <pubDate>Wed, 23 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Basic HTML construction with WebSharper</title>
+      <link>http://mywebsite.com/user/joel.bjornson/20091210-basic-html-construction-with-websharper</link>
+      <guid isPermaLink="false">joel.bjornson20091210-basic-html-construction-with-websharper</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>The fundamentals of building HTML (DOM nodes) with WebSharper™. </description>
+      <pubDate>Thu, 10 Dec 2009 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Rapid prototyping of DSLs in F# - Part III</title>

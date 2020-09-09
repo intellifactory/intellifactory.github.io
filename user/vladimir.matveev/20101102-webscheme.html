@@ -1,0 +1,1155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebScheme | IntelliFactory</title>
+  <meta name="description" content="" />
+  <script src="/themekit/scripts/jquery.min.js"></script>
+  <script src="/themekit/scripts/main.js"></script>
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Company</a>
+              <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/customers">Success stories</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/investors">For investors</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category3.jpg" data-offset="0">
+      <div class="container">
+        <h1>WebScheme</h1>
+        <h2>20101102</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><p>Generally speaking if you abstract away from the visual part, WebSharper applications are not so different from usual F# libraries. Knowing this fact we can make our life much easier, and we can get away with simply: creating and testing basic components as a part of console application and later converting them to a WebSharper library. So, shall we begin?</p>
+<p>Our little Scheme (an actual subset of real Scheme) interpreter will consist of three parts:</p>
+<ul>
+<li><strong>Lexer</strong> - transforms source text (sequence of chars) into a sequence of tokens</li>
+<li><strong>Parser</strong> - produces language expressions based on a given token stream</li>
+<li><strong>Runtime</strong> – generic name for the remaining part, that includes an execution engine and a standard library (in our case few builtin functions)</li>
+</ul>
+<p>As I already mentioned, all these pieces are UI agnostic so they can be put into separate assembly that will be referenced from both the test console host and the front end WebSharper application.</p>
+<p>Lexer comes first. Step 1: define <code>Token</code> type and implement lexical analyzer:</p>
+<pre><code class="language-fsharp">type Token = 
+    | Identifier of string
+    | Quote      of Token
+    | Number     of int
+    | Boolean    of bool
+    | String     of string
+    | List       of Token list
+module Lexer = 
+     let private toString (chars : char list) = 
+        chars |&gt; List.fold (fun acc s -&gt; string s + acc) &quot;&quot;
+
+    let isDigit c = c &gt;= '0' &amp;&amp; c &lt;= '9' 
+    let isWhiteSpace c = c = ' ' || c = '\t' || c = '\r' || c = '\n'
+
+    let getTokens (source : string) = 
+        let rec getToken inList = function
+            | [] -&gt; 
+                if inList 
+                then failwith &quot;syntax error (missing close bracket)&quot; 
+                else None, []
+            | ')'::rest -&gt; 
+                if inList 
+                then None, rest 
+                else failwith &quot;syntax error (missing open bracket)&quot; 
+            | '('::rest -&gt;
+                let l, rest = getList true rest
+                Some (List l), rest
+            | '\''::rest -&gt;
+                let t, rest = getToken inList rest
+                match t with
+                | Some t -&gt; Some (Quote t), rest
+                | None -&gt; failwith &quot;syntax error (invalid quotation)&quot;
+            | c::rest when isWhiteSpace c -&gt; getToken inList rest
+            | '-'::((c::_) as rest) when isDigit c -&gt;
+                let num, rest = getNumber rest
+                Some (Number -num), rest
+            | (c::_) as rest when isDigit c -&gt;
+                let num, rest = getNumber rest
+                Some (Number num), rest
+            | '#'::'t'::rest -&gt;
+                Some (Boolean true), rest                
+            | '#'::'f'::rest -&gt;
+                Some (Boolean false), rest                
+            | '&quot;'::rest -&gt;
+                let s, rest = getString rest
+                Some (String s), rest
+            | rest -&gt;
+                let identifier, rest = getIdentifier rest
+                Some (Identifier identifier), rest
+        
+        and getList counter l = 
+            let rec impl acc (rest : char list) l = 
+                match getToken counter l with
+                | Some t, rest -&gt; impl (t::acc) [] rest
+                | None, rest -&gt; List.rev acc, rest
+            impl [] [] l
+        
+        and getNumber l = 
+            let rec impl acc = function
+                | c::rest when isDigit c -&gt;
+                    let value = int c - int '0'
+                    impl (acc * 10 + value) rest
+                | rest -&gt; acc, rest
+            impl 0 l
+        
+        and getString l = 
+            let rec impl acc = function
+                | [] -&gt; failwith &quot;syntax error (malformed string)&quot;
+                | '\\'::'&quot;'::rest -&gt; impl ('&quot;'::acc) rest
+                | '&quot;'::rest -&gt; (toString acc, rest)
+                | x::rest -&gt; impl (x::acc) rest
+            impl [] l
+
+        and getIdentifier l = 
+            let rec impl acc = function
+                | [] -&gt; toString acc, []
+                | (('('::_) as rest)
+                | ((')'::_) as rest) -&gt; toString acc, rest
+                | c::rest when isWhiteSpace c -&gt; toString acc, rest
+                | c::rest -&gt; impl (c::acc) rest
+            impl [] l
+        
+        let rec impl l = 
+            [
+                match getToken false l with
+                | Some t, r -&gt; 
+                    yield t
+                    match r with
+                    | [] -&gt; ()
+                    | rest -&gt; yield! impl rest
+                | None, _ -&gt; ()
+            ]
+        source 
+            |&gt; fun s -&gt; s.ToCharArray()
+            |&gt; List.ofSeq
+            |&gt; impl
+</code></pre>
+<ul>
+<li>For simplicity our implementation will support only integers (floats are out of the boat for now)</li>
+<li>Lexer results are slightly more than just conversion from chars to tokens, final sequence is already folded on brackets (lists are represented not as sequence of tokens like <code>LEFT_BRACKET</code>, <code>NUMBER</code>...<code>RIGHT_BRACKET</code>, but as one token <strong>List</strong> containing nested tokens with brackets omitted).</li>
+<li><code>getTokens</code> internally consists of several smaller functions: <code>getList</code> repeatadly reads a sequence of tokens containing within '(' and ')' and <code>getToken</code> tries to read next the token. If this attempt is successful - it returns the token and the remaining part of the stream.</li>
+</ul>
+<p>Watch the doors, next stop: <strong>parser</strong>. With pattern matching its creation becomes a straightforward task:</p>
+<pre><code class="language-fsharp">type Expr = 
+    | Bool      of bool
+    | Number    of int
+    | String    of string
+    | Atom      of string
+    | List      of Expr list
+    | Var       of string
+    | Apply     of Expr * Expr list
+    | Lambda    of string list * Expr
+    | If        of Expr * Expr * Expr option
+    | Assign    of string * Expr
+    | Cond      of (Expr * Expr) list * Expr option
+    | Let       of (string * Expr) list * Expr
+    | LetRec    of (string * Expr) list * Expr
+    | Sequence  of Expr list
+    | CallCC    of Expr
+
+module Parser = 
+    let rec private parse tokens = 
+        match tokens with
+        | Token.Identifier s -&gt; Expr.Var s
+        | Token.Number n -&gt; Expr.Number n
+        | Token.Boolean b -&gt; Expr.Bool b 
+        | Token.String s -&gt; Expr.String s
+        | Token.Quote t -&gt; parseQuote t
+        | Token.List(tokens) -&gt; parseList tokens
+
+    and private parseQuote = function
+        | Token.Number n -&gt; Expr.Number n
+        | Token.Boolean b -&gt; Expr.Bool b
+        | Token.String s -&gt; Expr.String s
+        | Token.Quote _ -&gt; failwith &quot;quoted quotes not supported yet&quot;
+        | Token.Identifier id -&gt; Expr.Atom id
+        | Token.List l -&gt; l |&gt; List.map parseQuote |&gt; Expr.List
+    
+    and private parseCond tokens = 
+        let rec impl acc = function
+            | [] -&gt; List.rev acc, None 
+            | [Token.List([Token.Identifier &quot;else&quot;; body])] -&gt; 
+                List.rev acc, Some(parse body)
+            | Token.List([cond; body])::rest -&gt; 
+                let cond = parse cond
+                let body = parse body
+                impl ((cond, body)::acc) rest
+            | x -&gt; failwith &quot;invalid 'cond' syntax&quot;
+        impl [] tokens
+    
+    and private parseList = function
+        | Token.Identifier &quot;begin&quot;::rest -&gt; 
+            rest 
+            |&gt; List.map parse 
+            |&gt; Sequence        
+        | Token.Identifier &quot;cond&quot;::body -&gt; 
+            parseCond body 
+            |&gt; Expr.Cond
+        | [Token.Identifier &quot;callcc&quot;; body] -&gt;
+            parse body
+            |&gt; Expr.CallCC
+        | Token.Identifier &quot;lambda&quot;::Token.List(formals)::body -&gt; 
+            let formals = parseFormals formals
+            Lambda(formals, Sequence(parseMain body))
+        | Token.Identifier &quot;let&quot;::Token.List(bindings)::body -&gt; 
+            parseLet bindings body Let
+        | Token.Identifier &quot;letrec&quot;::Token.List(bindings)::body -&gt; 
+            parseLet bindings body LetRec
+        | [Token.Identifier &quot;if&quot;; cond; ifTrue] -&gt; 
+            let cond = parse cond
+            let ifTrue = parse ifTrue
+            Expr.If(cond, ifTrue, None)
+        | [Token.Identifier &quot;if&quot;; cond; ifTrue; ifFalse] -&gt;
+            let cond = parse cond
+            let ifTrue = parse ifTrue
+            let ifFalse = parse ifFalse
+            Expr.If(cond, ifTrue, Some ifFalse)        
+        | [Token.Identifier &quot;set!&quot;; Token.Identifier(var); value] -&gt; 
+            Expr.Assign(var, parse value)
+        | proc::args -&gt; 
+            Expr.Apply(parse proc, List.map parse args)
+        | x -&gt; 
+            failwith &quot;unrecognized token sequence&quot;
+    and private parseFormals formals = 
+        formals 
+            |&gt; List.map parse 
+            |&gt; List.map(function 
+                | Expr.Var s -&gt; s 
+                | x -&gt; failwith &quot;formal parameter should be var&quot;
+                )
+    and private parseLet bindings body f =
+        let bindings = 
+            bindings
+            |&gt; List.map(function 
+                | Token.List([Token.Identifier name; value]) -&gt; name, parse value 
+                | x -&gt; failwith &quot;invalid binding structure&quot;
+                )
+        let body = parseMain body
+        f(bindings, Sequence body)
+     
+    and parseMain tokens = 
+        [
+            match tokens with
+            | Token.List
+                (
+                [Token.Identifier &quot;define&quot;; Token.Identifier var; body]
+                )::xs -&gt;
+                yield Assign(var, parse body)
+                yield! parseMain xs
+            | Token.List
+                (
+                Token.Identifier &quot;define&quot;
+                ::Token.List(Token.Identifier var::formals)
+                ::body
+                )::xs -&gt;
+                let f = parseFormals formals
+                let b = parseMain body |&gt; Sequence
+                yield Assign(var ,Lambda(f, b)
+                yield! parseMain xs
+            | x::xs -&gt; 
+                yield parse x
+                yield! parseMain xs
+            | [] -&gt; ()
+        ]
+</code></pre>
+<ul>
+<li><code>Bool</code>, <code>Number</code> and <code>String</code> corresponds to literals found in source text</li>
+<li><code>List</code> contains values wrapped in a quoted list in the source such as <code>'(...)</code></li>
+<li><code>Apply</code> denotes function application. First parameter should be a function, second - list of arguments</li>
+<li><code>If</code> - simple if-then expression with optional 'else' part</li>
+<li><code>Cond</code> - similar to if-elseif-elseif-else expression where 'else' can be omitted</li>
+<li><code>Assign</code> - corresponds to a 'setq' expression: it evaluates the value and stores it in the environment under the given name</li>
+<li><code>Var</code> - references a variable within the environment</li>
+<li><code>Let</code> and <code>LetRec</code> contains list of pairs (bindings from name to value) and <code>body</code>. Bindings are evaluated and stored in a newly created environment. Afterwards this environment is used to evaluate the <code>body</code>. Difference between <code>let</code> and <code>letrec</code> lies in fact that <code>letrec</code> bindings can be recursively defined (refer to themselves in their definition).</li>
+<li><code>Sequence</code> - just a list of expressions</li>
+<li><code>CallCC</code> - Special higher-order magic: argument should be procedure with one parameter. Runtime will evaluate this procedure with a current continuation as a parameter value</li>
+</ul>
+<p>Final step: runtime. It is basically the heart of our implementation and thus I'd like to devote slightly more attention to this stage.</p>
+<p>The execution environment will be represented as list of Frames, every frame stores its own set of values. Name lookup is performed in a hierarchical manner: if name is not found in a child frame → try search in parent.</p>
+<pre><code class="language-fsharp">    type EnvFrame = Dictionary&lt;string, obj&gt; // System.Collections.Generic...
+    type Env = EnvFrame list
+
+    let private tryFindFrame name (d : EnvFrame) =
+        if d.ContainsKey name 
+        then Some (d, d.[name])
+        else None
+    
+    let makeEnv prevEnv content  =
+        let d = new Dictionary&lt;_, _&gt;()
+        for (name, value) in content do
+            d.Add(name, value)
+        d::prevEnv 
+
+    let private get name (env : Env) = 
+        match List.tryPick (tryFindFrame name) env with
+        | Some(_, value) -&gt; value
+        | None -&gt; failwith (&quot;name '&quot; + name + &quot;' not found&quot;)
+
+    let private set name value (env : Env) = 
+        match List.tryPick (tryFindFrame name) env with
+        | Some (frame, _) -&gt; frame.[name] &lt;- value
+        | None -&gt;
+            match env with
+            | h::_ -&gt; 
+                h.[name] &lt;- value
+            | [] -&gt; failwith &quot;empty env.&quot;
+</code></pre>
+<p>Programming in Scheme heavily relies on recursion, but unfortunately our target platform (JavaScript) doesn't support optimization of tail calls. As a solution we can utilize 'trampolines' - a technique when every step returns delayed next step, so recursion is automagically converted to using loops. Main characters:</p>
+<ul>
+<li><code>Step</code> – a function that returns the next Step as its evaluation result.</li>
+<li><code>Cont</code> - represents the computation process at given point</li>
+<li><code>Function</code> - function representation, accepts argument values and continuation to proceed with execution.</li>
+</ul>
+<pre><code class="language-fsharp">    type Step = Step of (unit -&gt; Step) option // None - stop 
+    type Cont = obj -&gt; Step
+    type Function = obj list -&gt; Cont -&gt; Step
+</code></pre>
+<p>This is top level evaluation loop. Here we start the evaluation of some specified expression with respect to the given environment. <code>finalCont</code> will receive final result of computation and store it in a local variable.</p>
+<pre><code class="language-fsharp">    let evaluate env expr = 
+        let result = ref null
+        let ok = ref true
+        let finalCont = fun o -&gt; result := o; Step None
+        
+        let step = ref (evaluateExpression expr env finalCont)
+        
+        while !ok do
+            let (Step s) = !step
+            match s with
+            | Some f -&gt; // has next step
+                step := f()
+            | None -&gt;   // completed!
+                ok := false
+        !result
+</code></pre>
+<p>Let's examine the computation process on the sample of a simple <code>(+)</code> function. In an ideal world the expression <code>x + y</code> (where <code>x</code> and <code>y</code> can be complex expressions themselves) will be transformed to the following sequence of continuations:</p>
+<pre><code class="language-fsharp">let rec eval (e : Expression) (k : Continuation) = ...
+// finalCont - continuation that will accept the result
+eval a (fun valueOfA -&gt; 
+    eval b (fun valueOfB -&gt; 
+        finalCont (valueOfA + valueOfB)))
+</code></pre>
+<p>This will work in F# but not in JavaScript (due to lack of tail call optimization). So instead of running subsequent computations in continuations we'll delay evaluation by wrapping them in thunks.</p>
+<pre><code class="language-fsharp">let thunk f = ... something that wraps f with fun () -(fun () -&gt; f())
+
+eval a (fun valueOfA -&gt; // k1
+    thunk(fun () -&gt; eval b (fun valueOfB -&gt; // k2 
+        thunk(fun () -&gt; finalCont (valueOfA + valueOfB)))))
+</code></pre>
+<p>Now result of every continuation will not be the value itself but rather a function that returns value. This is how the trampoline works: first you jump (by calling the eval a → forward to continuation k1) then you land (because k1 returns delayed computation). The evaluation loop makes one more iteration and you jump and land again (running eval b → continuation k2 → delayed computation). We repeat this process until evaluation is completed. Everything works nicely but explicit managing of continuation looks awful from the internal sense of constructive laziness – too much manual work. Can we do something to make continuation passing ambient? Surely yes! Computation expressions to the rescue.</p>
+<pre><code class="language-fsharp">module Scheme = 
+    open System.Collections.Generic
+
+    type Step = Step of (unit -&gt; Step) option
+    type Cont = obj -&gt; Step
+    type Function = obj list -&gt; Cont -&gt; Step
+    
+    type EnvFrame = Dictionary&lt;string, obj&gt;
+    type Env = EnvFrame list
+
+    let private tryFindFrame name (d : EnvFrame) =
+        if d.ContainsKey name 
+        then Some (d, d.[name])
+        else None
+    
+    let makeEnv prevEnv content  =
+        let d = new Dictionary&lt;_, _&gt;()
+        for (name, value) in content do
+            d.Add(name, value)
+        d::prevEnv 
+
+    let private get name (env : Env) = 
+        match List.tryPick (tryFindFrame name) env with
+        | Some(_, value) -&gt; value
+        | None -&gt; failwith (&quot;name '&quot; + name + &quot;' not found&quot;)
+
+    let private set name value (env : Env) = 
+        match List.tryPick (tryFindFrame name) env with
+        | Some (frame, _) -&gt; frame.[name] &lt;- value
+        | None -&gt;
+            match env with
+            | h::_ -&gt; 
+                h.[name] &lt;- value
+            | [] -&gt; failwith &quot;empty env.&quot;
+    
+    let thunk f = f |&gt; Some |&gt; Step
+    
+    type ContBuilder () = 
+
+        member inline this.Return (v) = fun (k : Cont) -&gt; thunk (fun() -&gt; k v)
+
+        member inline this.ReturnFrom (v : Cont -&gt; Step ) = v
+        
+        member this.Bind(c : Cont -&gt; Step, f : obj -&gt; Cont -&gt; Step)  = 
+            fun (rk : Cont) -&gt;
+                let c1 (v : obj) = 
+                    let c2 = f v
+                    thunk (fun() -&gt; c2 rk)
+                thunk(fun() -&gt; c c1)
+
+    let K = ContBuilder()
+    let private callCC (f : Function) : Cont -&gt; Step =
+        fun (extK : Cont) -&gt;
+            let exit : Function = fun [arg] _ -&gt; K.Return arg extK
+            f [exit] extK
+    
+    let rec private evaluateExpression expr (env : Env) = 
+        match expr with
+            | Expr.List(values) -&gt; 
+                let rec impl acc l = 
+                    match l with
+                    | [] -&gt;  K { return List.rev acc }
+                    | v::rest -&gt; K { 
+                        let! res = evaluateExpression v env
+                        return! impl (res::acc) rest 
+                        }
+                impl [] values
+            | Expr.Atom atom -&gt; 
+                K { return atom }
+            | Expr.Bool v -&gt; 
+                K { return v }
+            | Expr.Number n -&gt; 
+                K { return n }
+            | Expr.String s -&gt; 
+                K { return s }
+            | Expr.CallCC proc -&gt;
+                K { 
+                    let! func = evaluateExpression proc env
+                    match func with
+                    | :? Function as f -&gt; return! callCC f
+                    | x -&gt; return! failwith &quot;callCC argument should be function&quot;
+                }
+            | Expr.Assign (name, v) -&gt; 
+                K {
+                    let! value = evaluateExpression v env
+                    set name value env
+                    return null
+                }
+            | Expr.Cond (clauses, elseCase) -&gt;
+                let rec evalCond = function
+                    | (cond, body)::xs, _ -&gt; 
+                        K { 
+                            let! v = evaluateExpression cond env
+                            if unbox v 
+                            then return! evaluateExpression body env
+                            else return! evalCond(xs, elseCase)
+                        }
+                    | [], Some(c) -&gt; K { return! evaluateExpression c env}
+                    | _ -&gt; K { return null }
+                K { return! evalCond (clauses, elseCase)}
+            | Expr.Apply(f, args) -&gt;
+                K { 
+                    let! boxedFunc = evaluateExpression f env
+                    match boxedFunc with
+                    | :? Function as f -&gt;
+                        let rec evalArgs acc = function
+                            | [] -&gt; K { return! f (List.rev acc) }
+                            | x::xs -&gt;  K { 
+                                let! value = evaluateExpression x env
+                                return! evalArgs (value::acc) xs
+                                }
+                        return! evalArgs [] args
+                    | _ -&gt; return! failwith &quot;function expected&quot;    
+                }
+            | Expr.If (cond, ifTrue, ifFalse) -&gt;
+                K { 
+                    let! v = evaluateExpression cond env
+                    if unbox v 
+                    then return! evaluateExpression ifTrue env
+                    else 
+                        match ifFalse with
+                        | Some f -&gt; return! evaluateExpression f env
+                        | None -&gt; return null
+                }
+            | Expr.Lambda(formals, body) -&gt;
+                let apply args= 
+                    let newEnv = 
+                        List.zip formals args
+                        |&gt; makeEnv env
+                    K { return! evaluateExpression body newEnv}
+                K { return apply }
+            | Expr.Let(bindings, body) -&gt;
+                let rec evalBindings acc = function 
+                    | [] -&gt; 
+                        let newEnv = 
+                            acc 
+                            |&gt; List.rev
+                            |&gt; makeEnv env
+                        K { return! evaluateExpression body newEnv }
+                    | (name, x)::xs -&gt; K { 
+                        let! v = evaluateExpression x env
+                        return! evalBindings ((name, v)::acc) xs
+                        }
+                K { return! evalBindings [] bindings }
+            | Expr.LetRec(bindings, body) -&gt;
+                let newEnv = 
+                    bindings
+                    |&gt; List.map (fun (name, _) -&gt; name, null)
+                    |&gt; makeEnv env
+                let rec evalBindings acc = function 
+                    | [] -&gt; K { return! evaluateExpression body newEnv }
+                    | (n, x)::xs -&gt; K { 
+                        let! v = evaluateExpression x newEnv
+                        set n v newEnv
+                        return! evalBindings (v::acc) xs
+                        }
+                K { return! evalBindings [] bindings }
+            | Expr.Sequence(statements) -&gt;
+                let rec impl s = 
+                    match s with
+                    | [] -&gt; K { return null } 
+                    | [x] -&gt; K { return! evaluateExpression x env }
+                    | x::xs -&gt; K { 
+                        let! _ = evaluateExpression x env
+                        return! impl xs
+                        }
+                K { return! impl statements } 
+            | Expr.Var(name) -&gt;
+                K { return get name env }
+    
+    let evaluate env expr = 
+        let result = ref null
+        let ok = ref true
+        let finalCont = fun o -&gt; result := o; Step None
+    
+        let step = ref (evaluateExpression expr env finalCont)
+        
+        while !ok do
+            let (Step s) = !step
+            match s with
+            | Some f -&gt;
+                step := f()
+            | None -&gt;
+                ok := false
+        !result
+</code></pre>
+<p>To make our description complete - builtin functions:</p>
+<pre><code class="language-fsharp">module Functions = 
+    let K = Scheme.K
+
+    let private pack (f : Scheme.Function) = box f
+    
+    let private makeListFunction f = 
+        (function | [v : obj] -&gt; f (v :?&gt; obj list)) |&gt; pack
+
+    let private makeBinary op = 
+        fun args -&gt; K { 
+            return args 
+                |&gt; List.map unbox
+                |&gt; List.reduce op
+        } |&gt; pack   
+
+    let builtins () = 
+        [ 
+          &quot;+&quot;, makeBinary (+)
+          &quot;-&quot;, makeBinary (-)
+          &quot;*&quot;, makeBinary (*)
+          &quot;/&quot;, makeBinary (/)
+          &quot;or&quot;, makeBinary (||)
+          &quot;&lt;&quot;, (fun [a; b] -&gt; K { return unbox a &lt; unbox b}) |&gt; pack
+          &quot;=&quot;, (function 
+                    | [] | [_]-&gt; failwith &quot;invalid args&quot;
+                    | [x; y] -&gt; K { return x.Equals(y) }
+                    | [x; y; z] -&gt; K { return (x.Equals(y) &amp;&amp; y.Equals(z)) } 
+                    | _ -&gt; failwith &quot;not supported&quot;)
+               |&gt; pack
+          &quot;zero?&quot;, (fun [x] -&gt; K { return unbox x = 0} ) |&gt; pack
+          &quot;null?&quot;, (function
+                    | [] -&gt; K { return true}
+                    | _  -&gt; K { return false} ) |&gt; makeListFunction
+          &quot;car&quot;, (function | x::_ -&gt; K { return x } ) |&gt; makeListFunction
+          &quot;cdr&quot;, (function | _::xs -&gt; K { return xs } ) |&gt; makeListFunction
+        ] 
+        |&gt; Scheme.makeEnv []
+</code></pre>
+<p>That's all folks, now time to test our creation:</p>
+<p><img src="/assets/scheme-cmd.png" alt="" /></p>
+<p>Now we have a working implementation, what should be done with it to make it accessible in a WebSharper web application:</p>
+<ul>
+<li><p>Add a reference to the <code>IntelliFactory.WebSharper</code> assembly</p>
+</li>
+<li><p>Annotate assembly with the <code>WebSharper</code> attribute</p>
+<pre><code class="language-fsharp">open System.Runtime.CompilerServices
+
+[&lt;assembly:IntelliFactory.WebSharper.WebSharper&gt;]
+do()
+</code></pre>
+</li>
+<li><p>Put <code>[&lt;IntelliFactory.WebSharper.JavaScriptAttribute&gt;]</code> and <code>[&lt;IntelliFactory.WebSharper.JavaScriptTypeAttribute&gt;]</code> to all functions and types in our library</p>
+</li>
+<li><p>Make some coffee, everything else is taken care of.</p>
+</li>
+</ul>
+<p>Main part is done but we still need a fancy front end: syntax highlighting and so on. The CodeMirror library already includes syntax highlighter for Scheme, we just need to plug it in. So add a WebSharper project to our solution, remove basic WebSharper sample code and perform a few magical passes:</p>
+<pre><code class="language-fsharp">open IntelliFactory.WebSharper
+
+type CodeMirrorResources() = 
+    interface IResource with
+        member this.Render(resolver, writer) = 
+            Resource.RenderJavaScript(resolver.ResolveUrl(&quot;js/codemirror.js&quot;)) writer
+            Resource.RenderJavaScript(resolver.ResolveUrl(&quot;js/mirrorframe.js&quot;)) writer
+            Resource.RenderCss(resolver.ResolveUrl(&quot;js/docs.css&quot;)) writer
+
+[&lt;Require(typeof&lt;CodeMirrorResources&gt;)&gt;]    
+module CodeMirror = 
+    
+    type Editor = 
+        [&lt;Inline &quot;$this.getCode()&quot;&gt;]
+        member this.Code : string = failwith &quot;no dynamic invokation&quot;
+
+    type EditorOptions [&lt;Inline &quot;{}&quot;&gt;]() =
+        [&lt;DefaultValue; Name &quot;height&quot;&gt;] 
+        val mutable Height : string
+
+        [&lt;DefaultValue; Name &quot;content&quot;&gt;] 
+        val mutable Content : string
+
+        [&lt;DefaultValue; Name &quot;stylesheet&quot;&gt;] 
+        val mutable StyleSheet : string
+
+        [&lt;DefaultValue; Name &quot;path&quot;&gt;] 
+        val mutable Path : string
+
+        [&lt;DefaultValue; Name &quot;parserfile&quot;&gt;] 
+        val mutable ParserFile : string array
+
+        [&lt;DefaultValue; Name &quot;autoMatchParens&quot;&gt;] 
+        val mutable AutoMatchParens : bool
+
+        [&lt;DefaultValue; Name &quot;disableSpellcheck&quot;&gt;] 
+        val mutable DisableSpellcheck : bool
+
+        [&lt;DefaultValue; Name &quot;lineNumbers&quot;&gt;] 
+        val mutable LineNumbers : bool
+    
+    [&lt;Inline(&quot;new CodeMirror(CodeMirror.replace($node), $options)&quot;)&gt;]
+    let create (node : Dom.Element) (options : EditorOptions) : Editor = 
+        failwith &quot;no dynamic invokation&quot;
+</code></pre>
+<p>Here we have created typed wrappers for CodeMirror editor and configuration options. Remaining part is little compared to the work we've already done. Main frontend code + formatting the evaluation result:</p>
+<pre><code class="language-fsharp">open IntelliFactory.WebSharper
+open IntelliFactory.WebSharper.Html
+
+open WebScheme
+
+[&lt;JavaScriptType&gt;]
+type WebSchemeUI() = 
+    inherit Web.Control()
+
+    [&lt;JavaScript&gt;]
+    let rec toString (v : obj) = 
+        match JOperators.TypeOf(v) with
+        | JType.Boolean 
+        | JType.Number
+        | JType.String -&gt; v.ToString()
+        | JType.Function -&gt; &quot;&lt;function&gt;&quot;
+        | JType.Undefined -&gt; &quot;&lt;null&gt;&quot;
+        | JType.Object -&gt;
+            let result = 
+                match v :?&gt; obj list with
+                | [] -&gt; &quot;&quot;
+                | l -&gt; 
+                    l 
+                    |&gt; Seq.map toString 
+                    |&gt; Seq.reduce (fun acc v -&gt; acc + &quot;,&quot; + v) 
+            &quot;[&quot; + result + &quot;]&quot;
+
+    [&lt;JavaScript&gt;]
+    override this.Body = 
+        let env = WebScheme.Functions.builtins () |&gt; ref
+        
+        let options = 
+            CodeMirror.EditorOptions(
+                Height = &quot;300px&quot;,
+                StyleSheet = &quot;js/schemecolors.css&quot;,
+                ParserFile = [|&quot;tokenizescheme.js&quot;; &quot;parsescheme.js&quot;|],
+                AutoMatchParens = true,
+                DisableSpellcheck = true,
+                LineNumbers = true,
+                Path = &quot;js/&quot;
+            )
+        let text = TextArea[]
+        let editor = ref None
+        text |&gt; OnAfterRender (fun n -&gt; 
+            editor := Some (CodeMirror.create n.Dom options)
+            )
+
+        let result = Div [Width &quot;100%&quot;; Class &quot;output&quot;]
+        let appendResult (v : obj) cls = 
+            let value = Div [ Span [Class (cls + &quot; message&quot;)] -&lt; [Text (toString v)]]
+            result.Append(value)
+            result.JQuery.ScrollTop(result.JQuery.Height()).Ignore
+
+        let evaluate = 
+            Button [Text &quot;Evaluate&quot;]
+            |&gt;! OnClick (fun _ _ -&gt;
+                let text = editor.Value.Value.Code
+                try
+                    let tokens = Lexer.getTokens text
+                    let expressions = Parser.parseMain tokens
+                    for e in expressions do
+                        match Scheme.evaluate !env e  with
+                        | null -&gt; ()
+                        | result -&gt; appendResult result &quot;success&quot;
+                with
+                    e -&gt; appendResult (e.ToString()) &quot;error&quot;
+                )
+
+        let clear = 
+            Button [Text &quot;Clear&quot;]
+            |&gt;! OnClick (fun _ _ -&gt;
+                env := Functions.builtins()
+                result.Clear()
+            )
+        Table [Width &quot;100%&quot;; Border &quot;0.8&quot;] -&lt; 
+        [ 
+            TR [Height &quot;300px&quot;] -&lt; [  TD [ text ] ]
+            TR [TD [evaluate; clear] ]
+            TR [Height &quot;200px&quot;] -&lt; [TD [result] ]
+        ]
+</code></pre>
+<p>Enjoy the results:</p>
+<p><img src="/assets/scheme-ui.png" alt="" /></p>
+<p>Notice that despite the large input parameter, <code>sumall</code> completed successfully. If we modify <code>ContBuilder</code> to make all evaluation eager - then the result will match our expectation:</p>
+<p><img src="/assets/scheme-ui-2.png" alt="" /></p>
+<p>Source code for this sample is available <a href="https://bitbucket.org/desco/webscheme/overview">here</a>. Enjoy 😃</p>
+</div></div>
+              <hr class="space" />
+              <div class="row">
+                <div class="col-lg-8">
+                  <ul class="icon-list icon-list-horizontal icon-list-blog">
+                    <li>
+                      <i class="icon-bookmark"></i>
+                      <a href="#">Finance</a>,
+                      <a href="#">Software</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/vladimir.matveev/20101102-webscheme.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Related articles.</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="2" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Categories</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/fp">
+                      fp
+                    </a>
+                  </div><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div><div>
+                    <a href="/category/websharper">
+                      websharper
+                    </a>
+                  </div></div>
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="http://via.placeholder.com/400x400" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/post/20200101-writing-instructions.html">
+                          <img src="http://via.placeholder.com/400x400" alt="Writing instructions" />
+                          Writing instructions
+                          <span>01/01/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="http://via.placeholder.com/400x400" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="http://via.placeholder.com/400x400" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190417-bolero-0-4-released-with-remote-authentication">
+                          <img src="http://via.placeholder.com/400x400" alt="Bolero 0.4 released with remote authentication" />
+                          Bolero 0.4 released with remote authentication
+                          <span>04/17/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3">
+                  <h4>Company and team</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Company details and team</a>
+                          </li>
+                          <li>
+                              <a href="#">News and blog</a>
+                          </li>
+                          <li>
+                              <a href="#">Press area</a>
+                          </li>
+                          <li>
+                              <a href="#">Affiliates and marketing</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Help and support</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Help centre</a>
+                          </li>
+                          <li>
+                              <a href="#">Feedbacks</a>
+                          </li>
+                          <li>
+                              <a href="#">Request new features</a>
+                          </li>
+                          <li>
+                              <a href="#">Contact us</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Learn more</h4>
+                  <div class="menu-inner menu-inner-vertical">
+                      <ul>
+                          <li>
+                              <a href="#">Apps stores</a>
+                          </li>
+                          <li>
+                              <a href="#">Partners</a>
+                          </li>
+                          <li>
+                              <a href="#">Privacy and terms</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <h4>Follow us</h4>
+                  <div class="icon-links icon-social icon-links-grid social-colors">
+                      <a class="facebook"><i class="icon-facebook"></i></a>
+                      <a class="twitter"><i class="icon-twitter"></i></a>
+                      <a class="linkedin"><i class="icon-linkedin"></i></a>
+                      <a class="youtube"><i class="icon-youtube"></i></a>
+                      <a class="instagram"><i class="icon-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bar">
+          <div class="container">
+              <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
+              <span><img src="/media/logo-light.svg" /></span>
+          </div>
+      </div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>
