@@ -709,7 +709,7 @@ eval a (fun valueOfA -&gt; // k1
         |&gt; Scheme.makeEnv []
 </code></pre>
 <p>That's all folks, now time to test our creation:</p>
-<p><img src="/assets/scheme-cmd.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/scheme-cmd.png" alt="" /></p>
 <p>Now we have a working implementation, what should be done with it to make it accessible in a WebSharper web application:</p>
 <ul>
 <li><p>Add a reference to the <code>IntelliFactory.WebSharper</code> assembly</p>
@@ -855,9 +855,9 @@ type WebSchemeUI() =
         ]
 </code></pre>
 <p>Enjoy the results:</p>
-<p><img src="/assets/scheme-ui.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/scheme-ui.png" alt="" /></p>
 <p>Notice that despite the large input parameter, <code>sumall</code> completed successfully. If we modify <code>ContBuilder</code> to make all evaluation eager - then the result will match our expectation:</p>
-<p><img src="/assets/scheme-ui-2.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/scheme-ui-2.png" alt="" /></p>
 <p>Source code for this sample is available <a href="https://bitbucket.org/desco/webscheme/overview">here</a>. Enjoy 😃</p>
 </div></div>
               <hr class="space" />

@@ -187,13 +187,33 @@ identity: &quot;-1,-1&quot;
 </ul>
 <h2 id="editorial-notes">Editorial notes</h2>
 <ul>
-<li><p>Mark <strong>broken links/pictures</strong> with a footnote, or a note block if they need further explanation and/or alternate links.</p>
+<li><p>Mark <strong>broken links/pictures</strong> with a footnote, or a note block if they need further explanation and/or alternate links. Example:</p>
+<pre><code>&gt; **Review note** &lt;br /&gt;
+&gt; This resource needs to be re-added.
+&gt; ![](https://intellifactory.com/ShowDigitalAsset.aspx?DigitalAsset=140)
+</code></pre>
 </li>
-<li><p><strong>Link to other blog posts</strong> using a relative link (to the blogs repo's root folder, starting with a <code>/</code>) to the <code>.md</code> file. Example:</p>
+<li><p><strong>Link to other IntelliFactory blog posts</strong> using a relative link (to the blogs repo's root folder, starting with a <code>/</code>) to the <code>.md</code> file. Example:</p>
 <p><code>/user/granicz/20061124-a-logo-interpreter-under-400-lines.md</code></p>
 <p>Such links are then browseable in the repository and are also converted to <code>.html</code> links in the website.</p>
+<p>This means converting the following types of links to repo links:</p>
+<ul>
+<li><code>https://forums.websharper.com/blog/*/*</code></li>
+<li><code>http://websharper.com/blog-entry/*/*</code></li>
+<li><code>http://fpish.net/blog/*/id/*/*</code></li>
+</ul>
 </li>
-<li><p>...</p>
+<li><p>If a link has gone dead but a newer version exists, update to that with a footnote:</p>
+<pre><code>[^1]: This link has been updated to point to WebSharper reactive forms, which include further pointers on formlets.
+</code></pre>
+</li>
+<li><p>If a link is dead and has no direct substitute, give your best alternative in the footnote. Example:</p>
+<pre><code>[^1]: This link is dead and has been removed. You can find formlet examples on [Try WebSharper](https://try.websharper.com), filtering for snippets that use `UI.Formlets`. These formlets are an enhanced, reactive version of the original formlet library. You can find more information the [WebSharper.Forms README](https://github.com/dotnet-websharper/forms).
+</code></pre>
+</li>
+<li><p>If a link is dead and no alternatives exist, try locating an archived version of it, and mark it accordingly with a footnote. Example:</p>
+<pre><code>[^1]: This link is no longer available. A (broken) snapshot of the page from the Internet archives is available [here](https://web.archive.org/web/20101123072954/http://intellifactory.com/products/wsp/samples/ExtJs.aspx).
+</code></pre>
 </li>
 </ul>
 <h2 id="formatting">Formatting</h2>

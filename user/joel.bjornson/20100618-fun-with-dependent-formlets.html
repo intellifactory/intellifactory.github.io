@@ -199,7 +199,7 @@ let IntField (n: option&lt;int&gt;) =
 <p>The <code>IntField</code> is just a <code>Controls.Input</code> with integer validation mapped with a function for translating non integer values to 0. In this way, forms instantiated using <code>IntField</code> will never enter a failing state. Here is an example of a grid with 7 rows and 4 columns used with <code>IntField</code> as the inner formlet constructor:</p>
 <pre><code class="language-fsharp">Grid 7 4 (IntField None)
 </code></pre>
-<p><img src="/assets/142.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/142.png" alt="" /></p>
 <p>Next step is to enhance the grid formlet with an extra column for displaying the summed values of each row. The following combinator creates a dependent formlet, holding the extra grid column:</p>
 <pre><code class="language-fsharp">[&lt;JavaScript&gt;]
 let WithRowSums grid  =
@@ -257,7 +257,7 @@ let GridWithColumnAndRowSums () =
     |&gt; WithRowSum
 </code></pre>
 <p>Here is an example of <code>GridWithColumnAndRowSums</code> in action:</p>
-<p><img src="/assets/141.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/141.png" alt="" /></p>
 <p>Note that every time a value in the grid is changed the dependent cells containing the summed values are updated immediately.</p>
 </div></div>
               <hr class="space" />

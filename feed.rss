@@ -4,7 +4,7 @@
     <title>IntelliFactory Blog</title>
     <description>Building business applications with F# since 2004</description>
     <link>http://mywebsite.com</link>
-    <lastBuildDate>Wed, 09 Sep 2020 22:15:16 UTC</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 00:00:59 UTC</lastBuildDate>
     <item>
       <title>Bolero 0.13 released</title>
       <link>http://mywebsite.com/user/denuziere/20200523-bolero-0-13-released</link>
@@ -1464,6 +1464,18 @@
       <pubDate>Tue, 22 Jul 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>WebSharper.UI.Next: Declarative Animation</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20140721-websharper-ui-next-declarative-animation</link>
+      <guid isPermaLink="false">anton.tayanovskyy20140721-websharper-ui-next-declarative-animation</guid>
+      <category>animation</category>
+      <category>d3</category>
+      <category>fsharp</category>
+      <category>visualization</category>
+      <category>websharper</category>
+      <description>Learning from and going beyond D3.js to make animation scheduling declarative, in the context of WebSharper UI.Next.</description>
+      <pubDate>Mon, 21 Jul 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>WebSharper.UI.Next: An Introduction</title>
       <link>http://mywebsite.com/user/sfowler/20140714-websharper-ui-next-an-introduction</link>
       <guid isPermaLink="false">sfowler20140714-websharper-ui-next-an-introduction</guid>
@@ -1534,6 +1546,17 @@
       <category>websharper</category>
       <description>This is a bugfix release.</description>
       <pubDate>Fri, 06 Jun 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper: What's New (June 2014)</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20140605-websharper-what-s-new-june-2014</link>
+      <guid isPermaLink="false">anton.tayanovskyy20140605-websharper-what-s-new-june-2014</guid>
+      <category>frontend</category>
+      <category>fsharp</category>
+      <category>spa</category>
+      <category>websharper</category>
+      <description>WebSharper is getting support for Mono, MonoDevelop, Xamarin Studio, CloudSharper on Linux and Mac OS X, improved bindings to D3.js and Leaflet.js. On performance side, we are experimenting with ASM.js for numeric code. For this summer, there are plans for better single-page application support and a functional version of data binding, to incorporate and improve on ideas in Angular JS and Facebook React.</description>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>CloudSharper 0.9.11.1</title>
@@ -1613,6 +1636,18 @@
       <pubDate>Mon, 12 May 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>WebSharper available for testing on Xamarin &amp; MonoDevelop</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20140409-websharper-available-for-testing-on-xamarin-monodevelop</link>
+      <guid isPermaLink="false">anton.tayanovskyy20140409-websharper-available-for-testing-on-xamarin-monodevelop</guid>
+      <category>fsharp</category>
+      <category>mono</category>
+      <category>monodevelop</category>
+      <category>websharper</category>
+      <category>xamarin</category>
+      <description>WebSharper development gains support for Mono framework on Linux and Mac OS X, and integration with Xamarin Studio and MonoDevelop.</description>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>CloudSharper 0.9.9.2</title>
       <link>http://mywebsite.com/user/denuziere/20140404-cloudsharper-0-9-9-2</link>
       <guid isPermaLink="false">denuziere20140404-cloudsharper-0-9-9-2</guid>
@@ -1674,6 +1709,15 @@
       <pubDate>Wed, 26 Feb 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>WebSharper 2.5.98</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20140221-websharper-2-5-98</link>
+      <guid isPermaLink="false">anton.tayanovskyy20140221-websharper-2-5-98</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This release brings asynchronous sitelets, brings back support for targeting .NET 4.0 - 4.5.1, and offers several bug fixes.</description>
+      <pubDate>Fri, 21 Feb 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>CloudSharper Local alpha 0.9.6</title>
       <link>http://mywebsite.com/user/denuziere/20140219-cloudsharper-local-alpha-0-9-6</link>
       <guid isPermaLink="false">denuziere20140219-cloudsharper-local-alpha-0-9-6</guid>
@@ -1729,6 +1773,16 @@
       <pubDate>Thu, 13 Feb 2014 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Deterministic parallelism with logging</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20140206-deterministic-parallelism-with-logging</link>
+      <guid isPermaLink="false">anton.tayanovskyy20140206-deterministic-parallelism-with-logging</guid>
+      <category>fsharp</category>
+      <category>futures</category>
+      <category>parallelism</category>
+      <description>Many applications want to use multiple cores to execute faster, while retaining the same observable behavior as the sequential version. In this blog I develop a simple F# workflow builder, slightly resembling Async, that allows deterministic logging in presence of parallelism: logs order is entirely determined by the program source (sequential semantics), yet they are available as soon as possible, and the execution model is parallel.</description>
+      <pubDate>Thu, 06 Feb 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>WebSharper 2.5.93 - improved numeric performance</title>
       <link>http://mywebsite.com/user/granicz/20140206-websharper-2-5-93-improved-numeric-performance</link>
       <guid isPermaLink="false">granicz20140206-websharper-2-5-93-improved-numeric-performance</guid>
@@ -1769,6 +1823,16 @@
       <pubDate>Fri, 07 Jun 2013 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Chocolatey</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20130507-chocolatey</link>
+      <guid isPermaLink="false">anton.tayanovskyy20130507-chocolatey</guid>
+      <category>automation</category>
+      <category>chocolatey</category>
+      <category>fake</category>
+      <description>Chocolatey looks very useful - it lets you install software into PATH on Windows by one-liner commands from PowerShell. A poor-man's package manager.</description>
+      <pubDate>Tue, 07 May 2013 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>WebSharper: From F# power features to JavaScript interop</title>
       <link>http://mywebsite.com/user/granicz/20130322-websharper-from-f-power-features-to-javascript-interop</link>
       <guid isPermaLink="false">granicz20130322-websharper-from-f-power-features-to-javascript-interop</guid>
@@ -1785,6 +1849,19 @@
       <category>fpish</category>
       <description>FPish can now alert you by e-mail of responses to your FPish submissions!</description>
       <pubDate>Wed, 20 Mar 2013 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Generating VSIX and VSTemplate packages in F#</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20130313-generating-vsix-and-vstemplate-packages-in-f</link>
+      <guid isPermaLink="false">anton.tayanovskyy20130313-generating-vsix-and-vstemplate-packages-in-f</guid>
+      <category>build</category>
+      <category>extensions</category>
+      <category>fsharp</category>
+      <category>visualstudio</category>
+      <category>vsix</category>
+      <category>vstemplate</category>
+      <description>Announcing a small utility library for generating VisualStudio VSTemplate and VSIX packages.</description>
+      <pubDate>Wed, 13 Mar 2013 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>CUFP 2013 - Call for Presentations</title>
@@ -1810,6 +1887,25 @@
       <category>winjs</category>
       <description>The first Windows 8 Application developed with WebSharper is about to go live on the Windows Store. This is a preview of the upcoming WebSharper WinJS binding.</description>
       <pubDate>Fri, 08 Mar 2013 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 2.5.2-alpha on AppHarbor</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20130306-websharper-2-5-2-alpha-on-appharbor</link>
+      <guid isPermaLink="false">anton.tayanovskyy20130306-websharper-2-5-2-alpha-on-appharbor</guid>
+      <category>appharbor</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Pre-release WebSharper 2.5.2-alpha NuGet package is available and can already be used to build AppHarbor-ready sites.</description>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Upcoming WebSharper Changes</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20130305-upcoming-websharper-changes</link>
+      <guid isPermaLink="false">anton.tayanovskyy20130305-upcoming-websharper-changes</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Soon-to-be released WebSharper includes Direct API that will greatly simplifies building tools that compile F# code to JavaScript via WebSharper. It has can work in FSI. We are also finishing some testing on a TypeScript definition file cross-compiler that emits WebSharper FFI definitions based on TypeScript ".d.ts" files, allowing to reuse some work the TypeScript community has done in defining types for JavaScript libraries.</description>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Free WebSharper MVP licenses</title>
@@ -1927,12 +2023,32 @@
       <pubDate>Mon, 16 Apr 2012 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>An F# Web Server From Sockets and Up</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20111107-an-f-web-server-from-sockets-and-up</link>
+      <guid isPermaLink="false">anton.tayanovskyy20111107-an-f-web-server-from-sockets-and-up</guid>
+      <category>fsharp</category>
+      <category>performance</category>
+      <category>sockets</category>
+      <category>webserver</category>
+      <description>I have implemented a simple web server in F#.  The idea was to try to marry .NET asynchronous socket operations with F# async. **Result**: F# async seems to be the right tool for the job of webserver implementation: it makes asynchronous programming intuitive without adding too much performance overhead.</description>
+      <pubDate>Mon, 07 Nov 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>FPish now hosts blogs!</title>
       <link>http://mywebsite.com/user/denuziere/20111024-fpish-now-hosts-blogs</link>
       <guid isPermaLink="false">denuziere20111024-fpish-now-hosts-blogs</guid>
       <category>fpish</category>
       <description>Since the beginning FPish has allowed Authors to aggregate their blogs. We are now going a step further by allowing you to write blog articles on FPish.</description>
       <pubDate>Mon, 24 Oct 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>A Faster and Leaner WebSharper 2.4 is Coming</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110928-a-faster-and-leaner-websharper-2-4-is-coming</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110928-a-faster-and-leaner-websharper-2-4-is-coming</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>We are currently finalizing the 2.4 release of WebSharper. This release is mainly concerned with bug fixes and quality-of-implementation improvements. The exciting part is that we are witnessing about 30%-35% generated code size reduction, and a 40% reduction in compilation time. The optimizer is also more capable, featuring local tail call optimization.</description>
+      <pubDate>Wed, 28 Sep 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>WebSharper 2.3 Q3 released</title>
@@ -2015,6 +2131,15 @@
       <category>websharper</category>
       <description>In this post I highlight the enhanced support for asynchronous programming in WebSharper. I show an example, modelling a slot machine as asynchronous computations run in parallel.</description>
       <pubDate>Fri, 15 Jul 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 2.3</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110713-websharper-2-3</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110713-websharper-2-3</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>The WebSharper 2.3 release is out today.</description>
+      <pubDate>Wed, 13 Jul 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Color the Wind - a 2D Canvas demo with WebSharper</title>
@@ -2222,6 +2347,22 @@
       <pubDate>Fri, 11 Feb 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>The Sad State of fshtmldoc – Can We Do Better?</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110210-the-sad-state-of-fshtmldoc-can-we-do-better</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110210-the-sad-state-of-fshtmldoc-can-we-do-better</guid>
+      <category>fsharp</category>
+      <description>An F# documentation generator based on Mono.Cecil can be much faster and more reliable than fshtmldoc.</description>
+      <pubDate>Thu, 10 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Home-made Regular Expressions in F#</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110209-home-made-regular-expressions-in-f</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110209-home-made-regular-expressions-in-f</guid>
+      <category>fsharp</category>
+      <description>F# fits nicely the task of implementing a regex engine. I give it a go with the Thompson NFA algorithm, as explained in a lucid article by Russ Cox.</description>
+      <pubDate>Wed, 09 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>New WebSharper extensions available</title>
       <link>http://mywebsite.com/user/granicz/20110205-new-websharper-extensions-available</link>
       <guid isPermaLink="false">granicz20110205-new-websharper-extensions-available</guid>
@@ -2238,6 +2379,27 @@
       <category>websharper</category>
       <description>Today we are happy to announce WebSharper 2.1 Beta 5, with substantial new features and a major redesign of WebSharper sitelets, among others.  Now with all major features in place and available, we are ramping up to ship the final WebSharper 2.x Professional in the coming weeks.</description>
       <pubDate>Thu, 03 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper sitelets: building a two-page website</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110128-websharper-sitelets-building-a-two-page-website</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110128-websharper-sitelets-building-a-two-page-website</guid>
+      <category>fsharp</category>
+      <category>sitelets</category>
+      <category>websharper</category>
+      <description>WebSharper sitelets allow to construct websites as first-class F# values. In this article we build a simple, two-page website with sitelets.</description>
+      <pubDate>Fri, 28 Jan 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper Sitelets Continued: Developing a Blog Service</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20110128-websharper-sitelets-continued-developing-a-blog-service</link>
+      <guid isPermaLink="false">anton.tayanovskyy20110128-websharper-sitelets-continued-developing-a-blog-service</guid>
+      <category>fsharp</category>
+      <category>sitelets</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>In this article we take WebSharper sitelets even further and develop a tiny engine for blogging, demonstrating the use of compositional routers and parameterized actions.</description>
+      <pubDate>Fri, 28 Jan 2011 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>WebSharper proposal for MIX 2011</title>
@@ -2443,6 +2605,15 @@
       <pubDate>Thu, 05 Aug 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Optimizing JavaScript with F#</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20100629-optimizing-javascript-with-f</link>
+      <guid isPermaLink="false">anton.tayanovskyy20100629-optimizing-javascript-with-f</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>These days WebSharper trenches are teeming with activity as we are busy preparing the next major release of the platform. One of the F#-to-JavaScript compiler highlights of the new release is a host of new optimizations on the JavaScript output. Designing these optimizations with F# was quite rewarding, and I am sharing some of the eurekas in this blog.</description>
+      <pubDate>Tue, 29 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>ML 2010 Workshop - Final Call for Presentations</title>
       <link>http://mywebsite.com/user/granicz/20100625-ml-2010-workshop-final-call-for-presentations</link>
       <guid isPermaLink="false">granicz20100625-ml-2010-workshop-final-call-for-presentations</guid>
@@ -2481,6 +2652,15 @@
       <category>websharper</category>
       <description>A small example highlighting F# (and WebSharper) support for asynchronous and reactive programming.</description>
       <pubDate>Thu, 17 Jun 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper: Towards Automated JavaScript Bindings</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20100614-websharper-towards-automated-javascript-bindings</link>
+      <guid isPermaLink="false">anton.tayanovskyy20100614-websharper-towards-automated-javascript-bindings</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This blog describes the pre-release WebSharper Extensibility Framework.</description>
+      <pubDate>Mon, 14 Jun 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Writing Ext JS applications with WebSharper</title>
@@ -2548,6 +2728,15 @@
       <pubDate>Wed, 10 Feb 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>WebSharper 0.4.74</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20100125-websharper-0-4-74</link>
+      <guid isPermaLink="false">anton.tayanovskyy20100125-websharper-0-4-74</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>A new release of WebSharper (0.4.74) is made available for download today.</description>
+      <pubDate>Mon, 25 Jan 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>Introducing WIG patterns</title>
       <link>http://mywebsite.com/user/diego.echeverri/20100125-data-visualization-with-websharper</link>
       <guid isPermaLink="false">diego.echeverri20100125-data-visualization-with-websharper</guid>
@@ -2557,6 +2746,15 @@
       <category>websharper</category>
       <description>In this post I'll show you how to make a nice visualization similar to the ones used by Hans Rosling. For this, we'll use the WebSharper Google Visualization bindings available as an extension package to the core platform.</description>
       <pubDate>Mon, 25 Jan 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Default Constructors and the Singleton Pattern</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20100107-default-constructors-and-the-singleton-pattern</link>
+      <guid isPermaLink="false">anton.tayanovskyy20100107-default-constructors-and-the-singleton-pattern</guid>
+      <category>dotnet</category>
+      <category>fsharp</category>
+      <description>In this blog I will demonstrate a common F# idiom for passing values through the type system.</description>
+      <pubDate>Thu, 07 Jan 2010 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Creating web forms using WebSharper Formlets</title>
@@ -2578,13 +2776,72 @@
       <pubDate>Wed, 23 Dec 2009 00:00:00 UTC</pubDate>
     </item>
     <item>
+      <title>Foldr or FoldBack on Infinite F# Sequences</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091211-foldr-or-foldback-on-infinite-f-sequences</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091211-foldr-or-foldback-on-infinite-f-sequences</guid>
+      <category>algorithms</category>
+      <category>fp</category>
+      <category>fsharp</category>
+      <category>haskell</category>
+      <description>The semantics of `foldr` is very simple to remember: it replaces the native `cons` and `nil` of a list with arbitrary computations.</description>
+      <pubDate>Fri, 11 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Generic Workflow Builders (Monads) in F#</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091210-generic-workflow-builders-monads-in-f</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091210-generic-workflow-builders-monads-in-f</guid>
+      <category>fp</category>
+      <category>fsharp</category>
+      <category>haskell</category>
+      <description>This blog post is about a quick and dirty encoding of Haskell type classes in F#.</description>
+      <pubDate>Thu, 10 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
       <title>Basic HTML construction with WebSharper</title>
       <link>http://mywebsite.com/user/joel.bjornson/20091210-basic-html-construction-with-websharper</link>
       <guid isPermaLink="false">joel.bjornson20091210-basic-html-construction-with-websharper</guid>
       <category>fsharp</category>
       <category>websharper</category>
-      <description>The fundamentals of building HTML (DOM nodes) with WebSharper™. </description>
+      <description>The fundamentals of building HTML (DOM nodes) with WebSharper.</description>
       <pubDate>Thu, 10 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WGET in F#</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091209-wget-in-f</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091209-wget-in-f</guid>
+      <category>dotnet</category>
+      <category>fsharp</category>
+      <description></description>
+      <pubDate>Wed, 09 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>The Execution Speed of Early vs Late Binding in .NET</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091208-the-execution-speed-of-early-vs-late-binding-in-net</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091208-the-execution-speed-of-early-vs-late-binding-in-net</guid>
+      <category>dotnet</category>
+      <category>fsharp</category>
+      <category>optimization</category>
+      <description></description>
+      <pubDate>Tue, 08 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper - Write F# and Run JavaScript</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091208-websharper-write-f-and-run-javascript</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091208-websharper-write-f-and-run-javascript</guid>
+      <category>euler</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description></description>
+      <pubDate>Tue, 08 Dec 2009 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>.NET Composite Formatting with Keyword Expansion</title>
+      <link>http://mywebsite.com/user/anton.tayanovskyy/20091202-net-composite-formatting-with-keyword-expansion</link>
+      <guid isPermaLink="false">anton.tayanovskyy20091202-net-composite-formatting-with-keyword-expansion</guid>
+      <category>dotnet</category>
+      <category>fsharp</category>
+      <description></description>
+      <pubDate>Wed, 02 Dec 2009 00:00:00 UTC</pubDate>
     </item>
     <item>
       <title>Rapid prototyping of DSLs in F# - Part III</title>

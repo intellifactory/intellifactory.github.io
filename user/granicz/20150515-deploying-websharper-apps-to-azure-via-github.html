@@ -179,10 +179,10 @@
 <p>Armed with that, we quickly put together a similar deployment setup for WebSharper client-server apps (other types of WebSharper apps are equally possible.) This has the obvious advantage that:</p>
 <ul>
 <li>It uses WebSharper, so you can add <strong>client-side</strong> (e.g. JavaScript) <strong>functionality</strong> as well and <strong>write it in F#</strong>.</li>
-<li>It produces an ASP.NET app that serves fine in Azure <strong>without the need to run a separate server process</strong> like Suave.io (although you can also create <a href="http://www.websharper.com/blog-entry/4098">OWIN-based self-hosted WebSharper applications</a> and run them as in Scott's scenario.)</li>
+<li>It produces an ASP.NET app that serves fine in Azure <strong>without the need to run a separate server process</strong> like Suave.io (although you can also create <a href="/user/granicz/20141113-self-hosted-websharper-application-template-available.html">OWIN-based self-hosted WebSharper applications</a> and run them as in Scott's scenario.)</li>
 <li>It no longer needs FAKE to compile F# apps or run F# scripts.</li>
 </ul>
-<p>Loic blogged the technical details in his <a href="http://websharper.com/blog-entry/4367">WebSharper: From Zero to an Azure-deployed Web Application</a> article, using a WebSharper implementation/clone of the &quot;2048&quot; game.  I also put together a simpler template that you can use for client-server applications, and it's available in...</p>
+<p>Loic blogged the technical details in his <a href="/user/denuziere/20150512-websharper-from-zero-to-an-azure-deployed-web-application.html">WebSharper: From Zero to an Azure-deployed Web Application</a> article, using a WebSharper implementation/clone of the &quot;2048&quot; game.  I also put together a simpler template that you can use for client-server applications, and it's available in...</p>
 <h2 id="this-github-repository">this <a href="https://github.com/intellifactory/ClientServer.Azure">GitHub</a> repository</h2>
 <p>The template uses <a href="http://fsprojects.github.io/Paket/">Paket</a> instead of Nuget, and you can build your project with <code>build.cmd</code> (you will need <a href="http://curl.haxx.se/download.html">curl</a> installed and on your path). Run <code>build.cmd</code> before opening in Visual Studio as well.</p>
 <p>You can also get started quickly by clicking here:</p>

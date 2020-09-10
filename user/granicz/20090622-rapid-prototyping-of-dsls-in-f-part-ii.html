@@ -172,7 +172,7 @@
 <li>Part III - (coming soon) Semantic analysis for Simply programs</li>
 <li>Part IV - (coming soon) Building a shell around Simply and instantiating it for a Logo-like language</li>
 </ul>
-<p><img src="/assets/Simply-Logo.png" alt="" /></p>
+<p><img src="https://github.com/IntelliFactory/blogs/raw/master/assets/Simply-Logo.png" alt="" /></p>
 <p>It has been almost three years since my <a href="http://www.intellifactory.com/articles/LogoInterpreter.aspx">&quot;A Logo interpreter under 400 lines&quot;</a> article, a long time in any article's life. I am glad to see it being used in interesting ways by so many people (for example, <a href="http://through-the-interface.typepad.com/through_the_interface/">Kean Walmsley</a> from Autodesk did a <a href="http://through-the-interface.typepad.com/through_the_interface/2008/07/a-simple-3d-log.html">3D implementation</a> as an AutoCAD plugin), and I still get a few comments on it now and then.</p>
 <p>The Logo-like language I implemented in the above article used a context-sensitive parser that accepted function calls only if the corresponding function definition was encountered beforehand - mostly to save some time and parse programs into a representation that was more readily executable without doing a separate phase of semantic checking.</p>
 <p>For the CEFP 2009 example I wanted to get back to a more conventional parsing implementation and keep syntax and semantics separate. The goal of the example was to implement/establish a small programming language that had means to define and call functions, a simple control flow construct (say, repeat blocks), and support for at least the ordinary arithmetic operators with the usual precedences in its expression language.</p>
