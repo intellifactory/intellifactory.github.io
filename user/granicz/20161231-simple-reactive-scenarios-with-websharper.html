@@ -170,8 +170,8 @@
 <p>For a long time, handling client-side changes was tied to an object-oriented, event-driven programming style that required a user-initiated action/event connected to an UI control &quot;instance&quot;. You may remember adding event handlers for buttons that triggered an action and possibly a change in the state of the user interface by refreshing relevant controls.</p>
 <p>While the range of events to which event handlers can be attached typically grows with the maturity (and complexity) of the encompassing UI framework (ASP.NET, WinForms, WPF, etc.), they themselves will never be enough to handle change as we would like to.</p>
 <h3 id="two-way-binding-with-reactive-variables">Two-way binding with reactive variables</h3>
-<p>WebSharper long introduced <a href="https://github.com/intellifactory/websharper.ui.next">UI.Next</a> to supersede <a href="http://websharper.com/docs#web_development/html_combinators">WebSharper.Html</a> as its main DOM construction library.</p>
-<p>Buried deep in the WebSharper documentation, you can find a <a href="http://websharper.com/docs#web_development/ui.next_-_f-sharp">comprehensive tutorial</a> on how to use UI.Next for basic two-way data binding with reactive markup. The drill is pretty simple: next to composing with ordinary HTML combinators, you can use various HTML input controls whose values are automatically synched with a <strong>reactive variable</strong> (typically of type <code>Var&lt;string&gt;</code>).</p>
+<p>WebSharper long introduced <a href="https://github.com/dotnet-websharper/ui">UI.Next</a><a id="fnref:1" href="#fn:1" class="footnote-ref"><sup>1</sup></a> to supersede <a href="https://github.com/dotnet-websharper/html">WebSharper.Html</a><a id="fnref:2" href="#fn:2" class="footnote-ref"><sup>2</sup></a> as its main DOM construction library.</p>
+<p>Buried deep in the WebSharper documentation, you can find a <a href="https://developers.websharper.com/docs/v4.x/fs/ui">comprehensive tutorial</a><a id="fnref:3" href="#fn:3" class="footnote-ref"><sup>3</sup></a> on how to use UI.Next for basic two-way data binding with reactive markup. The drill is pretty simple: next to composing with ordinary HTML combinators, you can use various HTML input controls whose values are automatically synched with a <strong>reactive variable</strong> (typically of type <code>Var&lt;string&gt;</code>).</p>
 <p>Here we have a plain input box bound to <code>v</code>:</p>
 <pre><code class="language-fsharp">open WebSharper
 open WebSharper.JavaScript
@@ -205,16 +205,16 @@ module SimpleInput =
         p [textView (v.View.Map (fun s -&gt; s.ToUpper()))]
     ]
 </code></pre>
-<p>Here, <code>v.View</code> returns the current value of <code>v</code>, and <code>textView</code> converts it to an HTML text node. You can also react to keyboard and mouse input (<a href="https://github.com/intellifactory/websharper.ui.next/blob/master/docs/Input.md">API</a>) equally easily:</p>
+<p>Here, <code>v.View</code> returns the current value of <code>v</code>, and <code>textView</code> converts it to an HTML text node. You can also react to keyboard and mouse input (<a href="https://github.com/dotnet-websharper/ui/blob/master/docs/UINext-Input.md">API</a><a id="fnref:4" href="#fn:4" class="footnote-ref"><sup>4</sup></a>) equally easily:</p>
 <pre><code class="language-fsharp">    div [
         ...
         p [textView (Input.Mouse.Position.Map (fun (x,y) -&gt; sprintf &quot;%d:%d&quot; y x))]
     ]
 </code></pre>
-<p>To sum up the basics a somewhat more elaborate <a href="http://try.websharper.com/snippet/adam.granicz/00001u">live snippet</a> is below:</p>
-<div style="width:100%;min-height:550px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="http://try.websharper.com/embed/adam.granicz/00001u"></iframe></div>
+<p>To sum up the basics a somewhat more elaborate <a href="https://try.websharper.com/snippet/adam.granicz/00001u">live snippet</a> is below:</p>
+<div style="width:100%;min-height:550px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="https://try.websharper.com/embed/adam.granicz/00001u"></iframe></div>
 <h3 id="list-models">List models</h3>
-<p>Now that you can gather and manipulate user input via reactive variables, and reflect computed/derived values in reactive markup, you can also bind composite data in your web pages; and this is where the real fun begins.  All we need is <code>Models</code> (<a href="https://github.com/intellifactory/websharper.ui.next/blob/master/docs/Model.md">API</a>), and in particular <code>ListModels</code> (<a href="https://github.com/intellifactory/websharper.ui.next/blob/master/docs/ListModel.md">API</a>).</p>
+<p>Now that you can gather and manipulate user input via reactive variables, and reflect computed/derived values in reactive markup, you can also bind composite data in your web pages; and this is where the real fun begins.  All we need is <code>Models</code> (<a href="https://github.com/dotnet-websharper/ui/blob/master/docs/UINext-Model.md">API</a><a id="fnref:5" href="#fn:5" class="footnote-ref"><sup>5</sup></a>), and in particular <code>ListModels</code> (<a href="https://github.com/dotnet-websharper/ui/blob/master/docs/UINext-ListModel.md">API</a><a id="fnref:6" href="#fn:6" class="footnote-ref"><sup>6</sup></a>).</p>
 <p><code>ListModels</code> associate values with keys in a time-varying collection.  This association can be implicit, or as in most cases explicit. Below is a <code>ListModel</code> that stores simple names - here the names themselves act as their own key (note the <code>id</code> function used as the value-&gt;key map):</p>
 <pre><code class="language-fsharp">let names = ListModel.Create id [&quot;John&quot;; &quot;James&quot;]
 names.Add &quot;Jonathan&quot;
@@ -279,8 +279,8 @@ module SimpleInput =
         ]
         |&gt; Doc.RunById &quot;main&quot;
 </code></pre>
-<p>Here, <code>messages</code> is initialized with a random system message, and <code>messages.View.DocSeqCached</code> is a fancy way of reflecting each message to markup - and note we use Bootstrap class names, so be sure to include the main Bootstrap CSS in the template you are serving for your application.  A <a href="http://try.websharper.com/snippet/adam.granicz/0000Be">live snippet</a> is below:</p>
-<div style="width:100%;min-height:300px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="http://try.websharper.com/embed/adam.granicz/0000Be"></iframe></div>
+<p>Here, <code>messages</code> is initialized with a random system message, and <code>messages.View.DocSeqCached</code> is a fancy way of reflecting each message to markup - and note we use Bootstrap class names, so be sure to include the main Bootstrap CSS in the template you are serving for your application.  A <a href="https://try.websharper.com/snippet/adam.granicz/0000Be">live snippet</a> is below:</p>
+<div style="width:100%;min-height:300px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="https://try.websharper.com/embed/adam.granicz/0000Be"></iframe></div>
 <h3 id="example-grouping-system-messages">Example - Grouping system messages</h3>
 <p>Suppose that in the previous example, we want to group the system messages based on their type.  We can introduce a helper function to filter the subset we are interested in:</p>
 <pre><code class="language-fsharp">    ...
@@ -328,11 +328,34 @@ module SimpleInput =
         ]
         |&gt; Doc.RunById &quot;main&quot;
 </code></pre>
-<p>So with a few lines adjustment we have message grouping under control - feel free to play with the <a href="http://try.websharper.com/snippet/adam.granicz/0000Bf">live snippet</a> below:</p>
-<div style="width:100%;min-height:300px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="http://try.websharper.com/embed/adam.granicz/0000Bf"></iframe></div>
+<p>So with a few lines adjustment we have message grouping under control - feel free to play with the <a href="https://try.websharper.com/snippet/adam.granicz/0000Bf">live snippet</a> below:</p>
+<div style="width:100%;min-height:300px;position:relative"><iframe style="position:absolute;border:none;width:100%;height:100%" src="https://try.websharper.com/embed/adam.granicz/0000Bf"></iframe></div>
 <h3 id="conclusion">Conclusion</h3>
 <p>In this brief article, we looked at a few basic reactive scenarios with WebSharper and saw how UI.Next makes it easy to work with two-way binding, reactive markup, and aggregate client-side models. In upcoming articles, I will further examine <code>ListModels</code> and their more advanced capabilities, including client-side and client-server persistence.</p>
 <p>Happy 2017 and happy coding!</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This link has been updated to point to the WebSharper.UI repository.<a href="#fnref:1" class="footnote-back-ref">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>This link has been updated to point to the WebSharper.Html repository.<a href="#fnref:2" class="footnote-back-ref">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>This link has been updated to point to the latest WebSharper.UI documentation page.<a href="#fnref:3" class="footnote-back-ref">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>This link has been updated to the latest version.<a href="#fnref:4" class="footnote-back-ref">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>This link has been updated to the latest version.<a href="#fnref:5" class="footnote-back-ref">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>This link has been updated to the latest version.<a href="#fnref:6" class="footnote-back-ref">&#8617;</a></p>
+</li>
+</ol>
+</div>
 </div></div>
               <hr class="space" />
               <div class="row">
