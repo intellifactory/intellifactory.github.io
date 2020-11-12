@@ -337,7 +337,7 @@ if (!console) {
 (function()
 {
  "use strict";
- var Global,Client,Bulma,WebSharper,Obj,UI,Var,Operators,Highlight,SC$1,View,Arrays,EventTarget,Node,Var$1,Snap,Concurrency,WindowOrWorkerGlobalScope,ConcreteVar,Abbrev,Fresh,Scheduler,SC$2,SC$3,CT,CancellationTokenSource,IntelliFactory,Runtime,hljs,console,Date;
+ var Global,Client,Bulma,WebSharper,Obj,UI,Var,Operators,Highlight,Newsletter,SC$1,View,Arrays,EventTarget,Node,Var$1,Snap,Concurrency,WindowOrWorkerGlobalScope,Strings,ConcreteVar,Abbrev,Fresh,Scheduler,SC$2,SC$3,CT,CancellationTokenSource,IntelliFactory,Runtime,hljs,$,console,Date;
  Global=self;
  Client=Global.Client=Global.Client||{};
  Bulma=Client.Bulma=Client.Bulma||{};
@@ -347,6 +347,7 @@ if (!console) {
  Var=UI.Var=UI.Var||{};
  Operators=WebSharper.Operators=WebSharper.Operators||{};
  Highlight=Client.Highlight=Client.Highlight||{};
+ Newsletter=Client.Newsletter=Client.Newsletter||{};
  SC$1=Global.StartupCode$Client$Client=Global.StartupCode$Client$Client||{};
  View=UI.View=UI.View||{};
  Arrays=WebSharper.Arrays=WebSharper.Arrays||{};
@@ -356,6 +357,7 @@ if (!console) {
  Snap=UI.Snap=UI.Snap||{};
  Concurrency=WebSharper.Concurrency=WebSharper.Concurrency||{};
  WindowOrWorkerGlobalScope=Global.WindowOrWorkerGlobalScope;
+ Strings=WebSharper.Strings=WebSharper.Strings||{};
  ConcreteVar=UI.ConcreteVar=UI.ConcreteVar||{};
  Abbrev=UI.Abbrev=UI.Abbrev||{};
  Fresh=Abbrev.Fresh=Abbrev.Fresh||{};
@@ -367,6 +369,7 @@ if (!console) {
  IntelliFactory=Global.IntelliFactory;
  Runtime=IntelliFactory&&IntelliFactory.Runtime;
  hljs=Global.hljs;
+ $=Global.jQuery;
  console=Global.console;
  Date=Global.Date;
  Bulma.ToggleDrawer=function()
@@ -406,6 +409,7 @@ if (!console) {
  {
   Bulma.HookDrawer();
   Highlight.Run();
+  Newsletter.SignUpAction();
  };
  Obj=WebSharper.Obj=Runtime.Class({},null,Obj);
  Obj.New=Runtime.Ctor(function()
@@ -430,6 +434,27 @@ if (!console) {
   {
    return a($1[0],$1[1],$1[2],$1[3]);
   }),void 0);
+ };
+ Newsletter.SignUpAction=function()
+ {
+  Global.jQuery("#signUp").click(function(ev)
+  {
+   var email,fd,r;
+   Global.jQuery(".newsletter-form .success-box").removeClass("visible");
+   Global.jQuery(".newsletter-form .error-box").removeClass("visible");
+   Global.jQuery("#signUp").addClass("loading").prop("disabled",true);
+   email=Global.jQuery("#nemail").val();
+   Strings.Trim(email)!==""?(fd=new Global.FormData(),fd.append("email",email),fd.append("type","Blogs"),$.ajax((r={},r.url="https://api.intellifactory.com/api/newsletter",r.data=fd,r.processData=false,r.contentType=false,r.type="POST",r.success=function()
+   {
+    $(".newsletter-form .success-box").addClass("visible");
+    return $("#signUp").removeClass("loading").prop("disabled",false);
+   },r.error=function()
+   {
+    $(".newsletter-form .error-box").addClass("visible");
+    return $("#signUp").removeClass("loading").prop("disabled",false);
+   },r)),ev.preventDefault()):void 0;
+   return null;
+  });
  };
  SC$1.$cctor=function()
  {
@@ -490,6 +515,10 @@ if (!console) {
     $0:x
    });
   };
+ };
+ Strings.Trim=function(s)
+ {
+  return s.replace(new Global.RegExp("^\\s+"),"").replace(new Global.RegExp("\\s+$"),"");
  };
  ConcreteVar=UI.ConcreteVar=Runtime.Class({
   Update:function(f)

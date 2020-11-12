@@ -8260,7 +8260,10 @@
                       <div class="row">
                           <input id="nemail" name="nemail" placeholder="Your email" type="email" class="input-text" required="" />
                       </div>
-                      <button id="signUp" class="btn btn-sm btn-circle" type="submit">Sign Up</button>
+                      <button id="signUp" class="btn btn-sm btn-circle" type="submit">
+                          <span>Sign Up</span>
+                          <i class="fas fa-spinner fa-spin"></i>
+                      </button>
                       <div class="success-box">
                           <div class="alert alert-success">Congratulations. You have signed up successfully!</div>
                       </div>
@@ -8306,6 +8309,7 @@
     }
 </script>
       <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <link async="" rel="stylesheet" href="/themekit/media/icons/fontawesome/all.css" />
       <script src="/themekit/scripts/parallax.min.js"></script>
       <script src="/themekit/scripts/pagination.min.js"></script>
       <script src="/themekit/scripts/imagesloaded.min.js"></script>
@@ -8313,6 +8317,7 @@
       <script src="/themekit/scripts/social.min.js"></script>
       <script src="/themekit/scripts/tab-accordion.js"></script>
       <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
       <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
       <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
       <script>
@@ -8326,33 +8331,6 @@
                   });
               });
           });
-      </script>
-      <script>
-          $("#signUp").click(function (ev) {
-              var email = $("#nemail").val();
-
-              if (email.trim() !== "") {
-                  var fd = new FormData();
-                  fd.append('email', email);
-                  fd.append('type', 'Blogs')
-
-                  $.ajax({
-					  url: 'https://api.intellifactory.com/api/newsletter',
-                      data: fd,
-                      processData: false,
-                      contentType: false,
-                      type: 'POST',
-                      dataType: 'text',
-                      success: function (data) {
-                          $(".newsletter-form .success-box").addClass("visible");
-                      },
-                      error: function () {
-                          $(".newsletter-form .error-box").addClass("visible");
-                      }
-                  });
-                  ev.preventDefault();
-              }
-          })
       </script>
   </footer>
 </body>
