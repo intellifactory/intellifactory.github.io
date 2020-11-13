@@ -444,16 +444,15 @@ if (!console) {
    Global.jQuery(".newsletter-form .error-box").removeClass("visible");
    Global.jQuery("#signUp").addClass("loading").prop("disabled",true);
    email=Global.jQuery("#nemail").val();
-   Strings.Trim(email)!==""?(fd=new Global.FormData(),fd.append("email",email),fd.append("type","Blogs"),$.ajax((r={},r.url="https://api.intellifactory.com/api/newsletter",r.data=fd,r.processData=false,r.contentType=false,r.type="POST",r.success=function()
+   return Strings.Trim(email)!==""?(fd=new Global.FormData(),(fd.append("email",email),fd.append("type","Blogs"),$.ajax((r={},r.url="https://api.intellifactory.com/api/newsletter",r.data=fd,r.processData=false,r.contentType=false,r.type="POST",r.success=function()
    {
     $(".newsletter-form .success-box").addClass("visible");
-    return $("#signUp").removeClass("loading").prop("disabled",false);
+    return $("#signUp").removeClass("loading").removeProp("disabled");
    },r.error=function()
    {
     $(".newsletter-form .error-box").addClass("visible");
-    return $("#signUp").removeClass("loading").prop("disabled",false);
-   },r)),ev.preventDefault()):void 0;
-   return null;
+    return $("#signUp").removeClass("loading").removeProp("disabled");
+   },r)),ev.preventDefault())):$("#signUp").removeClass("loading").removeProp("disabled");
   });
  };
  SC$1.$cctor=function()
