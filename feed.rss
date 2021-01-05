@@ -4,7 +4,20 @@
     <title>IntelliFactory Blog</title>
     <description>Building business applications with F# since 2004</description>
     <link>http://mywebsite.com</link>
-    <lastBuildDate>Mon, 04 Jan 2021 22:05:10 UTC</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 09:35:48 UTC</lastBuildDate>
+    <item>
+      <title>Variations for a WebSharper shopping cart</title>
+      <link>http://mywebsite.com/user/granicz/20201231-variations-for-a-websharper-shopping-cart</link>
+      <guid isPermaLink="false">granicz20201231-variations-for-a-websharper-shopping-cart</guid>
+      <category>fsadvent</category>
+      <category>fsharp</category>
+      <category>reactive</category>
+      <category>templating</category>
+      <category>ui</category>
+      <category>websharper</category>
+      <description></description>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 UTC</pubDate>
+    </item>
     <item>
       <title>Bolero 0.13 released</title>
       <link>http://mywebsite.com/user/denuziere/20200523-bolero-0-13-released</link>
@@ -49,6 +62,7 @@
       <link>http://mywebsite.com/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog</link>
       <guid isPermaLink="false">granicz20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog</guid>
       <category>blogging</category>
+      <category>fsadvent</category>
       <category>fsharp</category>
       <category>websharper</category>
       <description>In this article, I want to show you another way of keeping your SSG in F#: using WebSharper. Armed with the full power of a .NET web framework and its templating features (see the HTML templates section), this has numerous advantages, most importantly, among others, that you can embed dynamic features written in F# or C# to give you a truly impressive and dynamic blog, despite being statically generated.</description>
@@ -183,6 +197,7 @@
       <title>From enterprise to next-generation web: celebrating 11 years with WebSharper</title>
       <link>http://mywebsite.com/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper</link>
       <guid isPermaLink="false">granicz20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper</guid>
+      <category>fsadvent</category>
       <category>fsharp</category>
       <category>websharper</category>
       <description>A brief outline of the historical circumstances around WebSharper (just some notes in no particular order) that **position it for a bright future outlook**, and a quick glimple of what we are working on with it to advance the current state of F# web programming.</description>
@@ -501,6 +516,7 @@
       <title>Serving SPAs</title>
       <link>http://mywebsite.com/user/granicz/20171229-serving-spas</link>
       <guid isPermaLink="false">granicz20171229-serving-spas</guid>
+      <category>fsadvent</category>
       <category>fsharp</category>
       <category>routing</category>
       <category>templating</category>
@@ -590,6 +606,10 @@
       <title>Simple reactive scenarios with WebSharper</title>
       <link>http://mywebsite.com/user/granicz/20161231-simple-reactive-scenarios-with-websharper</link>
       <guid isPermaLink="false">granicz20161231-simple-reactive-scenarios-with-websharper</guid>
+      <category>fsadvent</category>
+      <category>fsharp</category>
+      <category>reactive</category>
+      <category>ui</category>
       <category>ui.next</category>
       <category>websharper</category>
       <description>One of the most fundamental design considerations any developer must deal with is handling change. In this article, we are primarily concerned with client-side state and changes to it. Change can be brought about by various external factors (user input such as mouse or keyboard events, server push messages, etc.) or by means internal to the application itself.</description>
@@ -599,6 +619,7 @@
       <title>Distributed web applications in F# with WebSharper</title>
       <link>http://mywebsite.com/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper</link>
       <guid isPermaLink="false">jankoa20161207-distributed-web-applications-in-f-with-websharper</guid>
+      <category>fsadvent</category>
       <category>fsharp</category>
       <category>javascript</category>
       <category>remoting</category>
@@ -644,14 +665,26 @@
       <link>http://mywebsite.com/user/granicz/20151226-websharper-a-year-in-review</link>
       <guid isPermaLink="false">granicz20151226-websharper-a-year-in-review</guid>
       <category>bootstrap</category>
+      <category>cdn</category>
+      <category>charting</category>
       <category>csharp</category>
       <category>forms</category>
+      <category>forums</category>
+      <category>fsadvent</category>
       <category>fsharp</category>
+      <category>html</category>
       <category>jointjs</category>
       <category>livedata</category>
+      <category>oss</category>
       <category>rappid</category>
       <category>react</category>
+      <category>reactive</category>
       <category>review</category>
+      <category>sitelets</category>
+      <category>sourcemaps</category>
+      <category>suave</category>
+      <category>ui</category>
+      <category>warp</category>
       <category>websharper</category>
       <description>Just over a year ago, last year in December we released WebSharper 3 on Apache, putting it into the hands of every F# web developer. One thing we learned from WebSharper 2 is that more frequent releases are better and this year kept the whole team busy with constant innovation and new releases. Below is a list I cherry-picked from the WebSharper blog.. [more]</description>
       <pubDate>Sat, 26 Dec 2015 00:00:00 UTC</pubDate>

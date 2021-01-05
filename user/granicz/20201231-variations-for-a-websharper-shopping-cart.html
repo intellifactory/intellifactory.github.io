@@ -1,0 +1,943 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Variations for a WebSharper shopping cart | IntelliFactory</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="/themekit/css/style.css" />
+  <link rel="stylesheet" href="/themekit/css/content-box.css" />
+  <link rel="stylesheet" href="/themekit/css/media-box.css" />
+  <link rel="stylesheet" href="/themekit/css/social.css" />
+  <link rel="stylesheet" href="/themekit/css/contact-form.css" />
+  <link rel="stylesheet" href="/assets/skin.css" />
+  <link rel="stylesheet" href="/assets/custom.css" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js" type="text/javascript" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/fsharp.min.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/vs.min.css"></link>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="/themekit/scripts/main.js"></script>
+</head>
+<body>
+  <div id="preloader"></div>
+  <nav class="menu-classic  light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+        <div class="menu-brand">
+          <a href="#">
+            <img class="logo-default" src="/assets/if_logo.png" alt="logo" />
+            <img class="logo-retina" src="/assets/if_logo.png" alt="logo" />
+            <span>IntelliFactory</span>
+          </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt">
+          <ul>
+            <li>
+              <a href="index.html">Consulting</a>
+            </li>
+            <li class="mega-dropdown mega-tabs mega-open-source">
+              <a href="#">Open Source</a>
+              <div class="mega-menu">
+                <div class="panel">
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://websharper.com">WebSharper</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://fsbolero.io">Bolero</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img src="//via.placeholder.com/100x100" />
+                    <div><a href="https://github.com/granicz/SiteFi">SiteFi</a></div>
+                    <div class="description">
+                      <div>This is an example text under this feel free to change this</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/trainings">Trainings</a>
+            </li>
+            <li>
+              <a href="/research">Research</a>
+            </li>
+            <li class="mega-dropdown mega-tabs">
+              <a href="/blogs">Blogs</a>
+              <div class="mega-menu">
+                <div class="tab-box" data-tab-anima="fade-in">
+                  <ul class="tab-nav">
+                    <li class="active"><a href="#">F# Advent</a></li>
+                    <li><a href="#">Categories</a></li>
+                  </ul>
+                  <div class="panel active">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">2019 - F# metablogging: introducing BlogEngine for your static markdown-based F# blog</a></li>
+                        <li><a href="/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper">2018 - From enterprise to next-generation web: celebrating 11 years with WebSharper</a></li>
+                        <li><a href="/user/granicz/20171229-serving-spas">2017 - Serving SPAs</a></li>
+                        <li><a href="/user/granicz/20161231-simple-reactive-scenarios-with-websharper">2016 - Simple reactive scenarios with WebSharper</a></li>
+                        <li><a href="/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper">2016 - Distributed web applications in F# with WebSharper</a></li>
+                        <li><a href="http://localhost:5000/user/granicz/20151226-websharper-a-year-in-review">2015 - WebSharper: a year in review</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/accordion.html">Accordion</a></li>
+                        <li><a href="elements/containers/album.html">Album</a></li>
+                        <li><a href="elements/containers/collapse.html">Collapse</a></li>
+                        <li><a href="elements/containers/fixed-area.html">Fixed area</a></li>
+                        <li><a href="elements/containers/grid.html">Grid</a></li>
+                        <li><a href="elements/containers/lightbox.html">Lightbox</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/containers/masonry.html">Masonry</a></li>
+                        <li><a href="elements/containers/scroll-box.html">Scroll box</a></li>
+                        <li><a href="elements/containers/slider.html">Slider</a></li>
+                        <li><a href="elements/containers/steps.html">Steps</a></li>
+                        <li><a href="elements/containers/tab.html">Tab</a></li>
+                        <li><a href="elements/sections/base.html">Section base</a></li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="icon-list">
+                        <li><a href="elements/sections/image.html">Section image</a></li>
+                        <li><a href="elements/sections/slider.html">Section slider</a></li>
+                        <li><a href="elements/sections/video.html">Section video</a></li>
+                        <li><a href="elements/sections/block.html">Section block</a></li>
+                        <li><a href="elements/sections/map.html">Section map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <div class="menu-right">
+            <div class="menu-custom-area">
+              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div></nav>
+
+  
+    
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category3.jpg" data-offset="0">
+      <div class="container">
+        <h1>Variations for a WebSharper shopping cart</h1>
+        <h2>20201231</h2>
+        <ol class="breadcrumb">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href=""></a></li>
+        </ol>
+      </div>
+    </header>
+    <main>
+      <section class="section-base boxed-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-color">
+              <div><div ws-preserve=""><h2 id="variations-for-a-websharper-shopping-cart-part-i">Variations for a WebSharper shopping cart - Part I</h2>
+<p>(This article is part of <a href="https://sergeytihon.com/2020/10/22/f-advent-calendar-in-english-2020/">F# Advent 2020</a> - a huge shout-out and thanks to Sergey Tihon for organizing it!)</p>
+<p>A long time ago, sometime in 2010, I wrote an article about <a href="/user/granicz/20100930-tutorial-implementing-a-shopping-cart-with-websharper.html">implementing a shopping cart with WebSharper</a>. It used <strong>first-class F# events</strong> to implement a reactive shopping cart that updates without page refresh. While you can still read that article today, time has certainly left its mark on it: the code is based on ASP.NET master pages/templates, screenshots are lost, etc. But more importantly, while most of that code would still run today (albeit, with the help of deprecated libraries such as <code>WebSharper.Html</code>), things in <a href="https://websharper.com">WebSharper</a> land have progressed a long ways since then. So I thought I would highlight some of these advancements, bringing the original example back to life.</p>
+<p>To follow along and make your own changes, you can grab the code from the following GitHub repo:</p>
+<p><a href="https://github.com/websharper-samples/ShoppingCart"><img src="https://cdn.iconscout.com/icon/free/png-64/github-169-1174970.png" alt="" /></a></p>
+<h2 id="start-with-the-design">1. Start with the design</h2>
+<blockquote>
+<p>WebSharper has long advocated and pioneered the idea of working with <strong>abstract</strong> UIs (formlets, piglets, <a href="https://github.com/dotnet-websharper/forms">reactive forms</a> - basically, <strong>F# code</strong>) that go hand-in-hand with application logic, to enable developers to <strong>write entire applications without the need to have an actual concrete design up front</strong>, cutting the long dreaded dependency between design and development. Sadly, many developers failed to embrace this approach despite its numerous advantages - which would easily deserve an entire series of articles to highlight, but perhaps more on that later.</p>
+</blockquote>
+<p>So instead, I will stick to the ordinary approach and show how to develop a design template into WebSharper.UI building blocks that will make up the main application UI later. This will include a couple dull HTML preparation steps, so just please bear with me.</p>
+<p>First, here is the very same skeleton design from the 2010 article (should be easy to change, just follow the same steps below), and its hideously backwards but dead-simple HTML (don't worry about the CSS, it's in the repo):</p>
+<p><a href="https://i.imgur.com/VlLUd4U.png"><img src="https://i.imgur.com/VlLUd4Ul.png" alt="" /></a></p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;link href=&quot;reset.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    &lt;link href=&quot;site.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    &lt;title&gt;A simple site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;2&quot; id=&quot;banner&quot;&gt;
+                    &lt;h1&gt;Your site&lt;/h1&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td id=&quot;main&quot;&gt;
+                    Main content here...
+                &lt;/td&gt;
+                &lt;td id=&quot;side&quot;&gt;
+                    Sidebar content here...
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;2&quot; id=&quot;footer&quot;&gt;
+                    Your footer goes here...
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>To prepare this into a fully featured master design, first we add the master placeholders (where the store items and the shopping cart items are displayed, etc.), turning <code>index.html</code> into a WebSharper.UI template (you can read about WebSharper.UI and the various reactive and templating primitives <a href="https://developers.websharper.com/docs/v4.x/fs/ui">here</a>):</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;link href=&quot;reset.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    &lt;link href=&quot;site.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    &lt;title&gt;${Title}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;2&quot; id=&quot;banner&quot;&gt;
+                    &lt;h1&gt;${Title}&lt;/h1&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td id=&quot;main&quot;&gt;
+                    &lt;div ws-replace=&quot;Main&quot;&gt;&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td id=&quot;side&quot;&gt;
+                    &lt;div ws-replace=&quot;Sidebar&quot;&gt;&lt;/div&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;2&quot; id=&quot;footer&quot;&gt;
+                    &lt;div ws-replace=&quot;Footer&quot;&gt;&lt;/div&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;script ws-replace=&quot;scripts&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Next, we add the actual design for all the parts we need: items in various categories to the main panel, and a shopping cart in the sidebar. I like to do this inside placeholders, so that the HTML file still renders OK as is, making subsequent refinement (edit and refresh) easier.</p>
+<p>For instance, here is our main section, listing various categories of computers:</p>
+<pre><code class="language-html">...
+                    &lt;div ws-replace=&quot;Main&quot;&gt;
+                        &lt;div id=&quot;shopping-cart&quot;&gt;
+                            &lt;div class=&quot;family&quot;&gt;
+                                &lt;h1&gt;Laptops&lt;/h1&gt;
+                                &lt;div class=&quot;product&quot;&gt;
+                                    &lt;img alt=&quot;Toshiba&quot; src=&quot;/images/laptop.png&quot; /&gt;
+                                    &lt;div&gt;
+                                        &lt;h1&gt;Toshiba&lt;/h1&gt;
+                                        &lt;p&gt;
+                                            &lt;code&gt;$1299 / item&lt;/code&gt;
+                                        &lt;/p&gt;
+                                        &lt;input type=&quot;text&quot; value=&quot;1&quot; /&gt;
+                                        &lt;button&gt;Add to cart&lt;/button&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;product&quot;&gt;
+                                    &lt;img alt=&quot;HP&quot; src=&quot;/images/laptop.png&quot; /&gt;
+                                    &lt;div&gt;
+                                        &lt;h1&gt;HP&lt;/h1&gt;
+                                        &lt;p&gt;
+                                            &lt;code&gt;$1499 / item&lt;/code&gt;
+                                        &lt;/p&gt;
+                                        &lt;input type=&quot;text&quot; value=&quot;1&quot; /&gt;
+                                        &lt;button&gt;Add to cart&lt;/button&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                ...
+                            &lt;/div&gt;
+                            &lt;div class=&quot;family&quot;&gt;
+                                ...
+                            &lt;/div&gt;
+                            ...
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+</code></pre>
+<p>And this is what it looks like when it's turned into a set of inner templates and additional placeholders:</p>
+<pre><code class="language-html">                    &lt;div ws-replace=&quot;Main&quot;&gt;
+                        &lt;div ws-template-children=&quot;ShoppingCart&quot;&gt;
+                            &lt;div id=&quot;shopping-cart&quot;&gt;
+                                &lt;div ws-replace=&quot;Families&quot;&gt;
+                                    &lt;div ws-template-children=&quot;Family&quot;&gt;
+                                        &lt;div class=&quot;family&quot;&gt;
+                                            &lt;h1&gt;${FamilyTitle}&lt;/h1&gt;
+                                            &lt;div ws-replace=&quot;Products&quot;&gt;
+                                                &lt;div ws-template-children=&quot;Product&quot;&gt;
+                                                    &lt;div class=&quot;product&quot;&gt;
+                                                        &lt;img alt=&quot;${ProductTitle}&quot; src=&quot;${ProductImageSrc}&quot; /&gt;
+                                                        &lt;div&gt;
+                                                            &lt;h1&gt;${ProductTitle}&lt;/h1&gt;
+                                                            &lt;p&gt;
+                                                                &lt;code&gt;$ ${ProductPrice} / item&lt;/code&gt;
+                                                            &lt;/p&gt;
+                                                            &lt;input type=&quot;text&quot; value=&quot;1&quot; /&gt;
+                                                            &lt;button ws-onclick=&quot;AddToCart&quot;&gt;Add to cart&lt;/button&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;product&quot;&gt;
+                                                &lt;img alt=&quot;HP&quot; src=&quot;/images/laptop.png&quot; /&gt;
+                                                &lt;div&gt;
+                                                    &lt;h1&gt;HP&lt;/h1&gt;
+                                                    &lt;p&gt;
+                                                        &lt;code&gt;$1499 / item&lt;/code&gt;
+                                                    &lt;/p&gt;
+                                                    &lt;input type=&quot;text&quot; value=&quot;1&quot; /&gt;
+                                                    &lt;button&gt;Add to cart&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            ...
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+</code></pre>
+<p>At this point, our file renders &quot;almost nicely&quot;, with the exception of the inner templates (for items and categories, and the shopping cart) we introduced:</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>WebSharper.UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://i.imgur.com/KtPJxi8.png"><img src="https://i.imgur.com/KtPJxi8l.png" alt="" /></a></td>
+<td><a href="https://i.imgur.com/w47y2v7.png"><img src="https://i.imgur.com/w47y2v7l.png" alt="" /></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create-a-new-websharper-spa-on-top-of-the-design">2. Create a new WebSharper SPA on top of the design</h2>
+<p>Now that we have a basic design and sprinkled in the templating primitives (<code>ws-replace</code> placeholders for content, <code>ws-onclick</code> event handlers, and named our inner templates), it's time to put our F# code in place. For this application, instead of the usual client-server WebSharper application template, we will use the WebSharper SPA one for simplicity. In a real-life shopping cart, you will inevitably need a server or backend service to post to; this you can add later pretty easily.</p>
+<p>I normally just do the following:</p>
+<ol start="0">
+<li><p>Make sure I have the basics first:</p>
+<ol type="a">
+<li><p>The latest <code>dotnet</code> CLI. The easiest way for that is to <a href="https://docs.microsoft.com/en-us/dotnet/core/install/windows?tabs=net50">install the latest .NET Core SDK</a>.</p>
+</li>
+<li><p>The latest WebSharper project templates. You can grab them with:</p>
+<p>dotnet new -i WebSharper.Templates</p>
+</li>
+</ol>
+</li>
+<li><p>Create a WebSharper SPA:</p>
+<pre><code> dotnet new websharper-spa -lang f# -n MyShoppingCart
+</code></pre>
+</li>
+<li><p>Copy the design template <code>index.html</code> to the <code>wwwroot</code> folder, overwriting the file there, with the following additions:</p>
+<ol type="a">
+<li><p>Add the following HTML, say, to the <code>&lt;head&gt;</code> section, to remove the initial flickering between the document load event and the time WebSharper.UI's bind event fires (which hides all templates in the document and binds the placeholders):</p>
+ <style>
+     /* Don't show the not-yet-loaded templates */
+     [ws-template], [ws-children-template] { display: none; }
+ </style>
+</li>
+<li><p>Add the following HTML just before the end of the <code>&lt;body&gt;</code> tag, to load the generated JavaScript for the app we will be developing (note the filename matching the project folder/name we created earlier):</p>
+ <script type="text/javascript" src="Content/MyShoppingCart.min.js"></script>
+</li>
+</ol>
+</li>
+<li><p>At this point, we are ready to change <code>Client.fs</code> and get rid of those compiler errors.</p>
+</li>
+</ol>
+<h2 id="a.write-the-application-logic-approach-1-reactive-ui">3.a. Write the application logic - Approach #1 - Reactive UI</h2>
+<p>Here is our entire app:</p>
+<pre><code class="language-fsharp">namespace MyShoppingCart
+
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.UI
+open WebSharper.UI.Client
+open WebSharper.UI.Templating
+open WebSharper.UI.Notation
+
+[&lt;JavaScript&gt;]
+module DTO =
+    type Product =
+        {
+            Id: string
+            Title: string
+            Price: int
+            ImageSrc: string
+        }
+
+    type ProductFamily =
+        {
+            Title: string
+            Products: Product list
+        }
+    
+    type Store = ProductFamily list
+
+[&lt;JavaScript&gt;]
+module Client =
+    // The templates are loaded from the DOM, so you just can edit index.html
+    // and refresh your browser, no need to recompile unless you add or remove holes.
+    type IndexTemplate = Template&lt;&quot;wwwroot/index.html&quot;, ClientLoad.FromDocument&gt;
+
+    type CartItem =
+        {
+            Item: Product
+            Quantity: int
+        }
+
+    // Our cart is a reactive list - changes to it
+    // are immediately reflected on the UI.
+    type Cart = ListModel&lt;string, CartItem&gt;
+
+    // Populate our store. This can be changed to fetch from a
+    // server if needed.
+    let store =
+        let item imageSrc (title, id, price) =
+            {
+                Id = id
+                Title = title
+                Price = price
+                ImageSrc = imageSrc
+            }
+        let laptop product = item &quot;/images/laptop.png&quot; product
+        let desktop product = item &quot;/images/desktop.png&quot; product
+        let netbook product = item &quot;/images/netbook.png&quot; product
+        [
+            {
+                Title = &quot;Laptops&quot;
+                Products =
+                    [
+                        laptop (&quot;Toshiba&quot;, &quot;id1&quot;, 1299)
+                        laptop (&quot;HP&quot;, &quot;id2&quot;, 1499)
+                        laptop (&quot;Dell&quot;, &quot;id3&quot;, 1499)
+                        laptop (&quot;Acer&quot;, &quot;id4&quot;, 1499)
+                    ]
+            }
+            {
+                Title = &quot;Laptops&quot;
+                Products =
+                    [
+                        desktop (&quot;Gamer 1&quot;, &quot;id11&quot;, 699)
+                        desktop (&quot;Gamer 2&quot;, &quot;id12&quot;, 799)
+                        desktop (&quot;Office&quot;, &quot;id13&quot;, 599)
+                        desktop (&quot;Server&quot;, &quot;id14&quot;, 1299)
+                    ]
+            }
+            {
+                Title = &quot;Laptops&quot;
+                Products =
+                    [
+                        netbook (&quot;Entry&quot;, &quot;id21&quot;, 799)
+                        netbook (&quot;Medium&quot;, &quot;id22&quot;, 899)
+                        netbook (&quot;Cool&quot;, &quot;id23&quot;, 699)
+                        netbook (&quot;Speed-King&quot;, &quot;id24&quot;, 999)
+                    ]
+            }
+        ]
+
+    // Set up empty cart
+    let cart : Cart = ListModel.Create (fun item -&gt; item.Item.Id) []
+
+    [&lt;SPAEntryPoint&gt;]
+    let Main () =
+        IndexTemplate()
+            .Title(&quot;My Shop&quot;)
+            .Footer(&quot;MyShoppingCart - a simple WebSharper.UI demo app&quot;)
+            .Main(
+                IndexTemplate.ItemsToSell()
+                    .Families(
+                        store
+                        |&gt; List.map (fun family -&gt;
+                            IndexTemplate.Family()
+                                .Title(&quot;Laptops&quot;)
+                                .Products(
+                                    family.Products
+                                    |&gt; List.map (fun product -&gt;
+                                        IndexTemplate.Product()
+                                            .Title(product.Title)
+                                            .Price(string product.Price)
+                                            .ImageSrc(product.ImageSrc)
+                                            .Quantity(string 1)
+                                            .AddToCart(fun e -&gt;
+                                                if cart.ContainsKey(product.Id) then
+                                                    let item = cart.Lens(product.Id)
+                                                    let quantity = item.LensAuto (fun item -&gt; item.Quantity)
+                                                    quantity := quantity.Value + int e.Vars.Quantity.Value
+                                                elif int e.Vars.Quantity.Value &lt;&gt; 0 then
+                                                    cart.Add
+                                                        {
+                                                            Item = product
+                                                            Quantity = int e.Vars.Quantity.Value
+                                                        }
+                                                else ()
+                                            )
+                                            .Doc()
+                                    )
+                                )
+                                .Doc()
+                        )
+                    )
+                    .Doc()
+            )
+            .Sidebar(
+                IndexTemplate.ShoppingCart()
+                    .CartItems(
+                        cart.View.DocSeqCached (fun item -&gt;
+                            IndexTemplate.CartItem()
+                                .Name(item.Item.Title)
+                                .Quantity(string item.Quantity)
+                                .Amount(string (item.Quantity * item.Item.Price))
+                                .Remove(fun e -&gt;
+                                    cart.RemoveByKey(item.Item.Id)
+                                )
+                                .Increment(fun e -&gt;
+                                    cart.Lens(item.Item.Id) := { item with Quantity=item.Quantity+1 }
+                                )
+                                .Decrement(fun e -&gt;
+                                    if item.Quantity &lt;= 1 then
+                                        cart.RemoveByKey(item.Item.Id)
+                                    else
+                                        cart.Lens(item.Item.Id) := { item with Quantity=item.Quantity-1 }
+                                )
+                                .Doc()
+                        )
+                    )
+                    .TotalAmount(
+                        cart.View
+                        |&gt; View.Map (Seq.sumBy (fun item -&gt; item.Item.Price * item.Quantity))
+                        |&gt; View.Map string
+                    )
+                    .Checkout(fun _ -&gt; JS.Alert(&quot;Checkout was called!&quot;))
+                    .EmptyCart(fun _ -&gt;
+                        cart.Clear()
+                    )
+                    .Doc()
+            )
+            .Bind()
+</code></pre>
+<p>A couple bits worth noting:</p>
+<ul class="contains-task-list">
+<li><p>We see our design template placeholders and inner templates under <code>IndexTemplate</code>, which is a type space brought in through the WebSharper.UI templating type provider:</p>
+<pre><code class="language-fsharp"> // The templates are loaded from the DOM, so you just can edit index.html
+// and refresh your browser, no need to recompile unless you add or remove holes.
+type IndexTemplate = Template&lt;&quot;wwwroot/index.html&quot;, ClientLoad.FromDocument&gt;
+</code></pre>
+<blockquote>
+<p>As the code comment says, one of the nicest things about this setup, apart from <strong>never missing a placeholder</strong> and the <strong>type safety and perfect matching of design to code</strong> we all enjoy so much, is that any design changes you make to the HTML file are <strong>immediately reflected</strong> (aka <strong>hot reload</strong>) in your app, all you need is to refresh your page in the browser. This makes WebSharper templating far superior to any &quot;embed your HTML into F# code&quot; approach, which of course is still available if/when you need it. (You will only need to recompile if you add/remove placeholders or event handlers.)</p>
+</blockquote>
+</li>
+<li><p>The products in the store are a given: data is populated on the client. If you want to fetch this info from the server, you can move that block to an RPC function (say, in a separate module to make your code clearer):</p>
+<pre><code class="language-fsharp">module Server =
+    open DTO
+
+    [&lt;Rpc&gt;]
+    let GetStoreInfo () =
+        ...
+</code></pre>
+<p>At this point, you will get a WebSharper warning about non-asynchronous server calls, so just wrap the above RPC function into:</p>
+<pre><code class="language-fsharp">        |&gt; async.Return
+</code></pre>
+<p>Then in your client code, call it appropriately:</p>
+<pre><code class="language-fsharp">let store =
+    async {
+        return! Server.GetStoreInfo()    
+    }
+    |&gt; Async.RunSynchronously
+</code></pre>
+</li>
+<li><p>The main panel is populated by mapping each product family and the products inside it into markup (represented by the <code>Doc</code> type). We don't expect any changes to our product hierarchy, but if there were any, we would need to make that mapping reactive.</p>
+</li>
+<li class="task-list-item"><p>The shopping cart on the other hand is bound <strong>reactively</strong>. Since our data model is composite/aggregate and not a single atomic value, we use a <code>ListModel</code>, which is a built-in reactive store for a list of values (of any shape, including further aggregates.)</p>
+<p>A WebSharper.UI reactive model is based on reactive variables and their current values (we call these &quot;views&quot;.) To introduce any UI reactivity, we need to turn these reactive views into reactive markup. For a list model, we can do that with <code>DocSeqCached</code>, which takes a function from the underlying, individual (non-reactive) values to markup (<code>Doc</code>), and creates an aggregated markup block that will react to changes inside those values (single or composite). Here, we don't deal with two-way binding, i.e. changes originating from the UI back to the data model, but that's similarly easy to set up (via <code>ws-var</code> in the markup.)</p>
+<p>When you dig deeper in the code and the design template, you will see that I marked the [+], [-], <input disabled="disabled" type="checkbox" checked="checked" /> buttons in the shopping cart widget with a special <code>ws-onclick=&quot;...&quot;</code> attribute. This makes those click event handlers available to bind in F# code. In those event handlers, we make use of WebSharper.UI lenses to access a particular cart item as a reactive variable, and make changes to it through that reference. (You can read about the <a href="https://developers.websharper.com/docs/v4.x/fs/ui#v">V notation</a> as well for an alternative syntax.)</p>
+<pre><code class="language-fsharp">cart.View.DocSeqCached (fun item -&gt;
+    IndexTemplate.CartItem()
+        .Name(item.Item.Title)
+        .Quantity(string item.Quantity)
+        .Amount(string (item.Quantity * item.Item.Price))
+        .Remove(fun e -&gt;
+            cart.RemoveByKey(item.Item.Id)
+        )
+        .Increment(fun e -&gt;
+            cart.Lens(item.Item.Id) := { item with Quantity=item.Quantity+1 }
+        )
+        .Decrement(fun e -&gt;
+            if item.Quantity &lt;= 1 then
+                cart.RemoveByKey(item.Item.Id)
+            else
+                cart.Lens(item.Item.Id) := { item with Quantity=item.Quantity-1 }
+        )
+        .Doc()
+</code></pre>
+</li>
+<li><p>The &quot;Add to cart&quot; button knows the identity of each product from its closure, and we grab a reactive reference to an existing cart item through a lense, so we can update its quantity:</p>
+<pre><code class="language-fsharp">family.Products
+|&gt; List.map (fun product -&gt;
+    IndexTemplate.Product()
+        // ...
+        .AddToCart(fun e -&gt;
+            if cart.ContainsKey(product.Id) then
+                let item = cart.Lens(product.Id)
+                let quantity = item.LensAuto (fun item -&gt; item.Quantity)
+                quantity := quantity.Value + int e.Vars.Quantity.Value
+            elif int e.Vars.Quantity.Value &lt;&gt; 0 then
+                cart.Add
+                    {
+                        Item = product
+                        Quantity = int e.Vars.Quantity.Value
+                    }
+            else ()
+        )
+</code></pre>
+<p>Another key concept to note is the use of <code>e.Vars</code>. Here, <code>e</code> is the target of the event handler, which usefully &quot;knows&quot; about the data model of its surrounding template. In this case, it knows that there is a <code>Quantity</code> field that is two-way bound to the quantity input box on the UI (since we made that binding explicit with <code>ws-var=&quot;...&quot;</code>), and we can read its current value with <code>.Value</code>.</p>
+<p>All in all, data/model changes to the shopping cart (via <code>cart.Add</code> for adding, <code>cart.Remove</code> for removing, and <code>cart.Lens(...) := ...</code> for updating) reflect on the UI immediately, and only those DOM nodes that need to be changed are indeed changed. You can see this in action below:</p>
+<p><img src="https://i.imgur.com/5eKJs0J.gif" alt="" /></p>
+<p>WebSharper.UI's dataflow algorithm, detecting model changes and applying/reflecting them to the UI and back is stunningly fast. In our earlier benchmarks, we observed a 10-20% performance improvement over using hand-written React, which is quite a feat considering that we didn't have to write a single line of JavaScript.</p>
+</li>
+</ul>
+<h2 id="b.write-the-application-logic-approach-2-websharper.mvu">3.b. Write the application logic - Approach #2 - WebSharper.Mvu</h2>
+<p>I thought it would be a fun experiment to contrast the mutable, reactive WebSharper.UI implementation above with an immutable WebSharper.Mvu implementation. The latter is not a 100% Elm-style MVU but a slightly modified one, with the couple important differences and benefits. I plan to describe these in a follow-up article.</p>
+<h2 id="conclusions">4. Conclusions</h2>
+<p>WebSharper.UI templating and reactive data models are an effective way to develop highly performant web applications. The <a href="/user/granicz/20100930-tutorial-implementing-a-shopping-cart-with-websharper.html">original 2010 article</a> used first-class F# events and WebSharper HTML-in-F# components, which altogether was significantly more code and didn't offer a streamlined developer experience. The revisited implementation above makes HTML changes immediate with a simple page refresh, frees us from having to write F# for HTML, provides strong guarantees about templating type safety, and gives a ultra-performant two-way binding for reactive components.</p>
+<p>Now, there are still a number of things that can be improved or streamlined further. If you are interested in discovering more, come and chat in the <a href="http://gitter.im/intellifactory/websharper">WebSharper Gitter channel</a>:</p>
+<p><a href="http://gitter.im/intellifactory/websharper"><img src="https://icon-icons.com/icons2/2530/PNG/128/gitter_button_icon_151850.png" alt="" /></a></p>
+<p>Happy holidays!</p>
+</div></div>
+              <hr class="space" />
+              <div class="icon-links icon-links-button full-width icon-social social-colors">
+                <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                <a data-social="share-pinterest" class="pinterest"><i class="icon-pinterest"></i></a>
+              </div>
+              <hr />
+              <div class="cnt-box cnt-box-side box-small">
+                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
+                <div class="caption">
+                  <h2>Found a typo?</h2>
+                  <p>
+                    This blog post is hosted on GitHub <a href="https://github.com/IntelliFactory/blogs/tree/master/user/granicz/20201231-variations-for-a-websharper-shopping-cart.md">here</a>. Feel free to file a ticket or send a PR.
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <h2>Other articles you might be interested in</h2>
+              <hr class="space-sm" />
+              <div class="grid-list" data-columns="3" data-columns-sm="1">
+                <div class="grid-box">
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>Jessica Adams Exibition In New York With After Show</h2>
+                        <div class="extra-field">Technology</div>
+                        <p>
+                          October 25, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
+                      <div class="caption">
+                        <h2>How to change your business and make money</h2>
+                        <div class="extra-field">Business</div>
+                        <p>
+                          October 24, 2019
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 widget">
+              
+              <div>
+                <h3>Tagged as</h3>
+                <hr class="space-xs" />
+                <div class="tabs"><div>
+                    <a href="/category/fsadvent">
+                      fsadvent
+                    </a>
+                  </div><div>
+                    <a href="/category/fsharp">
+                      fsharp
+                    </a>
+                  </div><div>
+                    <a href="/category/reactive">
+                      reactive
+                    </a>
+                  </div><div>
+                    <a href="/category/templating">
+                      templating
+                    </a>
+                  </div><div>
+                    <a href="/category/ui">
+                      ui
+                    </a>
+                  </div><div>
+                    <a href="/category/websharper">
+                      websharper
+                    </a>
+                  </div></div>
+                <h3>Latest posts</h3>
+                <hr class="space-sm" />
+                <div class="menu-inner menu-inner-vertical menu-inner-image">
+                    <ul>
+                      <li>
+                        <a href="/user/granicz/20201231-variations-for-a-websharper-shopping-cart">
+                          <img src="/assets/category3-thumb.jpg" alt="Variations for a WebSharper shopping cart" />
+                          Variations for a WebSharper shopping cart
+                          <span>12/31/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200523-bolero-0-13-released">
+                          <img src="/assets/category5-thumb.jpg" alt="Bolero 0.13 released" />
+                          Bolero 0.13 released
+                          <span>05/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20200323-bolero-0-12-released">
+                          <img src="/assets/category5-thumb.jpg" alt="Bolero 0.12 released" />
+                          Bolero 0.12 released
+                          <span>03/23/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one">
+                          <img src="/assets/category4-thumb.jpg" alt="Converting a WebSharper HTML app to a client-server one" />
+                          Converting a WebSharper HTML app to a client-server one
+                          <span>01/16/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/post/20200101-writing-instructions.html">
+                          <img src="/assets/category4-thumb.jpg" alt="Writing instructions" />
+                          Writing instructions
+                          <span>01/01/2020</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog">
+                          <img src="/assets/category4-thumb.jpg" alt="F# metablogging: introducing BlogEngine for your static markdown-based F# blog" />
+                          F# metablogging: introducing BlogEngine for your static markdown-based F# blog
+                          <span>12/26/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190924-bolero-0-9-released">
+                          <img src="/assets/category5-thumb.jpg" alt="Bolero 0.9 released" />
+                          Bolero 0.9 released
+                          <span>09/24/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this">
+                          <img src="/assets/category1-thumb.jpg" alt="Your first Bolero project not compiling? Try this!" />
+                          Your first Bolero project not compiling? Try this!
+                          <span>09/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190805-bolero-0-7-released">
+                          <img src="/assets/category5-thumb.jpg" alt="Bolero 0.7 released" />
+                          Bolero 0.7 released
+                          <span>08/05/2019</span>
+                        </a>
+                      </li><li>
+                        <a href="/user/denuziere/20190530-bolero-0-5-released-for-blazor-3-0-preview">
+                          <img src="/assets/category5-thumb.jpg" alt="Bolero 0.5 released for Blazor 3.0-preview" />
+                          Bolero 0.5 released for Blazor 3.0-preview
+                          <span>05/30/2019</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                <hr class="space-sm" />
+                <h3>Twitter</h3>
+                <hr class="space-sm" />
+                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+  <i class="scroll-top-btn scroll-top show"></i>
+  <footer class="footer light">
+      
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-2">
+                      <h4>Company</h4>
+                      <div class="menu-inner menu-inner-vertical">
+                          <ul>
+                              <li>
+                                  <a href="/consulting">Consulting</a>
+                              </li>
+                              <li>
+                                  <a href="/trainings">Trainings</a>
+                              </li>
+                              <li>
+                                  <a href="/research">Research</a>
+                              </li>
+                              <li>
+                                  <a href="/jobs">Jobs</a>
+                              </li>
+                              <li>
+                                  <a href="/contact">Contact</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-lg-2">
+                      <h4>Blogs</h4>
+                      <div class="menu-inner menu-inner-vertical">
+                          <ul>
+                              <li>
+                                  <a href="/blogs">Latest</a>
+                              </li>
+                              <li>
+                                  <a href="/category/fsharp">F#</a>
+                              </li>
+                              <li>
+                                  <a href="/category/websharper">WebSharper</a>
+                              </li>
+                              <li>
+                                  <a href="/category/bolero">Bolero</a>
+                              </li>
+                              <li>
+                                  <a href="/category/cloudsharper">CloudSharper</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <h4>Legal</h4>
+                      <div class="menu-inner menu-inner-vertical">
+                          <ul>
+                              <li>
+                                  <a href="/terms-of-use">Terms of use</a>
+                              </li>
+                              <li>
+                                  <a href="/privacy-policy">Privacy Policy</a>
+                              </li>
+                              <li>
+                                  <a href="/cookie-policy">Cookie Policy</a>
+                              </li>
+                              <li>
+                                  <a href="/QualityAndIntegratedSecurityPolicy.pdf">Integrated Quality and Information Security Policy</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <h4>Newsletter signup</h4>
+                      <p>We will not spam you or give your details to anyone.</p>
+                      <form class="newsletter-form form-box form-ajax" method="post" data-email="example@domain.com">
+                          <input style="width:200px" id="nemail" name="nemail" placeholder="Your email" type="email" class="input-text" required="" />
+                          <button id="signUp" class="btn btn-sm btn-circle" type="submit">
+                              <span>Sign Up</span>
+                              <i class="fas fa-spinner fa-spin"></i>
+                          </button>
+                          <div class="success-box">
+                              <div class="alert alert-success">Congratulations. You have signed up successfully!</div>
+                          </div>
+                          <div class="error-box">
+                              <div class="alert alert-warning">Error, please retry. You were not signed up for the newsletter.</div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bar">
+              <div class="container">
+                  <span>Made with</span>
+                  <img width="24" height="20" style="vertical-align:top;" alt="Love" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Love_Heart_SVG.svg/32px-Love_Heart_SVG.svg.png" />
+                  <span>in 100% F# with WebSharper. Copyright © IntelliFactory 2004-2020. Site design created by Schiocco Team.</span>
+                  <span class="icon-links icon-social icon-links-grid social-colors">
+                    <a class="facebook" href="https://www.facebook.com/intellifactory"><i class="icon-facebook"></i></a>
+                    <a class="twitter" href="https://twitter.com/intellifactory"><i class="icon-twitter"></i></a>
+                    <a class="linkedin" href="https://www.linkedin.com/company/intellifactory"><i class="icon-linkedin"></i></a>
+                    <a class="youtube" href="https://www.youtube.com/results?search_query=intellifactory"><i class="icon-youtube"></i></a>
+                    <a class="vimeo" href="https://vimeo.com/user15828007"><i class="icon-vimeo"></i></a>
+                  </span>
+              </div>
+          </div>
+      
+      <div></div>
+      <div id="cookie-banner"><p>This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, and analyse your use of our products and services.</p><a target="_blank" href="/cookie-policy">Read our Cookie Policy</a><div><button onclick="wscookies.accept()">Accept cookies</button><button onclick="wscookies.refuse()">Refuse cookies</button></div></div><script>
+    var wscookies = {
+        accepted: document.cookie.replace(/(?:(?:^|.*;\s*)cookie_accept\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+        accept: function () {
+        document.cookie = 'cookie_accept=true;max-age=31536000';
+        this.set_banner('none');
+        this.after_accept();
+        },
+        after_accept: function () { },
+        refuse: function () {
+        document.cookie = 'cookie_accept=false;max-age=31536000';
+        this.set_banner('none');
+        },
+        set_banner: function (style) {
+        document.getElementById('cookie-banner').style.display = style;
+        }
+    };
+    switch (wscookies.accepted) {
+        case '':
+        wscookies.set_banner('flex');
+        break;
+        case 'true':
+        wscookies.accept();
+        break;
+        default:
+        wscookies.refuse();
+    }
+</script>
+      <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css" />
+      <link async="" rel="stylesheet" href="/themekit/media/icons/fontawesome/all.css" />
+      <script src="/themekit/scripts/parallax.min.js"></script>
+      <script src="/themekit/scripts/imagesloaded.min.js"></script>
+      <script src="/themekit/scripts/pagination.min.js"></script>
+      <script src="/themekit/scripts/social.min.js"></script>
+      <script src="/themekit/scripts/tab-accordion.js"></script>
+      <script src="/media/custom.js"></script>
+      <script src="/js/Client.js"></script>
+      <meta id='websharper-data' name='websharper-data' content='{"$TYPES":[],"$DATA":{"$V":{}}}' />
+<script src="../../Scripts/WebSharper.Core.JavaScript/Runtime.js" type="text/javascript" charset="UTF-8"></script><script type="text/javascript">
+if (typeof IntelliFactory !=='undefined') {
+  IntelliFactory.Runtime.ScriptBasePath = '../../Scripts/';
+  IntelliFactory.Runtime.Start();
+}
+</script>
+
+      <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script>
+          $(document).ready(function () {
+              var $container = $('.masonry');
+              $container.imagesLoaded(function () {
+                  $container.masonry({
+                      itemSelector: '.masonry-item',
+                      percentPosition: true,
+                      horizontalOrder: true
+                  });
+              });
+          });
+      </script>
+  </footer>
+</body>
+</html>
