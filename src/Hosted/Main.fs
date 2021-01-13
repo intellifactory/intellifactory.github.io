@@ -947,16 +947,25 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
-        let Research () = 
+        let RESEARCH () = 
             ResearchTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
                 .Doc()
             |>Content.Page
-        let Consulting () =
+        let CONSULTING () =
             ConsultingTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
                 .Doc()
             |>Content.Page
-        let Careers () = 
+        let CAREERS () = 
             CareersTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
                 .Doc()
             |>Content.Page
         // pageNo is 1-based
