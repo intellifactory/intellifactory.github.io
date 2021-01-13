@@ -1204,8 +1204,6 @@ module Site =
                         let doc = RSS_FEED (Some user)
                         doc.Save(stream)
                 )
-            | Research ->
-+                RESEARCH ()
             | Refresh ->
                 // Reload the master configs and the article cache
                 config := ReadConfig()
@@ -1214,6 +1212,12 @@ module Site =
                 articles := _articles
                 identities1 := ComputeIdentities1 articles.Value
                 Content.Text "Articles/configs reloaded."
+            | Research ->
+                RESEARCH()
+            | Consulting ->
+                CONSULTING()
+            | Careers ->
+                CAREERS()
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
             | Debug ->
@@ -1318,6 +1322,8 @@ type Website() =
                 TermsOfUse
                 PrivacyPolicy
                 Research
+                Consulting
+                Careers
             ]
 
 [<assembly: Website(typeof<Website>)>]
