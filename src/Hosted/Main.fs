@@ -33,6 +33,9 @@ type EndPoint =
     | [<EndPoint "GET /terms-of-use">] TermsOfUse
     | [<EndPoint "GET /privacy-policy">] PrivacyPolicy
     | [<EndPoint "GET /cookie-policy">] CookiePolicy
+    | [<EndPoint "GET /research">] Research
+    | [<EndPoint "GET /consulting">] Consulting
+    | [<EndPoint "GET /careers">] Careers
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
 
@@ -368,6 +371,10 @@ module Site =
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ContactTemplate = Templating.Template<"../Hosted/contact.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type LegalTemplate = Templating.Template<"../Hosted/legal.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type ResearchTemplate = Templating.Template<"../Hosted/research.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
+
 
     type [<CLIMutable>] RawConfig =
         {
@@ -948,6 +955,18 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let Research () = 
+            ResearchTemplate()
+                .Doc()
+            |>Content.Page
+        let Consulting () =
+            ConsultingTemplate()
+                .Doc()
+            |>Content.Page
+        let Careers () = 
+            CareersTemplate()
+                .Doc()
+            |>Content.Page
         // pageNo is 1-based
         let BLOG_LISTING (banner: Doc) (pageNo: int) f =
             let as1 =
@@ -1185,6 +1204,8 @@ module Site =
                         let doc = RSS_FEED (Some user)
                         doc.Save(stream)
                 )
+            | Research ->
++                RESEARCH ()
             | Refresh ->
                 // Reload the master configs and the article cache
                 config := ReadConfig()
@@ -1296,6 +1317,7 @@ type Website() =
                 CookiePolicy
                 TermsOfUse
                 PrivacyPolicy
+                Research
             ]
 
 [<assembly: Website(typeof<Website>)>]
