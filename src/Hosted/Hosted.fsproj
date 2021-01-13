@@ -11,6 +11,8 @@
     <Compile Include="Startup.fs" />
     <Content Include="404.html" />
     <Content Include="research.html" />
+    <Content Include="consulting.html" />
+    <Content Include="careers.html" />
     <Content Include="assets\custom.css" />
     <Content Include="assets\skin.css" />
     <Content Include="contact.html" />

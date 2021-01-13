@@ -1153,8 +1153,6 @@ module Site =
                             ]
                         doc.Save(stream)
                 )
-            | Research ->
-+                RESEARCH ()
             | Refresh ->
                 // Reload the master configs and the article cache
                 config := ReadConfig()
@@ -1165,6 +1163,12 @@ module Site =
                 Content.Text "Articles/configs reloaded."
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
+            | Research ->
+                RESEARCH()
+            | Consulting ->
+                CONSULTING()
+            | Careers ->
+                CAREERS()
         )
 
 open System.IO
@@ -1250,6 +1254,8 @@ type Website() =
                 TermsOfUse
                 PrivacyPolicy
                 Research
+                Consulting
+                Careers
             ]
 
 [<assembly: Website(typeof<Website>)>]
