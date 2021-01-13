@@ -34,7 +34,7 @@ type EndPoint =
     | [<EndPoint "GET /privacy-policy">] PrivacyPolicy
     | [<EndPoint "GET /cookie-policy">] CookiePolicy
     | [<EndPoint "GET /research">] Research
-    | [<EndPoint "GET /consulting">] Consulting
+    | [<EndPoint "GET /">] Consulting
     | [<EndPoint "GET /careers">] Careers
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
