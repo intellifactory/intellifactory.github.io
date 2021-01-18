@@ -370,3 +370,46 @@ pre:not(.hljs) {
     border-color: #464646;
     color: #FFF;
 }
+
+.form-ajax .success-box, .form-ajax .error-box {
+	display: none;
+	margin-top: 20px;
+}
+
+.user-information {
+	display: flex;
+}
+
+.user-name {
+	font-size: 200%;
+	flex: 1;
+}
+
+.user-bio {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.user-top {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.user-top i {
+	color: rgb(102, 102, 102);
+}
+
+.user-top a {
+	margin-left: 10px;
+}
+
+.user-profile-picture {
+	min-width: 200px;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+	.user-information {
+		display: block;
+	}
+}

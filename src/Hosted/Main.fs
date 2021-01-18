@@ -356,6 +356,7 @@ module Site =
     type RedirectTemplate = Templating.Template<"../Hosted/redirect.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type TrainingsTemplate = Templating.Template<"../Hosted/trainings.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogListTemplate = Templating.Template<"../Hosted/bloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type UserBlogListTemplate = Templating.Template<"../Hosted/userbloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ContactTemplate = Templating.Template<"../Hosted/contact.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type LegalTemplate = Templating.Template<"../Hosted/legal.html", serverLoad=Templating.ServerLoad.WhenChanged>
@@ -1006,6 +1007,16 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let USERBLOG_LISTING_NO_PAGING (banner: Doc) f =
+            UserBlogListTemplate()
+                .Menubar(menubar config.Value)
+                .Banner(banner)
+                .ArticleList(Map.filter f articles.Value |> ARTICLES)
+                .Pagination(Doc.Empty)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |> Content.Page
         let REDIRECT_TO (url: string) =
             RedirectTemplate()
                 .Url(url)
@@ -1050,7 +1061,7 @@ module Site =
                 ARTICLE ("", p)
             // All articles by a given user
             | UserArticle (user, "") ->
-                BLOG_LISTING_NO_PAGING
+                USERBLOG_LISTING_NO_PAGING
                     <| BlogListTemplate.BlogCategoryBanner()
                         .Category(user)
                         .Doc()
