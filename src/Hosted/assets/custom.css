@@ -381,24 +381,13 @@ pre:not(.hljs) {
 }
 
 .user-name {
-	font-size: 200%;
-	flex: 1;
-	margin-bottom: 10px;
-}
-
-.user-bio {
-	margin-left: 20px;
+	font-size: 400%;
 	margin-bottom: 20px;
+	line-height: 100%;
+	color: black;
 }
 
-.user-top {
-	margin-bottom: 20px;
-}
-
-.user-social {
-}
-
-.user-top i {
+.user-social i {
 	color: rgb(102, 102, 102);
 }
 
