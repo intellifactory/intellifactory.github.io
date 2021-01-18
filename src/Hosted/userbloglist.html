@@ -20,43 +20,33 @@
 </head>
 <body>
   <div id="preloader"></div>
-  <nav class="menu-classic menu-transparent light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+  <nav class="menu-classic light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
     <div ws-replace="Menubar"></div>
   </nav>
-  <div ws-replace="Banner"></div>
 
-  <header ws-template="BlogListBanner" class="header-image ken-burn-center light" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/blogs.banner.jpg" data-offset="0">
-    <div class="container">
-      <h1>${Title}</h1>
-      <h2>${Subtitle}</h2>
+    <div class="user-information container">
+        <div class="user-profile-picture">
+            <img src="https://via.placeholder.com/400 " />
+        </div>
+        <div class="user-bio">
+            <div class="user-top">
+                <p class="user-name">John Doe</p>
+                <div class="user-social">
+                    <a class="twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a class="linkedin" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+                    <a class="rss"><i class="fa fa-rss"></i></a>
+                </div>
+            </div>
+            <div class="user-description">
+                Maecenas eget nunc dui. Fusce sit amet diam vel arcu auctor accumsan id sit amet libero. Nunc tempus purus et cursus ultrices. Quisque sollicitudin interdum arcu, ut posuere enim posuere id. Vivamus congue ipsum at ante ultrices, nec sodales turpis fringilla. Suspendisse vitae volutpat lacus. Donec luctus, nisl id sollicitudin condimentum, lacus mauris condimentum massa, posuere elementum magna magna vitae nibh. Ut non ligula purus. Integer sed metus quis nulla consectetur facilisis. Aliquam mattis, massa id rhoncus viverra, est nulla molestie arcu, non aliquam nunc nisi nec justo. Proin id pellentesque sapien, vel aliquet lorem. Nam tincidunt nisi at ligula fermentum, et ultrices ante suscipit. Pellentesque scelerisque non metus vitae consectetur. Phasellus mollis pharetra magna, nec luctus augue.
+            </div>
+        </div>
     </div>
-  </header>
-  <header ws-template="BlogCategoryBanner" class="header-image ken-burn-center light" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
-    <div class="container">
-      <h1>${Category}</h1>
-      <h2>Filtered articles</h2>
-    </div>
-  </header>
   <main>
     <section class="section-base">
       <div class="container">
         <div class="row">
           <div class="col-main">
-            <div class="user-information container">
-                <div class="user-profile-picture">
-                    <img src="https://via.placeholder.com/400 "/>
-                </div>
-                <div class="user-bio">
-                    <div class="user-top">
-                        <p class="user-name">John Doe</p>
-                        <a class="twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-                        <a class="linkedin" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                    <div class="user-description">
-                        Maecenas eget nunc dui. Fusce sit amet diam vel arcu auctor accumsan id sit amet libero. Nunc tempus purus et cursus ultrices. Quisque sollicitudin interdum arcu, ut posuere enim posuere id. Vivamus congue ipsum at ante ultrices, nec sodales turpis fringilla. Suspendisse vitae volutpat lacus. Donec luctus, nisl id sollicitudin condimentum, lacus mauris condimentum massa, posuere elementum magna magna vitae nibh. Ut non ligula purus. Integer sed metus quis nulla consectetur facilisis. Aliquam mattis, massa id rhoncus viverra, est nulla molestie arcu, non aliquam nunc nisi nec justo. Proin id pellentesque sapien, vel aliquet lorem. Nam tincidunt nisi at ligula fermentum, et ultrices ante suscipit. Pellentesque scelerisque non metus vitae consectetur. Phasellus mollis pharetra magna, nec luctus augue.
-                    </div>
-                </div>
-            </div>
             <div ws-hole="ArticleList" class="masonry columns is-gapless is-multiline is-mobile" data-masonry='{ "itemSelector": ".masonry-item", "horizontalOrder": true, "precentPosition": true}'>
               <div ws-template="ArticleCard" class="masonry-item column category-${CategoryNo}">
                 <div class="flat-card">

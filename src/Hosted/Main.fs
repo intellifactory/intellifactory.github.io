@@ -1007,10 +1007,9 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
-        let USERBLOG_LISTING_NO_PAGING (banner: Doc) f =
+        let USERBLOG_LISTING_NO_PAGING f =
             UserBlogListTemplate()
                 .Menubar(menubar config.Value)
-                .Banner(banner)
                 .ArticleList(Map.filter f articles.Value |> ARTICLES)
                 .Pagination(Doc.Empty)
                 .Footer(MainTemplate.Footer().Doc())
@@ -1062,9 +1061,6 @@ module Site =
             // All articles by a given user
             | UserArticle (user, "") ->
                 USERBLOG_LISTING_NO_PAGING
-                    <| BlogListTemplate.BlogCategoryBanner()
-                        .Category(user)
-                        .Doc()
                     <| fun (u, _) _ -> user = u
             | UserArticle (user, p) ->
                 ARTICLE (user, p)

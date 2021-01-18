@@ -375,14 +375,15 @@ pre:not(.hljs) {
 	display: none;
 	margin-top: 20px;
 }
-
 .user-information {
-	display: flex;
+	text-align: center;
+	margin-top: 60px;
 }
 
 .user-name {
 	font-size: 200%;
 	flex: 1;
+	margin-bottom: 10px;
 }
 
 .user-bio {
@@ -391,25 +392,27 @@ pre:not(.hljs) {
 }
 
 .user-top {
-	display: flex;
 	margin-bottom: 20px;
+}
+
+.user-social {
 }
 
 .user-top i {
 	color: rgb(102, 102, 102);
 }
 
-.user-top a {
+.user-top a:not(:first-child) {
 	margin-left: 10px;
 }
 
 .user-profile-picture {
-	min-width: 200px;
+	max-width: 200px;
 	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-@media screen and (max-width: 767px) {
-	.user-information {
-		display: block;
-	}
+.user-profile-picture img {
+	border-radius: 50%;
 }

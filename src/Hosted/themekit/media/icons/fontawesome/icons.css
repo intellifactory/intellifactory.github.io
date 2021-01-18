@@ -75,3 +75,7 @@
 .fa-spinner:before {
     content: "\f110";
 }
+
+.fa-rss:before {
+  content: "\f09e";
+}
