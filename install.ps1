@@ -2,6 +2,9 @@ param(
     [switch] $buildOnly
 )
 
+# Initialize the submodules
+git submodule update --init --recursive
+
 # Install npm packages
 pushd src\Hosted
 npm install
