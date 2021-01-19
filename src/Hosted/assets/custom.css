@@ -370,3 +370,9 @@ pre:not(.hljs) {
     border-color: #464646;
     color: #FFF;
 }
+
+@media (max-width: 991.98px) {
+	.dropdown:hover > a:after, .menu-cnt li.active:hover > a:after {
+		transform: translateY(-50%) rotate(90deg) matrix(-1, 0, 0, 1, 0, 0);
+	}
+}
