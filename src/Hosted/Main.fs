@@ -907,7 +907,6 @@ module Site =
             let header =
                 TrainingsTemplate.TrainingBody()
                     .Map(client <@ ClientSideCode.TalksAndPresentations.GMap(mapStyles) @>)
-                    .ImageSliderInit(client <@ ClientSideCode.Swiper.Init() @>)
                     .Doc()
             TrainingsTemplate()
                 .MenuBar(menubar config.Value)

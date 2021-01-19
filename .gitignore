@@ -14,6 +14,8 @@
 /src/Hosted/node_modules
 /src/Hosted/legal
 /src/Hosted/posts
+/src/Hosted/.vs
+/src/Client/.vs
 /build
 *.user
 /.ionide
