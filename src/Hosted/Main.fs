@@ -36,6 +36,7 @@ type EndPoint =
     | [<EndPoint "GET /research">] Research
     | [<EndPoint "GET /">] Consulting
     | [<EndPoint "GET /careers">] Careers
+    | [<EndPoint "GET /openPosition">] OpenPosition
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
 
@@ -374,6 +375,7 @@ module Site =
     type ResearchTemplate = Templating.Template<"../Hosted/research.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type OpenPositionTemplate = Templating.Template<"../Hosted/openPosition.html", serverLoad=Templating.ServerLoad.WhenChanged>
 
 
     type [<CLIMutable>] RawConfig =
@@ -975,6 +977,13 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |>Content.Page
+        let OPENPOSITION () = 
+            OpenPositionTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |>Content.Page
         // pageNo is 1-based
         let BLOG_LISTING (banner: Doc) (pageNo: int) f =
             let as1 =
@@ -1226,6 +1235,8 @@ module Site =
                 CONSULTING()
             | Careers ->
                 CAREERS()
+            | OpenPosition ->
+                OPENPOSITION()
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
             | Debug ->
@@ -1332,6 +1343,7 @@ type Website() =
                 Research
                 Consulting
                 Careers
+                OpenPosition
             ]
 
 [<assembly: Website(typeof<Website>)>]
