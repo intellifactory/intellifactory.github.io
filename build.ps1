@@ -1,10 +1,10 @@
 echo "Copy legal files"
 
-xcopy .\legal\site-docs\intellifactory.com\* .\src\Hosted\legal\ /s /e
+xcopy .\legal\site-docs\intellifactory.com\* .\src\Hosted\legal\ /s /e /y
 
 echo "Copy blog posts files"
 
-xcopy .\blogs\user\* .\src\Hosted\posts\ /s /e
+xcopy .\blogs\user\* .\src\Hosted\posts\ /s /e /y
 
 echo "Running npm install" 
 
@@ -14,4 +14,12 @@ popd
 
 echo "Running dotnet build"
 
-dotnet build SiteFi.sln
+$mode=$args[0]
+echo "Param $mode"
+if ($mode -ieq "debug") {
+    echo "Running build in Debug mode..."
+    dotnet build SiteFi.sln -c Debug
+} else {
+    echo "Running build in Release mode..."
+    dotnet build SiteFi.sln
+}

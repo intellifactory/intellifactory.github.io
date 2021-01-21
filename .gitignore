@@ -21,3 +21,7 @@
 /.ionide
 *.bak*
 *.done
+*.min.css
+*.map
+src/Hosted/assets/custom.css
+*.ionide*

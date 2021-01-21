@@ -20,5 +20,10 @@ popd
 
 echo "Running dotnet build"
 
-dotnet build SiteFi.sln
+if ["{$1^^}" -eq "DEBUG"]
+then
+    dotnet build SiteFi.sln -c Debug
+else
+    dotnet build SiteFi.sln
+fi
 

@@ -911,6 +911,9 @@ module Site =
                     .Map(client <@ ClientSideCode.TalksAndPresentations.GMap(mapStyles) @>)
                     .Doc()
             TrainingsTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .HeaderContent(header)
                 .Footer(MainTemplate.Footer().Doc())
@@ -919,6 +922,9 @@ module Site =
             |> Content.Page
         let TERMSOFUSE (ctx: Context<_>) =
             LegalTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .HeaderContent(Doc.Empty)
                 .Content(Doc.Verbatim <| Markdown.Convert (getContent ctx "TermsOfUse.md"))
@@ -950,6 +956,9 @@ module Site =
         let CONTACT () =
             let mapContactStyles = mapContactStyles()
             ContactTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .Map(client <@ ClientSideCode.TalksAndPresentations.GMapOffice(mapContactStyles) @>)
                 .Footer(MainTemplate.Footer().Doc())
@@ -958,6 +967,9 @@ module Site =
             |> Content.Page
         let RESEARCH () = 
             ResearchTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif    
                 .MenuBar(menubar config.Value)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
@@ -965,6 +977,9 @@ module Site =
             |>Content.Page
         let CONSULTING () =
             ConsultingTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
@@ -972,6 +987,9 @@ module Site =
             |>Content.Page
         let CAREERS () = 
             CareersTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
@@ -979,6 +997,9 @@ module Site =
             |>Content.Page
         let OPENPOSITION () = 
             OpenPositionTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif    
                 .MenuBar(menubar config.Value)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
@@ -1004,6 +1025,9 @@ module Site =
                 let isFirst = pageNo = 1
                 let isLast = List.length as1 - pageNo < 1
                 BlogListTemplate()
+#if !DEBUG
+                    .ReleaseMin(".min")
+#endif
                     .Menubar(menubar config.Value)
                     .Banner(banner)
                     .ArticleList(ARTICLES articles)
