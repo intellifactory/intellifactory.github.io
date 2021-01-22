@@ -160,6 +160,11 @@ module Urls =
         else
             sprintf "/user/%s" user
     let LANG (lang: string) = sprintf "/%s" lang
+    let RSS_URL user =
+        if String.IsNullOrEmpty user then
+            sprintf "/rss"
+        else
+            sprintf "/rss/%s.rss" user
 
 module Helpers =
     open System.IO
@@ -1016,14 +1021,15 @@ module Site =
             else
                 UserBlogListTemplate()
             |> fun template ->
-                let name = user
-                    //if String.IsNullOrEmpty(user) then
-                    //    config.Value.MasterUserDisplayName
-                    //else
-                    //    config.Value.Users.[user]
+                let name =
+                    if String.IsNullOrEmpty(user) then
+                        config.Value.MasterUserDisplayName
+                    else
+                        config.Value.Users.[user]
                 template
                     .Menubar(menubar config.Value)
                     .AuthorName(name)
+                    .AuthorRSSUrl(Urls.RSS_URL user)
                     .ArticleList(Map.filter f articles.Value |> ARTICLES)
                     .Pagination(Doc.Empty)
                     .Footer(MainTemplate.Footer().Doc())
