@@ -22,11 +22,6 @@
     <ExtraFiles Include="../Hosted/themekit/**" linkBase="themekit" />
     <ExtraFiles Include="../Hosted/assets/**" linkBase="assets" />
   </ItemGroup>
-
-  <ItemGroup>
-    <RSSFilesToRename Include="$(OutputDirectory)/rss/*.html" />
-    <AtomFilesToRename Include="$(OutputDirectory)/atom/*.html" />
-  </ItemGroup>
     
   <Target Name="CopyFiles" AfterTargets="Build">
     <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="$(OutputDirectory)/%(linkBase)/%(RecursiveDir)" />
