@@ -12,6 +12,7 @@
     <Content Include="404.html" />
     <Content Include="assets\custom.css" />
     <Content Include="assets\skin.css" />
+    <Content Include="userbloglist.html" />
     <Content Include="contact.html" />
     <Content Include="legal.html" />
     <Content Include="trainings.html" />
