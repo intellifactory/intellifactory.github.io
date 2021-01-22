@@ -2,9 +2,13 @@ param(
     [switch] $buildOnly
 )
 
+# Initialize git submodules
+git submodule update --init --recursive
+
 # Install npm packages
 pushd src\Hosted
 npm install
+npx grunt
 popd
 
 if (!$buildOnly) {

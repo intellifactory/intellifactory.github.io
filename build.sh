@@ -1,29 +1,39 @@
 #!/bin/bash
 
-echo "Copy legal/site-docs/if.com/ under src/Hosted/legal/"
-
-cp -r legal/site-docs/intellifactory.com/ src/Hosted/legal/
-
-echo "Copy blogposts under /src/Hosted/posts"
-
-cp -r blogs/user src/Hosted/posts
-
-echo "Installing dotnet-serve"
-
-dotnet tool install dotnet-serve --tool-path .tools
-
-echo "Running npm install"
-
-pushd src/Hosted
-npm install
-popd
-
 echo "Running dotnet build"
 
-if ["{$1^^}" -eq "DEBUG"]
+if [[ $(echo "$2" | awk '{print toupper($0)}') = "-PROJECT" ]];
 then
-    dotnet build SiteFi.sln -c Debug
+    if [[ $(echo "$3" | awk '{print toupper($0)}') = "CLIENT" ]] || [[ $(echo "$3" | awk '{print toupper($0)}') = "WEBSITE" ]] || [[ $(echo "$3" | awk '{print toupper($0)}') = "HOSTED" ]];
+    then
+        if [[ $(echo "$1" | awk '{print toupper($0)}') = "-DEB" ]];
+        then
+            dotnet build "src/$3/$3.fsproj" --no-incremental -c Debug 
+        else
+            dotnet build "src/$3/$3.fsproj" --no-incremental
+        fi
+    else
+        >&2 echo "Incorrect project name"
+        exit 1
+    fi
 else
-    dotnet build SiteFi.sln
+    if [[ $(echo "$1" | awk '{print toupper($0)}') = "-PROJECT" ]];
+    then
+        if [[ $(echo "$2" | awk '{print toupper($0)}') = "CLIENT" ]] || [[ $(echo "$2" | awk '{print toupper($0)}') = "WEBSITE" ]] || [[ $(echo "$2" | awk '{print toupper($0)}') = "HOSTED" ]];
+        then
+            dotnet build "src/$2/$2.fsproj" --no-incremental
+        else
+            >&2 echo "Incorrect project name"
+            exit 1
+        fi
+    else
+        if [[ $(echo "$1" | awk '{print toupper($0)}') = "-DEB" ]];
+        then
+            dotnet build SiteFi.sln --no-incremental -c Debug 
+        else
+            dotnet build SiteFi.sln --no-incremental
+        fi
+    fi
 fi
+
 

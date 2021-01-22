@@ -29,12 +29,24 @@ module.exports = function(grunt) {
 					'assets/custom.css': 'assets/custom.scss'
 				}
 			}
+		},
+		watch: {
+			sass: {
+				files: ['**/*.scss'],
+				tasks: ['sass']
+			},
+			cssmin: {
+				files: ['**/*.css'],
+				tasks: ['cssmin']
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	 
+	grunt.registerTask('develop', ['sass','cssmin','watch']);
 	grunt.registerTask('default', ['sass','cssmin']);
 };

@@ -1,25 +1,29 @@
-echo "Copy legal files"
-
-xcopy .\legal\site-docs\intellifactory.com\* .\src\Hosted\legal\ /s /e /y
-
-echo "Copy blog posts files"
-
-xcopy .\blogs\user\* .\src\Hosted\posts\ /s /e /y
-
-echo "Running npm install" 
-
-pushd src/Hosted
-npm install
-popd
+Param(
+    [Switch]
+    $deb,
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("client", "hosted", "website")]
+    [String]
+    $project
+)
 
 echo "Running dotnet build"
 
-$mode=$args[0]
-echo "Param $mode"
-if ($mode -ieq "debug") {
-    echo "Running build in Debug mode..."
-    dotnet build SiteFi.sln -c Debug
+if ($project -ne "") {
+    if ($deb) {
+        echo "Running build in Debug mode..."
+        dotnet build "src\$project\$project.fsproj" --no-incremental -c Debug
+    } else {
+        echo "Running build in Release mode..."
+        dotnet build "src\$project\$project.fsproj" --no-incremental
+    }
 } else {
-    echo "Running build in Release mode..."
-    dotnet build SiteFi.sln
+    if ($deb) {
+        echo "Running build in Debug mode..."
+        dotnet build SiteFi.sln --no-incremental -c Debug
+    } else {
+        echo "Running build in Release mode..."
+        dotnet build SiteFi.sln --no-incremental
+    }
 }
+
