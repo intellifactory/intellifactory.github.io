@@ -23,6 +23,11 @@
     <ExtraFiles Include="../Hosted/assets/**" linkBase="assets" />
   </ItemGroup>
 
+  <ItemGroup>
+    <RSSFilesToRename Include="$(OutputDirectory)/rss/*.html" />
+    <AtomFilesToRename Include="$(OutputDirectory)/atom/*.html" />
+  </ItemGroup>
+    
   <Target Name="CopyFiles" AfterTargets="Build">
     <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="$(OutputDirectory)/%(linkBase)/%(RecursiveDir)" />
   </Target>
@@ -31,6 +36,11 @@
     <Message Text="Renaming feed.atom.html to feed.atom." />  
     <Error Condition="!Exists('$(OutputDirectory)/feed.atom.html') And !Exists('$(OutputDirectory)/feed.atom')" Text="Can't find feed.atom.html"/>
     <Move Condition="Exists('$(OutputDirectory)/feed.atom.html')" SourceFiles="$(OutputDirectory)/feed.atom.html" DestinationFiles="$(OutputDirectory)/feed.atom" />
+  </Target>
+
+  <Target Name="CopyAtomFiles" AfterTargets="RenameAtom">
+    <Message Text="Renaming atom/*.html to atom/*.atom." />
+    <Move SourceFiles="$(AtomFilesToRename).html" DestinationFiles="$(FileName).atom" />
   </Target>
 
   <Target Name="RenameRSS" AfterTargets="Build" Outputs="$(OutputDirectory)/feed.rss">
