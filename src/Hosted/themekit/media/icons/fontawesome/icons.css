@@ -79,3 +79,21 @@
 .fa-rss:before {
   content: "\f09e";
 }
+
+/* Other icons */
+
+.fa-user-graduate:before {
+    content: "\f501";
+}
+
+.fa-calendar-alt:before {
+    content: "\f073";
+}
+
+.fa-user-alt:before {
+    content: "\f406";
+}
+
+.fa-chart-bar:before {
+    content: "\f080";
+}
