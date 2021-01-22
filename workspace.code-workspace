@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		// Only show workspace configured tasks
+		"taskExplorer.enableWorkspace": true,
+		"taskExplorer.enableNpm": false,
+		"taskExplorer.exclude": [ "**" ]
+	},
+	"extensions": {
+		"recommendations": [
+			// For recognizing and using editorconfig settings
+			"editorconfig.editorconfig", 
+			// For advanced git interaction within VSCode
+			"eamodio.gitlens",
+			// For handling F# projects
+			"ionide.ionide-fsharp",
+			// For editing yaml files
+			"redhat.vscode-yaml",
+			// For quickly accessing workspace configured tasks
+			"spmeesseman.vscode-taskexplorer"
+		]
+	}
+}
