@@ -1021,11 +1021,11 @@ module Site =
             else
                 UserBlogListTemplate()
             |> fun template ->
-                let name =
-                    if String.IsNullOrEmpty(user) then
-                        config.Value.MasterUserDisplayName
-                    else
-                        config.Value.Users.[user]
+                let name = user
+                    //if String.IsNullOrEmpty(user) then
+                    //    config.Value.MasterUserDisplayName
+                    //else
+                    //    config.Value.Users.[user]
                 template
                     .Menubar(menubar config.Value)
                     .AuthorName(name)
