@@ -62,7 +62,7 @@
    Longitude:Longitude
   };
  };
- TalksAndPresentations.GMapOffice$338$32=function(styleJson)
+ TalksAndPresentations.GMapOffice$339$32=function(styleJson)
  {
   return function(el)
   {
@@ -94,7 +94,7 @@
    },r$2.map=map,r$2.title="IntelliFactory",r$2.icon=icon,r$2));
   })],[]);
  };
- TalksAndPresentations.GMap$307$32=function(styleJson)
+ TalksAndPresentations.GMap$308$32=function(styleJson)
  {
   return function(el)
   {
