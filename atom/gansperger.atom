@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IntelliFactory Blog</title>
+  <subtitle>Building business applications with F# since 2004</subtitle>
+  <link href="http://mywebsite.com" />
+  <updated>2021-01-22T21:15:26Z</updated>
+  <entry>
+    <title>Try WebSharper: version info about extensions and some embedding improvements</title>
+    <link href="http://mywebsite.com/user/gansperger/20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements" />
+    <id>gansperger20151006-try-websharper-version-info-about-extensions-and-some-embedding-improvements</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>A new dialog has been added showing a version number for the site and all the version info about the extensions for better transparency. A new feature has also been introduced, which lets the user decide which page they want to show by default when embedding a snippet.</summary>
+    <updated>2015-10-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Try WebSharper: on-hover type info</title>
+    <link href="http://mywebsite.com/user/gansperger/20150918-try-websharper-on-hover-type-info" />
+    <id>gansperger20150918-try-websharper-on-hover-type-info</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>A new version of Try WebSharper is out featuring type information on hover and the addition of most of our private and premium extensions!</summary>
+    <updated>2015-09-18T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Try WebSharper: update notes for snippets</title>
+    <link href="http://mywebsite.com/user/gansperger/20150826-try-websharper-update-notes-for-snippets" />
+    <id>gansperger20150826-try-websharper-update-notes-for-snippets</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>A new release of Try WebSharper is out  featuring some enhancements regarding snippet meta-data and embedding.</summary>
+    <updated>2015-08-26T00:00:00Z</updated>
+  </entry>
+</feed>

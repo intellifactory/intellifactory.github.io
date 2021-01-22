@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>IntelliFactory Blog</title>
+    <description>Building business applications with F# since 2004</description>
+    <link>http://mywebsite.com</link>
+    <lastBuildDate>Fri, 22 Jan 2021 21:15:26 UTC</lastBuildDate>
+    <item>
+      <title>Introducing WIG patterns</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20101022-introducing-wig-patterns</link>
+      <guid isPermaLink="false">diego.echeverri20101022-introducing-wig-patterns</guid>
+      <category>dsl</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <category>wig</category>
+      <description></description>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Starting with WebSharper Interface Generator</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20101007-starting-with-websharper-interface-generator</link>
+      <guid isPermaLink="false">diego.echeverri20101007-starting-with-websharper-interface-generator</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <category>wig</category>
+      <description>WIG is an F# DSL and source-level translator for creating bindings for 3rd party libraries.</description>
+      <pubDate>Thu, 07 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Introducing WIG patterns</title>
+      <link>http://mywebsite.com/user/diego.echeverri/20100125-data-visualization-with-websharper</link>
+      <guid isPermaLink="false">diego.echeverri20100125-data-visualization-with-websharper</guid>
+      <category>fsharp</category>
+      <category>googlevisualization</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>In this post I'll show you how to make a nice visualization similar to the ones used by Hans Rosling. For this, we'll use the WebSharper Google Visualization bindings available as an extension package to the core platform.</description>
+      <pubDate>Mon, 25 Jan 2010 00:00:00 UTC</pubDate>
+    </item>
+  </channel>
+</rss>

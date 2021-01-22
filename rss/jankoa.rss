@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>IntelliFactory Blog</title>
+    <description>Building business applications with F# since 2004</description>
+    <link>http://mywebsite.com</link>
+    <lastBuildDate>Fri, 22 Jan 2021 21:15:26 UTC</lastBuildDate>
+    <item>
+      <title>WebSharper 4.5.8 released with Visual Studio 2019 support</title>
+      <link>http://mywebsite.com/user/jankoa/20190226-websharper-4-5-8-released-with-visual-studio-2019-support</link>
+      <guid isPermaLink="false">jankoa20190226-websharper-4-5-8-released-with-visual-studio-2019-support</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.5.8 has client-side support for FSharp.Core 4.6 functions and templates for VS2019</description>
+      <pubDate>Tue, 26 Feb 2019 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.5.9 released with F# anonymous record support</title>
+      <link>http://mywebsite.com/user/jankoa/20190226-websharper-4-5-9-released-with-f-anonymous-record-support</link>
+      <guid isPermaLink="false">jankoa20190226-websharper-4-5-9-released-with-f-anonymous-record-support</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.5.9 has client-side support for F# anonymous records and build fixes.</description>
+      <pubDate>Tue, 26 Feb 2019 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Create JavaScript libraries from your C# or F# code</title>
+      <link>http://mywebsite.com/user/jankoa/20180615-create-javascript-libraries-from-your-c-or-f-code</link>
+      <guid isPermaLink="false">jankoa20180615-create-javascript-libraries-from-your-c-or-f-code</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Learn how to use WebSharper's JavaScriptExport feature to create standalone .js files from your .NET projects</description>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.2.4 released</title>
+      <link>http://mywebsite.com/user/jankoa/20180312-websharper-4-2-4-released</link>
+      <guid isPermaLink="false">jankoa20180312-websharper-4-2-4-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.1.6 has F# query on the client and net4x builds not depending on netstandard</description>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Deploying a .NET Core WebSharper site in AWS Lambda</title>
+      <link>http://mywebsite.com/user/jankoa/20180221-deploying-a-net-core-websharper-site-in-aws-lambda</link>
+      <guid isPermaLink="false">jankoa20180221-deploying-a-net-core-websharper-site-in-aws-lambda</guid>
+      <category>aws</category>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>serverless</category>
+      <category>websharper</category>
+      <description>Tutorial for instantiating a WebSharper site and configuring it to run on AWS Lambda</description>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.2-beta released with .NET Core/Standard support</title>
+      <link>http://mywebsite.com/user/jankoa/20180212-websharper-4-2-beta-released-with-net-core-standard-support</link>
+      <guid isPermaLink="false">jankoa20180212-websharper-4-2-beta-released-with-net-core-standard-support</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.2-beta adds support for .NET Core and compiler configuration via json</description>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.1.2 released</title>
+      <link>http://mywebsite.com/user/jankoa/20180207-websharper-4-1-2-released</link>
+      <guid isPermaLink="false">jankoa20180207-websharper-4-1-2-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.1.2 has enhancements for C# routing and bug fixes</description>
+      <pubDate>Wed, 07 Feb 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.1.6 released</title>
+      <link>http://mywebsite.com/user/jankoa/20180207-websharper-4-1-6-released</link>
+      <guid isPermaLink="false">jankoa20180207-websharper-4-1-6-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.1.6 has enhancements for bundle projects and bug fixes</description>
+      <pubDate>Wed, 07 Feb 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.1.1 released</title>
+      <link>http://mywebsite.com/user/jankoa/20180109-websharper-4-1-1-released</link>
+      <guid isPermaLink="false">jankoa20180109-websharper-4-1-1-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.1.1 expands and fixes multiple client-server features</description>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4.1 released</title>
+      <link>http://mywebsite.com/user/jankoa/20171225-websharper-4-1-released</link>
+      <guid isPermaLink="false">jankoa20171225-websharper-4-1-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4.1 introduces multiple new client-server features</description>
+      <pubDate>Mon, 25 Dec 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Announcing WebSharper 4 Release Candidate</title>
+      <link>http://mywebsite.com/user/jankoa/20170908-announcing-websharper-4-release-candidate</link>
+      <guid isPermaLink="false">jankoa20170908-announcing-websharper-4-release-candidate</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>Full stack of `WebSharper.4.0-rc` packages are now available on NuGet.</description>
+      <pubDate>Fri, 08 Sep 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4 beta-10 released</title>
+      <link>http://mywebsite.com/user/jankoa/20170828-websharper-4-beta-10-released</link>
+      <guid isPermaLink="false">jankoa20170828-websharper-4-beta-10-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>Fixes and old and recent community requests are released</description>
+      <pubDate>Mon, 28 Aug 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4 beta-9 released</title>
+      <link>http://mywebsite.com/user/jankoa/20170726-websharper-4-beta-9-released</link>
+      <guid isPermaLink="false">jankoa20170726-websharper-4-beta-9-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>Compiler and output optimizations, auto-versioning scripts</description>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4 beta-7 released</title>
+      <link>http://mywebsite.com/user/jankoa/20170609-websharper-4-beta-7-released</link>
+      <guid isPermaLink="false">jankoa20170609-websharper-4-beta-7-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4 beta now has F#4.1 and C#7 language support</description>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4 beta-6 bugfix released</title>
+      <link>http://mywebsite.com/user/jankoa/20170412-websharper-4-beta-6-bugfix-released</link>
+      <guid isPermaLink="false">jankoa20170412-websharper-4-beta-6-bugfix-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>Fixes for tail recursion optimizations, lighter representation of F# unions/records with no extra members</description>
+      <pubDate>Wed, 12 Apr 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 4 beta-6 released</title>
+      <link>http://mywebsite.com/user/jankoa/20170325-websharper-4-beta-6-released</link>
+      <guid isPermaLink="false">jankoa20170325-websharper-4-beta-6-released</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>WebSharper 4 beta-6 contains updates to DOM and JQuery bindings, erased union types, JS output optimizations and fixes</description>
+      <pubDate>Sat, 25 Mar 2017 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Distributed web applications in F# with WebSharper</title>
+      <link>http://mywebsite.com/user/jankoa/20161207-distributed-web-applications-in-f-with-websharper</link>
+      <guid isPermaLink="false">jankoa20161207-distributed-web-applications-in-f-with-websharper</guid>
+      <category>fsadvent</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>remoting</category>
+      <category>websharper</category>
+      <description>Introducing new and improved WebSharper 4 beta features for RPCs: customizing both client and server side.</description>
+      <pubDate>Wed, 07 Dec 2016 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>The road to WebSharper 4</title>
+      <link>http://mywebsite.com/user/jankoa/20161207-the-road-to-websharper-4</link>
+      <guid isPermaLink="false">jankoa20161207-the-road-to-websharper-4</guid>
+      <category>csharp</category>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>We started work on WebSharper 4 more than a year ago, open-sourced it in May and published first beta packages in August. It is a project with a big scope and still some features are planned before we would call it stable. This article is an introduction and also a status report.</description>
+      <pubDate>Wed, 07 Dec 2016 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 3.5.14 released</title>
+      <link>http://mywebsite.com/user/jankoa/20151030-websharper-3-5-14-released</link>
+      <guid isPermaLink="false">jankoa20151030-websharper-3-5-14-released</guid>
+      <category>fsharp</category>
+      <category>spa</category>
+      <category>websharper</category>
+      <description>This is a small bufgix release for SPA projects.</description>
+      <pubDate>Fri, 30 Oct 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 3.2.10 released</title>
+      <link>http://mywebsite.com/user/jankoa/20150625-websharper-3-2-10-released</link>
+      <guid isPermaLink="false">jankoa20150625-websharper-3-2-10-released</guid>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>This is a bugfix release mainly focusing on issues exposed by WebSharper.Warp</description>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 3.0 released</title>
+      <link>http://mywebsite.com/user/jankoa/20150416-websharper-3-0-released</link>
+      <guid isPermaLink="false">jankoa20150416-websharper-3-0-released</guid>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>This new major release adds a cleaner metaprogramming API, date formatting for JSON API, bug fixes and proxy revisions, among many other changes.</description>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper-3.0.36-alpha released</title>
+      <link>http://mywebsite.com/user/jankoa/20150225-websharper-3-0-36-alpha-released</link>
+      <guid isPermaLink="false">jankoa20150225-websharper-3-0-36-alpha-released</guid>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>This is our release candidate API-wise, last batch of breaking changes.</description>
+      <pubDate>Wed, 25 Feb 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.28 released</title>
+      <link>http://mywebsite.com/user/jankoa/20150218-cloudsharper-0-9-28-released</link>
+      <guid isPermaLink="false">jankoa20150218-cloudsharper-0-9-28-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This is a bugfix release for the editor.</description>
+      <pubDate>Wed, 18 Feb 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper.3.0.26-alpha released</title>
+      <link>http://mywebsite.com/user/jankoa/20150210-websharper-3-0-26-alpha-released</link>
+      <guid isPermaLink="false">jankoa20150210-websharper-3-0-26-alpha-released</guid>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>New release of WebSharper 3.0-alpha contains strong typing for all kinds of JavaScript functions and a major update to the Interface Generator API.</description>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 3.0.3-alpha released</title>
+      <link>http://mywebsite.com/user/jankoa/20141216-websharper-3-0-3-alpha-released</link>
+      <guid isPermaLink="false">jankoa20141216-websharper-3-0-3-alpha-released</guid>
+      <category>fsharp</category>
+      <category>javascript</category>
+      <category>websharper</category>
+      <description>This is our first release of WebSharper 3.0-alpha with a new feature: source mapping.</description>
+      <pubDate>Tue, 16 Dec 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 2.5.134 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141202-websharper-2-5-134-released</link>
+      <guid isPermaLink="false">jankoa20141202-websharper-2-5-134-released</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Introducing proxies for Async cancellation, MailboxProcessor, Printf.</description>
+      <pubDate>Tue, 02 Dec 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.22.2 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141117-cloudsharper-0-9-22-2-released</link>
+      <guid isPermaLink="false">jankoa20141117-cloudsharper-0-9-22-2-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This is a bugfix release with some additions for FSI.</description>
+      <pubDate>Mon, 17 Nov 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.22.1 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141029-cloudsharper-0-9-22-1-released</link>
+      <guid isPermaLink="false">jankoa20141029-cloudsharper-0-9-22-1-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This is a bugfix release for cloud workspace management.</description>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.22.0 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141028-cloudsharper-0-9-22-0-released</link>
+      <guid isPermaLink="false">jankoa20141028-cloudsharper-0-9-22-0-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This release adds cloud workspace management and bug fixes.</description>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.20.2 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141009-cloudsharper-0-9-20-2-released</link>
+      <guid isPermaLink="false">jankoa20141009-cloudsharper-0-9-20-2-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This is a bugfix release for the CS local service.</description>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 2.5.127 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141009-websharper-2-5-127-released</link>
+      <guid isPermaLink="false">jankoa20141009-websharper-2-5-127-released</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This version brings small fixes and RPC improvements</description>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.20.1 released</title>
+      <link>http://mywebsite.com/user/jankoa/20141006-cloudsharper-0-9-20-1-released</link>
+      <guid isPermaLink="false">jankoa20141006-cloudsharper-0-9-20-1-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This release makes tooltips better, adds Go To Definition.</description>
+      <pubDate>Mon, 06 Oct 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.20.0 released</title>
+      <link>http://mywebsite.com/user/jankoa/20140929-cloudsharper-0-9-20-0-released</link>
+      <guid isPermaLink="false">jankoa20140929-cloudsharper-0-9-20-0-released</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>The highlight of this release is tooltips for F# code.</description>
+      <pubDate>Mon, 29 Sep 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>2048 game with F# + WebSharper</title>
+      <link>http://mywebsite.com/user/jankoa/20140916-2048-game-with-f-websharper</link>
+      <guid isPermaLink="false">jankoa20140916-2048-game-with-f-websharper</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>A re implementation of the popular browser game with easy to override game logic.</description>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper 2.5.124.61 released</title>
+      <link>http://mywebsite.com/user/jankoa/20140904-websharper-2-5-124-61-released</link>
+      <guid isPermaLink="false">jankoa20140904-websharper-2-5-124-61-released</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>This new version brings bugfixes and WIG improvements</description>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>CloudSharper 0.9.13.1</title>
+      <link>http://mywebsite.com/user/jankoa/20140701-cloudsharper-0-9-13-1</link>
+      <guid isPermaLink="false">jankoa20140701-cloudsharper-0-9-13-1</guid>
+      <category>cloudsharper</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>A bugfix release for NuGet management and Mono.</description>
+      <pubDate>Tue, 01 Jul 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Sencha Architect type provider for WebSharper updated</title>
+      <link>http://mywebsite.com/user/jankoa/20140520-sencha-architect-type-provider-for-websharper-updated</link>
+      <guid isPermaLink="false">jankoa20140520-sencha-architect-type-provider-for-websharper-updated</guid>
+      <category>extjs</category>
+      <category>fsharp</category>
+      <category>senchaarchitect</category>
+      <category>senchatouch</category>
+      <category>websharper</category>
+      <description>This release makes it even more convenient to build Ext JS and Sencha Touch applications with WebSharper.</description>
+      <pubDate>Tue, 20 May 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>jQuery Mobile page reuse with WebSharper</title>
+      <link>http://mywebsite.com/user/jankoa/20130607-jquery-mobile-page-reuse-with-websharper</link>
+      <guid isPermaLink="false">jankoa20130607-jquery-mobile-page-reuse-with-websharper</guid>
+      <category>fsharp</category>
+      <category>jquerymobile</category>
+      <category>websharper</category>
+      <description>Sample jQuery mobile single-page application with dynamically created and reused pages using WebSharper</description>
+      <pubDate>Fri, 07 Jun 2013 00:00:00 UTC</pubDate>
+    </item>
+  </channel>
+</rss>

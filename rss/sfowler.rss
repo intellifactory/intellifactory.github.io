@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>IntelliFactory Blog</title>
+    <description>Building business applications with F# since 2004</description>
+    <link>http://mywebsite.com</link>
+    <lastBuildDate>Fri, 22 Jan 2021 21:15:26 UTC</lastBuildDate>
+    <item>
+      <title>WebSharper UI.Next Version 0.1.31.32</title>
+      <link>http://mywebsite.com/user/sfowler/20140819-websharper-ui-next-version-0-1-31-32</link>
+      <guid isPermaLink="false">sfowler20140819-websharper-ui-next-version-0-1-31-32</guid>
+      <category>fsharp</category>
+      <category>ui.next</category>
+      <category>websharper</category>
+      <description>WebSharper UI.Next Version 0.1.31.32 has been released, with bugfixes, and new event &amp; animation functionality.</description>
+      <pubDate>Tue, 19 Aug 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper UI.Next: Animating Single-Page Applications</title>
+      <link>http://mywebsite.com/user/sfowler/20140801-websharper-ui-next-animating-single-page-applications</link>
+      <guid isPermaLink="false">sfowler20140801-websharper-ui-next-animating-single-page-applications</guid>
+      <category>animation</category>
+      <category>fsharp</category>
+      <category>reactivedom</category>
+      <category>ui.next</category>
+      <category>websharper</category>
+      <description>WebSharper.UI.Next provides a powerful declarative animation system. This mini-blog shows how to integrate this with single-page sites and flowlets.</description>
+      <pubDate>Fri, 01 Aug 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Structuring Web Applications with WebSharper.UI.Next</title>
+      <link>http://mywebsite.com/user/sfowler/20140722-structuring-web-applications-with-websharper-ui-next</link>
+      <guid isPermaLink="false">sfowler20140722-structuring-web-applications-with-websharper-ui-next</guid>
+      <category>fsharp</category>
+      <category>reactivedom</category>
+      <category>spa</category>
+      <category>ui.next</category>
+      <category>websharper</category>
+      <description>In this post, we see how WebSharper.UI.Next may be used to structure single-page applications with multiple sub-pages, and how this can be integrated with URL synchronisation.</description>
+      <pubDate>Tue, 22 Jul 2014 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper.UI.Next: An Introduction</title>
+      <link>http://mywebsite.com/user/sfowler/20140714-websharper-ui-next-an-introduction</link>
+      <guid isPermaLink="false">sfowler20140714-websharper-ui-next-an-introduction</guid>
+      <category>dataflow</category>
+      <category>dom</category>
+      <category>fsharp</category>
+      <category>ui.next</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>In this blog, we introduce an experimental UI library for the WebSharper web framework, and illustrate this by means of a small example. </description>
+      <pubDate>Mon, 14 Jul 2014 00:00:00 UTC</pubDate>
+    </item>
+  </channel>
+</rss>

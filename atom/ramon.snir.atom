@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IntelliFactory Blog</title>
+  <subtitle>Building business applications with F# since 2004</subtitle>
+  <link href="http://mywebsite.com" />
+  <updated>2021-01-22T21:15:26Z</updated>
+  <entry>
+    <title>Announcing Formlets for jQuery Mobile</title>
+    <link href="http://mywebsite.com/user/ramon.snir/20110909-announcing-formlets-for-jquery-mobile" />
+    <id>ramon.snir20110909-announcing-formlets-for-jquery-mobile</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>jquery</category>
+    <category>jquerymobile</category>
+    <category>websharper</category>
+    <summary>The WebSharper Extensions for Formlets for jQuery Mobile give you the power of jQuery Mobile combined with the succinctness of formlets.</summary>
+    <updated>2011-09-09T00:00:00Z</updated>
+  </entry>
+</feed>

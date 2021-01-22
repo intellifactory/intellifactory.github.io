@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IntelliFactory Blog</title>
+  <subtitle>Building business applications with F# since 2004</subtitle>
+  <link href="http://mywebsite.com" />
+  <updated>2021-01-22T21:15:26Z</updated>
+  <entry>
+    <title>WebSharper Extensions for ExtJS 4</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110724-websharper-extensions-for-extjs-4" />
+    <id>joel.bjornson20110724-websharper-extensions-for-extjs-4</id>
+    <category>extjs</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I introduce our latest WebSharper Extensions for ExtJS 4.</summary>
+    <updated>2011-07-24T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>An asynchronous Slot machine</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110715-an-asynchronous-slot-machine" />
+    <id>joel.bjornson20110715-an-asynchronous-slot-machine</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I highlight the enhanced support for asynchronous programming in WebSharper. I show an example, modelling a slot machine as asynchronous computations run in parallel.</summary>
+    <updated>2011-07-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Interfacing with dynamic JavaScript APIs in WebSharper</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110621-interfacing-with-dynamic-javascript-apis-in-websharper" />
+    <id>joel.bjornson20110621-interfacing-with-dynamic-javascript-apis-in-websharper</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This article gives and example of how to interface with dynamically typed JavaScript APIs.</summary>
+    <updated>2011-06-21T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Building a Loading Icon Formlet Combinator</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110518-building-a-loading-icon-formlet-combinator" />
+    <id>joel.bjornson20110518-building-a-loading-icon-formlet-combinator</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I show how to implement a formlet combinator encapsulating the common AJAX pattern of displaying a loading icon while submitting values to the server and waiting for a response.</summary>
+    <updated>2011-05-18T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Creating Custom Formlet Controls</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110516-creating-custom-formlet-controls" />
+    <id>joel.bjornson20110516-creating-custom-formlet-controls</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This post shows how to create custom formlet controls.</summary>
+    <updated>2011-05-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Introducing formlets for jQueryUI</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110311-introducing-formlets-for-jqueryui" />
+    <id>joel.bjornson20110311-introducing-formlets-for-jqueryui</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>jqueryui</category>
+    <category>websharper</category>
+    <summary>In this post I introduce our latest WebSharper extension - Formlets for jQueryUI. </summary>
+    <updated>2011-03-11T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Creating a user sign-up form using WebSharper Formlets</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20110211-creating-a-user-sign-up-form-using-websharper-formlets" />
+    <id>joel.bjornson20110211-creating-a-user-sign-up-form-using-websharper-formlets</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I'll highlight some of the features of WebSharper formlets by implementing a user sign-up form.</summary>
+    <updated>2011-02-11T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Generalizing formlets</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20101202-generalizing-formlets" />
+    <id>joel.bjornson20101202-generalizing-formlets</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This post highlights some of the new features of our redesigned formlet library.</summary>
+    <updated>2010-12-02T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Fun with dependent formlets</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20100618-fun-with-dependent-formlets" />
+    <id>joel.bjornson20100618-fun-with-dependent-formlets</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I'm implementing a simple spread-sheet grid widget with dynamic summation of rows and columns, using dependent formlets.</summary>
+    <updated>2010-06-18T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>More of Ext JS and WebSharper</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20100617-more-of-ext-js-and-websharper" />
+    <id>joel.bjornson20100617-more-of-ext-js-and-websharper</id>
+    <category>extjs</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Following up on the previous post on the upcoming WebSharper Ext JS (Native) extension with an example of how to construct a sortable tree widget and reacting to changes of the ordering of tree nodes.</summary>
+    <updated>2010-06-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Reactive programming with WebSharper</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20100617-reactive-programming-with-websharper" />
+    <id>joel.bjornson20100617-reactive-programming-with-websharper</id>
+    <category>fsharp</category>
+    <category>reactive</category>
+    <category>websharper</category>
+    <summary>A small example highlighting F# (and WebSharper) support for asynchronous and reactive programming.</summary>
+    <updated>2010-06-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Writing Ext JS applications with WebSharper</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20100611-writing-ext-js-applications-with-websharper" />
+    <id>joel.bjornson20100611-writing-ext-js-applications-with-websharper</id>
+    <category>extjs</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Some examples of how to use the upcoming WebSharper binding for Ext JS.</summary>
+    <updated>2010-06-11T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Creating web forms using WebSharper Formlets</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20091230-creating-web-forms-using-websharper-formlets" />
+    <id>joel.bjornson20091230-creating-web-forms-using-websharper-formlets</id>
+    <category>formlets</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this post I give a short introduction to the WebSharper formlet library.</summary>
+    <updated>2009-12-30T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Basic HTML construction with WebSharper</title>
+    <link href="http://mywebsite.com/user/joel.bjornson/20091210-basic-html-construction-with-websharper" />
+    <id>joel.bjornson20091210-basic-html-construction-with-websharper</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The fundamentals of building HTML (DOM nodes) with WebSharper.</summary>
+    <updated>2009-12-10T00:00:00Z</updated>
+  </entry>
+</feed>

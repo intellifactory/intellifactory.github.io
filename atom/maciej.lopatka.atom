@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IntelliFactory Blog</title>
+  <subtitle>Building business applications with F# since 2004</subtitle>
+  <link href="http://mywebsite.com" />
+  <updated>2021-01-22T21:15:26Z</updated>
+  <entry>
+    <title>TinyMCE Extension for WebSharper Released</title>
+    <link href="http://mywebsite.com/user/maciej.lopatka/20110722-tinymce-extension-for-websharper-released" />
+    <id>maciej.lopatka20110722-tinymce-extension-for-websharper-released</id>
+    <category>fsharp</category>
+    <category>tinymce</category>
+    <category>websharper</category>
+    <summary>We are happy to announce a new WebSharper extension, this time for TinyMCE. TinyMCE is one of the most popular Javascript WYSIWYG editors.</summary>
+    <updated>2011-07-22T00:00:00Z</updated>
+  </entry>
+</feed>

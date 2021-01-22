@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IntelliFactory Blog</title>
+  <subtitle>Building business applications with F# since 2004</subtitle>
+  <link href="http://mywebsite.com" />
+  <updated>2021-01-22T21:15:26Z</updated>
+  <entry>
+    <title>Variations for a WebSharper shopping cart</title>
+    <link href="http://mywebsite.com/user/granicz/20201231-variations-for-a-websharper-shopping-cart" />
+    <id>granicz20201231-variations-for-a-websharper-shopping-cart</id>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>reactive</category>
+    <category>templating</category>
+    <category>ui</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2020-12-31T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Converting a WebSharper HTML app to a client-server one</title>
+    <link href="http://mywebsite.com/user/granicz/20200116-converting-a-websharper-html-app-to-a-client-server-one" />
+    <id>granicz20200116-converting-a-websharper-html-app-to-a-client-server-one</id>
+    <category>blogging</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In my previous article about "F# metablogging: introducing BlogEngine for your static markdown-based F# blog", I briefly outlined a quick strategy to switch a WebSharper HTML project to a hosted, client-server app, and vice versa. In this article, I will walk through some suprises that came along the way and what I did to resolve them.</summary>
+    <updated>2020-01-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>F# metablogging: introducing BlogEngine for your static markdown-based F# blog</title>
+    <link href="http://mywebsite.com/user/granicz/20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog" />
+    <id>granicz20191226-f-metablogging-introducing-blogengine-for-your-static-markdown-based-f-blog</id>
+    <category>blogging</category>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>In this article, I want to show you another way of keeping your SSG in F#: using WebSharper. Armed with the full power of a .NET web framework and its templating features (see the HTML templates section), this has numerous advantages, most importantly, among others, that you can embed dynamic features written in F# or C# to give you a truly impressive and dynamic blog, despite being statically generated.</summary>
+    <updated>2019-12-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Your first Bolero project not compiling? Try this!</title>
+    <link href="http://mywebsite.com/user/granicz/20190905-your-first-bolero-project-not-compiling-try-this" />
+    <id>granicz20190905-your-first-bolero-project-not-compiling-try-this</id>
+    <category>bolero</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The Bolero homepage starts off with a video that shows you how to create your first client-server app with three simple commands, ...</summary>
+    <updated>2019-09-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Announcing Try F# on WebAssembly</title>
+    <link href="http://mywebsite.com/user/granicz/20181219-announcing-try-f-on-webassembly" />
+    <id>granicz20181219-announcing-try-f-on-webassembly</id>
+    <category>bolero</category>
+    <category>fcs</category>
+    <category>fsharp</category>
+    <category>tryfs</category>
+    <category>wasm</category>
+    <category>webassembly</category>
+    <category>websharper</category>
+    <summary>Just a short week ago, we announced the first release of Bolero, enabling full-stack F# web development on WebAssembly. Since then we have been working on a small side project to see what it would take to implement a fully client-side implementation of the F# compiler: basically, to embed FSharp.Compiler.Services (FCS) in a small Bolero application.</summary>
+    <updated>2018-12-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>From enterprise to next-generation web: celebrating 11 years with WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper" />
+    <id>granicz20181210-from-enterprise-to-next-generation-web-celebrating-11-years-with-websharper</id>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>A brief outline of the historical circumstances around WebSharper (just some notes in no particular order) that **position it for a bright future outlook**, and a quick glimple of what we are working on with it to advance the current state of F# web programming.</summary>
+    <updated>2018-12-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Part 2. Model-View-Update (MVU) style apps with WebSharper UI</title>
+    <link href="http://mywebsite.com/user/granicz/20180409-part-2-model-view-update-mvu-style-apps-with-websharper-ui" />
+    <id>granicz20180409-part-2-model-view-update-mvu-style-apps-with-websharper-ui</id>
+    <category>elm</category>
+    <category>fsharp</category>
+    <category>mvu</category>
+    <category>ui</category>
+    <category>websharper</category>
+    <summary>In this tutorial, you will learn about using WebSharper UI to implement a simple Model-View-Update (MVU) application pattern, similar to the Elm architecture. In subsequent tutorials, you will learn about enhancing this pattern to a full-scale application development architecture (The WebSharper Architecture) that has superior performance and sufficient flexibility to implement any type of web application.</summary>
+    <updated>2018-04-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>First steps: Using HTML templates, accessing form values, and wiring events</title>
+    <link href="http://mywebsite.com/user/granicz/20180327-first-steps-using-html-templates-accessing-form-values-and-wiring-events" />
+    <id>granicz20180327-first-steps-using-html-templates-accessing-form-values-and-wiring-events</id>
+    <category>fsharp</category>
+    <category>templating</category>
+    <category>ui</category>
+    <category>websharper</category>
+    <summary>Congratulations on taking the first step to learn WebSharper! We have carefully put together this hands-on tutorial with the aim to help you get started with WebSharper and on your way to learn functional, reactive web development, putting you on a fast track to unleash the real web developer in you. The skills you pick up with WebSharper will make you a better web developer, and the concepts you learn will remain valid and useful with other functional, reactive web frameworks and libraries as well.</summary>
+    <updated>2018-03-27T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Serving SPAs</title>
+    <link href="http://mywebsite.com/user/granicz/20171229-serving-spas" />
+    <id>granicz20171229-serving-spas</id>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>routing</category>
+    <category>templating</category>
+    <category>ui</category>
+    <category>websharper</category>
+    <summary>Consider a very typical scenario: you have a web application that serves an SPA. The SPA itself has several "pages," each with its own client-side routed URLs (think of Gmail, for instance.) Then people copy some of these URLs from their "session" and send them to others, who in turn expect to find exactly what the sender saw. Except with most SPAs, the server-side knows nothing about the URLs generated on the client and usually throws you back to some initial SPA page. Implementing this properly requires you to share all or a subset of the URLs both on the server and on the client. With WebSharper, this is easy.</summary>
+    <updated>2017-12-29T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Simple reactive scenarios with WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20161231-simple-reactive-scenarios-with-websharper" />
+    <id>granicz20161231-simple-reactive-scenarios-with-websharper</id>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>reactive</category>
+    <category>ui</category>
+    <category>ui.next</category>
+    <category>websharper</category>
+    <summary>One of the most fundamental design considerations any developer must deal with is handling change. In this article, we are primarily concerned with client-side state and changes to it. Change can be brought about by various external factors (user input such as mouse or keyboard events, server push messages, etc.) or by means internal to the application itself.</summary>
+    <updated>2016-12-31T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>A faster and slicker Try WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20160406-a-faster-and-slicker-try-websharper" />
+    <id>granicz20160406-a-faster-and-slicker-try-websharper</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>A while ago we rolled out a new UI for Try WebSharper, essentially changing it into a snappy single-page application (SPA). Among others, you can now switch between trying out various snippets and making your own without any noticable delay, no more annoying page refreshes. [more..]</summary>
+    <updated>2016-04-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper - a year in review</title>
+    <link href="http://mywebsite.com/user/granicz/20151226-websharper-a-year-in-review" />
+    <id>granicz20151226-websharper-a-year-in-review</id>
+    <category>bootstrap</category>
+    <category>cdn</category>
+    <category>charting</category>
+    <category>csharp</category>
+    <category>forms</category>
+    <category>forums</category>
+    <category>fsadvent</category>
+    <category>fsharp</category>
+    <category>html</category>
+    <category>jointjs</category>
+    <category>livedata</category>
+    <category>oss</category>
+    <category>rappid</category>
+    <category>react</category>
+    <category>reactive</category>
+    <category>review</category>
+    <category>sitelets</category>
+    <category>sourcemaps</category>
+    <category>suave</category>
+    <category>ui</category>
+    <category>warp</category>
+    <category>websharper</category>
+    <summary>Just over a year ago, last year in December we released WebSharper 3 on Apache, putting it into the hands of every F# web developer. One thing we learned from WebSharper 2 is that more frequent releases are better and this year kept the whole team busy with constant innovation and new releases. Below is a list I cherry-picked from the WebSharper blog.. [more]</summary>
+    <updated>2015-12-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Data-aware workbooks and client-side data access with WebSharper.Data</title>
+    <link href="http://mywebsite.com/user/granicz/20151104-data-aware-workbooks-and-client-side-data-access-with-websharper-data" />
+    <id>granicz20151104-data-aware-workbooks-and-client-side-data-access-with-websharper-data</id>
+    <category>data</category>
+    <category>fsharp</category>
+    <category>fsharp.data</category>
+    <category>websharper</category>
+    <summary>F# has always excelled at accessing heterogeneous data sources in server-side code through its unique type provider feature: a metaprogramming technique that enables generating (or "providing") domain-specific code to be consumed during compilation, such as generating typed schemas for relational databases, CSV and other data files, or bindings for web services and integration with other languages such as R. Type providers are given an optional set of arguments in your code using custom F# syntax, yielding a type space in return.</summary>
+    <updated>2015-11-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Announcing WebSharper 3.5 with pluggable HTML support</title>
+    <link href="http://mywebsite.com/user/granicz/20151007-announcing-websharper-3-5-with-pluggable-html-support" />
+    <id>granicz20151007-announcing-websharper-3-5-with-pluggable-html-support</id>
+    <category>fsharp</category>
+    <category>ui.next</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the availability of WebSharper 3.5, bringing a couple important changes and numerous bug fixes. Most notably, this release brings alternate HTML implementations to your WebSharper applications, and while there are only two at the moment, new flavors and variations (both in syntax and capabilities), and integrations with third-party markup engines are coming your way soon.</summary>
+    <updated>2015-10-07T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Live F# coding and snippets with dependencies in Try WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20150901-live-f-coding-and-snippets-with-dependencies-in-try-websharper" />
+    <id>granicz20150901-live-f-coding-and-snippets-with-dependencies-in-try-websharper</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>Try WebSharper reached an important milestone today: we just released the first bits of on-the-fly typechecking and code completion, and you can now develop F# web snippets, without any installation, online more easily than ever.</summary>
+    <updated>2015-09-01T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Try WebSharper: snippet versioning, gist import, and other enhancements now available</title>
+    <link href="http://mywebsite.com/user/granicz/20150819-try-websharper-snippet-versioning-gist-import-and-other-enhancements-now-available" />
+    <id>granicz20150819-try-websharper-snippet-versioning-gist-import-and-other-enhancements-now-available</id>
+    <category>fsharp</category>
+    <category>gist</category>
+    <category>snippet</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>A new Try WebSharper is out adding a couple handy new features and addressing a couple annoyances, making it even more easy to publish your F# and WebSharper snippets.</summary>
+    <updated>2015-08-19T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Share and embed Try WebSharper snippets</title>
+    <link href="http://mywebsite.com/user/granicz/20150809-share-and-embed-try-websharper-snippets" />
+    <id>granicz20150809-share-and-embed-try-websharper-snippets</id>
+    <category>fsharp</category>
+    <category>trywebsharper</category>
+    <category>websharper</category>
+    <summary>Just four days ago we released Try WebSharper, and here we go with the first feature enhancement: embedding snippets. A huge thanks to Don Syme for suggesting it.</summary>
+    <updated>2015-08-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>New WebSharper templates</title>
+    <link href="http://mywebsite.com/user/granicz/20150806-new-websharper-templates" />
+    <id>granicz20150806-new-websharper-templates</id>
+    <category>fsharp</category>
+    <category>templates</category>
+    <category>websharper</category>
+    <summary>The recent release of WebSharper 3.4 also brought an update to most of the project templates shipped for Visual Studio, MonoDevelop, and Xamarin Studio.</summary>
+    <updated>2015-08-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Introducing Try WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20150804-introducing-try-websharper" />
+    <id>granicz20150804-introducing-try-websharper</id>
+    <category>fsharp</category>
+    <category>snippets</category>
+    <category>websharper</category>
+    <summary>We are thrilled to announce the availability of Try WebSharper, a simple and fun way to create and share WebSharper snippets with others!</summary>
+    <updated>2015-08-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Introducing WebSharper Warp</title>
+    <link href="http://mywebsite.com/user/granicz/20150615-introducing-websharper-warp" />
+    <id>granicz20150615-introducing-websharper-warp</id>
+    <category>fsharp</category>
+    <category>warp</category>
+    <category>websharper</category>
+    <summary>WebSharper Warp is a friction-less web development library for building scripted and standalone full-stack F# client-server applications. Warp is built on top of WebSharper and is designed to help you become more productive and benefit from the rich WebSharper features more quickly and more directly.  While Warp shorthands target the most typical applications (text, SPAs, multi-page) and easy exploration, you can extend your Warp applications with the full WebSharper capabilities at any time.</summary>
+    <updated>2015-06-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 3.2 with support for scriptable applications, better resource management, and additional streamlined syntax</title>
+    <link href="http://mywebsite.com/user/granicz/20150609-websharper-3-2-with-support-for-scriptable-applications-better-resource-management-and-additional-streamlined-syntax" />
+    <id>granicz20150609-websharper-3-2-with-support-for-scriptable-applications-better-resource-management-and-additional-streamlined-syntax</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are thrilled to announce the availability of WebSharper 3.2, paving the road to further upcoming enhancements to streamline developing and deploying WebSharper apps, and also shipping several key changes summarized here.</summary>
+    <updated>2015-06-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Deploying WebSharper apps to Azure via GitHub</title>
+    <link href="http://mywebsite.com/user/granicz/20150515-deploying-websharper-apps-to-azure-via-github" />
+    <id>granicz20150515-deploying-websharper-apps-to-azure-via-github</id>
+    <category>azure</category>
+    <category>github</category>
+    <category>websharper</category>
+    <summary>This article describes a basic WebSharper client-server application template that you can deploy to Azure via GitHub commits.</summary>
+    <updated>2015-05-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper site enhancements</title>
+    <link href="http://mywebsite.com/user/granicz/20150428-websharper-site-enhancements" />
+    <id>granicz20150428-websharper-site-enhancements</id>
+    <category>websharper</category>
+    <category>website</category>
+    <summary>The recent WebSharper 3 release also saw a number of enhancements to the WebSharper website, including a major reorganization to its content. In this post, I will summarize these, in particular [...]</summary>
+    <updated>2015-04-28T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.30 with WebSharper 3 templates</title>
+    <link href="http://mywebsite.com/user/granicz/20150417-cloudsharper-0-9-30-with-websharper-3-templates" />
+    <id>granicz20150417-cloudsharper-0-9-30-with-websharper-3-templates</id>
+    <category>cloudsharper</category>
+    <category>templates</category>
+    <category>websharper</category>
+    <summary>To match yesterdays's official WebSharper 3 release, we are following up with a CloudSharper update, version 0.9.30.  Most importantly, this release comes with updated WebSharper 3 project templates and the new UI.Next project template to make it easy to try out WebSharper 3 online.</summary>
+    <updated>2015-04-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper forum enhancements</title>
+    <link href="http://mywebsite.com/user/granicz/20150328-websharper-forum-enhancements" />
+    <id>granicz20150328-websharper-forum-enhancements</id>
+    <category>fpish</category>
+    <category>websharper</category>
+    <category>website</category>
+    <summary>In recent weeks we had been busy with a series of enhancements to the WebSharper website and some underlying FPish services. [more...]</summary>
+    <updated>2015-03-28T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 3 alpha now under Apache 2</title>
+    <link href="http://mywebsite.com/user/granicz/20141203-websharper-3-alpha-now-under-apache-2" />
+    <id>granicz20141203-websharper-3-alpha-now-under-apache-2</id>
+    <category>release</category>
+    <category>websharper</category>
+    <summary>We are super excited to announce that as of the very latest 3.0-alpha commit, WebSharper is now available under the Apache 2.0 license, free of charge to anyone, for both closed and open source applications!</summary>
+    <updated>2014-12-03T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Self-hosted WebSharper application template available</title>
+    <link href="http://mywebsite.com/user/granicz/20141113-self-hosted-websharper-application-template-available" />
+    <id>granicz20141113-self-hosted-websharper-application-template-available</id>
+    <category>websharper</category>
+    <summary>A new Visual Studio template has been added to the latest Visual Studio installer called "Self-Hosted Client-Server Application," and you can use this template to build OWIN-based self-hosted applications that can be deployed via an .exe file and without requiring an installed web container (IIS, etc.) on the serving machine.</summary>
+    <updated>2014-11-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Upcoming CloudSharper features in Q3</title>
+    <link href="http://mywebsite.com/user/granicz/20140701-upcoming-cloudsharper-features-in-q3" />
+    <id>granicz20140701-upcoming-cloudsharper-features-in-q3</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary>As we all gear up for an exciting summer, I wanted to share some insights into the upcoming CloudSharper enhancements we are rolling out in the next few months.</summary>
+    <updated>2014-07-01T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Program F# with CloudSharper everywhere</title>
+    <link href="http://mywebsite.com/user/granicz/20140515-program-f-with-cloudsharper-everywhere" />
+    <id>granicz20140515-program-f-with-cloudsharper-everywhere</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Are you an F# user on Mac OS or Linux, looking for the easiest way to develop multi-project F# solutions with full code assistance and type checking?  Would you like to use F# Interactive for developing and testing parts of your web applications interactively? Would you like to benefit from the multitude of web libraries in your development environment? Well, if yes - look no further, CloudSharper, the world's most versatile online IDE has arrived to Mac and Linux!</summary>
+    <updated>2014-05-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper 0.9.9</title>
+    <link href="http://mywebsite.com/user/granicz/20140325-cloudsharper-0-9-9" />
+    <id>granicz20140325-cloudsharper-0-9-9</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This release continues our efforts to require fewer dependencies on your machine before you can use CloudSharper. In earlier releases, various CloudSharper templates (most notably, the WebSharper Sitelet Website template) required .targets files that were part of Visual Studio. This dependency is now eliminated.</summary>
+    <updated>2014-03-25T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha 0.9.8</title>
+    <link href="http://mywebsite.com/user/granicz/20140314-cloudsharper-local-alpha-0-9-8" />
+    <id>granicz20140314-cloudsharper-local-alpha-0-9-8</id>
+    <category>cloudsharper</category>
+    <category>websharper</category>
+    <summary>We are happy to announce CloudSharper Local alpha 0.9.8, encapsulating the latest enhancements to the F# compiler service and delivering several bug fixes to CloudSharper's msbuild support.</summary>
+    <updated>2014-03-14T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha 0.9.7</title>
+    <link href="http://mywebsite.com/user/granicz/20140306-cloudsharper-local-alpha-0-9-7" />
+    <id>granicz20140306-cloudsharper-local-alpha-0-9-7</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the latest release of CloudSharper, version 0.9.7, bringing a new type checking and code assistance engine for F# projects. This last week we have been working hard on moving CloudSharper to FCS (FSharp.Compiler.Service), and with this current release much of the migration work is completed. As a result, the type checker in F# projects is considerably faster, and code assistance features are available in more locations that in previous CloudSharper releases.</summary>
+    <updated>2014-03-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Update: Server exited with code 0</title>
+    <link href="http://mywebsite.com/user/granicz/20140218-update-server-exited-with-code-0" />
+    <id>granicz20140218-update-server-exited-with-code-0</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary></summary>
+    <updated>2014-02-18T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Update: Showing compiler errors</title>
+    <link href="http://mywebsite.com/user/granicz/20140217-update-showing-compiler-errors" />
+    <id>granicz20140217-update-showing-compiler-errors</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <summary>As of 0.9.5, you need to do a build (Ctrl+B) before type checking is initialized properly. Without such explicit build, you may face a whole host of errors while you edit your source files.</summary>
+    <updated>2014-02-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CloudSharper Local alpha available</title>
+    <link href="http://mywebsite.com/user/granicz/20140213-cloudsharper-local-alpha-available" />
+    <id>granicz20140213-cloudsharper-local-alpha-available</id>
+    <category>cloudsharper</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are excited to announce the first release of CloudSharper Local, a spin-off of CloudSharper that uses your local machine to serve the main CloudSharper front-end.  CloudSharper is an awesome new way to work with F# on the web. It enables you to use F# to easily connect to various data sources and visualize data from those data sources in rich HTML5 charts and diagrams. You can also develop HTML5 games, web and mobile applications in pure F# code, and you will feel more productive than ever. CloudSharper comes with a set of project templates to easily get you started and gives you full-fledged interactive web programming capabilities to test on the fly and in small before you deploy your larger applications.</summary>
+    <updated>2014-02-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.5.93 - improved numeric performance</title>
+    <link href="http://mywebsite.com/user/granicz/20140206-websharper-2-5-93-improved-numeric-performance" />
+    <id>granicz20140206-websharper-2-5-93-improved-numeric-performance</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the availability of the most recent WebSharper update, version 2.5.93, released on Feb 4, 2014. This release brings a new and improved optimizer for the Core language that is used as an intermediate form during compilation to JavaScript. The optimizer is able to eliminate more JavaScript expressions, generates more readable code, and improves JavaScript performance of numeric code (such as code using for loops heavily) by 30-50%.</summary>
+    <updated>2014-02-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.5 Release Notes</title>
+    <link href="http://mywebsite.com/user/granicz/20131221-websharper-2-5-release-notes" />
+    <id>granicz20131221-websharper-2-5-release-notes</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the general availability of WebSharper 2.5, and the corresponding new WebSharper site that has gone through a major facelift. I plan to blog about the major individual features in detail as separate blog entries, until then, here is a short list of the main changes.</summary>
+    <updated>2013-12-21T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper: From F# power features to JavaScript interop</title>
+    <link href="http://mywebsite.com/user/granicz/20130322-websharper-from-f-power-features-to-javascript-interop" />
+    <id>granicz20130322-websharper-from-f-power-features-to-javascript-interop</id>
+    <category>fsharp</category>
+    <category>mlocjs</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2013-03-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CUFP 2013 - Call for Presentations</title>
+    <link href="http://mywebsite.com/user/granicz/20130310-cufp-2013-call-for-presentations" />
+    <id>granicz20130310-cufp-2013-call-for-presentations</id>
+    <category>clojure</category>
+    <category>erlang</category>
+    <category>fsharp</category>
+    <category>haskell</category>
+    <category>ocaml</category>
+    <category>scala</category>
+    <category>sml</category>
+    <summary>The annual CUFP workshop is a place where people can see how others are using functional programming to solve real world problems; where practitioners meet and collaborate; where language designers and users can share ideas about the future of their favorite language; and where one can learn practical techniques and approaches for putting functional programming to work.</summary>
+    <updated>2013-03-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Free WebSharper MVP licenses</title>
+    <link href="http://mywebsite.com/user/granicz/20130226-free-websharper-mvp-licenses" />
+    <id>granicz20130226-free-websharper-mvp-licenses</id>
+    <category>free</category>
+    <category>fsharp</category>
+    <category>license</category>
+    <category>websharper</category>
+    <summary>We are happy to announce that we offering free WebSharper developer licenses to all language and web MVPs... [more]</summary>
+    <updated>2013-02-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Replacing a dead RAID5 drive on an HP Microserver running Ubuntu</title>
+    <link href="http://mywebsite.com/user/granicz/20121230-replacing-a-dead-raid5-drive-on-an-hp-microserver-running-ubuntu" />
+    <id>granicz20121230-replacing-a-dead-raid5-drive-on-an-hp-microserver-running-ubuntu</id>
+    <category>drive</category>
+    <category>raid</category>
+    <category>raid5</category>
+    <category>replacing</category>
+    <summary>A while ago I found myself in the unfortunate situation of having a degraded RAID5 array failing to boot after a blackout. So I hooked a monitor to it to see what was going on and found that it got stuck at boot time with identifying one of the disks. After a long timeout, it finally booted into Ubuntu from the attached Flash drive where it reported the degraded RAID array and dropped back to diagnostic mode. [...]</summary>
+    <updated>2012-12-30T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Running the jQuery Mobile WebSharper sample</title>
+    <link href="http://mywebsite.com/user/granicz/20121230-running-the-jquery-mobile-websharper-sample" />
+    <id>granicz20121230-running-the-jquery-mobile-websharper-sample</id>
+    <category>fsharp</category>
+    <category>jquerymobile</category>
+    <category>websharper</category>
+    <summary>The jQuery Mobile sample on the WebSharper site has been out for quite some time now, but it fails to mention an important detail on how to run it standalone. Indeed, copying it straight into a new WebSharper ASP.NET project produces an empty page (which is not empty, only jQuery Mobile fails to kick in to decorate it into a full application), which can be a discouraging start for anyone looking into using jQuery Mobile for building mobile applications with F# and WebSharper. [...]</summary>
+    <updated>2012-12-30T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Last day to register to Tech Mesh 2012</title>
+    <link href="http://mywebsite.com/user/granicz/20121203-last-day-to-register-to-tech-mesh-2012" />
+    <id>granicz20121203-last-day-to-register-to-tech-mesh-2012</id>
+    <category>clojure</category>
+    <category>clojurescript</category>
+    <category>conference</category>
+    <category>erlang</category>
+    <category>fsharp</category>
+    <category>functional</category>
+    <category>haskell</category>
+    <category>play</category>
+    <category>scala</category>
+    <category>websharper</category>
+    <summary>Tech Mesh - The Alternative Programming Conference is designed to support and promote useful non-mainstream technologies in the software industry and dedicated to users and inventors of various languages and technologies. By offering a networking platform to IT architects, software developers and project managers it brings together different programming worlds and creates opportunities to exchange experiences and knowledge, necessary to pick the ”the right tool for the job”.</summary>
+    <updated>2012-12-03T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CUFP 2012 - Call for Presentations</title>
+    <link href="http://mywebsite.com/user/granicz/20120602-cufp-2012-call-for-presentations" />
+    <id>granicz20120602-cufp-2012-call-for-presentations</id>
+    <category>clojure</category>
+    <category>commercial</category>
+    <category>conference</category>
+    <category>cufp</category>
+    <category>erlang</category>
+    <category>fsharp</category>
+    <category>functional</category>
+    <category>haskell</category>
+    <category>ocaml</category>
+    <category>scala</category>
+    <summary>The annual CUFP workshop is a place where people can see how othersare using functional programming to solve real world problems; wherepractitioners meet and collaborate; where language designers and userscan share ideas about the future of their favorite language; and whereone can learn practical techniques and approaches for puttingfunctional programming to work.</summary>
+    <updated>2012-06-02T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Looking for technical reviewers for Expert F# 3.0</title>
+    <link href="http://mywebsite.com/user/granicz/20120525-looking-for-technical-reviewers-for-expert-f-3-0" />
+    <id>granicz20120525-looking-for-technical-reviewers-for-expert-f-3-0</id>
+    <category>book</category>
+    <category>expertfsharp</category>
+    <category>fsharp</category>
+    <category>reviewer</category>
+    <summary>You may have heard that Don, Antonio and I have teamed up again to work on Expert F# 3.0, doing a comprehensive update with quite a bit of changes, and adding a good amount of new material to the book's first and second edition. [more]</summary>
+    <updated>2012-05-25T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.4 Q2 available</title>
+    <link href="http://mywebsite.com/user/granicz/20120426-websharper-2-4-q2-available" />
+    <id>granicz20120426-websharper-2-4-q2-available</id>
+    <category>fsharp</category>
+    <category>release</category>
+    <category>websharper</category>
+    <summary>A few days ago, I blogged about WebSharper 2.4 Q2 Beta, announcing a handful of important changes to WebSharper.  Today, we are happy to announce the general availability of WebSharper 2.4 Q2, available from the WebSharper downloads page.</summary>
+    <updated>2012-04-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.4 Q2 Beta out</title>
+    <link href="http://mywebsite.com/user/granicz/20120416-websharper-2-4-q2-beta-out" />
+    <id>granicz20120416-websharper-2-4-q2-beta-out</id>
+    <category>fsharp</category>
+    <category>release</category>
+    <category>websharper</category>
+    <summary>We have been working hard to bring you WebSharper 2.4 Q2 - and today we are happy to announce the availability of the the first beta (2.4.46)... [more]</summary>
+    <updated>2012-04-16T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.3 Q3 released</title>
+    <link href="http://mywebsite.com/user/granicz/20110924-websharper-2-3-q3-released" />
+    <id>granicz20110924-websharper-2-3-q3-released</id>
+    <category>fsharp</category>
+    <category>mobile</category>
+    <category>websharper</category>
+    <summary>This release ships the preliminary support for mobile devices, a new WebSharper component we call WebSharper Mobile. [more...]</summary>
+    <updated>2011-09-24T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper at CUFP 2011</title>
+    <link href="http://mywebsite.com/user/granicz/20110915-websharper-at-cufp-2011" />
+    <id>granicz20110915-websharper-at-cufp-2011</id>
+    <category>cufp</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <category>workshop</category>
+    <summary>Back in 2004 when we founded IntelliFactory to do commercial F# development, there were just a few dozen people who have heard about F# worldwide. When pitching to various companies or talking informally about what we do I usually met with total utter disbelief - how could a company that specializes in something unknown ever succeed? [...]</summary>
+    <updated>2011-09-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.3 - targeting enterprise applications</title>
+    <link href="http://mywebsite.com/user/granicz/20110715-websharper-2-3-targeting-enterprise-applications" />
+    <id>granicz20110715-websharper-2-3-targeting-enterprise-applications</id>
+    <category>enterprise</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We have been pretty busy these past few months working on a number of enhancements to WebSharper for its 2011 Q2 milestone - and I am happy to announce that the new 2.3 release is now out for public consumption. [more...]</summary>
+    <updated>2011-07-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Expiring WebSharper Professional trials</title>
+    <link href="http://mywebsite.com/user/granicz/20110513-expiring-websharper-professional-trials" />
+    <id>granicz20110513-expiring-websharper-professional-trials</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Since we released WebSharper Professional last week, we received ~200 requests about extending prior trial versions that expired.  As it turns out WebSharper Professional has been in beta for several months and the first users who opted in to try it were now unable to check out the final release due to expired trial licenses. [...]</summary>
+    <updated>2011-05-13T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Announcing WebSharper Professional 2.2</title>
+    <link href="http://mywebsite.com/user/granicz/20110506-announcing-websharper-professional-2-2" />
+    <id>granicz20110506-announcing-websharper-professional-2-2</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Today we are very excited to announce the availability of the final release of WebSharper Professional (version 2.2.x), the premiere web development framework for F# developers, combining the strengths of functional programming with robust and composable web programming abstractions such as formlets and sitelets that unrival the capabilities of any other web framework.  This release follows many long months of hard work and sleepless nights and overall signifies a major new addition to the WebSharper family.</summary>
+    <updated>2011-05-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Announcing ApiStack.net</title>
+    <link href="http://mywebsite.com/user/granicz/20110422-announcing-apistack-net" />
+    <id>granicz20110422-announcing-apistack-net</id>
+    <category>apistack.net</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Have you ever wanted to give your F# library users a nice and clean API documentation but didn't have the right tools to create it? Or you have tried all kinds of API documentation tools and none of them worked for your F# assemblies? Well, now you have to look no further - we have the perfect tool for you: ApiStack.net.</summary>
+    <updated>2011-04-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper RC2 Extension updates</title>
+    <link href="http://mywebsite.com/user/granicz/20110404-websharper-rc2-extension-updates" />
+    <id>granicz20110404-websharper-rc2-extension-updates</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Today we released a comprehensive set of updates for all extensions targeting WebSharper 2 RC2.  If you are using any WebSharper 2 extensions and WebSharper 2 RC2, we recommend that you update your extensions by installing the updates from the Extensions page. [...]</summary>
+    <updated>2011-04-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.1 Professional RC2 released</title>
+    <link href="http://mywebsite.com/user/granicz/20110326-websharper-2-1-professional-rc2-released" />
+    <id>granicz20110326-websharper-2-1-professional-rc2-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are happy to announce that WebSharper 2.1 Professional RC2 is now available for Visual Studio 2008/2010 developers.  You can find and download the latest version from [...]</summary>
+    <updated>2011-03-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Formlets for jQuery UI available</title>
+    <link href="http://mywebsite.com/user/granicz/20110310-formlets-for-jquery-ui-available" />
+    <id>granicz20110310-formlets-for-jquery-ui-available</id>
+    <category>fsharp</category>
+    <category>jqueryui</category>
+    <category>websharper</category>
+    <summary>Today we are happy to announce the availability of the jQuery UI extension for WebSharper formlets. This brings a number of new formlet primitives to the standard WebSharper formlet library that are rendered using jQuery UI controls. These include tabs, sliders, drag and drop panels, orderable lists, among others. [...]</summary>
+    <updated>2011-03-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2 Professional RC1</title>
+    <link href="http://mywebsite.com/user/granicz/20110304-websharper-2-professional-rc1" />
+    <id>granicz20110304-websharper-2-professional-rc1</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The first release candidate for WebSharper 2 Professional is out today, with a few bug fixes and better support for 64-bit machines. [...]</summary>
+    <updated>2011-03-04T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>More WebSharper talks in February</title>
+    <link href="http://mywebsite.com/user/granicz/20110224-more-websharper-talks-in-february" />
+    <id>granicz20110224-more-websharper-talks-in-february</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>It's almost March, but don't rush time - there are still two upcoming WebSharper talks before the end of February: ...</summary>
+    <updated>2011-02-24T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Sencha Touch for WebSharper available</title>
+    <link href="http://mywebsite.com/user/granicz/20110222-sencha-touch-for-websharper-available" />
+    <id>granicz20110222-sencha-touch-for-websharper-available</id>
+    <category>fsharp</category>
+    <category>senchatouch</category>
+    <category>websharper</category>
+    <summary>Mobile application developers can now enjoy, in addition to jQuery Mobile, the latest addition to the WebSharper Extensions Gallery - Sencha Touch.</summary>
+    <updated>2011-02-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>New WebSharper extensions available</title>
+    <link href="http://mywebsite.com/user/granicz/20110205-new-websharper-extensions-available" />
+    <id>granicz20110205-new-websharper-extensions-available</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Today we are happy to announce that we released the first batch of WebSharper extensions to match WebSharper 2.1 Beta 5 - you can download them from the WebSharper downloads page. These are bringing the following libraries to F#: Google Maps, Google Visualization, jQuery UI, jQuery Mobile, Bing Maps, Modernizr, InfoVis, Protovis.</summary>
+    <updated>2011-02-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.1 Beta 5 available</title>
+    <link href="http://mywebsite.com/user/granicz/20110203-websharper-2-1-beta-5-available" />
+    <id>granicz20110203-websharper-2-1-beta-5-available</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Today we are happy to announce WebSharper 2.1 Beta 5, with substantial new features and a major redesign of WebSharper sitelets, among others.  Now with all major features in place and available, we are ramping up to ship the final WebSharper 2.x Professional in the coming weeks.</summary>
+    <updated>2011-02-03T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper proposal for MIX 2011</title>
+    <link href="http://mywebsite.com/user/granicz/20110125-websharper-proposal-for-mix-2011" />
+    <id>granicz20110125-websharper-proposal-for-mix-2011</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>MIX is probably the most well-known and one of, if not the most challenging conferences to present at. It usually features prominent community and Microsoft technology leaders and evangelists and aims to bring together web professionals from all around the world. [...]</summary>
+    <updated>2011-01-25T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper Beta 4 released</title>
+    <link href="http://mywebsite.com/user/granicz/20110105-websharper-beta-4-released" />
+    <id>granicz20110105-websharper-beta-4-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>Happy new year folks, we just rolled out the WebSharper 2.0 Beta4 release - with an enhanced installer and better support for sitelet-based development with some significant performance improvements. The new installer also became smarter and for new users obtains a 90-day trial license automatically so you no longer have to manually activate.</summary>
+    <updated>2011-01-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Talk: Introducing WebSharper Sitelets</title>
+    <link href="http://mywebsite.com/user/granicz/20101221-talk-introducing-websharper-sitelets" />
+    <id>granicz20101221-talk-introducing-websharper-sitelets</id>
+    <category>fsharp</category>
+    <category>sitelets</category>
+    <category>websharper</category>
+    <summary>WebSharper sitelets provide the essential mechanism to encapsulateentire websites as F# values.  In this talk, I will present how youcan use sitelets to develop dynamic, template-based, markup-less webapplications with WebSharper that seamlessly combine client andserver-side functionality, and briefly discuss the tooling around thisautomation.</summary>
+    <updated>2010-12-21T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Visual Studio book with F# chapter</title>
+    <link href="http://mywebsite.com/user/granicz/20101220-visual-studio-book-with-f-chapter" />
+    <id>granicz20101220-visual-studio-book-with-f-chapter</id>
+    <category>book</category>
+    <category>fsharp</category>
+    <category>vs</category>
+    <summary>I am proud to announce the availability of the third F# book that I coauthored, Visual Studio 2010 and .NET 4 Six-in-One by Wrox.</summary>
+    <updated>2010-12-20T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.0 Beta Bundle</title>
+    <link href="http://mywebsite.com/user/granicz/20101217-websharper-2-0-beta-bundle" />
+    <id>granicz20101217-websharper-2-0-beta-bundle</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>It's never been easier to get started with WebSharper 2.0 - now with a single installer that contains six WebSharper project templates for Visual Studio, including integration with ASP.NET, MVC, and Sitelets.  Go and grab your installer (renumbered as a bundle, current latest 2.0.21) at the WebSharper Downloads page.</summary>
+    <updated>2010-12-17T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.0 Beta2 released</title>
+    <link href="http://mywebsite.com/user/granicz/20101215-websharper-2-0-beta2-released" />
+    <id>granicz20101215-websharper-2-0-beta2-released</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We just released a new WebSharper 2.0 Beta (2.0.63) and a matching WebSharper Manager (2.0.10) - please go to the WebSharper Download Page to grab the new binaries.</summary>
+    <updated>2010-12-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Introducing WebSharper 2.0 at LWSUG</title>
+    <link href="http://mywebsite.com/user/granicz/20101126-introducing-websharper-2-0-at-lwsug" />
+    <id>granicz20101126-introducing-websharper-2-0-at-lwsug</id>
+    <category>fsharp</category>
+    <category>sitelets</category>
+    <category>websharper</category>
+    <summary>Earlier this week I gave a talk at the first London WebSharper User Group meetup about WebSharper 2.0 and some of its new features such as sitelets and the new Visual Studio templates. This was a longer, class-like talk with many technical points discussed - a great source of information for anyone interested in WebSharper.</summary>
+    <updated>2010-11-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2.0 Beta available</title>
+    <link href="http://mywebsite.com/user/granicz/20101126-websharper-2-0-beta-available" />
+    <id>granicz20101126-websharper-2-0-beta-available</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are making excellent progress on releasing WebSharper 2.0 in the coming weeks, and have just put out the first beta version of WebSharper 2.0, ready for some public testing and community feedback. Here are the links:</summary>
+    <updated>2010-11-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper talk at Sinergija 2010</title>
+    <link href="http://mywebsite.com/user/granicz/20101115-websharper-talk-at-sinergija-2010" />
+    <id>granicz20101115-websharper-talk-at-sinergija-2010</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>WebSharper talk at Sinergija 2010, Community Track.</summary>
+    <updated>2010-11-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Announcing the London WebSharper User Group</title>
+    <link href="http://mywebsite.com/user/granicz/20101103-announcing-the-london-websharper-user-group" />
+    <id>granicz20101103-announcing-the-london-websharper-user-group</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are thrilled to announce the London WebSharper User Group - a forum for WebSharper professionals and enthusiasts based in London, UK to exchange ideas and experiences, and to serve as a major hub for furthering the interest in functional web programing. We sincerely hope that it will add significant value to our WebSharper user community.</summary>
+    <updated>2010-11-03T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>F# MVP Award - 2010</title>
+    <link href="http://mywebsite.com/user/granicz/20101006-f-mvp-award-2010" />
+    <id>granicz20101006-f-mvp-award-2010</id>
+    <category>fsharp</category>
+    <category>mvp</category>
+    <category>websharper</category>
+    <summary>I am very excited about my recent &lt;a href="http://mvp.support.microsoft.com/gp/mvpawardintro"&gt;Microsoft MVP 2010 award&lt;/a&gt; for my work in F#, and I would like to thank everyone who has recommended me for receiving this award. Foremost, I would like to thank ...</summary>
+    <updated>2010-10-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Tutorial: Implementing a shopping cart with WebSharper</title>
+    <link href="http://mywebsite.com/user/granicz/20100930-tutorial-implementing-a-shopping-cart-with-websharper" />
+    <id>granicz20100930-tutorial-implementing-a-shopping-cart-with-websharper</id>
+    <category>fsharp</category>
+    <category>tutorial</category>
+    <category>websharper</category>
+    <summary>Last week I had a Community for F# talk on WebSharper where I presented a small WebSharper application to implement a client-based, persistent shopping cart, and I received numerous emails asking for the source code for that talk.  So in this post I am going to show you the full source code and walk you through what I did to implement the shopping cart functionality. The code provided here should work on any existing 1.0.X installation, preferably on the latest 1.0.28 release.</summary>
+    <updated>2010-09-30T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>CUFP 2010 - Call for Participation</title>
+    <link href="http://mywebsite.com/user/granicz/20100909-cufp-2010-call-for-participation" />
+    <id>granicz20100909-cufp-2010-call-for-participation</id>
+    <category>conference</category>
+    <category>cufp</category>
+    <summary>Functional programming languages have been a hot topic of academicresearch for over 35 years, and have seen an ever larger practicalimpact in settings ranging from tech startups to financial firms tobiomedical research labs. At the same time, a vigorous community ofpractically-minding functional programmers has come into existence.CUFP is designed to serve this community. The annual CUFP workshop isa place where people can see how others are using functionalprogramming to solve real world problems; where practitioners meet andcollaborate; where language designers and users can share ideas aboutthe future of their favorite language; and where one can learnpractical techniques and approaches for putting functional programmingto work.CUFP 2010 will feature three hour Functional Programming tutorialsgiven by language experts on the first day and Experience andTechnical Talks on day two. Attendees may attend either or both days.</summary>
+    <updated>2010-09-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper available in Visual Studio Gallery</title>
+    <link href="http://mywebsite.com/user/granicz/20100806-websharper-available-in-visual-studio-gallery" />
+    <id>granicz20100806-websharper-available-in-visual-studio-gallery</id>
+    <category>fsharp</category>
+    <category>vs</category>
+    <category>websharper</category>
+    <summary>You can now install WebSharper through Visual Studio 2010's Extension Manager with a single click.</summary>
+    <updated>2010-08-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Expert F# 2.0 - what's new?</title>
+    <link href="http://mywebsite.com/user/granicz/20100805-expert-f-2-0-what-s-new" />
+    <id>granicz20100805-expert-f-2-0-what-s-new</id>
+    <category>book</category>
+    <category>fsharp</category>
+    <summary>A short list of changes in Expert F# 2.0, and a bit of celebration...</summary>
+    <updated>2010-08-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>ML 2010 Workshop - Final Call for Presentations</title>
+    <link href="http://mywebsite.com/user/granicz/20100625-ml-2010-workshop-final-call-for-presentations" />
+    <id>granicz20100625-ml-2010-workshop-final-call-for-presentations</id>
+    <category>conference</category>
+    <category>fsharp</category>
+    <category>ml</category>
+    <summary>There is still time to submit your F# talk/presentation/report/demo proposal to &lt;a href="http://www.cs.rit.edu/~mtf/ml2010/"&gt;ML 2010&lt;/a&gt;, co-located with ICFP in Baltimore, MD, USA!</summary>
+    <updated>2010-06-25T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>F# Training Courses in CA Announced</title>
+    <link href="http://mywebsite.com/user/granicz/20100608-f-training-courses-in-ca-announced" />
+    <id>granicz20100608-f-training-courses-in-ca-announced</id>
+    <category>fsharp</category>
+    <summary>We are pleased to announce the availability of our standard training courses,  now enhanced to follow the latest F# release, in California!  The first in our three-part series, F# Programming I, is scheduled to start from July 6 in San Francisco and Los Angeles, with Part II and III following.</summary>
+    <updated>2010-06-08T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2010 Standard is available</title>
+    <link href="http://mywebsite.com/user/granicz/20100522-websharper-2010-standard-is-available" />
+    <id>granicz20100522-websharper-2010-standard-is-available</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>This is an exciting time for the F# world. Monday, April 12, witnessed the launch of VisualStudio 2010 and the release of the official F#, 2.0. Great job, F# team!On our part, today we are pleased to announce the availability of WebSharper Platform 1.0.</summary>
+    <updated>2010-05-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>F# Development and Sales Jobs in London, California, and Budapest</title>
+    <link href="http://mywebsite.com/user/granicz/20100308-f-development-and-sales-jobs-in-london-california-and-budapest" />
+    <id>granicz20100308-f-development-and-sales-jobs-in-london-california-and-budapest</id>
+    <category>fsharp</category>
+    <category>jobs</category>
+    <summary>IntelliFactory is inviting applications for a range of F# positions - we are seeking F# developers, architects, interns, WebSharper developers, agile development/project managers, and seasoned sales/KAM professionals.  To be considered, please send your resume and short introduction to `hr [at] intellifactory.com`.</summary>
+    <updated>2010-03-08T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Call for Presentations - CUFP 2010</title>
+    <link href="http://mywebsite.com/user/granicz/20100305-call-for-presentations-cufp-2010" />
+    <id>granicz20100305-call-for-presentations-cufp-2010</id>
+    <category>conference</category>
+    <category>cufp</category>
+    <summary>Functional programming languages have been a hot topic of academic research for over 35 years, and are rapidly being adopted in diverse real-world settings ranging from from tech startups to financial and biomedical firms. A vigorous community of practically-minding functional programmers has come into existence, using them as tools to build reliable and fast systems.CUFP is designed to serve this community.  The aim is for CUFP to be aplace where people can see how others are using functional programmingto solve real world problems; where practitioners meet andcollaborate; where language designers and users can share ideas aboutthe future of their favorite language; and where one can learnpractical techniques and approaches for putting functional programmingto work.</summary>
+    <updated>2010-03-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Call for Presentations - ML 2010</title>
+    <link href="http://mywebsite.com/user/granicz/20100305-call-for-presentations-ml-2010" />
+    <id>granicz20100305-call-for-presentations-ml-2010</id>
+    <category>conference</category>
+    <category>fsharp</category>
+    <category>ml</category>
+    <category>workshop</category>
+    <summary>ML is a family of programming languages that includes dialects knownas Standard ML, Objective Caml, and F#. The development of theselanguages has inspired a large amount of computer science research,both practical and theoretical. This workshop aims to provide a forumto encourage discussion and research on ML and related technology(higher-order, typed, or strict languages).</summary>
+    <updated>2010-03-05T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 2010 Standard coming soon</title>
+    <link href="http://mywebsite.com/user/granicz/20100210-websharper-2010-standard-coming-soon" />
+    <id>granicz20100210-websharper-2010-standard-coming-soon</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary></summary>
+    <updated>2010-02-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>WebSharper 0.4.62 is available - with dependent formlets-flowlets-third-party extensions-and more!</title>
+    <link href="http://mywebsite.com/user/granicz/20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more" />
+    <id>granicz20091223-websharper-0-4-62-is-available-with-dependent-formlets-flowlets-third-party-extensions-and-more</id>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>We are happy to announce the availability of WebSharper 0.4.62 - the latest version of the WebSharper Platform that aims to equip professional F# developers with the right platform to rapidly develop rich, scalable, client-based web applications.  This is the first release candidate of WebSharper Platform 2010 - our commercial offering for client-based reactive web development with F#. In this release there are a number of new features, including: ...</summary>
+    <updated>2009-12-23T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Rapid prototyping of DSLs in F# - Part III</title>
+    <link href="http://mywebsite.com/user/granicz/20090710-rapid-prototyping-of-dsls-in-f-part-iii" />
+    <id>granicz20090710-rapid-prototyping-of-dsls-in-f-part-iii</id>
+    <category>dsl</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The third part of "Rapid prototyping of DSLs in F#" presents the semantic checker for Simply, a small programming language with functions and expressions.</summary>
+    <updated>2009-07-10T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Rapid prototyping of DSLs in F# - Part II</title>
+    <link href="http://mywebsite.com/user/granicz/20090622-rapid-prototyping-of-dsls-in-f-part-ii" />
+    <id>granicz20090622-rapid-prototyping-of-dsls-in-f-part-ii</id>
+    <category>dsl</category>
+    <category>fsharp</category>
+    <category>websharper</category>
+    <summary>The second part of "Rapid prototyping of DSLs in F#" presents the parser for Simply, a small programming language with functions and expressions.</summary>
+    <updated>2009-06-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Parsing with active patterns</title>
+    <link href="http://mywebsite.com/user/granicz/20090523-parsing-with-active-patterns" />
+    <id>granicz20090523-parsing-with-active-patterns</id>
+    <category>activepatterns</category>
+    <category>fsharp</category>
+    <category>parsing</category>
+    <summary>Active patterns provide the perfect mechanism to implement recursive-descent parsers - allowing you to quickly prototype even complex grammars using a statically typed approach and without the need to resort to lexer and parser generators.</summary>
+    <updated>2009-05-23T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>F# May 2009 CTP and VS 2010 Beta1</title>
+    <link href="http://mywebsite.com/user/granicz/20090522-f-may-2009-ctp-and-vs-2010-beta1" />
+    <id>granicz20090522-f-may-2009-ctp-and-vs-2010-beta1</id>
+    <category>fsharp</category>
+    <summary>A few comments on the May 2009 CTP and the adoption of F#.</summary>
+    <updated>2009-05-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>FP-BUD May Meetup</title>
+    <link href="http://mywebsite.com/user/granicz/20090520-fp-bud-may-meetup" />
+    <id>granicz20090520-fp-bud-may-meetup</id>
+    <category>functional</category>
+    <category>meetup</category>
+    <summary>FP-BUD is the primary place for discussing functional programming in an easy-going, social setting.</summary>
+    <updated>2009-05-20T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Welcome to the IntelliFactory corporate blogs!</title>
+    <link href="http://mywebsite.com/user/granicz/20090520-welcome-to-the-intellifactory-corporate-blogs" />
+    <id>granicz20090520-welcome-to-the-intellifactory-corporate-blogs</id>
+    <category>corporate</category>
+    <category>fsharp</category>
+    <summary>Welcome to the IntelliFactory corporate blogs!</summary>
+    <updated>2009-05-20T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>A Logo interpreter under 400 lines</title>
+    <link href="http://mywebsite.com/user/granicz/20061124-a-logo-interpreter-under-400-lines" />
+    <id>granicz20061124-a-logo-interpreter-under-400-lines</id>
+    <category>fsharp</category>
+    <category>logo</category>
+    <category>parsing</category>
+    <category>tutorial</category>
+    <summary>This first time I picked something that F# is particularly good at: implementing other programming languages. The target is Logo, your favorite turtle graphics language from grade school - mostly because it has something for everyone: it has some peculiarities from the language design angle that are worth looking at, but foremost the implementation once again shows you how easy it is to get things done with F#. So I sat down yesterday night and wrote a small Logo interpreter.</summary>
+    <updated>2006-11-24T00:00:00Z</updated>
+  </entry>
+</feed>

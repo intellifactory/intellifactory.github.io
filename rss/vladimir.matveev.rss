@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>IntelliFactory Blog</title>
+    <description>Building business applications with F# since 2004</description>
+    <link>http://mywebsite.com</link>
+    <lastBuildDate>Fri, 22 Jan 2021 21:15:26 UTC</lastBuildDate>
+    <item>
+      <title>WebSharper at Kiev ALT.NET</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20110220-websharper-at-kiev-alt-net</link>
+      <guid isPermaLink="false">vladimir.matveev20110220-websharper-at-kiev-alt-net</guid>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description></description>
+      <pubDate>Sun, 20 Feb 2011 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebSharper: Integration with ASP.NET MVC</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101128-websharper-integration-with-asp-net-mvc</link>
+      <guid isPermaLink="false">vladimir.matveev20101128-websharper-integration-with-asp-net-mvc</guid>
+      <category>aspnet</category>
+      <category>fsharp</category>
+      <category>mvc</category>
+      <category>web</category>
+      <category>websharper</category>
+      <description>ASP.NET MVC framework is lightweight web framework with strong emphasis on loose coupling and testability of involved components. This post will be dedicated to the major subject: how to create WebSharper web application based on ASP.NET MVC so it can take the best  from both counterparties.</description>
+      <pubDate>Sun, 28 Nov 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>WebScheme</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101102-webscheme</link>
+      <guid isPermaLink="false">vladimir.matveev20101102-webscheme</guid>
+      <category>fp</category>
+      <category>fsharp</category>
+      <category>websharper</category>
+      <description>Scheme is remarkable language; it combines syntactic simplicity and elegance with exceptional expressiveness and power. Implementations of Scheme exist in many languages, and though I’m not the first who used F# for this solving task (shame on me) I still can be the first man who have made it with WebSharper.</description>
+      <pubDate>Tue, 02 Nov 2010 00:00:00 UTC</pubDate>
+    </item>
+    <item>
+      <title>Solving Zebra Puzzle</title>
+      <link>http://mywebsite.com/user/vladimir.matveev/20101005-solving-zebra-puzzle</link>
+      <guid isPermaLink="false">vladimir.matveev20101005-solving-zebra-puzzle</guid>
+      <category>fp</category>
+      <category>fsharp</category>
+      <description></description>
+      <pubDate>Tue, 05 Oct 2010 00:00:00 UTC</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -370,3 +370,38 @@ pre:not(.hljs) {
     border-color: #464646;
     color: #FFF;
 }
+
+.form-ajax .success-box, .form-ajax .error-box {
+	display: none;
+	margin-top: 20px;
+}
+.user-information {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.user-name {
+	font-size: 400%;
+	margin-bottom: 20px;
+	line-height: 100%;
+	color: black;
+}
+
+.user-social i {
+	color: rgb(102, 102, 102);
+}
+
+.user-top a:not(:first-child) {
+	margin-left: 10px;
+}
+
+.user-profile-picture {
+	max-width: 200px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.user-profile-picture img {
+	border-radius: 50%;
+}
