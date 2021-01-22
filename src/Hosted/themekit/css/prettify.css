@@ -78,7 +78,7 @@ pre.prettyprint {
 	color: #333;
 }
 .prettyprint {
-background-color: rgba(0, 0, 0, 0); */;}
+background-color: rgba(0, 0, 0, 0);}
 .prettyprint.linenums {
 	-webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
 	        box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
