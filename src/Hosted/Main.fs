@@ -34,6 +34,7 @@ type EndPoint =
     | [<EndPoint "GET /privacy-policy">] PrivacyPolicy
     | [<EndPoint "GET /cookie-policy">] CookiePolicy
     | [<EndPoint "GET /404.html">] Error404
+    | [<EndPoint "GET /debug">] Debug
 
 // Utilities to make XML construction somewhat sane
 [<AutoOpen>]
@@ -1017,15 +1018,17 @@ module Site =
         let USERBLOG_LISTING_NO_PAGING user f =
             let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/userblog-%s.html" user)
             if File.Exists templateFile then
-                UserBlogListTemplate(templateFile)
+                UserBlogListTemplate(File.ReadAllText templateFile)
             else
                 UserBlogListTemplate()
             |> fun template ->
-                let name = user
-                    //if String.IsNullOrEmpty(user) then
-                    //    config.Value.MasterUserDisplayName
-                    //else
-                    //    config.Value.Users.[user]
+                let name =
+                    if String.IsNullOrEmpty(user) then
+                        config.Value.MasterUserDisplayName
+                    elif config.Value.Users.ContainsKey user then
+                        config.Value.Users.[user]
+                    else
+                        user
                 template
                     .Menubar(menubar config.Value)
                     .AuthorName(name)
@@ -1192,6 +1195,20 @@ module Site =
                 Content.Text "Articles/configs reloaded."
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
+            | Debug ->
+                Content.Page(
+                    [
+                        h2 [] [text "Config"]
+                        p [] [text <| sprintf "%A" config.Value]
+                        h2 [] [text "Config.Users"]
+                        for user in Map.toList config.Value.Users do
+                            p [] [text <| sprintf "%A" user]
+                        h2 [] [text "Info"]
+                        p [] [text <| sprintf "%A" info.Value]
+                        h2 [] [text "Identities"]
+                        p [] [text <| sprintf "%A" identities1.Value]
+                    ]
+                )
         )
 
 open System.IO
