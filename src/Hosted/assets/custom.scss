@@ -22,14 +22,14 @@ table {
 		transition: all .5s;
 		
 		a {
-			color: white;
+			color: #ffffff;
 			display: block;
 			position: relative;
 			text-decoration: none;
 			border-radius: 15px;
 			cursor: pointer;
 			transition: all .5s;
-			background-color: rgb(71, 178, 228);
+			background-color: #47b2e4;
 			padding: 0.25em 0.75em
 		}
 	}
@@ -50,19 +50,19 @@ table {
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		background-color: lightblue;
+		background-color: #add8e6;
 		z-index: -1;
 	}
 	
 	&.orange:after {
-		background-color: orange;
+		background-color: #ffa500;
 	}
 }
 
 #image-slider {
 	margin: 0;
 	padding: 0;
-	background-color: #ccc;
+	background-color: #cccccc;
 	height: 250px;
 	
 	.swiper-container {
@@ -95,14 +95,14 @@ table {
 	}
 	
 	.flat-card-content {
-		background-color: white;
+		background-color: #ffffff;
 		/*		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);*/
 	}
 }
 
 blockquote {
-	background-color: rgb(241, 245, 247);
-	border-left: 4px rgb(55, 81, 126) solid; 
+	background-color: #f1f5f7;
+	border-left: 4px #37517e solid; 
 	font-size: 21px;
 	line-height: 1.6;
 	padding: 10px 20px;
@@ -129,7 +129,7 @@ blockquote {
 		li {
 			border-top: 1px solid #bbb;
 			a {
-				color: rgb(71, 178, 228);
+				color: #47b2e4;
 				
 				img {
 					vertical-align: text-bottom;
@@ -221,12 +221,12 @@ blockquote {
 	}
 	
 	a {
-		color: black;
+		color: #000000;
 		text-decoration: none;
 		transition: color 1s;
 		
 		&:hover {
-			color: rgb(71, 178, 228)
+			color: #47b2e4
 		}
 	}
 }
@@ -286,7 +286,7 @@ li {
 	}
 	
 	.description {
-		color: black;
+		color: #000000;
 		text-align: left;
 	}
 	
@@ -309,7 +309,7 @@ li {
 	right: 0;
 	bottom: 0;
 	background: #202020;
-	color: white;
+	color: #ffffff;
 	display: none;
 	flex-direction: row;
 	align-items: center;
@@ -334,7 +334,7 @@ li {
 		color: #363636;
 		border-radius: 3px;
 		border: 1px solid #dbdbdb;
-		background-color: white;
+		background-color: #ffffff;
 		font-size: 16px;
 		
 		& + button {
@@ -393,7 +393,7 @@ pre {
 			&:not(:hover), &:hover {
 				background-color: #464646;
 				border-color: #464646;
-				color: #FFF;
+				color: #ffffff;
 			}
 		}
 	}
@@ -413,7 +413,7 @@ nav {
 					& > ul {
 						& > li {
 							& > a {
-								color: rgb(71, 178, 228) !important;
+								color: #47b2e4 !important;
 							}
 						}
 					}
