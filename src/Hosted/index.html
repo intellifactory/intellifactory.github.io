@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${Title}IntelliFactory</title>
   <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/themekit/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="/themekit/css/style.min.css">
   <link rel="stylesheet" href="/themekit/css/content-box.min.css">
@@ -20,7 +22,7 @@
 </head>
 <body>
   <div id="preloader"></div>
-  <nav class="menu-classic ${IsTransparentHeader} light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+  <nav class="menu-wide ${IsTransparentHeader} light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
     <div ws-replace="MenuBar">
       <div ws-template="Menubar" class="container">
         <div class="menu-brand">
@@ -125,12 +127,12 @@
               </div>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <a href="/careers">Careers</a>
             </li>
           </ul>
           <div class="menu-right">
             <div class="menu-custom-area">
-              <a class="btn btn-xs btn-circle" href="https://cloudsharper.com">Download CloudSharper</a>
+              <a class="btn btn-xs btn-circle" href="/contact">Contact us</a>
             </div>
           </div>
           <div class="clear"></div>
@@ -320,7 +322,7 @@
                                   <a href="/research">Research</a>
                               </li>
                               <li>
-                                  <a href="/jobs">Jobs</a>
+                                  <a href="/careers">Careers</a>
                               </li>
                               <li>
                                   <a href="/contact">Contact</a>
@@ -371,7 +373,8 @@
                   </div>
                   <div class="col-lg-4">
                       <h4>Newsletter signup</h4>
-                      <p>We will not spam you or give your details to anyone.</p>
+                      <p style="line-height: 100%;color:#aaa !important;">Have our fresh articles sent to you directly. Don't worry, we won't spam you or give your details to anyone, and you can unsubscribe any time.</p>
+                      <br />
                       <form class="newsletter-form form-box form-ajax" method="post" data-email="example@domain.com">
                           <input style="width:200px" id="nemail" name="nemail" placeholder="Your email" type="email" class="input-text" required>
                           <button id="signUp" class="btn btn-sm btn-circle" type="submit">
