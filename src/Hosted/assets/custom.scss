@@ -283,6 +283,7 @@ li {
 .mega-open-source {
 	.panel {
 		display: flex;
+		margin-bottom: 0px;
 	}
 	
 	.description {
@@ -490,3 +491,32 @@ nav.light {
 		border-radius: 50%;
 	} 
 }
+
+.open-source-item {
+	display: flex;
+	margin-bottom: 0px !important;
+	&:not(:last-child) {
+		border-right: #d4d3d3 solid 1px;
+		@media (max-width: 991.98px) {
+			border-right: none;
+		}
+	}
+	& > img {
+		margin-right: 10px;
+	}
+	& > div {
+		flex: 1;
+	}
+	& a {
+		padding-left: 0px;
+	}
+}
+
+.dropdown:hover, .menu-cnt li.active:hover {
+	& > a:after {
+		@media (max-width: 991.98px) {
+			transform: translateY(-50%) rotate(90deg) matrix(-1, 0, 0, 1, 0, 0);
+		}
+	}
+}
+
