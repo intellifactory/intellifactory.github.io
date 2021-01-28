@@ -524,7 +524,7 @@ nav.light {
 	color: white;
 	text-decoration: none;
 
-	.menu-transparent & {
+	.menu-transparent:not(.scroll-menu) &, .menu-transparent.dark & {
 		color: #47b2e4;
 	}
 }
