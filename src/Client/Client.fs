@@ -69,12 +69,33 @@ module Newsletter =
                 JQuery.JQuery.Of("#signUp").RemoveClass("loading").RemoveAttr("disabled").Ignore
         ).Ignore
 
+module Resizer =
+    let Resize () =
+        JQuery.JQuery.Of(JS.Window).On("resize", fun _ ev ->
+            if JS.Window.InnerWidth < 992 then
+                Console.Log("small")
+                JQuery.JQuery.Of(".mega-open-source")
+                    .AddClass("active")
+                    .Ignore
+            else
+                Console.Log("large")
+                JQuery.JQuery.Of(".mega-open-source")
+                    .RemoveClass("active")
+                    .Ignore
+        ).Ignore
+        JQuery.JQuery.Of(JS.Document).Ready(fun () ->
+            if JS.Window.InnerWidth < 992 then
+                JQuery.JQuery.Of(".mega-open-source")
+                    .AddClass("active")
+                    .Ignore
+        ).Ignore
+
 [<SPAEntryPoint>]
 let Main() =
     Bulma.HookDrawer()
     Highlight.Run()
     Newsletter.SignUpAction()
-
+    Resizer.Resize()
 
 [<assembly:JavaScript>]
 do ()
