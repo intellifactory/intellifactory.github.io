@@ -389,7 +389,7 @@ pre {
 }
 
 .social-colors, .social-colors-hover {
-	.icon-links-button, .icons-link-grid {
+	&.icon-links-button, &.icon-links-grid {
 		.vimeo {
 			&:not(:hover), &:hover {
 				background-color: #464646;
@@ -520,3 +520,17 @@ nav.light {
 	}
 }
 
+.menu-title {
+	color: white;
+	text-decoration: none;
+
+	.menu-transparent & {
+		color: #47b2e4;
+	}
+}
+
+.menu-title .title-alternative {
+    color: #ccc;
+    margin-left: 0px;
+    font-size: 1em;
+}

@@ -691,7 +691,6 @@ module Site =
 
     let private menubar(config: Config) =
         MainTemplate.Menubar()
-            .ShortTitle(config.ShortTitle)
             .Doc()
 
     let ArticleBasePage langopt (config: Config) (pageTitle: option<string>) hasBanner (transparentHeader: bool) articles (body: Doc) =
