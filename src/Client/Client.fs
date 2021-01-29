@@ -73,12 +73,10 @@ module Resizer =
     let Resize () =
         JQuery.JQuery.Of(JS.Window).On("resize", fun _ ev ->
             if JS.Window.InnerWidth < 992 then
-                Console.Log("small")
                 JQuery.JQuery.Of(".mega-open-source")
                     .AddClass("active")
                     .Ignore
             else
-                Console.Log("large")
                 JQuery.JQuery.Of(".mega-open-source")
                     .RemoveClass("active")
                     .Ignore
