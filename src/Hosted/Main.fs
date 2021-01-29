@@ -26,12 +26,15 @@ type EndPoint =
     | [<EndPoint "GET /categories">] Categories
     | [<EndPoint "GET /feed.atom">] AtomFeed
     | [<EndPoint "GET /feed.rss">] RSSFeed
+    | [<EndPoint "GET /atom">] AtomFeedForUser of string
+    | [<EndPoint "GET /rss">] RSSFeedForUser of string
     | [<EndPoint "GET /refresh">] Refresh
     | [<EndPoint "GET /contact">] Contact
     | [<EndPoint "GET /terms-of-use">] TermsOfUse
     | [<EndPoint "GET /privacy-policy">] PrivacyPolicy
     | [<EndPoint "GET /cookie-policy">] CookiePolicy
     | [<EndPoint "GET /404.html">] Error404
+    | [<EndPoint "GET /debug">] Debug
 
 // Utilities to make XML construction somewhat sane
 [<AutoOpen>]
@@ -158,6 +161,11 @@ module Urls =
         else
             sprintf "/user/%s" user
     let LANG (lang: string) = sprintf "/%s" lang
+    let RSS_URL user =
+        if String.IsNullOrEmpty user then
+            sprintf "/rss"
+        else
+            sprintf "/rss/%s.rss" user
 
 module Helpers =
     open System.IO
@@ -356,6 +364,7 @@ module Site =
     type RedirectTemplate = Templating.Template<"../Hosted/redirect.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type TrainingsTemplate = Templating.Template<"../Hosted/trainings.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogListTemplate = Templating.Template<"../Hosted/bloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type UserBlogListTemplate = Templating.Template<"../Hosted/userbloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ContactTemplate = Templating.Template<"../Hosted/contact.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type LegalTemplate = Templating.Template<"../Hosted/legal.html", serverLoad=Templating.ServerLoad.WhenChanged>
@@ -1006,11 +1015,80 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let USERBLOG_LISTING_NO_PAGING user f =
+            let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/userblog-%s.html" user)
+            if File.Exists templateFile then
+                UserBlogListTemplate(File.ReadAllText templateFile)
+            else
+                UserBlogListTemplate()
+            |> fun template ->
+                let name =
+                    if String.IsNullOrEmpty(user) then
+                        config.Value.MasterUserDisplayName
+                    elif config.Value.Users.ContainsKey user then
+                        config.Value.Users.[user]
+                    else
+                        user
+                template
+                    .Menubar(menubar config.Value)
+                    .AuthorName(name)
+                    .AuthorRSSUrl(Urls.RSS_URL user)
+                    .ArticleList(Map.filter f articles.Value |> ARTICLES)
+                    .Pagination(Doc.Empty)
+                    .Footer(MainTemplate.Footer().Doc())
+                    .Cookie(Cookies.Banner false)
+                    .Doc()
+            |> Content.Page
         let REDIRECT_TO (url: string) =
             RedirectTemplate()
                 .Url(url)
                 .Doc()
             |> Content.Page
+        let ARTICLES_BY_USEROPT (userOpt: string option) =
+            articles.Value |> Map.toList
+            // Filter by user, if given
+            |> List.filter (fun ((user, _), _) -> if userOpt.IsSome then user = userOpt.Value else true)
+            |> List.sortByDescending (fun (_, article: Article) -> article.Date.Ticks)
+        let ATOM_FEED userOpt =
+            let ns = XNamespace.Get "http://www.w3.org/2005/Atom"
+            let articles = ARTICLES_BY_USEROPT userOpt
+            X (ns + "feed") [] [
+                X (ns + "title") [] [TEXT config.Value.Title]
+                X (ns + "subtitle") [] [TEXT config.Value.Description]
+                X (ns + "link") ["href" => config.Value.ServerUrl] []
+                X (ns + "updated") [] [Helpers.ATOM_DATE DateTime.UtcNow]
+                for ((user, slug), article) in articles do
+                    X (ns + "entry") [] [
+                        X (ns + "title") [] [TEXT article.Title]
+                        X (ns + "link") ["href" => config.Value.ServerUrl + Urls.POST_URL (user, slug)] []
+                        X (ns + "id") [] [TEXT (user+slug)]
+                        for category in article.Categories do
+                            X (ns + "category") [] [TEXT category]
+                        X (ns + "summary") [] [TEXT article.Abstract]
+                        X (ns + "updated") [] [TEXT <| Helpers.ATOM_DATE article.Date]
+                    ]
+            ]
+        let RSS_FEED userOpt =
+            let articles = ARTICLES_BY_USEROPT userOpt
+            X (N "rss") ["version" => "2.0"] [
+                X (N "channel") [] [
+                    X (N "title") [] [TEXT config.Value.Title]
+                    X (N "description") [] [TEXT config.Value.Description]
+                    X (N "link") [] [TEXT config.Value.ServerUrl]
+                    X (N "lastBuildDate") [] [Helpers.RSS_DATE DateTime.UtcNow]
+                    for ((user, slug), article) in articles do
+                        X (N "item") [] [
+                            X (N "title") [] [TEXT article.Title]
+                            X (N "link") [] [TEXT <| config.Value.ServerUrl + Urls.POST_URL (user, slug)]
+                            X (N "guid") ["isPermaLink" => "false"] [TEXT (user+slug)]
+                            for category in article.Categories do
+                                X (N "category") [] [TEXT category]
+                            X (N "description") [] [TEXT article.Abstract]
+                            X (N "pubDate") [] [TEXT <| Helpers.RSS_DATE article.Date]
+                        ]
+                ]
+            ]
+
         Application.MultiPage (fun (ctx: Context<_>) -> function
             | Trainings ->
                 TRAININGS ()
@@ -1050,10 +1128,7 @@ module Site =
                 ARTICLE ("", p)
             // All articles by a given user
             | UserArticle (user, "") ->
-                BLOG_LISTING_NO_PAGING
-                    <| BlogListTemplate.BlogCategoryBanner()
-                        .Category(user)
-                        .Doc()
+                USERBLOG_LISTING_NO_PAGING user
                     <| fun (u, _) _ -> user = u
             | UserArticle (user, p) ->
                 ARTICLE (user, p)
@@ -1083,26 +1158,15 @@ module Site =
                     Status = Http.Status.Ok,
                     Headers = [Http.Header.Custom "content-type" "application/atom+xml"],
                     WriteBody = fun stream ->
-                        let ns = XNamespace.Get "http://www.w3.org/2005/Atom"
-                        let articles =
-                            articles.Value |> Map.toList |> List.sortByDescending (fun (_, article: Article) -> article.Date.Ticks)
-                        let doc =
-                            X (ns + "feed") [] [
-                                X (ns + "title") [] [TEXT config.Value.Title]
-                                X (ns + "subtitle") [] [TEXT config.Value.Description]
-                                X (ns + "link") ["href" => config.Value.ServerUrl] []
-                                X (ns + "updated") [] [Helpers.ATOM_DATE DateTime.UtcNow]
-                                for ((user, slug), article) in articles do
-                                    X (ns + "entry") [] [
-                                        X (ns + "title") [] [TEXT article.Title]
-                                        X (ns + "link") ["href" => config.Value.ServerUrl + Urls.POST_URL (user, slug)] []
-                                        X (ns + "id") [] [TEXT (user+slug)]
-                                        for category in article.Categories do
-                                            X (ns + "category") [] [TEXT category]
-                                        X (ns + "summary") [] [TEXT article.Abstract]
-                                        X (ns + "updated") [] [TEXT <| Helpers.ATOM_DATE article.Date]
-                                    ]
-                            ]
+                        let doc = ATOM_FEED None
+                        doc.Save(stream)
+                )
+            | AtomFeedForUser user ->
+                Content.Custom (
+                    Status = Http.Status.Ok,
+                    Headers = [Http.Header.Custom "content-type" "application/atom+xml"],
+                    WriteBody = fun stream ->
+                        let doc = ATOM_FEED (Some user)
                         doc.Save(stream)
                 )
             | RSSFeed ->
@@ -1110,27 +1174,15 @@ module Site =
                     Status = Http.Status.Ok,
                     Headers = [Http.Header.Custom "content-type" "application/rss+xml"],
                     WriteBody = fun stream ->
-                        let articles =
-                            articles.Value |> Map.toList |> List.sortByDescending (fun (_, article: Article) -> article.Date.Ticks)
-                        let doc =
-                            X (N "rss") ["version" => "2.0"] [
-                                X (N "channel") [] [
-                                    X (N "title") [] [TEXT config.Value.Title]
-                                    X (N "description") [] [TEXT config.Value.Description]
-                                    X (N "link") [] [TEXT config.Value.ServerUrl]
-                                    X (N "lastBuildDate") [] [Helpers.RSS_DATE DateTime.UtcNow]
-                                    for ((user, slug), article) in articles do
-                                        X (N "item") [] [
-                                            X (N "title") [] [TEXT article.Title]
-                                            X (N "link") [] [TEXT <| config.Value.ServerUrl + Urls.POST_URL (user, slug)]
-                                            X (N "guid") ["isPermaLink" => "false"] [TEXT (user+slug)]
-                                            for category in article.Categories do
-                                                X (N "category") [] [TEXT category]
-                                            X (N "description") [] [TEXT article.Abstract]
-                                            X (N "pubDate") [] [TEXT <| Helpers.RSS_DATE article.Date]
-                                        ]
-                                ]
-                            ]
+                        let doc = RSS_FEED None
+                        doc.Save(stream)
+                )
+            | RSSFeedForUser user ->
+                Content.Custom (
+                    Status = Http.Status.Ok,
+                    Headers = [Http.Header.Custom "content-type" "application/rss+xml"],
+                    WriteBody = fun stream ->
+                        let doc = RSS_FEED (Some user)
                         doc.Save(stream)
                 )
             | Refresh ->
@@ -1143,6 +1195,20 @@ module Site =
                 Content.Text "Articles/configs reloaded."
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
+            | Debug ->
+                Content.Page(
+                    [
+                        h2 [] [text "Config"]
+                        p [] [text <| sprintf "%A" config.Value]
+                        h2 [] [text "Config.Users"]
+                        for user in Map.toList config.Value.Users do
+                            p [] [text <| sprintf "%A" user]
+                        h2 [] [text "Info"]
+                        p [] [text <| sprintf "%A" info.Value]
+                        h2 [] [text "Identities"]
+                        p [] [text <| sprintf "%A" identities1.Value]
+                    ]
+                )
         )
 
 open System.IO
@@ -1221,6 +1287,9 @@ type Website() =
                 // Generate the RSS/Atom feeds
                 RSSFeed
                 AtomFeed
+                for user in users do
+                    RSSFeedForUser user
+                    AtomFeedForUser user
                 // Generate 404 page
                 Error404
                 // Generate legal pages

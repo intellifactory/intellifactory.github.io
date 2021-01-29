@@ -5,7 +5,7 @@ description: Building business applications with F# since 2004
 masterUserDisplayName: IntelliFactory
 masterLanguage: en
 languages: "en->English,es->Spanish,hu->Hungarian"
-users: "granicz->Adam Granicz,denuziere->Loic Denuziere,jankoa->Andras Janko,gansperger->Istvan Gansperger,maciejlopatka->Maciej Lopatka,sfowler->Simon Fowler"
+users: "anton.tayanovskyy->Anton Tayanovskyy,denuziere->Loic Denuziere,diego.echeverri->Diego Echeverri,gansperger->Istvan Gansperger,granicz->Adam Granicz,jankoa->Andras Janko,joel.bjornson->Joel Bjornson,maciej.lopatka->Maciej Lopatka,ramon.snir->Ramon Snir,sfowler->Simon Fowler,vladimir.matveev->Vladimir Matveev"
 pageSize: 24
 categoriesCountIfNotAll: 30
 githubRepo: https://github.com/IntelliFactory/blogs
