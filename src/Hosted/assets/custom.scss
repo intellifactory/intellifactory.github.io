@@ -273,7 +273,7 @@ li {
 		}
 	}
 	
-	p, ul, ol, pre, div {
+	p, ul, ol, pre, div:not(.mega-menu):not(.panel) {
 		&:last-child {
 			margin-bottom: 1em;
 		}
@@ -294,6 +294,18 @@ li {
 	img {
 		text-align: left;
 		display: block;
+	}
+
+	& > a, .menu-cnt > ul > &.active > a {
+		@media screen and (max-width: 992px) {
+			nav.light & {
+				color: #444444 !important;
+			}
+
+			nav.dark & {
+				color: #47b2e4 !important;
+			}
+		}
 	}
 }
 
@@ -425,7 +437,9 @@ nav.light {
 					& > ul {
 						& > li {
 							& > a {
-								color: white !important;
+								@media screen and (min-width: 992px) {
+									color: white !important;
+								}
 							}
 						}
 					}
@@ -495,6 +509,13 @@ nav.light {
 .open-source-item {
 	display: flex;
 	margin-bottom: 0px !important;
+	@media (max-width: 991.98px) {
+		padding-left: 30px;
+		nav.dark & a {
+			color: #47b2e4 !important;
+		}
+	}
+
 	&:not(:last-child) {
 		border-right: #d4d3d3 solid 1px;
 		@media (max-width: 991.98px) {
