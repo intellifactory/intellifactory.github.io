@@ -356,7 +356,15 @@ module ClientSideCode =
                     let map = new Map(el, options)
                     let point = new LatLng(47.48543, 19.071336)
                     let icon = Icon(Url = "/img/map-marker.png", Anchor = Point(8.0, 8.0))
-                    new Marker(MarkerOptions(point, Map = map, Title = "IntelliFactory", Icon = icon)) |> ignore
+                    let infoWindow = InfoWindow(InfoWindowOptions(Content = Union2Of2 "IntelliFactory - Budapest office"))
+                    let marker = new Marker(MarkerOptions(point, Map = map, Title = "IntelliFactory", Icon = icon))
+                    marker.AddListener("mouseover", fun _ ->
+                        infoWindow.Open(map, marker)
+                    ) |> ignore
+                    infoWindow.AddListener("mouseout", fun _ ->
+                        infoWindow.Close()
+                    ) |> ignore
+                    ()
                 )
             ] []
 
