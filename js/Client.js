@@ -337,7 +337,7 @@ if (!console) {
 (function()
 {
  "use strict";
- var Global,Client,Bulma,WebSharper,Obj,UI,Var,Operators,Highlight,Newsletter,SC$1,View,Arrays,EventTarget,Node,Var$1,Snap,Concurrency,WindowOrWorkerGlobalScope,Strings,ConcreteVar,Abbrev,Fresh,Scheduler,SC$2,SC$3,CT,CancellationTokenSource,IntelliFactory,Runtime,hljs,$,console,Date;
+ var Global,Client,Bulma,WebSharper,Obj,UI,Var,Operators,Highlight,Newsletter,Resizer,SC$1,View,Arrays,EventTarget,Node,WindowOrWorkerGlobalScope,Var$1,Snap,Concurrency,Strings,ConcreteVar,Abbrev,Fresh,Scheduler,SC$2,SC$3,CT,CancellationTokenSource,IntelliFactory,Runtime,hljs,$,console,Date;
  Global=self;
  Client=Global.Client=Global.Client||{};
  Bulma=Client.Bulma=Client.Bulma||{};
@@ -348,15 +348,16 @@ if (!console) {
  Operators=WebSharper.Operators=WebSharper.Operators||{};
  Highlight=Client.Highlight=Client.Highlight||{};
  Newsletter=Client.Newsletter=Client.Newsletter||{};
+ Resizer=Client.Resizer=Client.Resizer||{};
  SC$1=Global.StartupCode$Client$Client=Global.StartupCode$Client$Client||{};
  View=UI.View=UI.View||{};
  Arrays=WebSharper.Arrays=WebSharper.Arrays||{};
  EventTarget=Global.EventTarget;
  Node=Global.Node;
+ WindowOrWorkerGlobalScope=Global.WindowOrWorkerGlobalScope;
  Var$1=UI.Var$1=UI.Var$1||{};
  Snap=UI.Snap=UI.Snap||{};
  Concurrency=WebSharper.Concurrency=WebSharper.Concurrency||{};
- WindowOrWorkerGlobalScope=Global.WindowOrWorkerGlobalScope;
  Strings=WebSharper.Strings=WebSharper.Strings||{};
  ConcreteVar=UI.ConcreteVar=UI.ConcreteVar||{};
  Abbrev=UI.Abbrev=UI.Abbrev||{};
@@ -410,6 +411,7 @@ if (!console) {
   Bulma.HookDrawer();
   Highlight.Run();
   Newsletter.SignUpAction();
+  Resizer.Resize();
  };
  Obj=WebSharper.Obj=Runtime.Class({},null,Obj);
  Obj.New=Runtime.Ctor(function()
@@ -453,6 +455,17 @@ if (!console) {
     $(".newsletter-form .error-box").addClass("visible");
     return $("#signUp").removeClass("loading").removeAttr("disabled");
    },r)),ev.preventDefault())):$("#signUp").removeClass("loading").removeAttr("disabled");
+  });
+ };
+ Resizer.Resize=function()
+ {
+  $(self).on("resize",function()
+  {
+   return self.innerWidth<992?$(".mega-open-source").addClass("active"):$(".mega-open-source").removeClass("active");
+  });
+  $(self.document).ready(function()
+  {
+   return self.innerWidth<992?$(".mega-open-source").addClass("active"):null;
   });
  };
  SC$1.$cctor=function()
