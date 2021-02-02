@@ -1282,6 +1282,9 @@ module Site =
                         p [] [text <| sprintf "%A" info.Value]
                         h2 [] [text "Identities"]
                         p [] [text <| sprintf "%A" identities1.Value]
+                        h2 [] [text "Articles"]
+                        for ((user, slug), art) in Map.toList (!articles) do
+                            p [] [text <| sprintf "%s/%s -> %s" user slug art.Title]
                     ]
                 )
         )
