@@ -671,3 +671,17 @@ nav.light {
 		}
 	}
 }
+
+.footer-last-section {
+	display: flex;
+	flex-wrap: revert;
+
+	@media screen and (max-width: 776px) {
+		display: block;
+	}
+}
+
+.footer-made-with {
+	flex: 1;
+	align-self: center;
+}

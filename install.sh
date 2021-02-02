@@ -7,7 +7,7 @@ echo "Copy legal/site-docs/if.com/ under src/Hosted/legal/"
 cp -r legal/site-docs/intellifactory.com/ src/Hosted/legal/
 
 echo "Copy blogposts under /src/Hosted/posts"
-cp -r blogs/user src/Hosted/posts
+cp -rT blogs/user src/Hosted/posts
 
 # Install npm packages
 pushd src/Hosted
