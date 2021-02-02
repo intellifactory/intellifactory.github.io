@@ -195,21 +195,26 @@
       </main>
     </div>
     <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category${CategoryNo}.jpg" data-offset="0">
-      <div class="container">
-        <h1>${Title}</h1>
-        <h2>${Date}</h2>
-        <ol class="breadcrumb">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/blogs">Blogs</a></li>
-          <li><a href="${AuthorUrl}">${Author}</a></li>
-        </ol>
-      </div>
+        <div class="container">
+            <h1>${Title}</h1>
+            
+            
+            <ol class="breadcrumb">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/blogs">Blogs</a></li>
+                <li><a href="${AuthorUrl}">${Author}</a></li>
+            </ol>
+        </div>
     </header>
     <main>
       <section class="section-base boxed-page">
         <div class="container">
           <div class="row">
             <div class="col-lg-9 text-color">
+							<div class="blog-meta-icon">
+								<div><i class="fas fa-calendar-alt"></i><span class="blog-meta-date">${Date}</span></div>
+								<div><i class="fas fa-user-alt"></i><a href="#author">Adam Granicz</a></div>
+							</div>
               <div ws-hole="Article"></div>
               <hr class="space" />
               <div class="icon-links icon-links-button full-width icon-social social-colors">

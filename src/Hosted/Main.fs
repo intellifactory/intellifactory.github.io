@@ -825,7 +825,7 @@ module Site =
                         )
                         .Doc()
             )
-            .Date(article.DateString)
+            .Date(article.Date.ToString("dd MMM, yyyy"))
             .Title(article.Title)
             .CategoryNo(string article.CategoryNumber)
             // Sidebar

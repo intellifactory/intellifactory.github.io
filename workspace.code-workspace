@@ -12,7 +12,10 @@
 		"taskExplorer.enableGrunt": false,
 		"taskExplorer.enableNpm": false,
 		"taskExplorer.enablePowershell": false,
-		"taskExplorer.exclude": [ "**" ]
+		"taskExplorer.exclude": [
+			"**"
+		],
+		"FSharp.suggestGitignore": false
 	},
 	"extensions": {
 		"recommendations": [
