@@ -97,9 +97,9 @@
         {
             "label": "Serve as an offline sitelet",
             "type": "shell",
-            "command": "./run.sh",
+            "command": "./serve.sh",
             "windows": {
-                "command": ".\\run.ps1"
+                "command": ".\\serve.ps1"
             },
             "group": "build",
             "presentation": {
