@@ -14,6 +14,7 @@ type BlogListingArgs =
     | [<EndPoint "">] LanguageAndIndex of string * int
 
 type EndPoint =
+    | [<EndPoint "GET /course">] Courses of slug:string
     | [<EndPoint "GET /trainings">] Trainings
     | [<EndPoint "GET /blogs">] Blogs of BlogListingArgs
     // User-less blog articles
@@ -376,6 +377,7 @@ module Site =
     type MainTemplate = Templating.Template<"../Hosted/index.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type RedirectTemplate = Templating.Template<"../Hosted/redirect.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type TrainingsTemplate = Templating.Template<"../Hosted/trainings.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CoursesBaseTemplate = Templating.Template<"../Hosted/trainings/base.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogListTemplate = Templating.Template<"../Hosted/bloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type UserBlogListTemplate = Templating.Template<"../Hosted/userbloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
@@ -912,6 +914,22 @@ module Site =
                 |> List.map fst
                 |> sprintf "Trying to find page \"%s\" (with key=\"%s\"), but it's not in %A" p page
                 |> Content.Text
+        let COURSES (slug: string) =
+            let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/trainings/%s.html" slug)
+            if File.Exists templateFile then
+                CoursesBaseTemplate(File.ReadAllText templateFile)
+                |> fun template ->
+                    template
+#if !DEBUG
+                        .ReleaseMin(".min")
+#endif
+                        .MenuBar(menubar config.Value)
+                        .Footer(MainTemplate.Footer().Doc())
+                        .Cookie(Cookies.Banner false)
+                        .Doc()
+                |> Content.Page
+            else 
+                Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
         let TRAININGS () =
             let mapStyles = mapStyles()
             let header =
@@ -1168,6 +1186,8 @@ module Site =
             ]
 
         Application.MultiPage (fun (ctx: Context<_>) -> function
+            | Courses (site: string) ->
+                COURSES site
             | Trainings ->
                 TRAININGS ()
             | TermsOfUse ->
@@ -1340,9 +1360,13 @@ type Website() =
                 |> List.map (fst >> fst)
                 |> Set.ofList
                 |> Set.toList
+            let trainings = 
+                Directory.EnumerateFiles("../Host/trainings/", "*.html", SearchOption.TopDirectoryOnly)
             eprintfn "DEBUG-users: %A" users
             [
                 // Generate the learning page
+                for training in trainings do
+                    Courses training
                 Trainings
                 // Generate contact page
                 Contact
