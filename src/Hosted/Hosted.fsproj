@@ -13,6 +13,8 @@
     <Content Include="consulting.html" />
     <Content Include="careers.html" />
     <Content Include="openPosition.html" />
+    <Content Include="fsharpTraining.html" />
+    <Content Include="webTraining.html" />
     <None Include="assets\custom.scss" />
     <Content Include="assets\custom.css" />
     <Content Include="assets\skin.css" />
