@@ -37,8 +37,7 @@ type EndPoint =
     | [<EndPoint "GET /research">] Research
     | [<EndPoint "GET /">] Consulting
     | [<EndPoint "GET /careers">] Careers
-    | [<EndPoint "GET /openPosition">] OpenPosition
-    | [<EndPoint "GET /internPosition">] InternPosition
+    | [<EndPoint "GET /jobs">] Jobs of string
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
 
@@ -946,6 +945,17 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let Jobs (job: string) = 
+            let content = File.ReadAllText("../Hosted/jobs/" + job + ".html")
+            InternPositionTemplate(content)
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |> Content.Page
         let TERMSOFUSE (ctx: Context<_>) =
             LegalTemplate()
 #if !DEBUG
@@ -1190,6 +1200,8 @@ module Site =
                 COURSES site
             | Trainings ->
                 TRAININGS ()
+            | Jobs job ->
+                Jobs job
             | TermsOfUse ->
                 TERMSOFUSE ctx
             | CookiePolicy ->
@@ -1297,10 +1309,6 @@ module Site =
                 CONSULTING()
             | Careers ->
                 CAREERS()
-            | OpenPosition ->
-                OPENPOSITION()
-            | InternPosition ->
-                INTERNPOSITION()
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
             | Debug ->
@@ -1362,6 +1370,9 @@ type Website() =
                 |> Set.toList
             let trainings = 
                 Directory.EnumerateFiles("../Host/trainings/", "*.html", SearchOption.TopDirectoryOnly)
+            let jobs =
+                DirectoryInfo("...path...").EnumerateFiles()
+                |> Seq.map (fun x -> x.Name.Replace(".html", ""))
             eprintfn "DEBUG-users: %A" users
             [
                 // Generate the learning page
@@ -1405,6 +1416,8 @@ type Website() =
                 for user in users do
                     RSSFeedForUser user
                     AtomFeedForUser user
+                for job in jobs do
+                    Jobs job
                 // Generate 404 page
                 Error404
                 // Generate legal pages
@@ -1414,8 +1427,6 @@ type Website() =
                 Research
                 Consulting
                 Careers
-                OpenPosition
-                InternPosition
             ]
 
 [<assembly: Website(typeof<Website>)>]
