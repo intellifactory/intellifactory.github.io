@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="jobs\202102-fsharp-intern.html" />
+    <Content Include="jobs\202102-fsharp-web-developer.html" />
     <Content Include="trainings\fsharp-basics.html" />
     <Content Include="posts/**/*.*" />
     <Compile Include="Main.fs" />
@@ -13,8 +15,8 @@
     <Content Include="research.html" />
     <Content Include="consulting.html" />
     <Content Include="careers.html" />
-    <Content Include="openPosition.html" />
     <Content Include="course-base.html" />
+    <Content Include="jobs-base.html" />
     <None Include="assets\custom.scss" />
     <Content Include="assets\custom.css" />
     <Content Include="assets\skin.css" />

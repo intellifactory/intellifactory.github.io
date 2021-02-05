@@ -7,6 +7,7 @@ open WebSharper
 open WebSharper.Sitelets
 open WebSharper.UI
 open WebSharper.UI.Server
+open System.Web
 
 type BlogListingArgs =
     | [<EndPoint "">] Empty
@@ -385,8 +386,7 @@ module Site =
     type ResearchTemplate = Templating.Template<"../Hosted/research.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
-    type OpenPositionTemplate = Templating.Template<"../Hosted/openPosition.html", serverLoad=Templating.ServerLoad.WhenChanged>
-    type InternPositionTemplate = Templating.Template<"../Hosted/internPosition.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type JobsBaseTemplate = Templating.Template<"../Hosted/jobs-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
 
     type [<CLIMutable>] RawConfig =
         {
@@ -918,6 +918,7 @@ module Site =
             if File.Exists templateFile then
                 CourseBaseTemplate(File.ReadAllText templateFile)
                 |> fun template ->
+                    let mailtoFromTitle (title: string) = sprintf "mailto:trainings@intellifactory.com?subject=%s" <| HttpUtility.HtmlEncode title
                     let vids =
                         [
                             "Asynchronous, concurrent and distributed programming"
@@ -932,7 +933,13 @@ module Site =
                         ]
                         |> List.map (fun x -> li [] [
                                 a [attr.href "#"] [text x] 
-                                div [attr.``class`` "content"] [button [attr.``class`` "btn btn-sm btn-circle"] [text "contact us for an onsite training"]] 
+                                div [attr.``class`` "content"] [
+                                    a [
+                                        attr.``class`` "btn btn-sm btn-circle full-width"
+                                        attr.target "_blank"
+                                        attr.href <| mailtoFromTitle x
+                                    ] [text "Contact us for an onsite training"]
+                                ] 
                             ])
                     template
 #if !DEBUG
@@ -964,7 +971,7 @@ module Site =
             |> Content.Page
         let Jobs (job: string) = 
             let content = File.ReadAllText("../Hosted/jobs/" + job + ".html")
-            InternPositionTemplate(content)
+            JobsBaseTemplate(content)
 #if !DEBUG
                 .ReleaseMin(".min")
 #endif
@@ -1043,26 +1050,6 @@ module Site =
 #if !DEBUG
                 .ReleaseMin(".min")
 #endif
-                .MenuBar(menubar config.Value)
-                .Footer(MainTemplate.Footer().Doc())
-                .Cookie(Cookies.Banner false)
-                .Doc()
-            |>Content.Page
-        let OPENPOSITION () = 
-            OpenPositionTemplate()
-#if !DEBUG
-                .ReleaseMin(".min")
-#endif    
-                .MenuBar(menubar config.Value)
-                .Footer(MainTemplate.Footer().Doc())
-                .Cookie(Cookies.Banner false)
-                .Doc()
-            |>Content.Page 
-        let INTERNPOSITION () = 
-            InternPositionTemplate()
-#if !DEBUG
-                .ReleaseMin(".min")
-#endif  
                 .MenuBar(menubar config.Value)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
@@ -1386,11 +1373,13 @@ type Website() =
                 |> Set.ofList
                 |> Set.toList
             let trainings = 
-                Directory.EnumerateFiles("../Host/trainings/", "*.html", SearchOption.TopDirectoryOnly)
+                DirectoryInfo("../Hosted/trainings/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
+                |> Seq.map (fun x -> x.Name.Substring(0, x.Name.Length-5))
+                |> List.ofSeq
             let jobs =
-                DirectoryInfo("...path...").EnumerateFiles()
+                DirectoryInfo("../Hosted/jobs/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
                 |> Seq.map (fun x -> x.Name.Replace(".html", ""))
-            eprintfn "DEBUG-users: %A" users
+                |> List.ofSeq
             [
                 // Generate the learning page
                 for training in trainings do
