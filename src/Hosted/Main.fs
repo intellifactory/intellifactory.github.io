@@ -376,7 +376,7 @@ module Site =
     type MainTemplate = Templating.Template<"../Hosted/index.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type RedirectTemplate = Templating.Template<"../Hosted/redirect.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type TrainingsTemplate = Templating.Template<"../Hosted/trainings.html", serverLoad=Templating.ServerLoad.WhenChanged>
-    type CoursesBaseTemplate = Templating.Template<"../Hosted/trainings/base.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CourseBaseTemplate = Templating.Template<"../Hosted/course-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogListTemplate = Templating.Template<"../Hosted/bloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type UserBlogListTemplate = Templating.Template<"../Hosted/userbloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
@@ -916,12 +916,29 @@ module Site =
         let COURSES (slug: string) =
             let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/trainings/%s.html" slug)
             if File.Exists templateFile then
-                CoursesBaseTemplate(File.ReadAllText templateFile)
+                CourseBaseTemplate(File.ReadAllText templateFile)
                 |> fun template ->
+                    let vids =
+                        [
+                            "Asynchronous, concurrent and distributed programming"
+                            "Concise error-handling, logging"
+                            "Process data with composable functions"
+                            "F#'s type inference"
+                            "Pattern matching and Active Patterns"
+                            "Pit of success with typing"
+                            "Partial application and currying"
+                            "Code quotations"
+                            "Interactive shell and interpreter"
+                        ]
+                        |> List.map (fun x -> li [] [
+                                a [attr.href "#"] [text x] 
+                                div [attr.``class`` "content"] [button [attr.``class`` "btn btn-sm btn-circle"] [text "contact us for an onsite training"]] 
+                            ])
                     template
 #if !DEBUG
                         .ReleaseMin(".min")
 #endif
+                        .VideoList(ul [attr.``class`` "accordion-list"] vids)
                         .MenuBar(menubar config.Value)
                         .Footer(MainTemplate.Footer().Doc())
                         .Cookie(Cookies.Banner false)

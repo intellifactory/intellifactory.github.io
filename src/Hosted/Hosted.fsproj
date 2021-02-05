@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="trainings\base.html" />
-    <Content Include="trainings\functional-reactive.html" />
-    <Content Include="trainings\web-and-mobile.html" />
-    <Content Include="trainings\2-days-to-fsharp.html" />
+    <Content Include="trainings\fsharp-basics.html" />
     <Content Include="posts/**/*.*" />
     <Compile Include="Main.fs" />
     <Compile Include="Startup.fs" />
@@ -17,6 +14,7 @@
     <Content Include="consulting.html" />
     <Content Include="careers.html" />
     <Content Include="openPosition.html" />
+    <Content Include="course-base.html" />
     <None Include="assets\custom.scss" />
     <Content Include="assets\custom.css" />
     <Content Include="assets\skin.css" />
