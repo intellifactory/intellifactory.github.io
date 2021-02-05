@@ -7,7 +7,6 @@ open WebSharper
 open WebSharper.Sitelets
 open WebSharper.UI
 open WebSharper.UI.Server
-open System.Web
 
 type BlogListingArgs =
     | [<EndPoint "">] Empty
@@ -918,7 +917,7 @@ module Site =
             if File.Exists templateFile then
                 CourseBaseTemplate(File.ReadAllText templateFile)
                 |> fun template ->
-                    let mailtoFromTitle (title: string) = sprintf "mailto:trainings@intellifactory.com?subject=%s" <| HttpUtility.HtmlEncode title
+                    let mailtoFromTitle (title: string) = sprintf "mailto:trainings@intellifactory.com?subject=%s" <| System.Uri.EscapeDataString title
                     let vids =
                         [
                             "Asynchronous, concurrent and distributed programming"
