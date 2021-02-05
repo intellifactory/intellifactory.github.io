@@ -31,6 +31,53 @@
     <div ws-replace="MenuBar"></div>
   </nav>
   <main>
+    <div ws-replace="ApplySteps" ws-children-template="StepsSidebar">
+      <div class="box-steps box-steps-vertical">
+        <div class="step-item">
+            <span>1</span>
+            <div class="content">
+                <h3 style="padding-top:0.25em;">Send your resume</h3>
+                <a
+                href="mailto:hr@intellifactory.com?subject=${PositionName}"
+                target="_blank"
+                class="btn btn-sm btn-circle full-width"
+                >Attach and email</a
+              >
+            </div>
+        </div>
+        <div class="step-item">
+            <span>2</span>
+            <div class="content">
+                <h3 style="padding-top:0.25em;">Are you a good fit?</h3>
+                <div>
+                    We'll be in touch shortly after reviewing your application. You may also be
+                    asked to submit additional information.
+                </div>
+            </div>
+        </div>
+        <div class="step-item">
+            <span>3</span>
+            <div class="content">
+                <h3 style="padding-top:0.25em;">Online interview</h3>
+                <div>
+                    Strong candidates will have the opportunity to introduce
+                    themselves and their work via video conferencing. We look
+                    forward to learning more about you.
+                </div>
+            </div>
+        </div>
+        <div class="step-item">
+          <span>4</span>
+          <div class="content">
+              <h3 style="padding-top:0.25em;">Selection</h3>
+              <div>
+                  Once we find the right candidate, we reach out to you to
+                  let you know the next steps. This might take a few weeks at most. 
+              </div>
+          </div>
+      </div>
+    <hr class="space-xs" />
+    </div>
   </main>
   <i class="scroll-top-btn scroll-top show"></i>
   <footer class="footer light">

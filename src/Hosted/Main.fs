@@ -38,7 +38,7 @@ type EndPoint =
     | [<EndPoint "GET /research">] Research
     | [<EndPoint "GET /">] Consulting
     | [<EndPoint "GET /careers">] Careers
-    | [<EndPoint "GET /jobs">] Jobs of string
+    | [<EndPoint "GET /job">] Job of string
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
 
@@ -969,17 +969,38 @@ module Site =
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
-        let Jobs (job: string) = 
-            let content = File.ReadAllText("../Hosted/jobs/" + job + ".html")
-            JobsBaseTemplate(content)
-#if !DEBUG
-                .ReleaseMin(".min")
-#endif
-                .MenuBar(menubar config.Value)
-                .Footer(MainTemplate.Footer().Doc())
-                .Cookie(Cookies.Banner false)
-                .Doc()
-            |> Content.Page
+        let JOB job =
+            if File.Exists("../Hosted/jobs/" + job + ".html") then
+                let writer = (System.Globalization.CultureInfo("en-US", false)).TextInfo;
+                let title =
+                    job
+                        .Substring(7) // Cut the job date prefix off - assumed to be "YYYYMM-"
+                        .Replace("-", " ") // Reintroduce spaces
+                        .Replace("fsharp", "F#") // Format F#/C# as such
+                        .Replace("csharp", "C#")
+                    |> writer.ToTitleCase // Capitalize each first letter
+                    |> Uri.EscapeDataString // Escape so we can include it as a link
+                let content = File.ReadAllText("../Hosted/jobs/" + job + ".html")
+                JobsBaseTemplate(content)
+    #if !DEBUG
+                    .ReleaseMin(".min")
+    #endif
+                    .MenuBar(menubar config.Value)
+                    .ApplySteps(
+                        JobsBaseTemplate.StepsSidebar()
+                            .PositionName(title)
+                            .Doc()
+                    )
+                    .Footer(MainTemplate.Footer().Doc())
+                    .Cookie(Cookies.Banner false)
+                    .Doc()
+                |> Content.Page
+            else
+                Content.Page(
+                    [
+                        p [] [text <| sprintf "Couldn't find source for job [%s]" job]
+                    ]
+                )
         let TERMSOFUSE (ctx: Context<_>) =
             LegalTemplate()
 #if !DEBUG
@@ -1204,8 +1225,8 @@ module Site =
                 COURSES site
             | Trainings ->
                 TRAININGS ()
-            | Jobs job ->
-                Jobs job
+            | Job job ->
+                JOB job
             | TermsOfUse ->
                 TERMSOFUSE ctx
             | CookiePolicy ->
@@ -1423,7 +1444,7 @@ type Website() =
                     RSSFeedForUser user
                     AtomFeedForUser user
                 for job in jobs do
-                    Jobs job
+                    Job job
                 // Generate 404 page
                 Error404
                 // Generate legal pages
