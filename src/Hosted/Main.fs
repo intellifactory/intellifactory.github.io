@@ -703,29 +703,8 @@ module Site =
         MainTemplate.Menubar()
             .Doc()
 
-    let ArticleBasePage langopt (config: Config) (pageTitle: option<string>) hasBanner (transparentHeader: bool) articles (body: Doc) =
-        let head = head()
-        MainTemplate()
-#if !DEBUG
-            .ReleaseMin(".min")
-#endif
-            .IsTransparentHeader(if transparentHeader then "menu-transparent" else "")
-            // TODO: .NavbarOverlay(if hasBanner then "overlay-bar" else "")
-            .Head(head)
-            .MenuBar(menubar config)
-            .Title(
-                match pageTitle with
-                | None -> ""
-                | Some t -> t + " | "
-            )
-            .Body(body)
-            .Cookie(Cookies.Banner false)
-            .FooterPlaceholder(MainTemplate.Footer().Doc())
-            .Doc()
-        |> Content.Page
-
     let BlogSidebar config articles (article: Article) =
-        MainTemplate.Sidebar()
+        BlogPostTemplate.SidebarTemplate()
             .Categories(
                 // Render the categories widget iff there are categories
                 if article.Categories.IsEmpty then
@@ -733,7 +712,7 @@ module Site =
                 else
                         article.Categories
                         |> List.map (fun category ->
-                            MainTemplate.Category()
+                            BlogPostTemplate.Category()
                                 .Name(category)
                                 .Url(Urls.CATEGORY category (URL_LANG config article.Language))
                                 .Doc()
@@ -743,14 +722,14 @@ module Site =
             // There is always at least one blog post, so we render this
             // section no matter what.
             .ArticleItems(
-                MainTemplate.ArticleItems()
+                BlogPostTemplate.ArticleItems()
                     .ArticleItems(
                         articles
                         |> Map.toList
                         |> List.sortByDescending (fun (_, item) -> item.Date)
                         |> List.truncate 10
                         |> List.map (fun (_, item) ->
-                            MainTemplate.ArticleItem()
+                            BlogPostTemplate.ArticleItem()
                                 .Title(item.Title)
                                 .Url(item.Url)
                                 .Date(item.Date.ToShortDateString())
@@ -793,16 +772,19 @@ module Site =
                 []
         // Zero out if article has the master language
         let langopt = URL_LANG config article.Language
-        // MainTemplate.ArticlePage()
-        MainTemplate.ArticlePage()
+        let head = head()
+        BlogPostTemplate()
+#if !DEBUG
+            .ReleaseMin(".min")
+#endif
+            .IsTransparentHeader("menu-transparent")
+            .Head(head)
+            .Menubar(menubar config)
+            .Cookie(Cookies.Banner false)
+            .FooterPlaceholder(MainTemplate.Footer().Doc())
             // Main content panel
             .Article(
                 PLAIN article.Content
-                //MainTemplate.Article()
-                //    .Title(article.Title)
-                //    .Subtitle(Doc.Verbatim article.Subtitle)
-                //    .Content(PLAIN article.Content)
-                //    .Doc()
             )
             .SourceCodeUrl(sprintf "%s/tree/master%s.md" config.GitHubRepo article.Url)
             .LanguageSelectorPlaceholder(
@@ -833,7 +815,7 @@ module Site =
             // Sidebar
             .Sidebar(BlogSidebar config articles article)
             .Doc()
-        |> ArticleBasePage langopt config (Some article.Title) false false articles
+          |> Content.Page
 
     // The silly ref's are needed because offline sitelets are
     // initialized in their own special way, without having access

@@ -133,7 +133,7 @@
               </div>
             </li>
             <li>
-              <a href="/careers">Careers</a>
+              <a href="/careers">We are hiring!</a>
             </li>
           </ul>
           <div class="menu-right">
@@ -146,173 +146,21 @@
       </div>
   </nav>
 
-  <div ws-replace="Body" ws-children-template="ArticlePage">
-    <div ws-template="HomeBody">
-      <div ws-replace="Banner"></div>
-      <main>
-        <section class="section-base">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div ws-hole="ArticleList" class="masonry columns is-gapless is-multiline is-mobile" data-masonry='{ "itemSelector": ".masonry-item", "horizontalOrder": true, "precentPosition": true}'>
-                  <div ws-template="ArticleCard" class="masonry-item column category-${CategoryNo}">
-                    <div class="flat-card">
-                      <div class="flat-card-content">
-                        <div class="popup-image"><img src="http://via.placeholder.com/800x800" /></div>
-                        <div class="content">
-                          <div class="tag-holder">
-                            <h5 class="blog-tag">
-                              <div ws-replace="Author"></div>
-                            </h5>
-                          </div>
-                          <div class="blog-title">
-                            <h3>
-                              <a href="${Url}">${Title}</a>
-                              <div ws-replace="ArticleCategories">
-                                <div ws-children-template="ArticleCategory">
-                                  <a href="${Url}">#${Title}</a>&nbsp;
-                                </div>
-                              </div>
-                            </h3>
-                          </div>
-                          <div class="blog-meta">
-                            <time datetime="2016-1-1">${Date}</time>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-pagination">
-              <ul class="pagination pagination-lg" data-page-items="4" data-options="scrollTop:true">
-                <li class="prev disabled"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category${CategoryNo}.jpg" data-offset="0">
-        <div class="container">
-            <h1>${Title}</h1>
-            
-            
-            <ol class="breadcrumb">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/blogs">Blogs</a></li>
-                <li><a href="${AuthorUrl}">${Author}</a></li>
-            </ol>
+  <div ws-replace="Body">
+    <div ws-replace="LanguageSelectorPlaceholder" ws-template="LanguageSelector" class="navbar-end">
+      <div class="navbar-item">
+        <div ws-replace="Languages" class="buttons">
+          <a ws-template="LanguageItem" class="button is-light" href="${Url}">
+            <strong>${Title}</strong>
+          </a>
+          <a ws-template="LanguageItemActive" class="button has-background-grey-lighter" href="${Url}">
+            <strong>${Title}</strong>
+          </a>
         </div>
-    </header>
-    <main>
-      <section class="section-base boxed-page">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-9 text-color">
-							<div class="blog-meta-icon">
-								<div><i class="fas fa-calendar-alt"></i><span class="blog-meta-date">${Date}</span></div>
-								<div><i class="fas fa-user-alt"></i><a href="#author">Adam Granicz</a></div>
-							</div>
-              <div ws-hole="Article"></div>
-              <hr class="space" />
-              <div class="icon-links icon-links-button full-width icon-social social-colors">
-                <a data-social="share-facebook" class="facebook"><i class="fab fa-facebook"></i></a>
-                <a data-social="share-twitter" class="twitter"><i class="fab fa-twitter"></i></a>
-                <a data-social="share-linkedin" class="linkedin"><i class="fab fa-linkedin"></i></a>
-                <a data-social="share-pinterest" class="pinterest"><i class="fab fa-pinterest"></i></a>
-              </div>
-              <hr />
-              <div class="cnt-box cnt-box-side box-small">
-                <a href="#" class="img-box"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub source" /></a>
-                <div class="caption">
-                  <h2>Found a typo?</h2>
-                  <p>
-                    This blog post is hosted on GitHub <a href="${SourceCodeUrl}">here</a>. Feel free to file a ticket or send a PR.
-                  </p>
-                </div>
-              </div>
-              <hr />
-              <h2>Other articles you might be interested in</h2>
-              <hr class="space-sm" />
-              <div class="grid-list" data-columns="3" data-columns-sm="1">
-                <div class="grid-box">
-                  <div class="grid-item">
-                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
-                      <div class="caption">
-                        <h2>Jessica Adams Exibition In New York With After Show</h2>
-                        <div class="extra-field">Technology</div>
-                        <p>
-                          October 25, 2019
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="grid-item">
-                    <div href="#" class="cnt-box cnt-box-top-icon boxed doc-boxed align-left">
-                      <div class="caption">
-                        <h2>How to change your business and make money</h2>
-                        <div class="extra-field">Business</div>
-                        <p>
-                          October 24, 2019
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 widget">
-              <div ws-replace="LanguageSelectorPlaceholder" ws-template="LanguageSelector" class="navbar-end">
-                <div class="navbar-item">
-                  <div ws-replace="Languages" class="buttons">
-                    <a ws-template="LanguageItem" class="button is-light" href="${Url}">
-                      <strong>${Title}</strong>
-                    </a>
-                    <a ws-template="LanguageItemActive" class="button has-background-grey-lighter" href="${Url}">
-                      <strong>${Title}</strong>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div ws-children-template="Sidebar" ws-hole="Sidebar">
-                <h3>Tagged as</h3>
-                <hr class="space-xs" />
-                <div class="tabs" ws-hole="Categories">
-                  <div ws-template="Category">
-                    <a href="${Url}">
-                      ${Name}
-                    </a>
-                  </div>
-                </div>
-                <h3>Latest posts</h3>
-                <hr class="space-sm" />
-                <div ws-replace="ArticleItems">
-                  <div ws-template="ArticleItems" class="menu-inner menu-inner-vertical menu-inner-image">
-                    <ul>
-                      <div ws-replace="ArticleItems"></div>
-                      <li ws-template="ArticleItem">
-                        <a href="${Url}">
-                          <img src="/assets/category${CategoryNo}-thumb.jpg" alt="${Title}">
-                          ${Title}
-                          <span>${Date}</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <hr class="space-sm" />
-                <h3>Twitter</h3>
-                <hr class="space-sm" />
-                <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>m
   </div>
+
   <i class="scroll-top-btn scroll-top show"></i>
   <footer class="footer light">
       <div ws-replace="FooterPlaceholder"></div>
