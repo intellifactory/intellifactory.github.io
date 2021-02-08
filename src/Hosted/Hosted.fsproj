@@ -7,6 +7,7 @@
   <ItemGroup>
     <Content Include="jobs\202102-fsharp-intern.html" />
     <Content Include="jobs\202102-fsharp-web-developer.html" />
+    <Content Include="tutorial-link-snippet.html" />
     <Content Include="trainings\fsharp-basics.html" />
     <Content Include="posts/**/*.*" />
     <Compile Include="Main.fs" />

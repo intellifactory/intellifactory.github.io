@@ -386,6 +386,7 @@ module Site =
     type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type JobsBaseTemplate = Templating.Template<"../Hosted/jobs-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type TutorialLinkSnippetTamplate = Templating.Template<"../Hosted/tutorial-link-snippet.html", serverLoad=Templating.ServerLoad.WhenChanged>
 
     type [<CLIMutable>] RawConfig =
         {
@@ -930,21 +931,17 @@ module Site =
                             "Code quotations"
                             "Interactive shell and interpreter"
                         ]
-                        |> List.map (fun x -> li [] [
-                                a [attr.href "#"] [text x] 
-                                div [attr.``class`` "content"] [
-                                    a [
-                                        attr.``class`` "btn btn-sm btn-circle full-width"
-                                        attr.target "_blank"
-                                        attr.href <| mailtoFromTitle x
-                                    ] [text "Contact us for an onsite training"]
-                                ] 
-                            ])
+                        |> List.map (fun x -> 
+                            TutorialLinkSnippetTamplate
+                                .VideoItem()
+                                .Title(x)
+                                .Doc()
+                        )
                     template
 #if !DEBUG
                         .ReleaseMin(".min")
 #endif
-                        .VideoList(ul [attr.``class`` "accordion-list"] vids)
+                        .VideoList(vids)
                         .MenuBar(menubar config.Value)
                         .Footer(MainTemplate.Footer().Doc())
                         .Cookie(Cookies.Banner false)
