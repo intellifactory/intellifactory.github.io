@@ -436,7 +436,10 @@ module Site =
             Title: string
             Subtitle: string
             Abstract: string
+            AuthorName: string
+            User: string
             Url: string
+            AuthorUrl: string
             Content: string
             DateString: string
             SlugWithoutDate: string
@@ -613,7 +616,10 @@ module Site =
                             Title = title
                             Subtitle = subtitle
                             Abstract = ``abstract``
+                            AuthorName = if config.Users.ContainsKey user then config.Users.[user] else user
+                            User = user
                             Url = url
+                            AuthorUrl = Urls.USER_URL user
                             Content = content
                             DateString = datestring
                             SlugWithoutDate = slug
@@ -811,7 +817,12 @@ module Site =
             )
             .Date(article.Date.ToString("dd MMM, yyyy"))
             .Title(article.Title)
+            .Description(article.Abstract)
+            .PageUrl(article.Url)
+            .AuthorName(article.AuthorName)
+            .AuthorUrl(article.AuthorUrl)
             .CategoryNo(string article.CategoryNumber)
+            .ServerUrl(config.ServerUrl)
             // Sidebar
             .Sidebar(BlogSidebar config articles article)
             .Doc()

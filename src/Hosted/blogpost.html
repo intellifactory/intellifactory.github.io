@@ -5,7 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${Title}IntelliFactory</title>
-  <meta name="description" content="">
+  <meta name="description" content="${Description}">
+  <meta property="og:title" content="${Title}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${ServerUrl}${PageUrl}" />
+  <meta property="og:image" content="${ServerUrl}/assets/category${CategoryNo}.jpg" />
+  <meta property="og:description" content="${Description}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@intellifactory" />
+  <meta name="twitter:title" content="${Title}" />
+  <meta name="twitter:description" content="${Description}" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/themekit/css/bootstrap-grid.min.css">
@@ -28,11 +37,6 @@
     <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category${CategoryNo}.jpg" data-offset="0">
         <div class="container">
             <h1>${Title}</h1>
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/blogs">Blogs</a></li>
-                <li><a href="${AuthorUrl}">${Author}</a></li>
-            </ol>
         </div>
     </header>
     <main>
@@ -42,7 +46,7 @@
                     <div class="col-lg-9 text-color">
                         <div class="blog-meta-icon">
                             <div><i class="fas fa-calendar-alt"></i><span class="blog-meta-date">${Date}</span></div>
-                            <div><i class="fas fa-user-alt"></i><a href="#author">Adam Granicz</a></div>
+                            <div><i class="fas fa-user-alt"></i><a href="${AuthorUrl}">${AuthorName}</a></div>
                         </div>
                         <div ws-hole="Article"></div>
                         <hr class="space" />
