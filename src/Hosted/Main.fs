@@ -836,6 +836,11 @@ module Site =
     let __identities1 : Identities1 ref = ref Map.empty
     let __config : Config ref = ref <| ReadConfig()
 
+    let trainings = 
+        DirectoryInfo("../Hosted/trainings/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
+        |> Seq.map (fun x -> x.Name.Substring(0, x.Name.Length-5))
+        |> List.ofSeq
+
     let Main (config: Config ref) (identities1: Identities1 ref) (info: BlogInfoRaw ref) (articles: Articles ref) =
         let getContent (ctx: Context<_>) fileName =
             use r = new StreamReader(Path.Combine(@"../Hosted/", "legal", fileName))
@@ -907,11 +912,15 @@ module Site =
                 |> sprintf "Trying to find page \"%s\" (with key=\"%s\"), but it's not in %A" p page
                 |> Content.Text
         let COURSES (slug: string) =
-            let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/trainings/%s.html" slug)
+            let page =
+                if slug.ToLower().EndsWith(".html") then
+                    slug.Substring(0, slug.Length-5)
+                else
+                    slug 
+            let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/trainings/%s.html" page)
             if File.Exists templateFile then
                 CourseBaseTemplate(File.ReadAllText templateFile)
                 |> fun template ->
-                    let mailtoFromTitle (title: string) = sprintf "mailto:trainings@intellifactory.com?subject=%s" <| System.Uri.EscapeDataString title
                     let vids =
                         [
                             "Asynchronous, concurrent and distributed programming"
@@ -941,7 +950,9 @@ module Site =
                         .Doc()
                 |> Content.Page
             else 
-                Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
+                trainings
+                |> sprintf "Trying to find page \"%s\" (with key=\"%s\"), but it's not in %A" slug page
+                |> Content.Text
         let TRAININGS () =
             let mapStyles = mapStyles()
             let header =
@@ -1382,17 +1393,13 @@ type Website() =
                 |> List.map (fst >> fst)
                 |> Set.ofList
                 |> Set.toList
-            let trainings = 
-                DirectoryInfo("../Hosted/trainings/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
-                |> Seq.map (fun x -> x.Name.Substring(0, x.Name.Length-5))
-                |> List.ofSeq
             let jobs =
                 DirectoryInfo("../Hosted/jobs/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
                 |> Seq.map (fun x -> x.Name.Replace(".html", ""))
                 |> List.ofSeq
             [
                 // Generate the learning page
-                for training in trainings do
+                for training in Site.trainings do
                     Courses training
                 Trainings
                 // Generate contact page
