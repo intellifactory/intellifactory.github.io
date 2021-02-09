@@ -822,7 +822,7 @@ module Site =
                         )
                         .Doc()
             )
-            .Date(article.Date.ToString("dd MMM, yyyy"))
+            .Date(article.Date.ToString("MMM dd, yyyy"))
             .Title(article.Title)
             .Description(article.Abstract)
             .PageUrl(article.Url)
