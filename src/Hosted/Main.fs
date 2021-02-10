@@ -449,6 +449,7 @@ module Site =
             CategoryNumber: int
             Language: string
             Identity: int * int
+            TimeToRead: float
         }
 
     type BlogInfoRaw =
@@ -611,6 +612,9 @@ module Site =
                             id1, id2
                         | _ ->
                             failwithf "Invalid identity found (%A)" entries
+                    let timeToRead =
+                        let words = content.Split([|' '|]).Length
+                        Math.Ceiling(float words / 200.) // Avarage WPM is 200
                     eprintfn "DEBUG-ADD: (%s, %s)\n-------------------" user fname
                     Map.add (user, fname)
                         {
@@ -629,6 +633,7 @@ module Site =
                             CategoryNumber = categoryNo
                             Language = language
                             Identity = identity
+                            TimeToRead = timeToRead
                         } map
                 ) store
             else
@@ -793,6 +798,7 @@ module Site =
             .Article(
                 PLAIN article.Content
             )
+            .TimeToRead(string article.TimeToRead)
             .SourceCodeUrl(sprintf "%s/tree/master%s.md" config.GitHubRepo article.Url)
             .LanguageSelectorPlaceholder(
                 if languages.IsEmpty then
