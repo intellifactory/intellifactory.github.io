@@ -18,6 +18,14 @@ table {
   display: flex !important;
   flex-wrap: wrap !important;
 
+  &.tabs-without-count {
+    div {
+      a {
+        border-radius: 15px;
+      }
+    }
+  }
+
   div {
     margin-right: 0.5em;
     margin-bottom: 0.5em;
