@@ -26,14 +26,24 @@ table {
 
     a {
       color: #ffffff;
-      display: block;
+      display: inline-block;
       position: relative;
       text-decoration: none;
-      border-radius: 15px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
       cursor: pointer;
       transition: all 0.5s;
       background-color: #47b2e4;
-      padding: 0.25em 0.75em;
+      padding: 0.25em 0.75em 0.25em 0.75em;
+    }
+
+    span {
+      background-color: #4bc6ff;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      padding: 0.25em 0.75em 0.25em 0.75em;
+      color: #ffffff;
+      display: inline-block;
     }
   }
 }

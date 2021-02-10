@@ -386,7 +386,8 @@ module Site =
     type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type JobsBaseTemplate = Templating.Template<"../Hosted/jobs-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
-    type TutorialLinkSnippetTamplate = Templating.Template<"../Hosted/tutorial-link-snippet.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type TutorialLinkSnippetTemplate = Templating.Template<"../Hosted/tutorial-link-snippet.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CategoriesTemplate = Templating.Template<"../Hosted/categories.html", serverLoad=Templating.ServerLoad.WhenChanged>
 
     type [<CLIMutable>] RawConfig =
         {
@@ -934,7 +935,7 @@ module Site =
                             "Interactive shell and interpreter"
                         ]
                         |> List.map (fun x -> 
-                            TutorialLinkSnippetTamplate
+                            TutorialLinkSnippetTemplate
                                 .VideoItem()
                                 .Title(x)
                                 .Doc()
@@ -1136,6 +1137,25 @@ module Site =
                 |> Content.Page
             else
                 Content.Text "Page out of bounds"
+        let CATEGORIES () =
+            CategoriesTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Tags(
+                    info.Value.Categories
+                    |> Map.toList
+                    |> List.sortByDescending snd
+                    |> List.map (fun (tag, count) ->
+                        CategoriesTemplate.Tag()
+                            .Title(tag)
+                            .Url(Urls.CATEGORY tag "")
+                            .Count(string count)
+                            .Doc()
+                    )
+                )
+                .Doc()
+                |> Content.Page
         let BLOG_LISTING_NO_PAGING (banner: Doc) f =
             BlogListTemplate()
                 .Menubar(menubar config.Value)
@@ -1274,6 +1294,8 @@ module Site =
                     else
                         failwithf "Unable to find user for id1=%d, with map=%A" id1 identities1.Value
                 REDIRECT_TO (Urls.OLD_TO_POST_URL (user, datestring, oldslug))
+            | Categories ->
+                CATEGORIES ()
             // Blog articles in a given category
             | Category (cat, langopt) ->
                 BLOG_LISTING_NO_PAGING
@@ -1284,8 +1306,6 @@ module Site =
                         langopt = URL_LANG config.Value article.Language
                         &&
                         List.contains cat article.Categories
-            | Categories ->
-                Content.NotFound
             // For a simple but useful reference on Atom vs RSS content, refer to:
             // https://www.intertwingly.net/wiki/pie/Rss20AndAtom10Compared
             | AtomFeed ->
@@ -1433,6 +1453,7 @@ type Website() =
                             ) articles
                         then
                             Category (category, language)
+                Categories
                 // Generate the RSS/Atom feeds
                 RSSFeed
                 AtomFeed
