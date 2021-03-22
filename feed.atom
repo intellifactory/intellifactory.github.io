@@ -3,7 +3,7 @@
   <title>IntelliFactory Blog</title>
   <subtitle>Building business applications with F# since 2004</subtitle>
   <link href="http://mywebsite.com" />
-  <updated>2021-01-29T14:15:18Z</updated>
+  <updated>2021-03-22T09:57:53Z</updated>
   <entry>
     <title>Variations for a WebSharper shopping cart</title>
     <link href="http://mywebsite.com/user/granicz/20201231-variations-for-a-websharper-shopping-cart" />
@@ -47,14 +47,6 @@
     <category>websharper</category>
     <summary>In my previous article about "F# metablogging: introducing BlogEngine for your static markdown-based F# blog", I briefly outlined a quick strategy to switch a WebSharper HTML project to a hosted, client-server app, and vice versa. In this article, I will walk through some suprises that came along the way and what I did to resolve them.</summary>
     <updated>2020-01-16T00:00:00Z</updated>
-  </entry>
-  <entry>
-    <title>Writing instructions</title>
-    <link href="http://mywebsite.com/post/20200101-writing-instructions.html" />
-    <id>20200101-writing-instructions</id>
-    <category>blogging</category>
-    <summary></summary>
-    <updated>2020-01-01T00:00:00Z</updated>
   </entry>
   <entry>
     <title>F# metablogging: introducing BlogEngine for your static markdown-based F# blog</title>
