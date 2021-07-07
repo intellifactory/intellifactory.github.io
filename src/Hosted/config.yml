@@ -1,7 +1,7 @@
-serverUrl: http://mywebsite.com
+serverUrl: https://intellifactorylabs.com
 shortTitle: IntelliFactory
 title: IntelliFactory Blog
-description: Building business applications with F# since 2004
+description: Building F# applications since 2004
 masterUserDisplayName: IntelliFactory
 masterLanguage: en
 languages: "en->English,es->Spanish,hu->Hungarian"

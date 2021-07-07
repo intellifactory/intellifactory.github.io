@@ -1,0 +1,136 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Solution in Release mode",
+            "type": "shell",
+            "command": "./build.sh",
+            "windows": {
+                "command": ".\\build.ps1"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Build Solution in Debug mode",
+            "type": "shell",
+            "command": "./build.sh -deb",
+            "windows": {
+                "command": ".\\build.ps1 -deb"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Build Project in Debug mode",
+            "type": "shell",
+            "command": "./build.sh -deb -project ${input:project}",
+            "windows": {
+                "command": ".\\build.ps1 -deb -project ${input:project}"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Build Project in Release mode",
+            "type": "shell",
+            "command": "./build.sh -project ${input:project}",
+            "windows": {
+                "command": ".\\build.ps1 -project ${input:project}"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Install with tools",
+            "type": "shell",
+            "command": "./install.sh",
+            "windows": {
+                "command": ".\\install.ps1"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Install",
+            "type": "shell",
+            "command": "./install.sh -buildonly",
+            "windows": {
+                "command": ".\\install.ps1 -buildOnly"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Hosted",
+            "type": "shell",
+            "command": "./run.sh",
+            "windows": {
+                "command": ".\\run.ps1"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Serve as an offline sitelet",
+            "type": "shell",
+            "command": "./serve.sh",
+            "windows": {
+                "command": ".\\serve.ps1"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "CSS Server",
+            "type": "shell",
+            "command": "./grunt-watch.sh",
+            "windows": {
+                "command": ".\\grunt-watch.ps1"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "project",
+            "description": "Which project you want to build?",
+            "options": [
+                "client",
+                "hosted",
+                "website"
+            ]
+        }
+    ]
+}

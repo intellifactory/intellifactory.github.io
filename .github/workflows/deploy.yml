@@ -24,6 +24,7 @@ jobs:
         with:
           dotnet-version: '3.1.x'
       - run: |
+          bash ./install.sh -buildonly
           bash ./build.sh
 
       - name: Deploy 🚀
