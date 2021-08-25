@@ -121,7 +121,7 @@ module Markdown =
             .UseAdvancedExtensions()
             .Build()
 
-    let Convert content = Markdown.ToHtml(content, pipeline)
+    let Convert (content: string) = Markdown.ToHtml(content, pipeline)
 
 module Yaml =
     open System.Text.RegularExpressions
