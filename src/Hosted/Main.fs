@@ -14,6 +14,7 @@ type BlogListingArgs =
     | [<EndPoint "">] LanguageAndIndex of string * int
 
 type EndPoint =
+    | [<EndPoint "GET /course">] Courses of slug:string
     | [<EndPoint "GET /trainings">] Trainings
     | [<EndPoint "GET /blogs">] Blogs of BlogListingArgs
     // User-less blog articles
@@ -33,6 +34,10 @@ type EndPoint =
     | [<EndPoint "GET /terms-of-use">] TermsOfUse
     | [<EndPoint "GET /privacy-policy">] PrivacyPolicy
     | [<EndPoint "GET /cookie-policy">] CookiePolicy
+    | [<EndPoint "GET /research">] Research
+    | [<EndPoint "GET /">] Consulting
+    | [<EndPoint "GET /careers">] Careers
+    | [<EndPoint "GET /job">] Job of string
     | [<EndPoint "GET /404.html">] Error404
     | [<EndPoint "GET /debug">] Debug
 
@@ -116,7 +121,7 @@ module Markdown =
             .UseAdvancedExtensions()
             .Build()
 
-    let Convert content = Markdown.ToHtml(content, pipeline)
+    let Convert (content: string) = Markdown.ToHtml(content, pipeline)
 
 module Yaml =
     open System.Text.RegularExpressions
@@ -352,7 +357,15 @@ module ClientSideCode =
                     let map = new Map(el, options)
                     let point = new LatLng(47.48543, 19.071336)
                     let icon = Icon(Url = "/img/map-marker.png", Anchor = Point(8.0, 8.0))
-                    new Marker(MarkerOptions(point, Map = map, Title = "IntelliFactory", Icon = icon)) |> ignore
+                    let infoWindow = InfoWindow(InfoWindowOptions(Content = Union2Of2 "IntelliFactory - Budapest office"))
+                    let marker = new Marker(MarkerOptions(point, Map = map, Title = "IntelliFactory", Icon = icon))
+                    marker.AddListener("mouseover", fun _ ->
+                        infoWindow.Open(map, marker)
+                    ) |> ignore
+                    infoWindow.AddListener("mouseout", fun _ ->
+                        infoWindow.Close()
+                    ) |> ignore
+                    ()
                 )
             ] []
 
@@ -363,11 +376,18 @@ module Site =
     type MainTemplate = Templating.Template<"../Hosted/index.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type RedirectTemplate = Templating.Template<"../Hosted/redirect.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type TrainingsTemplate = Templating.Template<"../Hosted/trainings.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CourseBaseTemplate = Templating.Template<"../Hosted/course-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogListTemplate = Templating.Template<"../Hosted/bloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type UserBlogListTemplate = Templating.Template<"../Hosted/userbloglist.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type BlogPostTemplate = Templating.Template<"../Hosted/blogpost.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type ContactTemplate = Templating.Template<"../Hosted/contact.html", serverLoad=Templating.ServerLoad.WhenChanged>
     type LegalTemplate = Templating.Template<"../Hosted/legal.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type ResearchTemplate = Templating.Template<"../Hosted/research.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type ConsultingTemplate = Templating.Template<"../Hosted/consulting.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CareersTemplate = Templating.Template<"../Hosted/careers.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type JobsBaseTemplate = Templating.Template<"../Hosted/jobs-base.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type TutorialLinkSnippetTemplate = Templating.Template<"../Hosted/tutorial-link-snippet.html", serverLoad=Templating.ServerLoad.WhenChanged>
+    type CategoriesTemplate = Templating.Template<"../Hosted/categories.html", serverLoad=Templating.ServerLoad.WhenChanged>
 
     type [<CLIMutable>] RawConfig =
         {
@@ -417,7 +437,10 @@ module Site =
             Title: string
             Subtitle: string
             Abstract: string
+            AuthorName: string
+            User: string
             Url: string
+            AuthorUrl: string
             Content: string
             DateString: string
             SlugWithoutDate: string
@@ -426,6 +449,7 @@ module Site =
             CategoryNumber: int
             Language: string
             Identity: int * int
+            TimeToRead: float
         }
 
     type BlogInfoRaw =
@@ -588,13 +612,19 @@ module Site =
                             id1, id2
                         | _ ->
                             failwithf "Invalid identity found (%A)" entries
+                    let timeToRead =
+                        let words = content.Split([|' '|]).Length
+                        Math.Ceiling(float words / 200.) // Avarage WPM is 200
                     eprintfn "DEBUG-ADD: (%s, %s)\n-------------------" user fname
                     Map.add (user, fname)
                         {
                             Title = title
                             Subtitle = subtitle
                             Abstract = ``abstract``
+                            AuthorName = if config.Users.ContainsKey user then config.Users.[user] else user
+                            User = user
                             Url = url
+                            AuthorUrl = Urls.USER_URL user
                             Content = content
                             DateString = datestring
                             SlugWithoutDate = slug
@@ -603,6 +633,7 @@ module Site =
                             CategoryNumber = categoryNo
                             Language = language
                             Identity = identity
+                            TimeToRead = timeToRead
                         } map
                 ) store
             else
@@ -682,32 +713,10 @@ module Site =
 
     let private menubar(config: Config) =
         MainTemplate.Menubar()
-            .ShortTitle(config.ShortTitle)
             .Doc()
-
-    let ArticleBasePage langopt (config: Config) (pageTitle: option<string>) hasBanner (transparentHeader: bool) articles (body: Doc) =
-        let head = head()
-        MainTemplate()
-#if !DEBUG
-            .ReleaseMin(".min")
-#endif
-            .IsTransparentHeader(if transparentHeader then "menu-transparent" else "")
-            // TODO: .NavbarOverlay(if hasBanner then "overlay-bar" else "")
-            .Head(head)
-            .MenuBar(menubar config)
-            .Title(
-                match pageTitle with
-                | None -> ""
-                | Some t -> t + " | "
-            )
-            .Body(body)
-            .Cookie(Cookies.Banner false)
-            .FooterPlaceholder(MainTemplate.Footer().Doc())
-            .Doc()
-        |> Content.Page
 
     let BlogSidebar config articles (article: Article) =
-        MainTemplate.Sidebar()
+        BlogPostTemplate.SidebarTemplate()
             .Categories(
                 // Render the categories widget iff there are categories
                 if article.Categories.IsEmpty then
@@ -715,7 +724,7 @@ module Site =
                 else
                         article.Categories
                         |> List.map (fun category ->
-                            MainTemplate.Category()
+                            BlogPostTemplate.Category()
                                 .Name(category)
                                 .Url(Urls.CATEGORY category (URL_LANG config article.Language))
                                 .Doc()
@@ -725,14 +734,14 @@ module Site =
             // There is always at least one blog post, so we render this
             // section no matter what.
             .ArticleItems(
-                MainTemplate.ArticleItems()
+                BlogPostTemplate.ArticleItems()
                     .ArticleItems(
                         articles
                         |> Map.toList
                         |> List.sortByDescending (fun (_, item) -> item.Date)
                         |> List.truncate 10
                         |> List.map (fun (_, item) ->
-                            MainTemplate.ArticleItem()
+                            BlogPostTemplate.ArticleItem()
                                 .Title(item.Title)
                                 .Url(item.Url)
                                 .Date(item.Date.ToShortDateString())
@@ -775,17 +784,21 @@ module Site =
                 []
         // Zero out if article has the master language
         let langopt = URL_LANG config article.Language
-        // MainTemplate.ArticlePage()
-        MainTemplate.ArticlePage()
+        let head = head()
+        BlogPostTemplate()
+#if !DEBUG
+            .ReleaseMin(".min")
+#endif
+            .IsTransparentHeader("menu-transparent")
+            .Head(head)
+            .Menubar(menubar config)
+            .Cookie(Cookies.Banner false)
+            .FooterPlaceholder(MainTemplate.Footer().Doc())
             // Main content panel
             .Article(
                 PLAIN article.Content
-                //MainTemplate.Article()
-                //    .Title(article.Title)
-                //    .Subtitle(Doc.Verbatim article.Subtitle)
-                //    .Content(PLAIN article.Content)
-                //    .Doc()
             )
+            .TimeToRead(string article.TimeToRead)
             .SourceCodeUrl(sprintf "%s/tree/master%s.md" config.GitHubRepo article.Url)
             .LanguageSelectorPlaceholder(
                 if languages.IsEmpty then
@@ -809,13 +822,18 @@ module Site =
                         )
                         .Doc()
             )
-            .Date(article.DateString)
+            .Date(article.Date.ToString("MMM dd, yyyy"))
             .Title(article.Title)
+            .Description(article.Abstract)
+            .PageUrl(article.Url)
+            .AuthorName(article.AuthorName)
+            .AuthorUrl(article.AuthorUrl)
             .CategoryNo(string article.CategoryNumber)
+            .ServerUrl(config.ServerUrl)
             // Sidebar
             .Sidebar(BlogSidebar config articles article)
             .Doc()
-        |> ArticleBasePage langopt config (Some article.Title) false false articles
+          |> Content.Page
 
     // The silly ref's are needed because offline sitelets are
     // initialized in their own special way, without having access
@@ -824,6 +842,11 @@ module Site =
     let __articles : Articles ref = ref Map.empty
     let __identities1 : Identities1 ref = ref Map.empty
     let __config : Config ref = ref <| ReadConfig()
+
+    let trainings = 
+        DirectoryInfo("../Hosted/trainings/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
+        |> Seq.map (fun x -> x.Name.Substring(0, x.Name.Length-5))
+        |> List.ofSeq
 
     let Main (config: Config ref) (identities1: Identities1 ref) (info: BlogInfoRaw ref) (articles: Articles ref) =
         let getContent (ctx: Context<_>) fileName =
@@ -895,22 +918,101 @@ module Site =
                 |> List.map fst
                 |> sprintf "Trying to find page \"%s\" (with key=\"%s\"), but it's not in %A" p page
                 |> Content.Text
+        let COURSES (slug: string) =
+            let page =
+                if slug.ToLower().EndsWith(".html") then
+                    slug.Substring(0, slug.Length-5)
+                else
+                    slug 
+            let templateFile = Path.Combine (__SOURCE_DIRECTORY__, sprintf @"../Hosted/trainings/%s.html" page)
+            if File.Exists templateFile then
+                CourseBaseTemplate(File.ReadAllText templateFile)
+                |> fun template ->
+                    let vids =
+                        [
+                            "Asynchronous, concurrent and distributed programming"
+                            "Concise error-handling, logging"
+                            "Process data with composable functions"
+                            "F#'s type inference"
+                            "Pattern matching and Active Patterns"
+                            "Pit of success with typing"
+                            "Partial application and currying"
+                            "Code quotations"
+                            "Interactive shell and interpreter"
+                        ]
+                        |> List.map (fun x -> 
+                            TutorialLinkSnippetTemplate
+                                .VideoItem()
+                                .Title(x)
+                                .Doc()
+                        )
+                    template
+#if !DEBUG
+                        .ReleaseMin(".min")
+#endif
+                        .VideoList(vids)
+                        .MenuBar(menubar config.Value)
+                        .Footer(MainTemplate.Footer().Doc())
+                        .Cookie(Cookies.Banner false)
+                        .Doc()
+                |> Content.Page
+            else 
+                trainings
+                |> sprintf "Trying to find page \"%s\" (with key=\"%s\"), but it's not in %A" slug page
+                |> Content.Text
         let TRAININGS () =
             let mapStyles = mapStyles()
             let header =
                 TrainingsTemplate.TrainingBody()
                     .Map(client <@ ClientSideCode.TalksAndPresentations.GMap(mapStyles) @>)
-                    .ImageSliderInit(client <@ ClientSideCode.Swiper.Init() @>)
                     .Doc()
             TrainingsTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .HeaderContent(header)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let JOB job =
+            if File.Exists("../Hosted/jobs/" + job + ".html") then
+                let writer = (System.Globalization.CultureInfo("en-US", false)).TextInfo;
+                let title =
+                    job
+                        .Substring(7) // Cut the job date prefix off - assumed to be "YYYYMM-"
+                        .Replace("-", " ") // Reintroduce spaces
+                        .Replace("fsharp", "F#") // Format F#/C# as such
+                        .Replace("csharp", "C#")
+                    |> writer.ToTitleCase // Capitalize each first letter
+                    |> Uri.EscapeDataString // Escape so we can include it as a link
+                let content = File.ReadAllText("../Hosted/jobs/" + job + ".html")
+                JobsBaseTemplate(content)
+    #if !DEBUG
+                    .ReleaseMin(".min")
+    #endif
+                    .MenuBar(menubar config.Value)
+                    .ApplySteps(
+                        JobsBaseTemplate.StepsSidebar()
+                            .PositionName(title)
+                            .Doc()
+                    )
+                    .Footer(MainTemplate.Footer().Doc())
+                    .Cookie(Cookies.Banner false)
+                    .Doc()
+                |> Content.Page
+            else
+                Content.Page(
+                    [
+                        p [] [text <| sprintf "Couldn't find source for job [%s]" job]
+                    ]
+                )
         let TERMSOFUSE (ctx: Context<_>) =
             LegalTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .HeaderContent(Doc.Empty)
                 .Content(Doc.Verbatim <| Markdown.Convert (getContent ctx "TermsOfUse.md"))
@@ -942,12 +1044,45 @@ module Site =
         let CONTACT () =
             let mapContactStyles = mapContactStyles()
             ContactTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
                 .MenuBar(menubar config.Value)
                 .Map(client <@ ClientSideCode.TalksAndPresentations.GMapOffice(mapContactStyles) @>)
                 .Footer(MainTemplate.Footer().Doc())
                 .Cookie(Cookies.Banner false)
                 .Doc()
             |> Content.Page
+        let RESEARCH () = 
+            ResearchTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif    
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |>Content.Page
+        let CONSULTING () =
+            ConsultingTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |>Content.Page
+        let CAREERS () = 
+            CareersTemplate()
+#if !DEBUG
+                .ReleaseMin(".min")
+#endif
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Doc()
+            |>Content.Page
         // pageNo is 1-based
         let BLOG_LISTING (banner: Doc) (pageNo: int) f =
             let as1 =
@@ -968,6 +1103,9 @@ module Site =
                 let isFirst = pageNo = 1
                 let isLast = List.length as1 - pageNo < 1
                 BlogListTemplate()
+#if !DEBUG
+                    .ReleaseMin(".min")
+#endif
                     .Menubar(menubar config.Value)
                     .Banner(banner)
                     .ArticleList(ARTICLES articles)
@@ -1005,6 +1143,25 @@ module Site =
                 |> Content.Page
             else
                 Content.Text "Page out of bounds"
+        let CATEGORIES () =
+            CategoriesTemplate()
+                .MenuBar(menubar config.Value)
+                .Footer(MainTemplate.Footer().Doc())
+                .Cookie(Cookies.Banner false)
+                .Tags(
+                    info.Value.Categories
+                    |> Map.toList
+                    |> List.sortByDescending snd
+                    |> List.map (fun (tag, count) ->
+                        CategoriesTemplate.Tag()
+                            .Title(tag)
+                            .Url(Urls.CATEGORY tag "")
+                            .Count(string count)
+                            .Doc()
+                    )
+                )
+                .Doc()
+                |> Content.Page
         let BLOG_LISTING_NO_PAGING (banner: Doc) f =
             BlogListTemplate()
                 .Menubar(menubar config.Value)
@@ -1090,8 +1247,12 @@ module Site =
             ]
 
         Application.MultiPage (fun (ctx: Context<_>) -> function
+            | Courses (site: string) ->
+                COURSES site
             | Trainings ->
                 TRAININGS ()
+            | Job job ->
+                JOB job
             | TermsOfUse ->
                 TERMSOFUSE ctx
             | CookiePolicy ->
@@ -1139,6 +1300,8 @@ module Site =
                     else
                         failwithf "Unable to find user for id1=%d, with map=%A" id1 identities1.Value
                 REDIRECT_TO (Urls.OLD_TO_POST_URL (user, datestring, oldslug))
+            | Categories ->
+                CATEGORIES ()
             // Blog articles in a given category
             | Category (cat, langopt) ->
                 BLOG_LISTING_NO_PAGING
@@ -1149,8 +1312,6 @@ module Site =
                         langopt = URL_LANG config.Value article.Language
                         &&
                         List.contains cat article.Categories
-            | Categories ->
-                Content.NotFound
             // For a simple but useful reference on Atom vs RSS content, refer to:
             // https://www.intertwingly.net/wiki/pie/Rss20AndAtom10Compared
             | AtomFeed ->
@@ -1193,6 +1354,12 @@ module Site =
                 articles := _articles
                 identities1 := ComputeIdentities1 articles.Value
                 Content.Text "Articles/configs reloaded."
+            | Research ->
+                RESEARCH()
+            | Consulting ->
+                CONSULTING()
+            | Careers ->
+                CAREERS()
             | Error404 ->
                 Content.File("../Hosted/404.html", AllowOutsideRootFolder=true)
             | Debug ->
@@ -1207,6 +1374,9 @@ module Site =
                         p [] [text <| sprintf "%A" info.Value]
                         h2 [] [text "Identities"]
                         p [] [text <| sprintf "%A" identities1.Value]
+                        h2 [] [text "Articles"]
+                        for ((user, slug), art) in Map.toList (!articles) do
+                            p [] [text <| sprintf "%s/%s -> %s" user slug art.Title]
                     ]
                 )
         )
@@ -1249,9 +1419,14 @@ type Website() =
                 |> List.map (fst >> fst)
                 |> Set.ofList
                 |> Set.toList
-            eprintfn "DEBUG-users: %A" users
+            let jobs =
+                DirectoryInfo("../Hosted/jobs/").EnumerateFiles("*.html", SearchOption.TopDirectoryOnly)
+                |> Seq.map (fun x -> x.Name.Replace(".html", ""))
+                |> List.ofSeq
             [
                 // Generate the learning page
+                for training in Site.trainings do
+                    Courses training
                 Trainings
                 // Generate contact page
                 Contact
@@ -1284,18 +1459,24 @@ type Website() =
                             ) articles
                         then
                             Category (category, language)
+                Categories
                 // Generate the RSS/Atom feeds
                 RSSFeed
                 AtomFeed
                 for user in users do
                     RSSFeedForUser user
                     AtomFeedForUser user
+                for job in jobs do
+                    Job job
                 // Generate 404 page
                 Error404
                 // Generate legal pages
                 CookiePolicy
                 TermsOfUse
                 PrivacyPolicy
+                Research
+                Consulting
+                Careers
             ]
 
 [<assembly: Website(typeof<Website>)>]

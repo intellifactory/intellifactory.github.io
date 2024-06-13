@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ExtraFiles Include="../Hosted/img/**" linkBase="img" />
-    <ExtraFiles Include="../Hosted/css/**"  linkBase="css" />
     <ExtraFiles Include="../Hosted/js/**" linkBase="js" />
     <ExtraFiles Include="../Hosted/legal/**" linkBase="legal" />
     <ExtraFiles Include="../Hosted/media/**" linkBase="media" />
@@ -29,7 +28,7 @@
 
   <Target Name="RenameAtom" AfterTargets="Build" Outputs="$(OutputDirectory)/feed.atom">
     <Message Text="Renaming feed.atom.html to feed.atom." />  
-    <Error Condition="!Exists('$(OutputDirectory)/feed.atom.html') And !Exists('$(OutputDirectory)/feed.atom')" Text="Can't find feed.atom.html"/>
+    <Error Condition="!Exists('$(OutputDirectory)/feed.atom.html') And !Exists('$(OutputDirectory)/feed.atom')" Text="Can't find feed.atom.html" />
     <Move Condition="Exists('$(OutputDirectory)/feed.atom.html')" SourceFiles="$(OutputDirectory)/feed.atom.html" DestinationFiles="$(OutputDirectory)/feed.atom" />
   </Target>
 
@@ -38,12 +37,12 @@
       <AtomFilesToRename Include="$(OutputDirectory)/atom/*.html" />
     </ItemGroup>
     <Message Text="Renaming atom/*.html to atom/*.atom." />
-    <Move SourceFiles="@(AtomFilesToRename)" DestinationFiles="@(AtomFilesToRename -> Replace('.html', '.atom'))" />
+    <Move SourceFiles="@(AtomFilesToRename)" DestinationFiles="@(AtomFilesToRename -&gt; Replace('.html', '.atom'))" />
   </Target>
 
   <Target Name="RenameRSS" AfterTargets="Build" Outputs="$(OutputDirectory)/feed.rss">
     <Message Text="Renaming feed.rss.html to feed.rss." />
-    <Error Condition="!Exists('$(OutputDirectory)/feed.rss.html') And !Exists('$(OutputDirectory)/feed.rss')" Text="Can't find feed.rss.html"/>
+    <Error Condition="!Exists('$(OutputDirectory)/feed.rss.html') And !Exists('$(OutputDirectory)/feed.rss')" Text="Can't find feed.rss.html" />
     <Move Condition="Exists('$(OutputDirectory)/feed.rss.html')" SourceFiles="$(OutputDirectory)/feed.rss.html" DestinationFiles="$(OutputDirectory)/feed.rss" />
   </Target>
 
@@ -52,7 +51,7 @@
       <RSSFilesToRename Include="$(OutputDirectory)/rss/*.html" />
     </ItemGroup>
     <Message Text="Renaming rss/*.html to rss/*.rss." />
-    <Move SourceFiles="@(RSSFilesToRename)" DestinationFiles="@(RSSFilesToRename -> Replace('.html', '.rss'))" />
+    <Move SourceFiles="@(RSSFilesToRename)" DestinationFiles="@(RSSFilesToRename -&gt; Replace('.html', '.rss'))" />
   </Target>
   
   <Target Name="CleanGeneratedFiles" AfterTargets="Clean">
@@ -60,15 +59,19 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="Markdig" Version="0.18.0" />
-    <PackageReference Include="WebSharper" Version="4.6.7.408" />
-    <PackageReference Include="WebSharper.FSharp" Version="4.6.7.408" />
-    <PackageReference Include="WebSharper.UI" Version="4.6.3.219" />
-    <PackageReference Include="YamlDotNet" Version="8.0.0" />
+    <PackageReference Include="Markdig" Version="0.25.0" />
+    <PackageReference Include="WebSharper" Version="4.7.3.446" />
+    <PackageReference Include="WebSharper.FSharp" Version="4.7.3.446" />
+    <PackageReference Include="WebSharper.UI" Version="4.7.2.243" />
+    <PackageReference Include="YamlDotNet" Version="11.2.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Client.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.2" />
   </ItemGroup>
 
 </Project>
