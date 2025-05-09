@@ -4,8 +4,40 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 	    cssmin: {
 			build: {
-			  src: 'css/all.css',
-			  dest: 'css/all.min.css'
+				files: [{
+					expand: true,
+					cwd: 'assets',
+					src: ['*.css', '!*.min.css'],
+					dest: 'assets',
+					ext: '.min.css'
+				  }, {
+					expand: true,
+					cwd: 'themekit/css',
+					src: ['*.css', '!*.min.css'],
+					dest: 'themekit/css',
+					ext: '.min.css'
+				  }]
+			}
+		},
+		sass: {
+			options: {
+				implementation: sass,
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					'assets/custom.css': 'assets/custom.scss'
+				}
+			}
+		},
+		watch: {
+			sass: {
+				files: ['**/*.scss'],
+				tasks: ['sass']
+			},
+			cssmin: {
+				files: ['**/*.css', '!**/*.min.css', '!**/*.scss'],
+				tasks: ['cssmin']
 			}
 		}
 	});
@@ -13,6 +45,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	 
-	grunt.registerTask('default', ['cssmin']);
+	grunt.registerTask('develop', ['sass','cssmin','watch']);
+	grunt.registerTask('default', ['sass','cssmin']);
 };

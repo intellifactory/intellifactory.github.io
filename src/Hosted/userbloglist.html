@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blogs</title>
     <meta name="description" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="/themekit/scripts/jquery.min.js"></script>
     <script src="/themekit/scripts/main.js"></script>
     <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css">
@@ -20,16 +22,17 @@
 </head>
 <body>
   <div id="preloader"></div>
-  <nav class="menu-classic light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+  <nav class="menu-wide light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
     <div ws-replace="Menubar"></div>
   </nav>
 
     <div class="user-information container">
-        <div class="user-social">
-            <a class="rss" href="${AuthorRSSUrl}"><i class="fa fa-rss"></i></a>
-        </div>
         <div class="user-name">${AuthorName}</div>
-    </div>
+        <div class="user-social">
+          <a class="rss" href="${AuthorRSSUrl}">RSS <i class="fa fa-rss"></i></a>
+          <a class="atom" href="${AuthorAtomUrl}">Atom <i class="fa fa-rss"></i></a>
+      </div>
+  </div>
   <main>
     <section class="section-base">
       <div class="container">

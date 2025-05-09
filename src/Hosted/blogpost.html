@@ -5,32 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${Title}IntelliFactory</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css">
-  <link rel="stylesheet" href="/themekit/css/style.css">
-  <link rel="stylesheet" href="/themekit/css/content-box.css">
-  <link rel="stylesheet" href="/themekit/css/media-box.css">
-  <link rel="stylesheet" href="/themekit/css/social.css">
-  <link rel="stylesheet" href="/assets/skin.css">
-  <link rel="stylesheet" href="/assets/custom.css">
+  <meta name="description" content="${Description}">
+  <meta property="og:title" content="${Title}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${ServerUrl}${PageUrl}" />
+  <meta property="og:image" content="${ServerUrl}/assets/category${CategoryNo}.jpg" />
+  <meta property="og:description" content="${Description}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@intellifactory" />
+  <meta name="twitter:title" content="${Title}" />
+  <meta name="twitter:description" content="${Description}" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/themekit/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="/themekit/css/style.min.css">
+  <link rel="stylesheet" href="/themekit/css/content-box.min.css">
+  <link rel="stylesheet" href="/themekit/css/media-box.min.css">
+  <link rel="stylesheet" href="/themekit/css/social.min.css">
+  <link rel="stylesheet" href="/themekit/css/contact-form.min.css">
+  <link rel="stylesheet" href="/assets/skin.min.css">
+  <link rel="stylesheet" href="/assets/custom.min.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <script ws-replace="Head"></script>
   <script src="/themekit/scripts/main.js"></script>
 </head>
 <body>
     <div id="preloader"></div>
-    <nav class="menu-classic ${IsTransparentHeader} light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <nav class="menu-wide ${IsTransparentHeader} light menu-fixed menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
         <div ws-replace="Menubar"></div>
     </nav>
-    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="http://via.placeholder.com/1920x700" data-offset="0">
+    <header class="header-image ken-burn-center align-center light boxed-page-header" data-parallax="true" data-natural-height="600" data-natural-width="1920" data-bleed="0" data-image-src="/assets/category${CategoryNo}.jpg" data-offset="0">
         <div class="container">
             <h1>${Title}</h1>
-            <h2>${Date}</h2>
-            <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li><a href="#">Blog</a></li>
-            </ol>
         </div>
     </header>
     <main>
@@ -38,19 +44,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 text-color">
-                        <div ws-hole="Article"></div>
-                        <hr class="space" />
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <ul class="icon-list icon-list-horizontal icon-list-blog">
-                                    <li>
-                                        <i class="icon-bookmark"></i>
-                                        <a href="#">Finance</a>,
-                                        <a href="#">Software</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="blog-meta-icon">
+                            <div><i class="fas fa-calendar-alt"></i><span class="blog-meta-date">${Date}</span></div>
+                            <div style="margin-left:0.5em;"><i class="fas fa-user-alt"></i><a href="${AuthorUrl}">${AuthorName}</a></div>
+                            <div style="margin-left:0.5em;"><i class="fas fa-clock"></i><span>Read Time: ${TimeToRead} min</span></div>
                         </div>
+                        <hr style="margin: 0 0 1.5em" />
+                        <div ws-hole="Article"></div>
                         <hr class="space" />
                         <div class="icon-links icon-links-button full-width icon-social social-colors">
                             <a data-social="share-facebook" class="facebook"><i class="fab fa-facebook"></i></a>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <hr />
-                        <h2>Related articles.</h2>
+                        <h2>Other articles you might be interested in</h2>
                         <hr class="space-sm" />
                         <div class="grid-list" data-columns="3" data-columns-sm="1">
                             <div class="grid-box">
@@ -99,70 +99,39 @@
                         </div>
                     </div>
                     <div class="col-lg-3 widget">
-                        <div ws-hole="Sidebar"></div>
-                        <h3>Categories</h3>
-                        <hr class="space-xs" />
-                        <div class="tabs">
-                            <div>
-                                <a href="#">
-                                    Finance and money
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    Software
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    Technology
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    Business
-                                </a>
-                            </div>
+                        <div ws-replace="LanguageSelectorPlaceholder" ws-template="LanguageSelector" class="navbar-end">
                         </div>
-                        <hr class="space-sm" />
-                        <h3>Latest posts</h3>
-                        <hr class="space-sm" />
-                        <div class="menu-inner menu-inner-vertical menu-inner-image">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <img src="//via.placeholder.com/400x400" alt="" />
-                                        Shipping family turned money become billionare
-                                        <span>February 12, 2020</span>
+                        <div ws-hole="Sidebar" ws-children-template="SidebarTemplate">
+                            <h3>Tagged as</h3>
+                            <hr class="space-xs" />
+                            <div class="tabs" ws-hole="Categories">
+                              <div ws-template="Category">
+                                <a href="${Url}">
+                                  ${Name}
+                                </a>
+                              </div>
+                            </div>
+                            <h3>Latest posts</h3>
+                            <hr class="space-sm" />
+                            <div ws-replace="ArticleItems">
+                              <div ws-template="ArticleItems" class="menu-inner menu-inner-vertical menu-inner-image">
+                                <ul>
+                                  <div ws-replace="ArticleItems"></div>
+                                  <li ws-template="ArticleItem">
+                                    <a href="${Url}">
+                                      <img src="/assets/category${CategoryNo}-thumb.jpg" alt="${Title}">
+                                      ${Title}
+                                      <span>${Date}</span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="//via.placeholder.com/400x400" alt="" />
-                                        Six best practices for using artificial intelligence data
-                                        <span>February 25, 2020</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="//via.placeholder.com/400x400" alt="" />
-                                        Machine learning and AI are raising concerns
-                                        <span>April 19, 2020</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="//via.placeholder.com/400x400" alt="" />
-                                        Commodity traders turn to long as big oil fail more then expected
-                                        <span>April 20, 2020</span>
-                                    </a>
-                                </li>
-                            </ul>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <hr class="space-sm" />
+                            <h3>Twitter</h3>
+                            <hr class="space-sm" />
+                            <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
                         </div>
-                        <hr class="space-sm" />
-                        <h3>Twitter</h3>
-                        <hr class="space-sm" />
-                        <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
                     </div>
                 </div>
             </div>
@@ -170,88 +139,19 @@
     </main>
     <i class="scroll-top-btn scroll-top show"></i>
     <footer class="footer light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <h4>Company and team</h4>
-                    <div class="menu-inner menu-inner-vertical">
-                        <ul>
-                            <li>
-                                <a href="#">Company details and team</a>
-                            </li>
-                            <li>
-                                <a href="#">News and blog</a>
-                            </li>
-                            <li>
-                                <a href="#">Press area</a>
-                            </li>
-                            <li>
-                                <a href="#">Affiliates and marketing</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Help and support</h4>
-                    <div class="menu-inner menu-inner-vertical">
-                        <ul>
-                            <li>
-                                <a href="#">Help centre</a>
-                            </li>
-                            <li>
-                                <a href="#">Feedbacks</a>
-                            </li>
-                            <li>
-                                <a href="#">Request new features</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Learn more</h4>
-                    <div class="menu-inner menu-inner-vertical">
-                        <ul>
-                            <li>
-                                <a href="#">Apps stores</a>
-                            </li>
-                            <li>
-                                <a href="#">Partners</a>
-                            </li>
-                            <li>
-                                <a href="#">Privacy and terms</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Follow us</h4>
-                    <div class="icon-links icon-social icon-links-grid social-colors">
-                        <a class="facebook"><i class="icon-facebook"></i></a>
-                        <a class="twitter"><i class="icon-twitter"></i></a>
-                        <a class="linkedin"><i class="icon-linkedin"></i></a>
-                        <a class="youtube"><i class="icon-youtube"></i></a>
-                        <a class="instagram"><i class="icon-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bar">
-            <div class="container">
-                <span>© Codrop LTD 2019. Codrop is a powerful Landing Page App Template built with <a target="_blank" href="https://themekit.dev/code/">Themekit</a> by the <a target="_blank" href="https://schiocco.com/">Schiocco</a> Team. </span>
-                <span><img src="/media/logo-light.svg" /></span>
-            </div>
-        </div>
+        <div ws-replace="FooterPlaceholder"></div>
         <div class="bottom" ws-replace="Cookie"></div>
-        <link rel="stylesheet" href="/themekit/media/icons/iconsmind/line-icons.min.css">
+        <link async rel="stylesheet" href="/themekit/media/icons/fontawesome/icons.css">
         <script src="/themekit/scripts/parallax.min.js"></script>
         <script src="/themekit/scripts/imagesloaded.min.js"></script>
         <script src="/themekit/scripts/pagination.min.js"></script>
         <script src="/themekit/scripts/social.min.js"></script>
         <script src="/themekit/scripts/tab-accordion.js"></script>
         <script src="/media/custom.js"></script>
+        <script src="/js/Client${ReleaseMin}.js"></script>
+        <script ws-replace="scripts"></script>
+        <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     </footer>
 </body>
 </html>

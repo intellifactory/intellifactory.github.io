@@ -15,25 +15,10 @@ Theme: Animated Man
    2. - Animation
 
 ------------------------------------------------------------------ */
-@font-face {
-    font-family: 'Jost';
-    src: url('../../../media/fonts/Jost-Book.woff2') format('woff2'), url('media/fonts/Jost-Book.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('../../../media/fonts/Jost-Medium.woff2') format('woff2'), url('media/fonts/Jost-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
 /* ------------------
     General setting
 --------------------*/
 body {
-    font-family: 'Jost', 'Montserrat', sans-serif;
     background-color: #f8f9fb;
 }
 
