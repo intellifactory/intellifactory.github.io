@@ -1,7 +1,18 @@
 module.exports = function(grunt) {
-	const sass = require('node-sass');
+	const sass = require('sass');
 	 
 	grunt.initConfig({
+		sass: {
+			options: {
+				implementation: sass,
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					'css/all.css': 'scss/main.scss'
+				}
+			}
+		},
 	    cssmin: {
 			build: {
 			  src: 'css/all.css',

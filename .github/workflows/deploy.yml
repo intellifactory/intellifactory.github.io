@@ -12,8 +12,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    container:
-      image: python:2.7.18-buster
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
